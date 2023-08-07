@@ -36,7 +36,7 @@ get_kali_variables() {
     url="https://cdimage.kali.org/kali-${kali_version}"
     weekly_url="https://cdimage.kali.org/${kali_version}"
     iso_file="kali-linux-${kali_file_version}-${image_type}-${architecture}.${ext}"
-    weekly_iso_file="kali-linux-$(date +%Y)-W$(date +%V)-${image_type}-${architecture}.${ext}"
+    weekly_iso_file="kali-linux-$(date +%Y -u)-W$(date +%V -u)-${image_type}-${architecture}.${ext}"
     sig_file="SHA256SUMS.gpg"
     sum_file="SHA256SUMS"
     sum_algo="sha256sum"
@@ -249,8 +249,8 @@ download_kali() {
 
         # Check if the current week's ISO file exists
         if ! wget -q -c --spider "$url/$iso_file"; then
-            echo -e "No new ISO for week $(date +%V), Downloading week $(date -d '1 week ago' +%V) instead.\n"
-            iso_file="kali-linux-$(date +%Y)-W$(date -d '1 week ago' +%V)-${image_type}-${architecture}.${ext}"
+            echo -e "No new ISO for week $(date +%V -u), Downloading week $(date -d '1 week ago' +%V -u) instead.\n"
+            iso_file="kali-linux-$(date +%Y -u)-W$(date -d '1 week ago' +%V -u)-${image_type}-${architecture}.${ext}"
         fi
     fi
 
