@@ -68,7 +68,7 @@ download_and_verify_iso() {
     # Function to check if iso exists
     wget_spider() {
         if ! wget -nv -c --spider "$url/$iso_file"; then
-            echo "Failed to download $iso_file."
+            echo -e "\nFailed to download $iso_file.\n"
             exit 1
         fi
         exit 0
@@ -79,9 +79,9 @@ download_and_verify_iso() {
     # Check if key already exists
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
 	# Import if it does not exist
-        echo "Fetching GPG key: $gpg_key"
+        echo -e "Fetching GPG key: $gpg_key\n"
         if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
-            echo "Error: Failed to fetch GPG key $gpg_key."
+            echo -e "\nError: Failed to fetch GPG key $gpg_key.\n"
             exit 1
         fi
     fi
@@ -90,14 +90,14 @@ download_and_verify_iso() {
     if [[ "$distro" != "arch" ]]; then
         for file in "$sig_file" "$sum_file"; do
             if ! wget -q --show-progress -c "$url/$file"; then
-                echo "Failed to download $file."
+                echo -e "\nFailed to download $file.\n"
                 exit 1
             fi
         done
     else
         for file in "$iso_file" "$sig_file" "$sum_file"; do
             if ! wget -q --show-progress -c "$url/$file"; then
-                echo "Failed to download $file."
+                echo -e "\nFailed to download $file.\n"
                 exit 1
             fi
         done
@@ -106,13 +106,13 @@ download_and_verify_iso() {
     # Verify the the GPG signature, Arch is sig>iso not sig>sum
     if [[ "$distro" != "arch" ]]; then
         if ! gpg --verify "$sig_file" "$sum_file"; then
-            echo "GPG verification failed."
+            echo -e "\nGPG verification failed.\n"
 	    rm -f "$sig_file" "$sum_file"
             exit 1
         fi
     else
         if ! gpg --verify "$sig_file" "$iso_file"; then
-            echo "GPG verification failed."
+            echo -e "\nGPG verification failed.\n"
 	    rm -f "$iso_file" "$sig_file" "$sum_file"
 	    exit 1
         fi
@@ -121,52 +121,51 @@ download_and_verify_iso() {
     # Get the ISO if not Arch
     if [[ "$distro" != "arch" ]]; then
         if ! wget -q --show-progress -c "$url/$iso_file"; then
-            echo "Failed to download $iso_file."
+            echo -e "\nFailed to download $iso_file.\n"
             exit 1
         fi
     fi
 
     # Verify shasums
     if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
-        echo "$sum_algo verification failed."
+        echo -e "\n$sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
         exit 1
     fi
 
     # Cleanup
     rm -f "$sig_file" "$sum_file"
-    echo "Download and verification succeeded."
+    echo -e "\nDownload and verification succeeded.\n"
     exit 0
 }
 
 # Takes an array an assigns users choice to a variable.
 get_choice() {
+    variable_name="$1"
+    shift
     options=("$@")
-    variable_name=${options[-1]} # Get the last element, which will be the variable name
-    unset 'options[${#options[@]}-1]' # Remove the last element
 
     # If there's only one option, automatically select it
     if [[ ${#options[@]} -eq 1 ]]; then
-        eval "$variable_name"="$(printf '%q' "${options[0]}")"
-        echo "Automatically chose: ${!variable_name}"
+	declare -g "$variable_name=${options[0]}" # Assign chosen option to variable_name
+        echo -e "Automatically chose: ${!variable_name}\n"
         return
     fi
 
     # Display the array to the user
-    echo "Please choose an option:"
+    echo "Available options:"
     for ((i=0; i<${#options[@]}; i++)); do
-        echo "$((i+1)). ${options[$i]}"
+        echo "$((i+1)).) ${options[$i]}"
     done
 
-    # Gather user input, then use eval to assign to a new variable
     while :; do
-	read -rp "Enter number (1-${#options[@]}): " choice
+        read -rp "Enter a number (1-${#options[@]}): " choice
         if [[ "$choice" =~ ^[0-9]+$ ]] && [[ "$choice" -ge 1 && "$choice" -le "${#options[@]}" ]]; then
-            eval "$variable_name"="$(printf '%q' "${options[$((choice-1))]}")" # Use eval to assign to variable
-            echo "You chose: ${!variable_name}" # Use indirect reference to get variable value
+            declare -g "$variable_name=${options[$((choice-1))]}" # Assign chosen option to variable_name
+            echo -e "\nYou chose: ${!variable_name}\n"
             break
         else
-            echo "Invalid choice. Please try again."
+            echo -e "\nInvalid choice. Please try again.\n"
         fi
     done
 }
@@ -183,12 +182,12 @@ download_debian() {
     architecture=""
     desktop_env=""
 
-    get_choice "${supported_images[@]}" "image_type"
+    get_choice image_type "${supported_images[@]}"
 
     if [[ "$image_type" == "Debian" ]]; then
-        get_choice "${supported_architectures[@]}" "architecture"
+        get_choice architecture "${supported_architectures[@]}"
     else
-        get_choice "${supported_envs[@]}" "desktop_env"
+        get_choice desktop_env "${supported_envs[@]}"
     fi
 
     get_debian_variables
@@ -206,8 +205,8 @@ download_kali() {
     supported_images=("live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")
     kali_file_version=""
 
-    get_choice "${supported_versions[@]}" "kali_version"
-    get_choice "${supported_images[@]}" "image_type"
+    get_choice kali_version "${supported_versions[@]}"
+    get_choice image_type "${supported_images[@]}"
 
     # Assign specific architectures and file extensions based off of users choice for image_type and version
     case "$image_type" in
@@ -223,7 +222,7 @@ download_kali() {
         ;;
     esac
 
-    get_choice "${supported_architectures[@]}" "architecture"
+    get_choice architecture "${supported_architectures[@]}"
 
     if [[ "$kali_version" != "kali-weekly" ]]; then
         # Array to patch the filename from 2023.2 to 2023.2a. Comment out when no patch exists
@@ -250,7 +249,7 @@ download_kali() {
 
         # Check if the current week's ISO file exists
         if ! wget -q -c --spider "$url/$iso_file"; then
-            echo "Current week's ISO not found. Attempting to download last week's ISO."
+            echo -e "No new ISO for week $(date +%V), Downloading week $(date -d '1 week ago' +%V) instead.\n"
             iso_file="kali-linux-$(date +%Y)-W$(date -d '1 week ago' +%V)-${image_type}-${architecture}.${ext}"
         fi
     fi
@@ -263,10 +262,10 @@ download_mint() {
     supported_envs=("cinnamon" "mate" "xfce")
     desktop_env=""
 
-    get_choice "${supported_images[@]}" "image_type"
+    get_choice image_type "${supported_images[@]}"
 
     if [[ "$image_type" == "Mint" ]]; then
-        get_choice "${supported_envs[@]}" "desktop_env"
+        get_choice desktop_env "${supported_envs[@]}"
     fi
 
     get_mint_variables
@@ -284,8 +283,8 @@ download_ubuntu() {
     ubuntu_version=""
     image_type=""
 
-    get_choice "${ubuntu_versions[@]}" "ubuntu_version"
-    get_choice "${supported_images[@]}" "image_type"
+    get_choice ubuntu_version "${ubuntu_versions[@]}"
+    get_choice image_type "${supported_images[@]}"
     get_ubuntu_variables
     download_and_verify_iso
 }
@@ -302,6 +301,7 @@ check_dependencies() {
 
 usage() {
     cat <<EOF
+
 USAGE:
     dl-distro <distro> [path]
 
@@ -315,6 +315,7 @@ DISTROS:
 EXAMPLES:
     dl-distro arch
     dl-distro arch /run/media/$USER/Ventoy
+
 EOF
 }
 
