@@ -1,0 +1,348 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+arch_version="2023.08.01"
+debian_version="12.1.0"
+kali_version="2023.2"
+mint_version="21.2"
+mint_de_version="5"
+ubuntu_versions=("23.04" "22.04.2")
+
+# ARCH
+get_arch_variables() {
+    gpg_key="0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C" # https://archlinux.org/download
+    url="https://geo.mirror.pkgbuild.com/iso/${arch_version}"
+    iso_file="archlinux-${arch_version}-x86_64.iso"
+    sig_file="archlinux-${arch_version}-x86_64.iso.sig"
+    sum_file="b2sums.txt"
+    sum_algo="b2sum"
+}
+
+# DEBIAN
+get_debian_variables() {
+    gpg_key="DF9B9C49EAA9298432589D76DA87E80D6294BE9B" # https://www.debian.org/CD/verify
+    url="https://cdimage.debian.org/debian-cd/current/${architecture}/iso-cd"
+    iso_file="debian-${debian_version}-${architecture}-netinst.iso"
+    live_url="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid"
+    live_iso_file="debian-live-${debian_version}-amd64-${desktop_env}.iso"
+    sig_file="SHA512SUMS.sign"
+    sum_file="SHA512SUMS"
+    sum_algo="sha512sum"
+}
+
+# KALI
+get_kali_variables() {
+    gpg_key="44C6513A8E4FB3D30875F758ED444FF07D8D0BF6" # https://www.kali.org/docs/introduction/download-images-securely
+    url="https://cdimage.kali.org/kali-${kali_version}"
+    weekly_url="https://cdimage.kali.org/${kali_version}"
+    iso_file="kali-linux-${kali_file_version}-${image_type}-${architecture}.${ext}"
+    weekly_iso_file="kali-linux-$(date +%Y)-W$(date +%V)-${image_type}-${architecture}.${ext}"
+    sig_file="SHA256SUMS.gpg"
+    sum_file="SHA256SUMS"
+    sum_algo="sha256sum"
+}
+
+# MINT
+get_mint_variables() {
+    gpg_key="27DEB15644C6B3CF3BD7D291300F846BA25BAE09" # https://linuxmint.com/verify.php
+    url="https://mirrors.layeronline.com/linuxmint/stable/${mint_version}"
+    iso_file="linuxmint-${mint_version}-${desktop_env}-64bit.iso"
+    de_url="https://mirrors.layeronline.com/linuxmint/debian"
+    de_iso_file="lmde-${mint_de_version}-cinnamon-64bit.iso"
+    sig_file="sha256sum.txt.gpg"
+    sum_file="sha256sum.txt"
+    sum_algo="sha256sum"
+}
+
+# UBUNTU
+get_ubuntu_variables() {
+    gpg_key="843938DF228D22F7B3742BC0D94AA3F0EFE21092" # https://ubuntu.com/tutorials/how-to-verify-ubuntu
+    url="https://releases.ubuntu.com/${ubuntu_version}"
+    iso_file="ubuntu-${ubuntu_version}-${image_type}-amd64.iso"
+    sig_file="SHA256SUMS.gpg"
+    sum_file="SHA256SUMS"
+    sum_algo="sha256sum"
+}
+
+download_and_verify_iso() {
+    # Function to check if iso exists
+    wget_spider() {
+        if ! wget -nv -c --spider "$url/$iso_file"; then
+            echo "Failed to download $iso_file."
+            exit 1
+        fi
+        exit 0
+    }
+
+    [[ "$download_path" == "--spider" ]] && wget_spider
+
+    # Check if key already exists
+    if ! gpg --list-keys "$gpg_key" &> /dev/null; then
+	# Import if it does not exist
+        echo "Fetching GPG key: $gpg_key"
+        if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
+            echo "Error: Failed to fetch GPG key $gpg_key."
+            exit 1
+        fi
+    fi
+
+    # Get the sig and sum file or all files if Arch
+    if [[ "$distro" != "arch" ]]; then
+        for file in "$sig_file" "$sum_file"; do
+            if ! wget -q --show-progress -c "$url/$file"; then
+                echo "Failed to download $file."
+                exit 1
+            fi
+        done
+    else
+        for file in "$iso_file" "$sig_file" "$sum_file"; do
+            if ! wget -q --show-progress -c "$url/$file"; then
+                echo "Failed to download $file."
+                exit 1
+            fi
+        done
+    fi
+
+    # Verify the the GPG signature, Arch is sig>iso not sig>sum
+    if [[ "$distro" != "arch" ]]; then
+        if ! gpg --verify "$sig_file" "$sum_file"; then
+            echo "GPG verification failed."
+	    rm -f "$sig_file" "$sum_file"
+            exit 1
+        fi
+    else
+        if ! gpg --verify "$sig_file" "$iso_file"; then
+            echo "GPG verification failed."
+	    rm -f "$iso_file" "$sig_file" "$sum_file"
+	    exit 1
+        fi
+    fi
+
+    # Get the ISO if not Arch
+    if [[ "$distro" != "arch" ]]; then
+        if ! wget -q --show-progress -c "$url/$iso_file"; then
+            echo "Failed to download $iso_file."
+            exit 1
+        fi
+    fi
+
+    # Verify shasums
+    if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
+        echo "$sum_algo verification failed."
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        exit 1
+    fi
+
+    # Cleanup
+    rm -f "$sig_file" "$sum_file"
+    echo "Download and verification succeeded."
+    exit 0
+}
+
+# Takes an array an assigns users choice to a variable.
+get_choice() {
+    options=("$@")
+    variable_name=${options[-1]} # Get the last element, which will be the variable name
+    unset 'options[${#options[@]}-1]' # Remove the last element
+
+    # If there's only one option, automatically select it
+    if [[ ${#options[@]} -eq 1 ]]; then
+        eval "$variable_name"="$(printf '%q' "${options[0]}")"
+        echo "Automatically chose: ${!variable_name}"
+        return
+    fi
+
+    # Display the array to the user
+    echo "Please choose an option:"
+    for ((i=0; i<${#options[@]}; i++)); do
+        echo "$((i+1)). ${options[$i]}"
+    done
+
+    # Gather user input, then use eval to assign to a new variable
+    while :; do
+	read -rp "Enter number (1-${#options[@]}): " choice
+        if [[ "$choice" =~ ^[0-9]+$ ]] && [[ "$choice" -ge 1 && "$choice" -le "${#options[@]}" ]]; then
+            eval "$variable_name"="$(printf '%q' "${options[$((choice-1))]}")" # Use eval to assign to variable
+            echo "You chose: ${!variable_name}" # Use indirect reference to get variable value
+            break
+        else
+            echo "Invalid choice. Please try again."
+        fi
+    done
+}
+
+download_arch() {
+    get_arch_variables
+    download_and_verify_iso
+}
+
+download_debian() {
+    supported_images=("Debian" "Debian Live")
+    supported_architectures=("amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")
+    supported_envs=("cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")
+    architecture=""
+    desktop_env=""
+
+    get_choice "${supported_images[@]}" "image_type"
+
+    if [[ "$image_type" == "Debian" ]]; then
+        get_choice "${supported_architectures[@]}" "architecture"
+    else
+        get_choice "${supported_envs[@]}" "desktop_env"
+    fi
+
+    get_debian_variables
+
+    if [[ "$image_type" == "Debian Live" ]]; then
+        url="$live_url"
+	iso_file="$live_iso_file"
+    fi
+
+    download_and_verify_iso
+}
+
+download_kali() {
+    supported_versions=("$kali_version" "kali-weekly")
+    supported_images=("live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")
+    kali_file_version=""
+
+    get_choice "${supported_versions[@]}" "kali_version"
+    get_choice "${supported_images[@]}" "image_type"
+
+    # Assign specific architectures and file extensions based off of users choice for image_type and version
+    case "$image_type" in
+    "live"|"installer"|"installer-netinst") supported_architectures=("amd64" "arm64" "i386"); ext="iso" ;;
+    "installer-purple") supported_architectures=("amd64"); ext="iso" ;;
+    *)
+        if [[ "$kali_version" == "kali-weekly" ]]; then
+            supported_architectures=("amd64");
+        else
+            supported_architectures=("amd64" "i386");
+        fi
+        ext="7z"
+        ;;
+    esac
+
+    get_choice "${supported_architectures[@]}" "architecture"
+
+    if [[ "$kali_version" != "kali-weekly" ]]; then
+        # Array to patch the filename from 2023.2 to 2023.2a. Comment out when no patch exists
+        declare -A type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
+
+        # Prepare kali_file_version with kali_version before checking for a patch
+        kali_file_version="${kali_version}"
+
+        # If the type_to_patch array is declared, use it to patch the filename_version
+        if declare -p type_to_patch &> /dev/null; then
+            patch=${type_to_patch["$image_type"]:-}
+            if [[ -n $patch ]]; then  # If this image_type has a patch
+                kali_file_version+="$patch"  # Append the patch to the filename version
+            fi
+        fi
+    fi
+
+    get_kali_variables
+
+    # Set URL and ISO for kali-weekly and check if current week exists, fallback to last week.
+    if [[ "$kali_version" == "kali-weekly" ]]; then
+        url="$weekly_url"
+        iso_file="$weekly_iso_file"
+
+        # Check if the current week's ISO file exists
+        if ! wget -q -c --spider "$url/$iso_file"; then
+            echo "Current week's ISO not found. Attempting to download last week's ISO."
+            iso_file="kali-linux-$(date +%Y)-W$(date -d '1 week ago' +%V)-${image_type}-${architecture}.${ext}"
+        fi
+    fi
+
+    download_and_verify_iso
+}
+
+download_mint() {
+    supported_images=("Mint" "Debian Edition")
+    supported_envs=("cinnamon" "mate" "xfce")
+    desktop_env=""
+
+    get_choice "${supported_images[@]}" "image_type"
+
+    if [[ "$image_type" == "Mint" ]]; then
+        get_choice "${supported_envs[@]}" "desktop_env"
+    fi
+
+    get_mint_variables
+
+    if [[ "$image_type" == "Debian Edition" ]]; then
+        url="$de_url"
+	iso_file="$de_iso_file"
+    fi
+
+    download_and_verify_iso
+}
+
+download_ubuntu() {
+    supported_images=("desktop" "live-server")
+    ubuntu_version=""
+    image_type=""
+
+    get_choice "${ubuntu_versions[@]}" "ubuntu_version"
+    get_choice "${supported_images[@]}" "image_type"
+    get_ubuntu_variables
+    download_and_verify_iso
+}
+
+check_dependencies() {
+    for cmd in wget gpg; do
+        if ! command -v "$cmd" &> /dev/null; then
+            echo "The following dependency is missing: $cmd"
+            echo "Please install it and rerun the script."
+            exit 1
+        fi
+    done
+}
+
+usage() {
+    cat <<EOF
+USAGE:
+    dl-distro <distro> [path]
+
+DISTROS:
+    arch
+    debian
+    kali
+    mint
+    ubuntu
+
+EXAMPLES:
+    dl-distro arch
+    dl-distro arch /run/media/$USER/Ventoy
+EOF
+}
+
+dl-distro() {
+    distro="${1:-help}"
+    download_path="${2:-$(pwd)}"
+
+    if [[ "$distro" == "-h" || "$distro" == "--help" || "$distro" == "help" ]]; then
+	usage
+	exit 0
+    fi
+
+    if [[ "$download_path" != "--spider" ]]; then
+        if [[ "$download_path" != "$(pwd)" ]]; then
+            mkdir -p "$download_path" || { echo "Failed to create directory $download_path"; exit 1; }
+	    cd "$download_path" || { echo "Failed to change directory to $download_path"; exit 1; }
+        fi
+    fi
+
+    case "$distro" in
+        "arch") download_arch ;;
+        "debian") download_debian ;;
+	"kali") download_kali ;;
+	"mint") download_mint ;;
+	"ubuntu") download_ubuntu ;;
+        *) echo "Error: Please use -h or --help for usage and supported distros."; exit 1 ;;
+    esac
+}
+
+check_dependencies
+dl-distro "$@"
