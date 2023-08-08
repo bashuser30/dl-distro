@@ -65,16 +65,21 @@ get_ubuntu_variables() {
 }
 
 download_and_verify_iso() {
-    # Function to check if iso exists
-    wget_spider() {
+    # Check if ISO exists and exit. Used with an expect script to check every ISO combination
+    if [[ "$download_path" == "--spider" ]]; then
         if ! wget -nv -c --spider "$url/$iso_file"; then
             echo -e "\nFailed to download $iso_file.\n"
             exit 1
+	else
+	    exit 0
         fi
-        exit 0
-    }
+    fi
 
-    [[ "$download_path" == "--spider" ]] && wget_spider
+    # Make directory if not $pwd and cd into it
+    if [[ "$download_path" != "$(pwd)" ]]; then
+        mkdir -p "$download_path" || { echo "Failed to create directory $download_path"; exit 1; }
+        cd "$download_path" || { echo "Failed to change directory to $download_path"; exit 1; }
+    fi
 
     # Check if key already exists
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
@@ -318,20 +323,13 @@ EXAMPLES:
 EOF
 }
 
-dl-distro() {
+dl_distro() {
     distro="${1:-help}"
     download_path="${2:-$(pwd)}"
 
     if [[ "$distro" == "-h" || "$distro" == "--help" || "$distro" == "help" ]]; then
 	usage
 	exit 0
-    fi
-
-    if [[ "$download_path" != "--spider" ]]; then
-        if [[ "$download_path" != "$(pwd)" ]]; then
-            mkdir -p "$download_path" || { echo "Failed to create directory $download_path"; exit 1; }
-	    cd "$download_path" || { echo "Failed to change directory to $download_path"; exit 1; }
-        fi
     fi
 
     case "$distro" in
@@ -345,4 +343,4 @@ dl-distro() {
 }
 
 check_dependencies
-dl-distro "$@"
+dl_distro "$@"
