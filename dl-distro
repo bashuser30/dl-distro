@@ -147,8 +147,7 @@ get_choice() {
 
     # If there's only one option, automatically select it
     if [[ ${#options[@]} -eq 1 ]]; then
-	declare -g "$variable_name=${options[0]}" # Assign chosen option to variable_name
-        echo -e "Automatically chose: ${!variable_name}\n"
+	declare -g "$variable_name=${options[0]}"
         return
     fi
 
