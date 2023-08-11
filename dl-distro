@@ -6,7 +6,7 @@ debian_version="12.1.0"
 kali_version="2023.2"
 mint_version="21.2"
 mint_de_version="5"
-ubuntu_versions=("23.04" "22.04.2")
+ubuntu_versions=("23.04" "22.04.3")
 
 # ARCH
 get_arch_variables() {
@@ -253,7 +253,7 @@ download_kali() {
 
         # Check if the current week's ISO file exists
         if ! wget -q -c --spider "$url/$iso_file"; then
-            echo -e "No new ISO for week $(date +%V -u), Downloading week $(date -d '1 week ago' +%V -u) instead.\n"
+            echo -e "No new ISO for week $(date +%V -u). Downloading week $(date -d '1 week ago' +%V -u) instead.\n"
             iso_file="kali-linux-$(date +%Y -u)-W$(date -d '1 week ago' +%V -u)-${image_type}-${architecture}.${ext}"
         fi
     fi
