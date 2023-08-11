@@ -62,7 +62,7 @@ EXAMPLES:
 
 ### Ubuntu
 - 23.04
-- 22.04.2 LTS
+- 22.04.3 LTS
 
 ## Future of dl-distro
 
