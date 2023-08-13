@@ -36,7 +36,7 @@ get_kali_variables() {
     url="https://cdimage.kali.org/kali-${kali_version}"
     weekly_url="https://cdimage.kali.org/${kali_version}"
     iso_file="kali-linux-${kali_file_version}-${image_type}-${architecture}.${ext}"
-    weekly_iso_file="kali-linux-$(date +%Y -u)-W$(date +%V -u)-${image_type}-${architecture}.${ext}"
+    weekly_iso_file="kali-linux-$(date +%Y)-${weekly_version}-${image_type}-${architecture}.${ext}"
     sig_file="SHA256SUMS.gpg"
     sum_file="SHA256SUMS"
     sum_algo="sha256sum"
@@ -208,6 +208,7 @@ download_kali() {
     supported_versions=("$kali_version" "kali-weekly")
     supported_images=("live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")
     kali_file_version=""
+    weekly_version=""
 
     get_choice kali_version "${supported_versions[@]}"
     get_choice image_type "${supported_images[@]}"
@@ -244,17 +245,23 @@ download_kali() {
         fi
     fi
 
+    # Get kali-weekly version
+    if [[ "$kali_version" == "kali-weekly" ]]; then
+        html_content="$(wget -qO- https://cdimage.kali.org/kali-weekly/)"
+        weekly_version="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1)"
+    fi
+
     get_kali_variables
 
-    # Set URL and ISO for kali-weekly and check if current week exists, fallback to last week.
+    # Check if the current week's ISO file exists, fallback to previous week
     if [[ "$kali_version" == "kali-weekly" ]]; then
         url="$weekly_url"
         iso_file="$weekly_iso_file"
-
-        # Check if the current week's ISO file exists
         if ! wget -q -c --spider "$url/$iso_file"; then
-            echo -e "No new ISO for week $(date +%V -u). Downloading week $(date -d '1 week ago' +%V -u) instead.\n"
-            iso_file="kali-linux-$(date +%Y -u)-W$(date -d '1 week ago' +%V -u)-${image_type}-${architecture}.${ext}"
+            echo -e "No new ISO for week: $weekly_version. Downloading previous week.\n"
+            week_num="${weekly_version#W}"
+            (( prev_week_num=week_num-1 ))
+            weekly_version="W${prev_week_num}"
         fi
     fi
 
