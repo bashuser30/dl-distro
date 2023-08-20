@@ -100,7 +100,7 @@ download_and_verify_iso() {
             fi
         done
     else
-        for file in "$iso_file" "$sig_file" "$sum_file"; do
+        for file in "$sig_file" "$sum_file" "$iso_file"; do
             if ! wget -q --show-progress -c "$url/$file"; then
                 echo -e "\nFailed to download $file.\n"
                 exit 1
