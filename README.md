@@ -21,8 +21,8 @@ This script only needs these three dependencies:
 There is an AUR package available:
 
 ```
-git clone https://aur.archlinux.org/dl-distro-git.git
-cd dl-distro-git
+git clone https://aur.archlinux.org/dl-distro.git
+cd dl-distro
 makepkg -si
 ```
 
