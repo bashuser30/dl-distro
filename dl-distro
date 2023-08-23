@@ -3,7 +3,7 @@ set -euo pipefail
 
 arch_version="2023.08.01"
 debian_version="12.1.0"
-kali_version="2023.2"
+kali_version="2023.3"
 mint_version="21.2"
 mint_de_version="5"
 ubuntu_versions=("23.04" "22.04.3")
@@ -217,6 +217,7 @@ download_kali() {
     case "$image_type" in
     "live"|"installer"|"installer-netinst") supported_architectures=("amd64" "arm64" "i386"); ext="iso" ;;
     "installer-purple") supported_architectures=("amd64"); ext="iso" ;;
+    "hyperv") supported_architectures=("amd64"); ext="7z" ;;
     *)
         if [[ "$kali_version" == "kali-weekly" ]]; then
             supported_architectures=("amd64");
@@ -230,15 +231,16 @@ download_kali() {
     get_choice architecture "${supported_architectures[@]}"
 
     if [[ "$kali_version" != "kali-weekly" ]]; then
-        # Array to patch the filename from 2023.2 to 2023.2a. Comment out when no patch exists
-        declare -A type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
+        # Array to patch the filename from 2023.x to 2023.xa. Comment out when no patch exists
+        declare -A type_to_patch
+        #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
 
         # Prepare kali_file_version with kali_version before checking for a patch
         kali_file_version="${kali_version}"
 
-        # If the type_to_patch array is declared, use it to patch the filename_version
-        if declare -p type_to_patch &> /dev/null; then
-            patch=${type_to_patch["$image_type"]:-}
+        # If the type_to_patch array is populated, use it to patch the filename_version
+        if [[ -v type_to_patch["$image_type"] ]]; then
+            patch="${type_to_patch[$image_type]}"
             if [[ -n $patch ]]; then  # If this image_type has a patch
                 kali_file_version+="$patch"  # Append the patch to the filename version
             fi
