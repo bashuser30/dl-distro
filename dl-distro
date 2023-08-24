@@ -259,7 +259,7 @@ download_kali() {
     if [[ "$kali_version" == "kali-weekly" ]]; then
         url="$weekly_url"
         iso_file="$weekly_iso_file"
-        if ! wget -q -c --spider "$url/$iso_file"; then
+        if ! echo "$html_content" | grep -q "$iso_file"; then
             echo -e "No new ISO for week: $weekly_version. Downloading previous week.\n"
             week_num="${weekly_version#W}"
             (( prev_week_num=week_num-1 ))
