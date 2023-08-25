@@ -3,28 +3,40 @@
 dl-distro is a script that was first designed to automatically download and verify Arch ISOs every month.
 I am currently adding support for various distributions when I get the chance. [Supported Distributions](#supported-distributions)
 
-This script will automatically import GPG signing keys to verify the signatures.
-Please manually verify them yourself via the provided links in the script's comments.
-
-**Do not run this script if you do not want to import the developers GPG signing keys.**
+**This script will automatically import GPG signing keys to verify the signatures. Do not run this script if you do not want to import the developers GPG signing keys.**
 
 ## Dependencies
 
-This script only needs these three dependencies:
-
 - bash
 - gnupg
+- jq
 - wget
 
-## AUR Package
+## Install
 
-There is an AUR package available:
+### AUR Package
 
 ```
 git clone https://aur.archlinux.org/dl-distro.git
 cd dl-distro
 makepkg -si
 ```
+
+### Non AUR Install
+
+If you can't access the AUR you can `git clone` the repo.
+
+```
+git clone https://codeberg.org/codeberge/dl-distro.git
+```
+
+Make sure the `distro_data.json` file is always in one of these locations:
+
+- `$HOME/.config/dl-distro/distro_data.json`
+- `/usr/share/dl-distro/distro_data.json`
+- The directory `dl-distro` is ran from
+
+`dl-distro` will look for the file in those places, in the order they are listed.
 
 ## Usage
 

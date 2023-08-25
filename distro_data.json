@@ -1,0 +1,71 @@
+{
+    "arch": {
+        "version": "2023.08.01",
+        "gpg_key": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
+        "url": "https://geo.mirror.pkgbuild.com/iso/{version}",
+        "iso_file": "archlinux-{version}-x86_64.iso",
+        "sig_file": "archlinux-{version}-x86_64.iso.sig",
+        "sum_file": "b2sums.txt",
+        "sum_algo": "b2sum"
+    },
+    "debian": {
+        "version": "12.1.0",
+        "gpg_key": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
+        "sig_file": "SHA512SUMS.sign",
+        "sum_file": "SHA512SUMS",
+        "sum_algo": "sha512sum",
+        "net_installer": {
+            "url": "https://cdimage.debian.org/debian-cd/current/{selected_architecture}/iso-cd",
+            "iso_file": "debian-{version}-{selected_architecture}-netinst.iso"
+        },
+        "live_installer": {
+            "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+            "iso_file": "debian-live-{version}-amd64-{selected_environment}.iso"
+        }
+    },
+    "kali": {
+        "version": "2023.3",
+        "gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
+        "sig_file": "SHA256SUMS.gpg",
+        "sum_file": "SHA256SUMS",
+        "sum_algo": "sha256sum",
+        "standard": {
+            "url": "https://cdimage.kali.org/current",
+            "iso_file": "kali-linux-{file_version}-{selected_image}-{selected_architecture}.{ext}"
+        },
+        "weekly": {
+            "url": "https://cdimage.kali.org/kali-weekly",
+            "iso_file": "kali-linux-2023-W{current_week_num}-{selected_image}-{selected_architecture}.{ext}"
+        }
+    },
+    "mint": {
+        "gpg_key": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
+        "sig_file": "sha256sum.txt.gpg",
+        "sum_file": "sha256sum.txt",
+        "sum_algo": "sha256sum",
+	"standard": {
+            "version": "21.2",
+            "url": "https://mirrors.layeronline.com/linuxmint/stable/{version}",
+            "iso_file": "linuxmint-{version}-{selected_environment}-64bit.iso"
+        },
+        "debian_edition": {
+            "version": "5",
+            "url": "https://mirrors.layeronline.com/linuxmint/debian",
+            "iso_file": "lmde-{version}-cinnamon-64bit.iso"
+        }
+    },
+    "ubuntu": {
+        "gpg_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
+        "url": "https://releases.ubuntu.com/{version}",
+        "iso_file": "ubuntu-{version}-{selected_image}-amd64.iso",
+        "sig_file": "SHA256SUMS.gpg",
+        "sum_file": "SHA256SUMS",
+        "sum_algo": "sha256sum",
+        "standard": {
+            "version": "23.04"
+        },
+        "lts": {
+            "version": "22.04.3"
+        }
+    }
+}
