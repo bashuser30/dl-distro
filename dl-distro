@@ -123,17 +123,15 @@ download_arch() {
 
 download_debian() {
 
-    IFS='|' read -r version gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
-
     installer_type="$(get_choice "Net Installer" "Live Installer")"
 
     case "$installer_type" in
 
         "Net Installer")
 
-            IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.net_installer.url, .$distro.net_installer.iso_file] | join(\"|\")" "$json_data")"
-
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
+
+            IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.net_installer.url, .$distro.net_installer.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
             url="${url//\{selected_architecture\}/$selected_architecture}"
             iso_file="${iso_file//\{version\}/$version}"
@@ -141,9 +139,9 @@ download_debian() {
 
         "Live Installer")
 
-            IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.live_installer.url, .$distro.live_installer.iso_file] | join(\"|\")" "$json_data")"
-
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
+
+            IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.live_installer.url, .$distro.live_installer.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
             iso_file="${iso_file//\{version\}/$version}"
             iso_file="${iso_file//\{selected_environment\}/$selected_environment}" ;;
@@ -155,8 +153,6 @@ download_debian() {
 }
 
 download_kali() {
-
-    IFS='|' read -r gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
     installer_type="$(get_choice "Kali" "Kali Weekly")"
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
@@ -178,7 +174,7 @@ download_kali() {
 
     if [[ "$installer_type" == "Kali" ]]; then
 
-        IFS='|' read -r version url iso_file <<< "$(jq -r "[.$distro.version, .$distro.standard.url, .$distro.standard.iso_file] | join(\"|\")" "$json_data")"
+        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.standard.url, .$distro.standard.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
         declare -A type_to_patch
         #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
@@ -197,7 +193,7 @@ download_kali() {
 
     else
 
-        IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.weekly.url, .$distro.weekly.iso_file] | join(\"|\")" "$json_data")"
+        IFS='|' read -r gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.weekly.url, .$distro.weekly.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
@@ -208,9 +204,11 @@ download_kali() {
         iso_file="${iso_file//\{ext\}/$ext}"
 
         if ! echo "$html_content" | grep -q "$iso_file"; then
+
             echo -e "No new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
+
         fi
 
     fi
@@ -221,15 +219,13 @@ download_kali() {
 
 download_mint() {
 
-    IFS='|' read -r gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
-
     installer_type="$(get_choice "Mint" "Mint Debian Edition")"
 
     if [[ "$installer_type" == "Mint" ]]; then
 
-        IFS='|' read -r version url iso_file <<< "$(jq -r "[.$distro.standard.version, .$distro.standard.url, .$distro.standard.iso_file] | join(\"|\")" "$json_data")"
-
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
+
+        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.standard.version, .$distro.gpg_key, .$distro.standard.url, .$distro.standard.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
         url="${url//\{version\}/$version}"
         iso_file="${iso_file//\{version\}/$version}"
@@ -237,7 +233,7 @@ download_mint() {
 
     else
 
-       IFS='|' read -r version url iso_file <<< "$(jq -r "[.$distro.debian_edition.version, .$distro.debian_edition.url, .$distro.debian_edition.iso_file] | join(\"|\")" "$json_data")"
+       IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.debian_edition.version, .$distro.gpg_key, .$distro.debian_edition.url, .$distro.debian_edition.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
        iso_file="${iso_file//\{version\}/$version}"
 
@@ -249,17 +245,18 @@ download_mint() {
 
 download_ubuntu() {
 
-    IFS='|' read -r gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
-
     installer_type="$(get_choice "Ubuntu" "Ubuntu LTS")"
+    selected_image="$(get_choice "desktop" "live-server")"
 
     if [[ "$installer_type" == "Ubuntu" ]]; then
-        version="$(jq -r ".$distro.standard.version" "$json_data")"
-    else
-        version="$(jq -r ".$distro.lts.version" "$json_data")"
-    fi
 
-    selected_image="$(get_choice "desktop" "live-server")"
+        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.standard.version, .$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
+    else
+
+        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.lts.version, .$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
+    fi
 
     url="${url//\{version\}/$version}"
     iso_file="${iso_file//\{version\}/$version}"
