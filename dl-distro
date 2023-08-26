@@ -102,13 +102,11 @@ get_choice() {
 
 download_arch() {
 
-    version="$(jq -r ".${distro}.version" "$json_data")"
-    gpg_key="$(jq -r ".${distro}.gpg_key" "$json_data")"
-    url="$(jq -r ".${distro}.url" "$json_data" | sed "s/{version}/$version/")"
-    iso_file="$(jq -r ".${distro}.iso_file" "$json_data" | sed "s/{version}/$version/")"
-    sig_file="$(jq -r ".${distro}.sig_file" "$json_data" | sed "s/{version}/$version/")"
-    sum_file="$(jq -r ".${distro}.sum_file" "$json_data")"
-    sum_algo="$(jq -r ".${distro}.sum_algo" "$json_data")"
+    IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
+    url="${url//\{version\}/$version}"
+    iso_file="${iso_file//\{version\}/$version}"
+    sig_file="${sig_file//\{version\}/$version}"
 
     download_and_verify_iso
 
@@ -116,25 +114,31 @@ download_arch() {
 
 download_debian() {
 
-    version="$(jq -r ".${distro}.version" "$json_data")"
-    gpg_key="$(jq -r ".${distro}.gpg_key" "$json_data")"
-    sig_file="$(jq -r ".${distro}.sig_file" "$json_data")"
-    sum_file="$(jq -r ".${distro}.sum_file" "$json_data")"
-    sum_algo="$(jq -r ".${distro}.sum_algo" "$json_data")"
+    IFS='|' read -r version gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
     installer_type="$(get_choice "Net Installer" "Live Installer")"
 
     case "$installer_type" in
+
         "Net Installer")
 
+            IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.net_installer.url, .$distro.net_installer.iso_file] | join(\"|\")" "$json_data")"
+
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-            url="$(jq -r ".${distro}.net_installer.url" "$json_data" | sed "s/{selected_architecture}/$selected_architecture/")"
-            iso_file="$(jq -r ".${distro}.net_installer.iso_file" "$json_data" | sed "s/{version}/$version/" | sed "s/{selected_architecture}/$selected_architecture/")" ;;
+
+            url="${url//\{selected_architecture\}/$selected_architecture}"
+            iso_file="${iso_file//\{version\}/$version}"
+            iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}" ;;
 
         "Live Installer")
 
+            IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.live_installer.url, .$distro.live_installer.iso_file] | join(\"|\")" "$json_data")"
+
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-            url="$(jq -r ".${distro}.live_installer.url" "$json_data")"
-            iso_file="$(jq -r ".${distro}.live_installer.iso_file" "$json_data" | sed "s/{version}/$version/" | sed "s/{selected_environment}/$selected_environment/")" ;;
+
+            iso_file="${iso_file//\{version\}/$version}"
+            iso_file="${iso_file//\{selected_environment\}/$selected_environment}" ;;
+
     esac
 
     download_and_verify_iso
@@ -143,15 +147,13 @@ download_debian() {
 
 download_kali() {
 
-    version="$(jq -r ".${distro}.version" "$json_data")"
-    gpg_key="$(jq -r ".${distro}.gpg_key" "$json_data")"
-    sig_file="$(jq -r ".${distro}.sig_file" "$json_data")"
-    sum_file="$(jq -r ".${distro}.sum_file" "$json_data")"
-    sum_algo="$(jq -r ".${distro}.sum_algo" "$json_data")"
+    IFS='|' read -r version gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
     installer_type="$(get_choice "Kali" "Kali (weekly)")"
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
 
     case "$selected_image" in
+
         "live"|"installer"|"installer-netinst") selected_architecture="$(get_choice "amd64" "arm64" "i386")"; ext="iso" ;;
         "installer-purple")                     selected_architecture="$(get_choice "amd64")";                ext="iso" ;;
         "hyperv")                               selected_architecture="$(get_choice "amd64")";                ext="7z" ;;
@@ -162,6 +164,7 @@ download_kali() {
                selected_architecture="$(get_choice "amd64" "i386")"
            fi
            ext="7z" ;;
+
     esac
 
     if [[ "$installer_type" != "Kali (weekly)" ]]; then
@@ -172,34 +175,38 @@ download_kali() {
         file_version="$version"
 
         if [[ -v type_to_patch["$selected_image"] ]]; then
-
             patch="${type_to_patch[$selected_image]}"
-
-            if [[ -n "$patch" ]]; then
-                file_version+="$patch"
-            fi
+            file_version+="$patch"
         fi
+
     fi
 
     if [[ "$installer_type" == "Kali (weekly)" ]]; then
 
-        url="$(jq -r ".${distro}.weekly.url" "$json_data")"
+        IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.weekly.url, .$distro.weekly.iso_file] | join(\"|\")" "$json_data")"
+
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
-        iso_file="$(jq -r ".${distro}.weekly.iso_file" "$json_data" | sed "s/{current_week_num}/$current_week_num/" | sed "s/{selected_image}/$selected_image/" | sed "s/{selected_architecture}/$selected_architecture/" | sed "s/{ext}/$ext/")"
+
+        iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
+        iso_file="${iso_file//\{selected_image\}/$selected_image}"
+        iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}"
+        iso_file="${iso_file//\{ext\}/$ext}"
 
         if ! echo "$html_content" | grep -q "$iso_file"; then
-
             echo -e "No new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
-
         fi
 
     else
 
-        url="$(jq -r ".${distro}.standard.url" "$json_data")"
-        iso_file="$(jq -r ".${distro}.standard.iso_file" "$json_data" | sed "s/{file_version}/$file_version/" | sed "s/{selected_image}/$selected_image/" | sed "s/{selected_architecture}/$selected_architecture/" | sed "s/{ext}/$ext/")"
+        IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.standard.url, .$distro.standard.iso_file] | join(\"|\")" "$json_data")"
+
+        iso_file="${iso_file//\{file_version\}/$file_version}"
+        iso_file="${iso_file//\{selected_image\}/$selected_image}"
+        iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}"
+        iso_file="${iso_file//\{ext\}/$ext}"
 
     fi
 
@@ -209,24 +216,25 @@ download_kali() {
 
 download_mint() {
 
-    gpg_key="$(jq -r ".${distro}.gpg_key" "$json_data")"
-    sig_file="$(jq -r ".${distro}.sig_file" "$json_data")"
-    sum_file="$(jq -r ".${distro}.sum_file" "$json_data")"
-    sum_algo="$(jq -r ".${distro}.sum_algo" "$json_data")"
+    IFS='|' read -r gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
     installer_type="$(get_choice "Mint" "Mint (Debian Edition)")"
 
     if [[ "$installer_type" == "Mint" ]]; then
 
+        IFS='|' read -r version url iso_file <<< "$(jq -r "[.$distro.standard.version, .$distro.standard.url, .$distro.standard.iso_file] | join(\"|\")" "$json_data")"
+
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
-        version="$(jq -r ".${distro}.standard.version" "$json_data")"
-        url="$(jq -r ".${distro}.standard.url" "$json_data" | sed "s/{version}/$version/")"
-        iso_file="$(jq -r ".${distro}.standard.iso_file" "$json_data" | sed "s/{version}/$version/" | sed "s/{selected_environment}/$selected_environment/")"
+
+        url="${url//\{version\}/$version}"
+        iso_file="${iso_file//\{version\}/$version}"
+        iso_file="${iso_file//\{selected_environment\}/$selected_environment}"
 
     else
 
-       version="$(jq -r ".${distro}.debian_edition.version" "$json_data")"
-       url="$(jq -r ".${distro}.debian_edition.url" "$json_data")"
-       iso_file="$(jq -r ".${distro}.debian_edition.iso_file" "$json_data" | sed "s/{version}/$version/")"
+       IFS='|' read -r version url iso_file <<< "$(jq -r "[.$distro.debian_edition.version, .$distro.debian_edition.url, .$distro.debian_edition.iso_file] | join(\"|\")" "$json_data")"
+
+       iso_file="${iso_file//\{version\}/$version}"
 
     fi
 
@@ -236,27 +244,28 @@ download_mint() {
 
 download_ubuntu() {
 
-    gpg_key="$(jq -r ".${distro}.gpg_key" "$json_data")"
-    sig_file="$(jq -r ".${distro}.sig_file" "$json_data")"
-    sum_file="$(jq -r ".${distro}.sum_file" "$json_data")"
-    sum_algo="$(jq -r ".${distro}.sum_algo" "$json_data")"
+    IFS='|' read -r gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+
     installer_type="$(get_choice "Ubuntu" "Ubuntu (LTS)")"
 
     if [[ "$installer_type" == "Ubuntu" ]]; then
-        version="$(jq -r ".${distro}.standard.version" "$json_data")"
+        version="$(jq -r ".$distro.standard.version" "$json_data")"
     else
-        version="$(jq -r ".${distro}.lts.version" "$json_data")"
+        version="$(jq -r ".$distro.lts.version" "$json_data")"
     fi
 
     selected_image="$(get_choice "desktop" "live-server")"
-    url="$(jq -r ".${distro}.url" "$json_data" | sed "s/{version}/$version/")"
-    iso_file="$(jq -r ".${distro}.iso_file" "$json_data" | sed "s/{version}/$version/" | sed "s/{selected_image}/$selected_image/")"
+
+    url="${url//\{version\}/$version}"
+    iso_file="${iso_file//\{version\}/$version}"
+    iso_file="${iso_file//\{selected_image\}/$selected_image}"
 
     download_and_verify_iso
 
 }
 
 check_dependencies() {
+
     for cmd in wget gpg jq; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "The following dependency is missing: $cmd"
@@ -264,9 +273,11 @@ check_dependencies() {
             exit 1
         fi
     done
+
 }
 
 usage() {
+
     cat <<EOF
 
 USAGE:
@@ -284,9 +295,11 @@ EXAMPLES:
     dl-distro arch /run/media/$USER/Ventoy
 
 EOF
+
 }
 
 dl_distro() {
+
     distro="${1:-help}"
     download_path="${2:-$(pwd)}"
 
@@ -307,13 +320,16 @@ dl_distro() {
     fi
 
     case "$distro" in
+
         "arch") download_arch ;;
         "debian") download_debian ;;
         "kali") download_kali ;;
         "mint") download_mint ;;
         "ubuntu") download_ubuntu ;;
         *) echo "Error: Please use -h or --help for usage and supported distros."; exit 1 ;;
+
     esac
+
 }
 
 check_dependencies
