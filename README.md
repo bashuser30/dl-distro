@@ -34,7 +34,7 @@ Make sure the `distro_data.json` file is always in one of these locations:
 
 - `$HOME/.config/dl-distro/distro_data.json`
 - `/usr/share/dl-distro/distro_data.json`
-- The directory `dl-distro` is ran from
+- The directory `dl-distro` is located in
 
 `dl-distro` will look for the file in those places, in the order they are listed.
 

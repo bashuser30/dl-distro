@@ -255,6 +255,7 @@ download_ubuntu() {
     download_and_verify_iso
 
 }
+
 check_dependencies() {
     for cmd in wget gpg jq; do
         if ! command -v "$cmd" &> /dev/null; then
