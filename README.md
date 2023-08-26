@@ -30,7 +30,7 @@ If you can't access the AUR you can `git clone` the repo.
 git clone https://codeberg.org/codeberge/dl-distro.git
 ```
 
-Or you can [download the latest release](https://codeberg.org/codeberge/dl-distro/releases/latest)
+Or you can [download the latest release](https://codeberg.org/codeberge/dl-distro/releases/latest).
 
 Make sure the `distro_data.json` file is always in one of these locations:
 
@@ -60,20 +60,20 @@ EXAMPLES:
 
 ## Supported Distributions
 
-### Arch
+### [Arch](https://archlinux.org)
 - 2023.08.01
 
-### Debian
+### [Debian](https://debian.org)
 - 12.1.0
 
-### Kali
+### [Kali](https://kali.org)
 - 2023.3
 - Kali Weekly
 
-### Mint
+### [Mint](https://linuxmint.com)
 - 21.2
 - Debian Edition 5
 
-### Ubuntu
+### [Ubuntu](https://ubuntu.com)
 - 23.04
-- 22.04.3 LTS
+- 22.04.3 (LTS)
