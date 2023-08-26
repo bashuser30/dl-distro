@@ -86,17 +86,26 @@ get_choice() {
         return
     fi
 
-    echo >&2
+    while true; do
 
-    for i in "${!options[@]}"; do
-        printf "   %d. %s\n" "$((i+1))" "${options[$i]}" >&2
+        echo >&2
+
+        for i in "${!options[@]}"; do
+            printf "   %d. %s\n" "$((i+1))" "${options[$i]}" >&2
+        done
+
+        echo >&2
+
+        read -rp "Enter your choice (1-$num_options): " user_choice >&2
+
+        if [[ "$user_choice" -ge 1 && "$user_choice" -le "$num_options" ]]; then
+            printf "%s" "${options[$user_choice-1]}"
+            return
+        else
+            echo -e "\nInvalid choice. Please choose a number 1 to $num_options." >&2
+        fi
+
     done
-
-    echo >&2
-
-    read -rp "Enter your choice (1-$num_options): " user_choice >&2
-
-    printf "%s" "${options[$user_choice-1]}"
 
 }
 
