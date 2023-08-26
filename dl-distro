@@ -156,9 +156,9 @@ download_debian() {
 
 download_kali() {
 
-    IFS='|' read -r version gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+    IFS='|' read -r gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
-    installer_type="$(get_choice "Kali" "Kali (weekly)")"
+    installer_type="$(get_choice "Kali" "Kali Weekly")"
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
 
     case "$selected_image" in
@@ -167,7 +167,7 @@ download_kali() {
         "installer-purple")                     selected_architecture="$(get_choice "amd64")";                ext="iso" ;;
         "hyperv")                               selected_architecture="$(get_choice "amd64")";                ext="7z" ;;
         *)
-           if [[ "$installer_type" == "Kali (weekly)" ]]; then
+           if [[ "$installer_type" == "Kali Weekly" ]]; then
                selected_architecture="$(get_choice "amd64")"
            else
                selected_architecture="$(get_choice "amd64" "i386")"
@@ -176,7 +176,9 @@ download_kali() {
 
     esac
 
-    if [[ "$installer_type" != "Kali (weekly)" ]]; then
+    if [[ "$installer_type" == "Kali" ]]; then
+
+        IFS='|' read -r version url iso_file <<< "$(jq -r "[.$distro.version, .$distro.standard.url, .$distro.standard.iso_file] | join(\"|\")" "$json_data")"
 
         declare -A type_to_patch
         #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
@@ -188,9 +190,12 @@ download_kali() {
             file_version+="$patch"
         fi
 
-    fi
+        iso_file="${iso_file//\{file_version\}/$file_version}"
+        iso_file="${iso_file//\{selected_image\}/$selected_image}"
+        iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}"
+        iso_file="${iso_file//\{ext\}/$ext}"
 
-    if [[ "$installer_type" == "Kali (weekly)" ]]; then
+    else
 
         IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.weekly.url, .$distro.weekly.iso_file] | join(\"|\")" "$json_data")"
 
@@ -208,15 +213,6 @@ download_kali() {
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
         fi
 
-    else
-
-        IFS='|' read -r url iso_file <<< "$(jq -r "[.$distro.standard.url, .$distro.standard.iso_file] | join(\"|\")" "$json_data")"
-
-        iso_file="${iso_file//\{file_version\}/$file_version}"
-        iso_file="${iso_file//\{selected_image\}/$selected_image}"
-        iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}"
-        iso_file="${iso_file//\{ext\}/$ext}"
-
     fi
 
     download_and_verify_iso
@@ -227,7 +223,7 @@ download_mint() {
 
     IFS='|' read -r gpg_key sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
-    installer_type="$(get_choice "Mint" "Mint (Debian Edition)")"
+    installer_type="$(get_choice "Mint" "Mint Debian Edition")"
 
     if [[ "$installer_type" == "Mint" ]]; then
 
@@ -255,7 +251,7 @@ download_ubuntu() {
 
     IFS='|' read -r gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
 
-    installer_type="$(get_choice "Ubuntu" "Ubuntu (LTS)")"
+    installer_type="$(get_choice "Ubuntu" "Ubuntu LTS")"
 
     if [[ "$installer_type" == "Ubuntu" ]]; then
         version="$(jq -r ".$distro.standard.version" "$json_data")"
