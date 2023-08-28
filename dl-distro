@@ -5,18 +5,11 @@ set -euo pipefail
 
 download_and_verify_iso() {
 
-    if [[ "$download_path" == "--spider" ]]; then
-        if ! wget -nv -c --spider "$url/$iso_file"; then
-            echo -e "\nFailed to download $iso_file.\n"
-            exit 1
-	else
-            exit 0
-        fi
-    fi
+    [[ "$download_path" == "--spider" ]] && wget_spider
 
     if [[ "$download_path" != "$(pwd)" ]]; then
-        mkdir -p "$download_path" || { echo "Failed to create directory $download_path"; exit 1; }
-        cd "$download_path" || { echo "Failed to change directory to $download_path"; exit 1; }
+        mkdir -p "$download_path" || { echo -e "\nError: Failed to create directory $download_path\n"; exit 1; }
+        cd "$download_path" || { echo -e "\nError: Failed to change directory to $download_path\n"; exit 1; }
     fi
 
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
@@ -30,14 +23,14 @@ download_and_verify_iso() {
     if [[ "$distro" != "arch" ]]; then
         for file in "$sig_file" "$sum_file"; do
             if ! wget -q --show-progress -c "$url/$file"; then
-                echo -e "\nFailed to download $file.\n"
+                echo -e "\nError: Failed to download $file.\n"
                 exit 1
             fi
         done
     else
         for file in "$sig_file" "$sum_file" "$iso_file"; do
             if ! wget -q --show-progress -c "$url/$file"; then
-                echo -e "\nFailed to download $file.\n"
+                echo -e "\nError: Failed to download $file.\n"
                 exit 1
             fi
         done
@@ -45,13 +38,13 @@ download_and_verify_iso() {
 
     if [[ "$distro" != "arch" ]]; then
         if ! gpg --verify "$sig_file" "$sum_file"; then
-            echo -e "\nGPG verification failed.\n"
+            echo -e "\nError: GPG verification failed.\n"
             rm -f "$sig_file" "$sum_file"
             exit 1
         fi
     else
         if ! gpg --verify "$sig_file" "$iso_file"; then
-            echo -e "\nGPG verification failed.\n"
+            echo -e "\nError: GPG verification failed.\n"
             rm -f "$iso_file" "$sig_file" "$sum_file"
             exit 1
         fi
@@ -59,21 +52,20 @@ download_and_verify_iso() {
 
     if [[ "$distro" != "arch" ]]; then
         if ! wget -q --show-progress -c "$url/$iso_file"; then
-            echo -e "\nFailed to download $iso_file.\n"
+            echo -e "\nError: Failed to download $iso_file.\n"
             exit 1
         fi
     fi
 
     if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
-        echo -e "\n$sum_algo verification failed.\n"
+        echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
         exit 1
     fi
 
     rm -f "$sig_file" "$sum_file"
-    echo -e "\nDownload and verification succeeded.\n"
-
-    return 0
+    echo -e "\n[dl-distro] Download and verification successful.\n"
+    exit 0
 
 }
 
@@ -88,7 +80,7 @@ get_choice() {
 
     if [[ "$num_options" -eq 1 ]]; then
         printf "%s" "${options[0]}"
-        return
+        return 0
     fi
 
     while true; do
@@ -104,7 +96,7 @@ get_choice() {
 
         if [[ "$user_choice" -ge 1 && "$user_choice" -le "$num_options" ]]; then
             printf "%s" "${options[$user_choice-1]}"
-            return
+            return 0
         else
             echo -e "\nInvalid choice. Please choose a number 1 to $num_options." >&2
         fi
@@ -182,15 +174,16 @@ download_debian() {
         "Net Installer")
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
             fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
+            replace_placeholders url iso_file
             ;;
 
         "Live Installer")
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
             fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
+            replace_placeholders iso_file
             ;;
     esac
 
-    replace_placeholders url iso_file
     download_and_verify_iso
 
 }
@@ -243,7 +236,7 @@ download_kali() {
         replace_placeholders iso_file
 
         if ! echo "$html_content" | grep -q "$iso_file"; then
-            echo -e "No new ISO for week: $current_week_num. Downloading previous week.\n"
+            echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
         fi
@@ -289,13 +282,51 @@ download_ubuntu() {
 
 check_dependencies() {
 
+    missing_deps=()
+
     for cmd in wget gpg jq; do
         if ! command -v "$cmd" &> /dev/null; then
-            echo "The following dependency is missing: $cmd"
-            echo "Please install it and rerun the script."
-            exit 1
+            missing_deps+=("$cmd")
         fi
     done
+
+    if [[ "${#missing_deps[@]}" -eq 0 ]]; then
+        return 0
+    elif [[ "${#missing_deps[@]}" -eq 1 ]]; then
+        echo -e "\nMissing dependency: ${missing_deps[0]}.\n"
+        exit 1
+    else
+        echo -e "\nMissing dependencies: ${missing_deps[*]}.\n"
+        exit 1
+    fi
+
+}
+
+# This function is used with an external Expect script I made
+# It checks the sig and sum file for each distro's URL(s) and then every ISO combination possible
+# Helps a lot with detecting version and file name changes if I happen to miss an announcement
+wget_spider() {
+
+    tracked_file="/tmp/dl-distro_tracked.txt"
+
+    if ! grep -q "${distro}_${installer_type:-}_checked" "$tracked_file" 2>/dev/null; then
+        if ! wget -nv -c --spider "$url/$sig_file"; then
+            echo -e "\nError: Failed to download $sig_file.\n"
+            exit 1
+        fi
+        if ! wget -nv -c --spider "$url/$sum_file"; then
+            echo -e "\nError: Failed to download $sum_file.\n"
+            exit 1
+        fi
+        echo "${distro}_${installer_type:-}_checked" >> "$tracked_file"
+    fi
+
+    if ! wget -nv -c --spider "$url/$iso_file"; then
+        echo -e "\nError: Failed to download $iso_file.\n"
+        exit 1
+    else
+        exit 0
+    fi
 
 }
 
@@ -338,7 +369,7 @@ dl_distro() {
     elif [[ -f "$(dirname "$0")/distro_data.json" ]]; then
         json_file="$(dirname "$0")/distro_data.json"
     else
-        echo "Error: distro_data.json not found in any of the expected locations."
+        echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
         exit 1
     fi
 
@@ -348,7 +379,7 @@ dl_distro() {
         "kali") download_kali ;;
         "mint") download_mint ;;
         "ubuntu") download_ubuntu ;;
-        *) echo "Error: Please use -h or --help for usage and supported distros."; exit 1 ;;
+        *) echo -e "\nError: Please use -h or --help for usage and supported distros.\n"; exit 1 ;;
     esac
 
 }
