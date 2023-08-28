@@ -72,14 +72,19 @@ download_and_verify_iso() {
 
     rm -f "$sig_file" "$sum_file"
     echo -e "\nDownload and verification succeeded.\n"
-    exit 0
+
+    return 0
 
 }
 
+# Takes an array, displays it to the user and assigns their choice to a variable
+# Usage: selected_architecture="$(get_choice "amd64" "arm64")"
+# If the user picks amd64, selected_architecture=amd64
+# Automatically assigns the variable if called with a single choice: selected_architecture="$(get_choice "amd64")"
 get_choice() {
 
-    local options=("$@")
-    local num_options="${#options[@]}"
+    options=("$@")
+    num_options="${#options[@]}"
 
     if [[ "$num_options" -eq 1 ]]; then
         printf "%s" "${options[0]}"
@@ -109,14 +114,69 @@ get_choice() {
 
 }
 
+# Fetches values for specific keys from the JSON file using readarray
+# Assigns the values to variables that download_and_verify_iso() can use
+# Usage: fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+fetch_and_assign_values() {
+
+    keys=("$@")
+
+    # Convert the keys array into a comma-separated string
+    jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
+    jq_query="${jq_query%, }"  # Remove the trailing comma
+
+    # Fetch values using the jq query string
+    readarray -t values < <(jq -r "${jq_query}" "$json_file")
+
+    version="${values[0]}"
+    gpg_key="${values[1]}"
+    url="${values[2]}"
+    iso_file="${values[3]}"
+    sig_file="${values[4]}"
+    sum_file="${values[5]}"
+    sum_algo="${values[6]}"
+
+}
+
+# Replaces placeholders that are present in the JSON file
+# {selected_architecture} for example would be replaced with $selected_architecture
+# Usage: replace_placeholders url iso_file
+replace_placeholders() {
+
+    # Variables to be replaced are passed as arguments
+    vars_with_placeholders=("$@")
+
+    declare -A replacements
+
+    # Only add to the replacements array if the value is set and non-empty
+    [[ -n "${version:-}" ]] && replacements["\{version\}"]="$version"
+    [[ -n "${selected_architecture:-}" ]] && replacements["\{selected_architecture\}"]="$selected_architecture"
+    [[ -n "${selected_environment:-}" ]] && replacements["\{selected_environment\}"]="$selected_environment"
+    [[ -n "${selected_image:-}" ]] && replacements["\{selected_image\}"]="$selected_image"
+    [[ -n "${file_version:-}" ]] && replacements["\{file_version\}"]="$file_version"
+    [[ -n "${current_week_num:-}" ]] && replacements["\{current_week_num\}"]="$current_week_num"
+    [[ -n "${ext:-}" ]] && replacements["\{ext\}"]="$ext"
+
+    for var_name in "${vars_with_placeholders[@]}"; do
+
+        if [[ -n ${!var_name} ]]; then
+
+            local -n target_string="$var_name"
+
+            for key in "${!replacements[@]}"; do
+                target_string="${target_string//${key}/${replacements[$key]}}"
+            done
+
+        fi
+
+    done
+
+}
+
 download_arch() {
 
-    IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
-
-    url="${url//\{version\}/$version}"
-    iso_file="${iso_file//\{version\}/$version}"
-    sig_file="${sig_file//\{version\}/$version}"
-
+    fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+    replace_placeholders url iso_file sig_file
     download_and_verify_iso
 
 }
@@ -131,20 +191,17 @@ download_debian() {
 
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
 
-            IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.net_installer.url, .$distro.net_installer.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+            fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
 
-            url="${url//\{selected_architecture\}/$selected_architecture}"
-            iso_file="${iso_file//\{version\}/$version}"
-            iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}" ;;
+            replace_placeholders url iso_file ;;
 
         "Live Installer")
 
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
 
-            IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.live_installer.url, .$distro.live_installer.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+            fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
 
-            iso_file="${iso_file//\{version\}/$version}"
-            iso_file="${iso_file//\{selected_environment\}/$selected_environment}" ;;
+            replace_placeholders url iso_file ;;
 
     esac
 
@@ -174,8 +231,10 @@ download_kali() {
 
     if [[ "$installer_type" == "Kali" ]]; then
 
-        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.version, .$distro.gpg_key, .$distro.standard.url, .$distro.standard.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+        fetch_and_assign_values "version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
 
+        # Patches filename from example: 2023.3 > 2023.3a
+        # Comment out the type_to_patch array when there aren't any patches
         declare -A type_to_patch
         #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
 
@@ -186,22 +245,18 @@ download_kali() {
             file_version+="$patch"
         fi
 
-        iso_file="${iso_file//\{file_version\}/$file_version}"
-        iso_file="${iso_file//\{selected_image\}/$selected_image}"
-        iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}"
-        iso_file="${iso_file//\{ext\}/$ext}"
+        replace_placeholders iso_file
 
     else
 
-        IFS='|' read -r gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.gpg_key, .$distro.weekly.url, .$distro.weekly.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+        fetch_and_assign_values "version" "gpg_key" "weekly.url" "weekly.iso_file" "sig_file" "sum_file" "sum_algo"
 
+        # wget the weekly url and grab the current weeks number, this ensures no timezone issues, was using date command before
+        # grep the html_content for the iso_file, fall back to previous week if it doesn't exist
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
 
-        iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
-        iso_file="${iso_file//\{selected_image\}/$selected_image}"
-        iso_file="${iso_file//\{selected_architecture\}/$selected_architecture}"
-        iso_file="${iso_file//\{ext\}/$ext}"
+        replace_placeholders iso_file
 
         if ! echo "$html_content" | grep -q "$iso_file"; then
 
@@ -225,17 +280,15 @@ download_mint() {
 
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
 
-        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.standard.version, .$distro.gpg_key, .$distro.standard.url, .$distro.standard.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+        fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
 
-        url="${url//\{version\}/$version}"
-        iso_file="${iso_file//\{version\}/$version}"
-        iso_file="${iso_file//\{selected_environment\}/$selected_environment}"
+        replace_placeholders url iso_file
 
     else
 
-       IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.debian_edition.version, .$distro.gpg_key, .$distro.debian_edition.url, .$distro.debian_edition.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+        fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
 
-       iso_file="${iso_file//\{version\}/$version}"
+        replace_placeholders iso_file
 
     fi
 
@@ -250,17 +303,15 @@ download_ubuntu() {
 
     if [[ "$installer_type" == "Ubuntu" ]]; then
 
-        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.standard.version, .$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+        fetch_and_assign_values "standard.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 
     else
 
-        IFS='|' read -r version gpg_key url iso_file sig_file sum_file sum_algo <<< "$(jq -r "[.$distro.lts.version, .$distro.gpg_key, .$distro.url, .$distro.iso_file, .$distro.sig_file, .$distro.sum_file, .$distro.sum_algo] | join(\"|\")" "$json_data")"
+        fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 
     fi
 
-    url="${url//\{version\}/$version}"
-    iso_file="${iso_file//\{version\}/$version}"
-    iso_file="${iso_file//\{selected_image\}/$selected_image}"
+    replace_placeholders url iso_file
 
     download_and_verify_iso
 
@@ -311,11 +362,11 @@ dl_distro() {
     fi
 
     if [[ -f "$HOME/.config/dl-distro/distro_data.json" ]]; then
-        json_data="$HOME/.config/dl-distro/distro_data.json"
+        json_file="$HOME/.config/dl-distro/distro_data.json"
     elif [[ -f "/usr/share/dl-distro/distro_data.json" ]]; then
-        json_data="/usr/share/dl-distro/distro_data.json"
+        json_file="/usr/share/dl-distro/distro_data.json"
     elif [[ -f "$(dirname "$0")/distro_data.json" ]]; then
-        json_data="$(dirname "$0")/distro_data.json"
+        json_file="$(dirname "$0")/distro_data.json"
     else
         echo "Error: distro_data.json not found in any of the expected locations."
         exit 1
