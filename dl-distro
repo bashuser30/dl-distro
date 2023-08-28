@@ -92,7 +92,6 @@ get_choice() {
     fi
 
     while true; do
-
         echo >&2
 
         for i in "${!options[@]}"; do
@@ -109,7 +108,6 @@ get_choice() {
         else
             echo -e "\nInvalid choice. Please choose a number 1 to $num_options." >&2
         fi
-
     done
 
 }
@@ -158,17 +156,12 @@ replace_placeholders() {
     [[ -n "${ext:-}" ]] && replacements["\{ext\}"]="$ext"
 
     for var_name in "${vars_with_placeholders[@]}"; do
-
         if [[ -n ${!var_name} ]]; then
-
             local -n target_string="$var_name"
-
             for key in "${!replacements[@]}"; do
                 target_string="${target_string//${key}/${replacements[$key]}}"
             done
-
         fi
-
     done
 
 }
@@ -186,25 +179,18 @@ download_debian() {
     installer_type="$(get_choice "Net Installer" "Live Installer")"
 
     case "$installer_type" in
-
         "Net Installer")
-
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-
             fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-
-            replace_placeholders url iso_file ;;
+            ;;
 
         "Live Installer")
-
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-
             fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-
-            replace_placeholders url iso_file ;;
-
+            ;;
     esac
 
+    replace_placeholders url iso_file
     download_and_verify_iso
 
 }
@@ -215,7 +201,6 @@ download_kali() {
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
 
     case "$selected_image" in
-
         "live"|"installer"|"installer-netinst") selected_architecture="$(get_choice "amd64" "arm64" "i386")"; ext="iso" ;;
         "installer-purple")                     selected_architecture="$(get_choice "amd64")";                ext="iso" ;;
         "hyperv")                               selected_architecture="$(get_choice "amd64")";                ext="7z" ;;
@@ -226,7 +211,6 @@ download_kali() {
                selected_architecture="$(get_choice "amd64" "i386")"
            fi
            ext="7z" ;;
-
     esac
 
     if [[ "$installer_type" == "Kali" ]]; then
@@ -259,13 +243,10 @@ download_kali() {
         replace_placeholders iso_file
 
         if ! echo "$html_content" | grep -q "$iso_file"; then
-
             echo -e "No new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
-
         fi
-
     fi
 
     download_and_verify_iso
@@ -277,19 +258,12 @@ download_mint() {
     installer_type="$(get_choice "Mint" "Mint Debian Edition")"
 
     if [[ "$installer_type" == "Mint" ]]; then
-
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
-
         fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
-
         replace_placeholders url iso_file
-
     else
-
         fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
-
         replace_placeholders iso_file
-
     fi
 
     download_and_verify_iso
@@ -302,13 +276,9 @@ download_ubuntu() {
     selected_image="$(get_choice "desktop" "live-server")"
 
     if [[ "$installer_type" == "Ubuntu" ]]; then
-
         fetch_and_assign_values "standard.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-
     else
-
         fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-
     fi
 
     replace_placeholders url iso_file
@@ -373,14 +343,12 @@ dl_distro() {
     fi
 
     case "$distro" in
-
         "arch") download_arch ;;
         "debian") download_debian ;;
         "kali") download_kali ;;
         "mint") download_mint ;;
         "ubuntu") download_ubuntu ;;
         *) echo "Error: Please use -h or --help for usage and supported distros."; exit 1 ;;
-
     esac
 
 }
