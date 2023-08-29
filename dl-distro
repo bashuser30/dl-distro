@@ -3,69 +3,58 @@
 
 set -euo pipefail
 
-download_and_verify_iso() {
+wget_file() {
 
-    [[ "$download_path" == "--spider" ]] && wget_spider
+    for file in "$@"; do
+        if ! wget -q --show-progress -c "$url/$file"; then
+            echo -e "\nError: Failed to download $file.\n"
+            exit 1
+        fi
+    done
 
-    if [[ "$download_path" != "$(pwd)" ]]; then
-        mkdir -p "$download_path" || { echo -e "\nError: Failed to create directory $download_path\n"; exit 1; }
-        cd "$download_path" || { echo -e "\nError: Failed to change directory to $download_path\n"; exit 1; }
-    fi
+}
+
+fetch_gpg_key() {
 
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
-        echo -e "Fetching GPG key: $gpg_key\n"
+        echo -e "\nFetching GPG key: $gpg_key\n"
         if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
             echo -e "\nError: Failed to fetch GPG key $gpg_key.\n"
             exit 1
         fi
     fi
 
-    if [[ "$distro" != "arch" ]]; then
-        for file in "$sig_file" "$sum_file"; do
-            if ! wget -q --show-progress -c "$url/$file"; then
-                echo -e "\nError: Failed to download $file.\n"
-                exit 1
-            fi
-        done
-    else
-        for file in "$sig_file" "$sum_file" "$iso_file"; do
-            if ! wget -q --show-progress -c "$url/$file"; then
-                echo -e "\nError: Failed to download $file.\n"
-                exit 1
-            fi
-        done
+}
+
+gpg_verify() {
+
+    if ! gpg --verify "$sig_file" "$1"; then
+        echo -e "\nError: GPG verification failed.\n"
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        exit 1
     fi
 
-    if [[ "$distro" != "arch" ]]; then
-        if ! gpg --verify "$sig_file" "$sum_file"; then
-            echo -e "\nError: GPG verification failed.\n"
-            rm -f "$sig_file" "$sum_file"
-            exit 1
-        fi
-    else
-        if ! gpg --verify "$sig_file" "$iso_file"; then
-            echo -e "\nError: GPG verification failed.\n"
-            rm -f "$iso_file" "$sig_file" "$sum_file"
-            exit 1
-        fi
-    fi
+}
 
-    if [[ "$distro" != "arch" ]]; then
-        if ! wget -q --show-progress -c "$url/$iso_file"; then
-            echo -e "\nError: Failed to download $iso_file.\n"
-            exit 1
-        fi
-    fi
+checksum_verify() {
 
     if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
         echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
         exit 1
+    else
+        rm -f "$sig_file" "$sum_file"
+        echo -e "\n[dl-distro] Download and verification successful.\n"
+        exit 0
     fi
 
-    rm -f "$sig_file" "$sum_file"
-    echo -e "\n[dl-distro] Download and verification successful.\n"
-    exit 0
+}
+
+handle_download_path() {
+
+    if [[ "$download_path" != "$(pwd)" ]]; then
+        mkdir -p "$download_path" && cd "$download_path" || exit 1
+    fi
 
 }
 
@@ -130,30 +119,31 @@ fetch_and_assign_values() {
 
 # Replaces placeholders that are present in the JSON file
 # {selected_architecture} for example would be replaced with $selected_architecture
-# Usage: replace_placeholders url iso_file
+# Example: replace_placeholders "url|version|selected_architecture"
+# Replaces the version and architecture in the url
 replace_placeholders() {
 
-    # Variables to be replaced are passed as arguments
-    vars_with_placeholders=("$@")
+    declare -A replacements=(
+        ["version"]="${version:-}"
+        ["selected_architecture"]="${selected_architecture:-}"
+        ["selected_environment"]="${selected_environment:-}"
+        ["selected_image"]="${selected_image:-}"
+        ["file_version"]="${file_version:-}"
+        ["current_week_num"]="${current_week_num:-}"
+        ["ext"]="${ext:-}"
+    )
 
-    declare -A replacements
+    for var_and_replacements in "$@"; do
+        IFS='|' read -ra var_parts <<< "$var_and_replacements"
+        var_name="${var_parts[0]}"
+        var_value="${!var_name}"
 
-    # Only add to the replacements array if the value is set and non-empty
-    [[ -n "${version:-}" ]] && replacements["\{version\}"]="$version"
-    [[ -n "${selected_architecture:-}" ]] && replacements["\{selected_architecture\}"]="$selected_architecture"
-    [[ -n "${selected_environment:-}" ]] && replacements["\{selected_environment\}"]="$selected_environment"
-    [[ -n "${selected_image:-}" ]] && replacements["\{selected_image\}"]="$selected_image"
-    [[ -n "${file_version:-}" ]] && replacements["\{file_version\}"]="$file_version"
-    [[ -n "${current_week_num:-}" ]] && replacements["\{current_week_num\}"]="$current_week_num"
-    [[ -n "${ext:-}" ]] && replacements["\{ext\}"]="$ext"
+        for replacement_var in "${var_parts[@]:1}"; do
+            replacement="${replacements[$replacement_var]}"
+            var_value="${var_value//\{$replacement_var\}/$replacement}"
+        done
 
-    for var_name in "${vars_with_placeholders[@]}"; do
-        if [[ -n ${!var_name} ]]; then
-            local -n target_string="$var_name"
-            for key in "${!replacements[@]}"; do
-                target_string="${target_string//${key}/${replacements[$key]}}"
-            done
-        fi
+        printf -v "$var_name" "%s" "$var_value"
     done
 
 }
@@ -161,8 +151,13 @@ replace_placeholders() {
 download_arch() {
 
     fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-    replace_placeholders url iso_file sig_file
-    download_and_verify_iso
+    replace_placeholders "url|version" "iso_file|version" "sig_file|version"
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file" "$iso_file"
+    gpg_verify "$iso_file"
+    checksum_verify
 
 }
 
@@ -174,17 +169,23 @@ download_debian() {
         "Net Installer")
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
             fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders url iso_file
+            replace_placeholders "url|selected_architecture" "iso_file|version|selected_architecture"
             ;;
 
         "Live Installer")
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
             fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders iso_file
+            replace_placeholders "iso_file|version|selected_environment"
             ;;
     esac
 
-    download_and_verify_iso
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file"
+    gpg_verify "$sum_file"
+    wget_file "$iso_file"
+    checksum_verify
 
 }
 
@@ -222,7 +223,7 @@ download_kali() {
             file_version+="$patch"
         fi
 
-        replace_placeholders iso_file
+        replace_placeholders "iso_file|file_version|selected_image|selected_architecture|ext"
 
     else
 
@@ -233,7 +234,7 @@ download_kali() {
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
 
-        replace_placeholders iso_file
+        replace_placeholders "iso_file|current_week_num|selected_image|selected_architecture|ext"
 
         if ! echo "$html_content" | grep -q "$iso_file"; then
             echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
@@ -242,7 +243,13 @@ download_kali() {
         fi
     fi
 
-    download_and_verify_iso
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file"
+    gpg_verify "$sum_file"
+    wget_file "$iso_file"
+    checksum_verify
 
 }
 
@@ -253,13 +260,19 @@ download_mint() {
     if [[ "$installer_type" == "Mint" ]]; then
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
         fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
-        replace_placeholders url iso_file
+        replace_placeholders "url|version" "iso_file|version|selected_environment"
     else
         fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
-        replace_placeholders iso_file
+        replace_placeholders "iso_file|version"
     fi
 
-    download_and_verify_iso
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file"
+    gpg_verify "$sum_file"
+    wget_file "$iso_file"
+    checksum_verify
 
 }
 
@@ -274,9 +287,15 @@ download_ubuntu() {
         fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     fi
 
-    replace_placeholders url iso_file
+    replace_placeholders "url|version" "iso_file|version|selected_image"
 
-    download_and_verify_iso
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file"
+    gpg_verify "$sum_file"
+    wget_file "$iso_file"
+    checksum_verify
 
 }
 
@@ -285,19 +304,14 @@ check_dependencies() {
     missing_deps=()
 
     for cmd in wget gpg jq; do
-        if ! command -v "$cmd" &> /dev/null; then
-            missing_deps+=("$cmd")
-        fi
+        command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
     done
 
-    if [[ "${#missing_deps[@]}" -eq 0 ]]; then
-        return 0
-    elif [[ "${#missing_deps[@]}" -eq 1 ]]; then
-        echo -e "\nMissing dependency: ${missing_deps[0]}.\n"
+    if [[ "${#missing_deps[@]}" -gt 0 ]]; then
+        echo -e "\nPlease install: ${missing_deps[*]}.\n"
         exit 1
     else
-        echo -e "\nMissing dependencies: ${missing_deps[*]}.\n"
-        exit 1
+        return 0
     fi
 
 }
@@ -307,26 +321,29 @@ check_dependencies() {
 # Helps a lot with detecting version and file name changes if I happen to miss an announcement
 wget_spider() {
 
+    if [[ "$download_path" != "--spider" ]]; then
+        return
+    fi
+
     tracked_file="/tmp/dl-distro_tracked.txt"
+    tracked_string="${distro}_${installer_type:-}_checked"
 
-    if ! grep -q "${distro}_${installer_type:-}_checked" "$tracked_file" 2>/dev/null; then
-        if ! wget -nv -c --spider "$url/$sig_file"; then
-            echo -e "\nError: Failed to download $sig_file.\n"
+    spider_file() {
+        local file="$1"
+        if ! wget -nv -c --spider "$url/$file"; then
+            echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
-        if ! wget -nv -c --spider "$url/$sum_file"; then
-            echo -e "\nError: Failed to download $sum_file.\n"
-            exit 1
-        fi
-        echo "${distro}_${installer_type:-}_checked" >> "$tracked_file"
+    }
+
+    if ! grep -q "$tracked_string" "$tracked_file" 2>/dev/null; then
+        spider_file "$sig_file"
+        spider_file "$sum_file"
+        echo "$tracked_string" >> "$tracked_file"
     fi
 
-    if ! wget -nv -c --spider "$url/$iso_file"; then
-        echo -e "\nError: Failed to download $iso_file.\n"
-        exit 1
-    else
-        exit 0
-    fi
+    spider_file "$iso_file"
+    exit 0
 
 }
 
@@ -335,7 +352,7 @@ usage() {
     cat <<EOF
 
 USAGE:
-    dl-distro <distro> [path]
+    dl-distro [distro] [path]
 
 DISTROS:
     arch
@@ -357,21 +374,19 @@ dl_distro() {
     distro="${1:-help}"
     download_path="${2:-$(pwd)}"
 
-    if [[ "$distro" == "-h" || "$distro" == "--help" || "$distro" == "help" ]]; then
-        usage
-        exit 0
-    fi
+    case "$distro" in
+        -h|--help|help) usage; exit 0 ;;
+    esac
 
-    if [[ -f "$HOME/.config/dl-distro/distro_data.json" ]]; then
-        json_file="$HOME/.config/dl-distro/distro_data.json"
-    elif [[ -f "/usr/share/dl-distro/distro_data.json" ]]; then
-        json_file="/usr/share/dl-distro/distro_data.json"
-    elif [[ -f "$(dirname "$0")/distro_data.json" ]]; then
-        json_file="$(dirname "$0")/distro_data.json"
-    else
-        echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
-        exit 1
-    fi
+    json_file="$(for path in \
+                     "$HOME/.config/dl-distro/distro_data.json" \
+                     "/usr/share/dl-distro/distro_data.json" \
+                     "$(dirname "$0")/distro_data.json"; \
+                 do
+                     [[ -f "$path" ]] && echo "$path" && break;
+                 done || { echo -e "\nError: distro_data.json not found in any of the expected locations.\n" >&2;
+                           exit 1;
+                 })"
 
     case "$distro" in
         "arch") download_arch ;;
