@@ -166,17 +166,18 @@ download_debian() {
     installer_type="$(get_choice "Net Installer" "Live Installer")"
 
     case "$installer_type" in
+
         "Net Installer")
+
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
             fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders "url|selected_architecture" "iso_file|version|selected_architecture"
-            ;;
+            replace_placeholders "url|selected_architecture" "iso_file|version|selected_architecture" ;;
 
         "Live Installer")
+
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
             fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders "iso_file|version|selected_environment"
-            ;;
+            replace_placeholders "iso_file|version|selected_environment" ;;
     esac
 
     wget_spider
@@ -195,6 +196,7 @@ download_kali() {
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
 
     case "$selected_image" in
+
         "live"|"installer"|"installer-netinst") selected_architecture="$(get_choice "amd64" "arm64" "i386")"; ext="iso" ;;
         "installer-purple")                     selected_architecture="$(get_choice "amd64")";                ext="iso" ;;
         "hyperv")                               selected_architecture="$(get_choice "amd64")";                ext="7z" ;;
@@ -207,41 +209,43 @@ download_kali() {
            ext="7z" ;;
     esac
 
-    if [[ "$installer_type" == "Kali" ]]; then
+    case "$installer_type" in
 
-        fetch_and_assign_values "version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
+        "Kali")
 
-        # Patches filename from example: 2023.3 > 2023.3a
-        # Comment out the type_to_patch array when there aren't any patches
-        declare -A type_to_patch
-        #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
+            fetch_and_assign_values "version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
 
-        file_version="$version"
+            # Patches filename from example: 2023.3 > 2023.3a
+            # Comment out the type_to_patch array when there aren't any patches
+            declare -A type_to_patch
+            #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
 
-        if [[ -v type_to_patch["$selected_image"] ]]; then
-            patch="${type_to_patch[$selected_image]}"
-            file_version+="$patch"
-        fi
+            file_version="$version"
 
-        replace_placeholders "iso_file|file_version|selected_image|selected_architecture|ext"
+            if [[ -v type_to_patch["$selected_image"] ]]; then
+                patch="${type_to_patch[$selected_image]}"
+                file_version+="$patch"
+            fi
 
-    else
+            replace_placeholders "iso_file|file_version|selected_image|selected_architecture|ext" ;;
 
-        fetch_and_assign_values "version" "gpg_key" "weekly.url" "weekly.iso_file" "sig_file" "sum_file" "sum_algo"
+        "Kali Weekly")
 
-        # wget the weekly url and grab the current weeks number, this ensures no timezone issues, was using date command before
-        # grep the html_content for the iso_file, fall back to previous week if it doesn't exist
-        html_content="$(wget -qO- "$url")"
-        current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
+            fetch_and_assign_values "version" "gpg_key" "weekly.url" "weekly.iso_file" "sig_file" "sum_file" "sum_algo"
 
-        replace_placeholders "iso_file|current_week_num|selected_image|selected_architecture|ext"
+            # wget the weekly url and grab the current weeks number, this ensures no timezone issues
+            # grep the html_content for the iso_file, fall back to previous week if it doesn't exist
+            html_content="$(wget -qO- "$url")"
+            current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
 
-        if ! echo "$html_content" | grep -q "$iso_file"; then
-            echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
-            (( prev_week_num=current_week_num-1 ))
-            iso_file="${iso_file//$current_week_num/$prev_week_num}"
-        fi
-    fi
+            replace_placeholders "iso_file|current_week_num|selected_image|selected_architecture|ext"
+
+            if ! echo "$html_content" | grep -q "$iso_file"; then
+                echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
+                (( prev_week_num=current_week_num-1 ))
+                iso_file="${iso_file//$current_week_num/$prev_week_num}"
+            fi ;;
+    esac
 
     wget_spider
     handle_download_path
@@ -257,14 +261,19 @@ download_mint() {
 
     installer_type="$(get_choice "Mint" "Mint Debian Edition")"
 
-    if [[ "$installer_type" == "Mint" ]]; then
-        selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
-        fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
-        replace_placeholders "url|version" "iso_file|version|selected_environment"
-    else
-        fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
-        replace_placeholders "iso_file|version"
-    fi
+    case "$installer_type" in
+
+        "Mint")
+
+            selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
+            fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
+            replace_placeholders "url|version" "iso_file|version|selected_environment" ;;
+
+        "Mint Debian Edition")
+
+            fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
+            replace_placeholders "iso_file|version" ;;
+    esac
 
     wget_spider
     handle_download_path
@@ -281,11 +290,16 @@ download_ubuntu() {
     installer_type="$(get_choice "Ubuntu" "Ubuntu LTS")"
     selected_image="$(get_choice "desktop" "live-server")"
 
-    if [[ "$installer_type" == "Ubuntu" ]]; then
-        fetch_and_assign_values "standard.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-    else
-        fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-    fi
+    case "$installer_type" in
+
+        "Ubuntu")
+
+            fetch_and_assign_values "standard.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo" ;;
+
+        "Ubuntu LTS")
+
+            fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo" ;;
+    esac
 
     replace_placeholders "url|version" "iso_file|version|selected_image"
 
