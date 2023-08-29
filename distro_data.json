@@ -36,7 +36,7 @@
 
         "standard": {
             "url": "https://cdimage.kali.org/current",
-            "iso_file": "kali-linux-{file_version}-{selected_image}-{selected_architecture}.{ext}"
+            "iso_file": "kali-linux-{version}-{selected_image}-{selected_architecture}.{ext}"
         },
 
         "weekly": {

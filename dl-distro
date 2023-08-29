@@ -215,19 +215,17 @@ download_kali() {
 
             fetch_and_assign_values "version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
 
-            # Patches filename from example: 2023.3 > 2023.3a
+            # Patches version from example: 2023.3 > 2023.3a for certain images only
             # Comment out the type_to_patch array when there aren't any patches
             declare -A type_to_patch
             #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
 
-            file_version="$version"
-
             if [[ -v type_to_patch["$selected_image"] ]]; then
                 patch="${type_to_patch[$selected_image]}"
-                file_version+="$patch"
+                version+="$patch"
             fi
 
-            replace_placeholders "iso_file|file_version|selected_image|selected_architecture|ext" ;;
+            replace_placeholders "iso_file|version|selected_image|selected_architecture|ext" ;;
 
         "Kali Weekly")
 
