@@ -44,7 +44,7 @@ Make sure the `distro_data.json` file is always in one of these locations:
 
 ```
 USAGE:
-    dl-distro <distro> [path]
+    dl-distro [distro] [path]
 
 DISTROS:
     arch
