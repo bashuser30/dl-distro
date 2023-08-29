@@ -333,7 +333,7 @@ check_dependencies() {
 wget_spider() {
 
     if [[ "$download_path" != "--spider" ]]; then
-        return
+        return 0
     fi
 
     tracked_file="/tmp/dl-distro_tracked.txt"
@@ -391,8 +391,8 @@ dl_distro() {
 
     json_file="$(for path in \
                      "$HOME/.config/dl-distro/distro_data.json" \
-                     "/usr/share/dl-distro/distro_data.json" \
-                     "$(dirname "$0")/distro_data.json"; \
+                     "$(dirname "$0")/distro_data.json" \
+                     "/usr/share/dl-distro/distro_data.json"; \
                  do
                      [[ -f "$path" ]] && echo "$path" && break;
                  done || { echo -e "\nError: distro_data.json not found in any of the expected locations.\n" >&2;
