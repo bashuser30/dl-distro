@@ -94,7 +94,7 @@ get_choice() {
 }
 
 # Fetches values for specific keys from the JSON file using readarray
-# Assigns the values to variables that download_and_verify_iso() can use
+# Assigns the values to variables that our downloading and verifying functions can use
 # Usage: fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 fetch_and_assign_values() {
 
