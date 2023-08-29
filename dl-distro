@@ -128,7 +128,6 @@ replace_placeholders() {
         ["selected_architecture"]="${selected_architecture:-}"
         ["selected_environment"]="${selected_environment:-}"
         ["selected_image"]="${selected_image:-}"
-        ["file_version"]="${file_version:-}"
         ["current_week_num"]="${current_week_num:-}"
         ["ext"]="${ext:-}"
     )
