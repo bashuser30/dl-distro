@@ -4,18 +4,15 @@
 set -euo pipefail
 
 wget_file() {
-
     for file in "$@"; do
         if ! wget -q --show-progress -c "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
     done
-
 }
 
 fetch_gpg_key() {
-
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
         echo -e "\nFetching GPG key: $gpg_key\n"
         if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
@@ -23,21 +20,17 @@ fetch_gpg_key() {
             exit 1
         fi
     fi
-
 }
 
 gpg_verify() {
-
     if ! gpg --verify "$sig_file" "$1"; then
         echo -e "\nError: GPG verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
         exit 1
     fi
-
 }
 
 checksum_verify() {
-
     if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
         echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
@@ -47,15 +40,12 @@ checksum_verify() {
         echo -e "\n[dl-distro] Download and verification successful.\n"
         exit 0
     fi
-
 }
 
 handle_download_path() {
-
     if [[ "$download_path" != "$(pwd)" ]]; then
         mkdir -p "$download_path" && cd "$download_path" || exit 1
     fi
-
 }
 
 # Takes an array, displays it to the user and assigns their choice to a variable
@@ -63,7 +53,6 @@ handle_download_path() {
 # If the user picks amd64, selected_architecture=amd64
 # Automatically assigns the variable if called with a single choice: selected_architecture="$(get_choice "amd64")"
 get_choice() {
-
     options=("$@")
     num_options="${#options[@]}"
 
@@ -90,14 +79,12 @@ get_choice() {
             echo -e "\nInvalid choice. Please choose a number 1 to $num_options." >&2
         fi
     done
-
 }
 
 # Fetches values for specific keys from the JSON file using readarray
 # Assigns the values to variables that our downloading and verifying functions can use
 # Usage: fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 fetch_and_assign_values() {
-
     keys=("$@")
 
     # Convert the keys array into a comma-separated string
@@ -114,7 +101,6 @@ fetch_and_assign_values() {
     sig_file="${values[4]}"
     sum_file="${values[5]}"
     sum_algo="${values[6]}"
-
 }
 
 # Replaces placeholders that are present in the JSON file
@@ -122,7 +108,6 @@ fetch_and_assign_values() {
 # Example: replace_placeholders "url|version|selected_architecture"
 # Replaces the version and architecture in the url
 replace_placeholders() {
-
     declare -A replacements=(
         ["version"]="${version:-}"
         ["selected_architecture"]="${selected_architecture:-}"
@@ -144,11 +129,9 @@ replace_placeholders() {
 
         printf -v "$var_name" "%s" "$var_value"
     done
-
 }
 
 download_arch() {
-
     fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     replace_placeholders "url|version" "iso_file|version" "sig_file|version"
     wget_spider
@@ -157,23 +140,18 @@ download_arch() {
     wget_file "$sig_file" "$sum_file" "$iso_file"
     gpg_verify "$iso_file"
     checksum_verify
-
 }
 
 download_debian() {
-
     installer_type="$(get_choice "Net Installer" "Live Installer")"
 
     case "$installer_type" in
-
         "Net Installer")
-
             selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
             fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
             replace_placeholders "url|selected_architecture" "iso_file|version|selected_architecture" ;;
 
         "Live Installer")
-
             selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
             fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
             replace_placeholders "iso_file|version|selected_environment" ;;
@@ -186,7 +164,6 @@ download_debian() {
     gpg_verify "$sum_file"
     wget_file "$iso_file"
     checksum_verify
-
 }
 
 download_kali() {
@@ -195,7 +172,6 @@ download_kali() {
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
 
     case "$selected_image" in
-
         "live"|"installer"|"installer-netinst") selected_architecture="$(get_choice "amd64" "arm64" "i386")"; ext="iso" ;;
         "installer-purple")                     selected_architecture="$(get_choice "amd64")";                ext="iso" ;;
         "hyperv")                               selected_architecture="$(get_choice "amd64")";                ext="7z" ;;
@@ -209,9 +185,7 @@ download_kali() {
     esac
 
     case "$installer_type" in
-
         "Kali")
-
             fetch_and_assign_values "version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
 
             # Patches version from example: 2023.3 > 2023.3a for certain images only
@@ -227,7 +201,6 @@ download_kali() {
             replace_placeholders "iso_file|version|selected_image|selected_architecture|ext" ;;
 
         "Kali Weekly")
-
             fetch_and_assign_values "version" "gpg_key" "weekly.url" "weekly.iso_file" "sig_file" "sum_file" "sum_algo"
 
             # wget the weekly url and grab the current weeks number, this ensures no timezone issues
@@ -251,23 +224,18 @@ download_kali() {
     gpg_verify "$sum_file"
     wget_file "$iso_file"
     checksum_verify
-
 }
 
 download_mint() {
-
     installer_type="$(get_choice "Mint" "Mint Debian Edition")"
 
     case "$installer_type" in
-
         "Mint")
-
             selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
             fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
             replace_placeholders "url|version" "iso_file|version|selected_environment" ;;
 
         "Mint Debian Edition")
-
             fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
             replace_placeholders "iso_file|version" ;;
     esac
@@ -279,22 +247,17 @@ download_mint() {
     gpg_verify "$sum_file"
     wget_file "$iso_file"
     checksum_verify
-
 }
 
 download_ubuntu() {
-
     installer_type="$(get_choice "Ubuntu" "Ubuntu LTS")"
     selected_image="$(get_choice "desktop" "live-server")"
 
     case "$installer_type" in
-
         "Ubuntu")
-
             fetch_and_assign_values "standard.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo" ;;
 
         "Ubuntu LTS")
-
             fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo" ;;
     esac
 
@@ -307,11 +270,9 @@ download_ubuntu() {
     gpg_verify "$sum_file"
     wget_file "$iso_file"
     checksum_verify
-
 }
 
 check_dependencies() {
-
     missing_deps=()
 
     for cmd in wget gpg jq; do
@@ -324,14 +285,12 @@ check_dependencies() {
     else
         return 0
     fi
-
 }
 
 # This function is used with an external Expect script I made
 # It checks the sig and sum file for each distro's URL(s) and then every ISO combination possible
 # Helps a lot with detecting version and file name changes if I happen to miss an announcement
 wget_spider() {
-
     if [[ "$download_path" != "--spider" ]]; then
         return 0
     fi
@@ -355,11 +314,9 @@ wget_spider() {
 
     spider_file "$iso_file"
     exit 0
-
 }
 
 usage() {
-
     cat <<EOF
 
 USAGE:
@@ -377,11 +334,9 @@ EXAMPLES:
     dl-distro arch /run/media/$USER/Ventoy
 
 EOF
-
 }
 
 dl_distro() {
-
     distro="${1:-help}"
     download_path="${2:-$(pwd)}"
 
@@ -407,7 +362,6 @@ dl_distro() {
         "ubuntu") download_ubuntu ;;
         *) echo -e "\nError: Please use -h or --help for usage and supported distros.\n"; exit 1 ;;
     esac
-
 }
 
 check_dependencies
