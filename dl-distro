@@ -51,23 +51,15 @@ handle_download_path() {
 # Takes an array, displays it to the user and assigns their choice to a variable
 # Usage: selected_architecture="$(get_choice "amd64" "arm64")"
 # If the user picks amd64, selected_architecture=amd64
-# Automatically assigns the variable if called with a single choice: selected_architecture="$(get_choice "amd64")"
 get_choice() {
     options=("$@")
     num_options="${#options[@]}"
 
-    if [[ "$num_options" -eq 1 ]]; then
-        printf "%s" "${options[0]}"
-        return 0
-    fi
-
     while true; do
         echo >&2
-
         for i in "${!options[@]}"; do
             printf "   %d. %s\n" "$((i+1))" "${options[$i]}" >&2
         done
-
         echo >&2
 
         read -rp "Enter your choice (1-$num_options): " user_choice >&2
@@ -81,59 +73,30 @@ get_choice() {
     done
 }
 
-# Fetches values for specific keys from the JSON file using readarray
+# Fetches values for specific keys from the JSON file
 # Assigns the values to variables that our downloading and verifying functions can use
-# Usage: fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+# Example: fetch_and_assign_values "gpg_key" "netinst.amd64.url" "netinst.amd64.iso_file" "sig_file" "sum_file" "sum_algo"
 fetch_and_assign_values() {
     keys=("$@")
 
-    # Convert the keys array into a comma-separated string
+    # Create a single jq query string to fetch all values
     jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
-    jq_query="${jq_query%, }"  # Remove the trailing comma
+    jq_query="${jq_query%, }"  # Remove the trailing comma and space
 
-    # Fetch values using the jq query string
-    readarray -t values < <(jq -r "${jq_query}" "$json_file")
+    # Fetch values using the jq query string into an array
+    readarray -t values < <(jq -r "$jq_query" "$json_file")
 
-    version="${values[0]}"
-    gpg_key="${values[1]}"
-    url="${values[2]}"
-    iso_file="${values[3]}"
-    sig_file="${values[4]}"
-    sum_file="${values[5]}"
-    sum_algo="${values[6]}"
-}
-
-# Replaces placeholders that are present in the JSON file
-# {selected_architecture} for example would be replaced with $selected_architecture
-# Example: replace_placeholders "url|version|selected_architecture"
-# Replaces the version and architecture in the url
-replace_placeholders() {
-    declare -A replacements=(
-        ["version"]="${version:-}"
-        ["selected_architecture"]="${selected_architecture:-}"
-        ["selected_environment"]="${selected_environment:-}"
-        ["selected_image"]="${selected_image:-}"
-        ["current_week_num"]="${current_week_num:-}"
-        ["ext"]="${ext:-}"
-    )
-
-    for var_and_replacements in "$@"; do
-        IFS='|' read -ra var_parts <<< "$var_and_replacements"
-        var_name="${var_parts[0]}"
-        var_value="${!var_name}"
-
-        for replacement_var in "${var_parts[@]:1}"; do
-            replacement="${replacements[$replacement_var]}"
-            var_value="${var_value//\{$replacement_var\}/$replacement}"
-        done
-
-        printf -v "$var_name" "%s" "$var_value"
-    done
+    # Assign values to variables
+    gpg_key="${values[0]}"
+    url="${values[1]}"
+    iso_file="${values[2]}"
+    sig_file="${values[3]}"
+    sum_file="${values[4]}"
+    sum_algo="${values[5]}"
 }
 
 download_arch() {
-    fetch_and_assign_values "version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-    replace_placeholders "url|version" "iso_file|version" "sig_file|version"
+    fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -143,19 +106,15 @@ download_arch() {
 }
 
 download_debian() {
-    installer_type="$(get_choice "Net Installer" "Live Installer")"
+    installer_type="$(get_choice "net installer" "live installer")"
 
-    case "$installer_type" in
-        "Net Installer")
-            selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-            fetch_and_assign_values "version" "gpg_key" "net_installer.url" "net_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders "url|selected_architecture" "iso_file|version|selected_architecture" ;;
-
-        "Live Installer")
-            selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-            fetch_and_assign_values "version" "gpg_key" "live_installer.url" "live_installer.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders "iso_file|version|selected_environment" ;;
-    esac
+    if [[ "$installer_type" == "net installer" ]]; then
+        selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
+        fetch_and_assign_values "gpg_key" "netinst.${selected_architecture}.url" "netinst.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
+    else
+        selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
+        fetch_and_assign_values "gpg_key" "live.url" "live.${selected_environment}.iso_file" "sig_file" "sum_file" "sum_algo"
+    fi
 
     wget_spider
     handle_download_path
@@ -166,56 +125,36 @@ download_debian() {
     checksum_verify
 }
 
-download_kali() {
+download_kali () {
+    installer_type="$(get_choice "kali" "weekly")"
+    selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
-    installer_type="$(get_choice "Kali" "Kali Weekly")"
-    selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "installer-netinst" "installer-purple")"
+    if [[ "$selected_image" == "live" || "$selected_image" == "installer" || "$selected_image" == "netinst" ]]; then
+        selected_architecture="$(get_choice "amd64" "arm64" "i386")"
+    elif [[ "$selected_image" == "purple" || "$selected_image" == "hyperv" ]]; then
+        selected_architecture="amd64"
+    else
+        if [[ "$installer_type" == "weekly" ]]; then
+            selected_architecture="amd64"
+        else
+            selected_architecture="$(get_choice "amd64" "i386")"
+        fi
+    fi
 
-    case "$selected_image" in
-        "live"|"installer"|"installer-netinst") selected_architecture="$(get_choice "amd64" "arm64" "i386")"; ext="iso" ;;
-        "installer-purple")                     selected_architecture="$(get_choice "amd64")";                ext="iso" ;;
-        "hyperv")                               selected_architecture="$(get_choice "amd64")";                ext="7z" ;;
-        *)
-           if [[ "$installer_type" == "Kali Weekly" ]]; then
-               selected_architecture="$(get_choice "amd64")"
-           else
-               selected_architecture="$(get_choice "amd64" "i386")"
-           fi
-           ext="7z" ;;
-    esac
+    if [[ "$installer_type" == "kali" ]]; then
+        fetch_and_assign_values "gpg_key" "current.url" "current.${selected_image}.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
+    else
+        fetch_and_assign_values "gpg_key" "weekly.url" "weekly.${selected_image}.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
+        html_content="$(wget -qO- "$url")"
+        current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
+        iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
-    case "$installer_type" in
-        "Kali")
-            fetch_and_assign_values "version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
-
-            # Patches version from example: 2023.3 > 2023.3a for certain images only
-            # Comment out the type_to_patch array when there aren't any patches
-            declare -A type_to_patch
-            #type_to_patch=( ["hyperv"]="a" ["installer"]="a" ["installer-netinst"]="a" ["installer-purple"]="a" )
-
-            if [[ -v type_to_patch["$selected_image"] ]]; then
-                patch="${type_to_patch[$selected_image]}"
-                version+="$patch"
-            fi
-
-            replace_placeholders "iso_file|version|selected_image|selected_architecture|ext" ;;
-
-        "Kali Weekly")
-            fetch_and_assign_values "version" "gpg_key" "weekly.url" "weekly.iso_file" "sig_file" "sum_file" "sum_algo"
-
-            # wget the weekly url and grab the current weeks number, this ensures no timezone issues
-            # grep the html_content for the iso_file, fall back to previous week if it doesn't exist
-            html_content="$(wget -qO- "$url")"
-            current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
-
-            replace_placeholders "iso_file|current_week_num|selected_image|selected_architecture|ext"
-
-            if ! echo "$html_content" | grep -q "$iso_file"; then
-                echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
-                (( prev_week_num=current_week_num-1 ))
-                iso_file="${iso_file//$current_week_num/$prev_week_num}"
-            fi ;;
-    esac
+        if ! echo "$html_content" | grep -q "$iso_file"; then
+            echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
+            (( prev_week_num=current_week_num-1 ))
+            iso_file="${iso_file//$current_week_num/$prev_week_num}"
+        fi
+    fi
 
     wget_spider
     handle_download_path
@@ -226,19 +165,15 @@ download_kali() {
     checksum_verify
 }
 
-download_mint() {
-    installer_type="$(get_choice "Mint" "Mint Debian Edition")"
+download_mint () {
+    installer_type="$(get_choice "mint" "debian edition")"
 
-    case "$installer_type" in
-        "Mint")
-            selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
-            fetch_and_assign_values "standard.version" "gpg_key" "standard.url" "standard.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders "url|version" "iso_file|version|selected_environment" ;;
-
-        "Mint Debian Edition")
-            fetch_and_assign_values "debian_edition.version" "gpg_key" "debian_edition.url" "debian_edition.iso_file" "sig_file" "sum_file" "sum_algo"
-            replace_placeholders "iso_file|version" ;;
-    esac
+    if [[ "$installer_type" == "mint" ]]; then
+        selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
+        fetch_and_assign_values "gpg_key" "mint.url" "mint.${selected_environment}.iso_file" "sig_file" "sum_file" "sum_algo"
+    else
+        fetch_and_assign_values "gpg_key" "debian.url" "debian.iso_file" "sig_file" "sum_file" "sum_algo"
+    fi
 
     wget_spider
     handle_download_path
@@ -250,18 +185,14 @@ download_mint() {
 }
 
 download_ubuntu() {
-    installer_type="$(get_choice "Ubuntu" "Ubuntu LTS")"
-    selected_image="$(get_choice "desktop" "live-server")"
+    installer_type="$(get_choice "current" "lts")"
+    selected_image="$(get_choice "desktop" "server")"
 
-    case "$installer_type" in
-        "Ubuntu")
-            fetch_and_assign_values "standard.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo" ;;
-
-        "Ubuntu LTS")
-            fetch_and_assign_values "lts.version" "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo" ;;
-    esac
-
-    replace_placeholders "url|version" "iso_file|version|selected_image"
+    if [[ "$installer_type" == "current" ]]; then
+        fetch_and_assign_values "gpg_key" "current.url" "current.${selected_image}.iso_file" "sig_file" "sum_file" "sum_algo"
+    else
+        fetch_and_assign_values "gpg_key" "lts.url" "lts.${selected_image}.iso_file" "sig_file" "sum_file" "sum_algo"
+    fi
 
     wget_spider
     handle_download_path
@@ -344,15 +275,23 @@ dl_distro() {
         -h|--help|help) usage; exit 0 ;;
     esac
 
-    json_file="$(for path in \
-                     "$HOME/.config/dl-distro/distro_data.json" \
-                     "$(dirname "$0")/distro_data.json" \
-                     "/usr/share/dl-distro/distro_data.json"; \
-                 do
-                     [[ -f "$path" ]] && echo "$path" && break;
-                 done || { echo -e "\nError: distro_data.json not found in any of the expected locations.\n" >&2;
-                           exit 1;
-                 })"
+    # Try to find the json file in the three known paths
+    for path in \
+        "$HOME/.config/dl-distro/distro_data.json" \
+        "$(dirname "$0")/distro_data.json" \
+        "/usr/share/dl-distro/distro_data.json";
+    do
+        if [[ -f "$path" ]]; then
+            json_file="$path"
+            break
+        fi
+    done
+
+    # If json_file is not set, exit with an error
+    if [[ -z "$json_file" ]]; then
+        echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
+        exit 1
+    fi
 
     case "$distro" in
         "arch") download_arch ;;

@@ -1,83 +1,172 @@
 {
     "arch": {
-        "version": "2023.08.01",
         "gpg_key": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
-        "url": "https://geo.mirror.pkgbuild.com/iso/{version}",
-        "iso_file": "archlinux-{version}-x86_64.iso",
-        "sig_file": "archlinux-{version}-x86_64.iso.sig",
+        "url": "https://geo.mirror.pkgbuild.com/iso/2023.08.01",
+        "iso_file": "archlinux-2023.08.01-x86_64.iso",
+        "sig_file": "archlinux-2023.08.01-x86_64.iso.sig",
         "sum_file": "b2sums.txt",
         "sum_algo": "b2sum"
     },
-
     "debian": {
-        "version": "12.1.0",
         "gpg_key": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
         "sig_file": "SHA512SUMS.sign",
         "sum_file": "SHA512SUMS",
         "sum_algo": "sha512sum",
-
-        "net_installer": {
-            "url": "https://cdimage.debian.org/debian-cd/current/{selected_architecture}/iso-cd",
-            "iso_file": "debian-{version}-{selected_architecture}-netinst.iso"
+        "netinst": {
+            "amd64": {
+                "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd",
+                "iso_file": "debian-12.1.0-amd64-netinst.iso"
+            },
+            "arm64": {
+                "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd",
+                "iso_file": "debian-12.1.0-arm64-netinst.iso"
+            },
+            "armel": {
+                "url": "https://cdimage.debian.org/debian-cd/current/armel/iso-cd",
+                "iso_file": "debian-12.1.0-armel-netinst.iso"
+            },
+            "armhf": {
+                "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd",
+                "iso_file": "debian-12.1.0-armhf-netinst.iso"
+            },
+            "i386": {
+                "url": "https://cdimage.debian.org/debian-cd/current/i386/iso-cd",
+                "iso_file": "debian-12.1.0-i386-netinst.iso"
+            },
+            "mips64el": {
+                "url": "https://cdimage.debian.org/debian-cd/current/mips64el/iso-cd",
+                "iso_file": "debian-12.1.0-mips64el-netinst.iso"
+            },
+            "mipsel": {
+                "url": "https://cdimage.debian.org/debian-cd/current/mipsel/iso-cd",
+                "iso_file": "debian-12.1.0-mipsel-netinst.iso"
+            },
+            "ppc64el": {
+                "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd",
+                "iso_file": "debian-12.1.0-ppc64el-netinst.iso"
+            },
+            "s390x": {
+                "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd",
+                "iso_file": "debian-12.1.0-s390x-netinst.iso"
+            }
         },
-
-        "live_installer": {
+        "live": {
             "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-            "iso_file": "debian-live-{version}-amd64-{selected_environment}.iso"
+            "cinnamon": {"iso_file": "debian-live-12.1.0-amd64-cinnamon.iso"},
+            "gnome": {"iso_file": "debian-live-12.1.0-amd64-gnome.iso"},
+            "kde": {"iso_file": "debian-live-12.1.0-amd64-kde.iso"},
+            "lxde": {"iso_file": "debian-live-12.1.0-amd64-lxde.iso"},
+            "lxqt": {"iso_file": "debian-live-12.1.0-amd64-lxqt.iso"},
+            "mate": {"iso_file": "debian-live-12.1.0-amd64-mate.iso"},
+            "standard": {"iso_file": "debian-live-12.1.0-amd64-standard.iso"},
+            "xfce": {"iso_file": "debian-live-12.1.0-amd64-xfce.iso"}
         }
     },
-
     "kali": {
-        "version": "2023.3",
         "gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
         "sig_file": "SHA256SUMS.gpg",
         "sum_file": "SHA256SUMS",
         "sum_algo": "sha256sum",
-
-        "standard": {
+        "current": {
             "url": "https://cdimage.kali.org/current",
-            "iso_file": "kali-linux-{version}-{selected_image}-{selected_architecture}.{ext}"
+            "live": {
+                "amd64": {"iso_file": "kali-linux-2023.3-live-amd64.iso"},
+                "arm64": {"iso_file": "kali-linux-2023.3-live-arm64.iso"},
+                "i386": {"iso_file": "kali-linux-2023.3-live-i386.iso"}
+            },
+            "qemu": {
+                "amd64": {"iso_file": "kali-linux-2023.3-qemu-amd64.7z"},
+                "i386": {"iso_file": "kali-linux-2023.3-qemu-i386.7z"}
+            },
+            "virtualbox": {
+                "amd64": {"iso_file": "kali-linux-2023.3-virtualbox-amd64.7z"},
+                "i386": {"iso_file": "kali-linux-2023.3-virtualbox-i386.7z"}
+            },
+            "vmware": {
+                "amd64": {"iso_file": "kali-linux-2023.3-vmware-amd64.7z"},
+                "i386": {"iso_file": "kali-linux-2023.3-vmware-i386.7z"}
+            },
+            "hyperv": {
+                "amd64": {"iso_file": "kali-linux-2023.3-hyperv-amd64.7z"}
+            },
+            "installer": {
+                "amd64": {"iso_file": "kali-linux-2023.3-installer-amd64.iso"},
+                "arm64": {"iso_file": "kali-linux-2023.3-installer-arm64.iso"},
+                "i386": {"iso_file": "kali-linux-2023.3-installer-i386.iso"}
+            },
+            "netinst": {
+                "amd64": {"iso_file": "kali-linux-2023.3-installer-netinst-amd64.iso"},
+                "arm64": {"iso_file": "kali-linux-2023.3-installer-netinst-arm64.iso"},
+                "i386": {"iso_file": "kali-linux-2023.3-installer-netinst-i386.iso"}
+            },
+            "purple": {
+                "amd64": {"iso_file": "kali-linux-2023.3-installer-purple-amd64.iso"}
+            }
         },
-
         "weekly": {
             "url": "https://cdimage.kali.org/kali-weekly",
-            "iso_file": "kali-linux-2023-W{current_week_num}-{selected_image}-{selected_architecture}.{ext}"
+            "live": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-amd64.iso"},
+                "arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-arm64.iso"},
+                "i386": {"iso_file": "kali-linux-2023-W{current_week_num}-live-i386.iso"}
+            },
+            "qemu": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-qemu-amd64.7z"}
+            },
+            "virtualbox": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-virtualbox-amd64.7z"}
+            },
+            "vmware": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-vmware-amd64.7z"}
+            },
+            "hyperv": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-hyperv-amd64.7z"}
+            },
+            "installer": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-amd64.iso"},
+                "arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-arm64.iso"},
+                "i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-i386.iso"}
+            },
+            "netinst": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-amd64.iso"},
+                "arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-arm64.iso"},
+                "i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-i386.iso"}
+            },
+            "purple": {
+                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-purple-amd64.iso"}
+            }
         }
     },
-
     "mint": {
         "gpg_key": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
         "sig_file": "sha256sum.txt.gpg",
         "sum_file": "sha256sum.txt",
         "sum_algo": "sha256sum",
-
-        "standard": {
-            "version": "21.2",
-            "url": "https://mirrors.layeronline.com/linuxmint/stable/{version}",
-            "iso_file": "linuxmint-{version}-{selected_environment}-64bit.iso"
+        "mint": {
+            "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+            "cinnamon": {"iso_file": "linuxmint-21.2-cinnamon-64bit.iso"},
+            "mate": {"iso_file": "linuxmint-21.2-mate-64bit.iso"},
+            "xfce": {"iso_file": "linuxmint-21.2-xfce-64bit.iso"}
         },
-
-        "debian_edition": {
-            "version": "5",
+        "debian": {
             "url": "https://mirrors.layeronline.com/linuxmint/debian",
-            "iso_file": "lmde-{version}-cinnamon-64bit.iso"
+            "iso_file": "lmde-5-cinnamon-64bit.iso"
         }
     },
-
     "ubuntu": {
         "gpg_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
-        "url": "https://releases.ubuntu.com/{version}",
-        "iso_file": "ubuntu-{version}-{selected_image}-amd64.iso",
         "sig_file": "SHA256SUMS.gpg",
         "sum_file": "SHA256SUMS",
         "sum_algo": "sha256sum",
-
-        "standard": {
-            "version": "23.04"
+        "current": {
+            "url": "https://releases.ubuntu.com/23.04",
+            "server": {"iso_file": "ubuntu-23.04-live-server-amd64.iso"},
+            "desktop": {"iso_file": "ubuntu-23.04-desktop-amd64.iso"}
         },
-
         "lts": {
-            "version": "22.04.3"
+            "url": "https://releases.ubuntu.com/22.04.3",
+            "server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
+            "desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
         }
     }
 }
