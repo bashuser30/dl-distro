@@ -35,8 +35,8 @@ Or you can [download the latest release](https://codeberg.org/codeberge/dl-distr
 Make sure the `distro_data.json` file is always in one of these locations:
 
 - `$HOME/.config/dl-distro/distro_data.json`
-- `/usr/share/dl-distro/distro_data.json`
 - The directory `dl-distro` is located in
+- `/usr/share/dl-distro/distro_data.json`
 
 `dl-distro` will look for the file in those places, in the order they are listed.
 
