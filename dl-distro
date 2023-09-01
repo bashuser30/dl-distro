@@ -13,7 +13,7 @@ wget_file() {
     done
 }
 
-# Checks for the GPG key needed, fetches it if missing; exits on failure. Usage: fetch_gpg_key "$gpg_key"
+# Checks for the GPG key needed, fetches it if missing; exits on failure
 fetch_gpg_key() {
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
         echo -e "\nFetching GPG key: $gpg_key\n"
