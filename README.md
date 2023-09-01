@@ -83,10 +83,10 @@ EXAMPLES:
 
 Here's a breakdown of the available ISOs per distribution:
 
-- **Arch**: 1 ISO
-- **Debian**: 17 ISOs
-- **Kali**: 31 ISOs
-- **Mint**: 4 ISOs
-- **Ubuntu**: 4 ISOs
+- **Arch**: 1
+- **Debian**: 17
+- **Kali**: 31
+- **Mint**: 4
+- **Ubuntu**: 4
 
 This breakdown illustrates how `dl-distro` can handle a multitude of distribution combinations.
