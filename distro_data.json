@@ -87,7 +87,7 @@
                 "i386": {"iso_file": "kali-linux-2023.3-vmware-i386.7z"}
             },
             "hyperv": {
-                "amd64": {"iso_file": "kali-linux-2023.3-hyperv-amd64.7z"}
+                "amd64": {"iso_file": "kali-linux-2023.3a-hyperv-amd64.7z"}
             },
             "installer": {
                 "amd64": {"iso_file": "kali-linux-2023.3-installer-amd64.iso"},
