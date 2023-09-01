@@ -48,7 +48,7 @@ USAGE:
     dl-distro [distro] [path | --spider]
 
 OPTIONS:
-    --spider    Use wget spider to check if the file exists without actually downloading it.
+    --spider    Use wget --spider to check if the file exists without actually downloading it.
 
 DISTROS:
     arch
