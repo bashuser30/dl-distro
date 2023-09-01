@@ -45,7 +45,10 @@ Make sure the `distro_data.json` file is always in one of these locations:
 
 ```
 USAGE:
-    dl-distro [distro] [path]
+    dl-distro [distro] [path | --spider]
+
+OPTIONS:
+    --spider    Use wget spider to check if the file exists without actually downloading it.
 
 DISTROS:
     arch
@@ -57,6 +60,7 @@ DISTROS:
 EXAMPLES:
     dl-distro arch
     dl-distro arch /run/media/$USER/Ventoy
+    dl-distro arch --spider
 ```
 
 ## Supported Distributions
