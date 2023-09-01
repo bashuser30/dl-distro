@@ -3,6 +3,7 @@
 
 set -euo pipefail
 
+# Downloads files listed in "$@" using wget; exits on failure. Usage: wget_file "$sig_file" "$sum_file"
 wget_file() {
     for file in "$@"; do
         if ! wget -q --show-progress -c "$url/$file"; then
@@ -12,6 +13,7 @@ wget_file() {
     done
 }
 
+# Checks for the GPG key needed, fetches it if missing; exits on failure. Usage: fetch_gpg_key "$gpg_key"
 fetch_gpg_key() {
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
         echo -e "\nFetching GPG key: $gpg_key\n"
@@ -22,6 +24,7 @@ fetch_gpg_key() {
     fi
 }
 
+# Verifies a file using its GPG signature; deletes files and exits on failure. Usage: gpg_verify "$sum_file"
 gpg_verify() {
     if ! gpg --verify "$sig_file" "$1"; then
         echo -e "\nError: GPG verification failed.\n"
@@ -30,6 +33,7 @@ gpg_verify() {
     fi
 }
 
+# Verifies a file using its checksum; deletes files and exits based on success/failure
 checksum_verify() {
     if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
         echo -e "\nError: $sum_algo verification failed.\n"
@@ -42,15 +46,16 @@ checksum_verify() {
     fi
 }
 
+# Ensures the specified download path exists and changes to it; exits on failure
 handle_download_path() {
     if [[ "$download_path" != "$(pwd)" ]]; then
         mkdir -p "$download_path" && cd "$download_path" || exit 1
     fi
 }
 
-# Takes an array, displays it to the user and assigns their choice to a variable
-# Usage: selected_architecture="$(get_choice "amd64" "arm64")"
-# If the user picks amd64, selected_architecture=amd64
+# Presents a list of options to the user and returns their selected choice
+# Usage: selected_option="$(get_choice "option1" "option2" ...)"
+# Example: If user selects "amd64", then selected_option="amd64"
 get_choice() {
     options=("$@")
     num_options="${#options[@]}"
@@ -73,15 +78,16 @@ get_choice() {
     done
 }
 
-# Fetches values for specific keys from the JSON file
-# Assigns the values to variables that our downloading and verifying functions can use
-# Example: fetch_and_assign_values "gpg_key" "netinst.amd64.url" "netinst.amd64.iso_file" "sig_file" "sum_file" "sum_algo"
+# Fetches and assigns specific values from a JSON file to global variables
+# Keys provided should match the desired sequence of variable assignments
+# Usage: fetch_and_assign_values "key1" "key2" ...
+# Example: fetch_and_assign_values "gpg_key" "netinst.amd64.url" ...
 fetch_and_assign_values() {
     keys=("$@")
 
-    # Create a single jq query string to fetch all values
+    # Create a single jq query string to fetch all values and remove the trailing comma and space
     jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
-    jq_query="${jq_query%, }"  # Remove the trailing comma and space
+    jq_query="${jq_query%, }"
 
     # Fetch values using the jq query string into an array
     readarray -t values < <(jq -r "$jq_query" "$json_file")
@@ -95,7 +101,42 @@ fetch_and_assign_values() {
     sum_algo="${values[5]}"
 }
 
+# This function is used with an external Expect script I made
+# It checks the sig and sum file for each distro's URL(s) and then every ISO combination possible
+# Helps a lot with detecting version and file name changes if I happen to miss an announcement
+wget_spider() {
+    # If not in spider mode, exit the function
+    if [[ "$download_path" != "--spider" ]]; then
+        return 0
+    fi
+
+    # Define file to track checked distro URLs to avoid redundant checks
+    tracked_file="/tmp/dl-distro_tracked.txt"
+    tracked_string="${distro}_${installer_type:-}_checked"
+
+    # Nested function to spider a given file from the set URL
+    spider_file() {
+        local file="$1"
+        if ! wget -nv -c --spider "$url/$file"; then
+            echo -e "\nError: Failed to download $file.\n"
+            exit 1
+        fi
+    }
+
+    # Check the sig and sum files only if they haven't been tracked yet
+    if ! grep -q "$tracked_string" "$tracked_file" 2>/dev/null; then
+        spider_file "$sig_file"
+        spider_file "$sum_file"
+        echo "$tracked_string" >> "$tracked_file"
+    fi
+
+    # Always check the ISO file
+    spider_file "$iso_file"
+    exit 0
+}
+
 download_arch() {
+    # Download and verify the ISO
     fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     wget_spider
     handle_download_path
@@ -106,8 +147,10 @@ download_arch() {
 }
 
 download_debian() {
+    # Prompt the user to select the installer type: either "net installer" or "live installer"
     installer_type="$(get_choice "net installer" "live installer")"
 
+    # Depending on the installer type, prompt the user for either the architecture or the environment and fetch values
     if [[ "$installer_type" == "net installer" ]]; then
         selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
         fetch_and_assign_values "gpg_key" "netinst.${selected_architecture}.url" "netinst.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
@@ -116,6 +159,7 @@ download_debian() {
         fetch_and_assign_values "gpg_key" "live.url" "live.${selected_environment}.iso_file" "sig_file" "sum_file" "sum_algo"
     fi
 
+    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -126,14 +170,19 @@ download_debian() {
 }
 
 download_kali () {
+    # Prompt the user to select the installer type: either "kali" or "weekly"
     installer_type="$(get_choice "kali" "weekly")"
+
+    # Prompt the user to select the desired image type
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
+    # Determine the architecture based on the selected image type
     if [[ "$selected_image" == "live" || "$selected_image" == "installer" || "$selected_image" == "netinst" ]]; then
         selected_architecture="$(get_choice "amd64" "arm64" "i386")"
     elif [[ "$selected_image" == "purple" || "$selected_image" == "hyperv" ]]; then
         selected_architecture="amd64"
     else
+        # This is for all VM images. For weekly builds, default to "amd64". Otherwise, prompt for architecture choice
         if [[ "$installer_type" == "weekly" ]]; then
             selected_architecture="amd64"
         else
@@ -141,14 +190,18 @@ download_kali () {
         fi
     fi
 
+    # Fetch the relevant values for the selected image and architecture
     if [[ "$installer_type" == "kali" ]]; then
         fetch_and_assign_values "gpg_key" "current.url" "current.${selected_image}.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
     else
         fetch_and_assign_values "gpg_key" "weekly.url" "weekly.${selected_image}.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
+
+        # Fetch the week number from the URL for weekly builds
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
         iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
+        # If the specified ISO is not available for the current week, default to the previous week's ISO
         if ! echo "$html_content" | grep -q "$iso_file"; then
             echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
@@ -156,6 +209,7 @@ download_kali () {
         fi
     fi
 
+    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -166,15 +220,20 @@ download_kali () {
 }
 
 download_mint () {
+    # Prompt the user to choose between standard Mint or Debian Edition
     installer_type="$(get_choice "mint" "debian edition")"
 
+    # Depending on the chosen installer type, fetch the relevant details
     if [[ "$installer_type" == "mint" ]]; then
+        # For standard Mint, prompt the user for the desired environment
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
         fetch_and_assign_values "gpg_key" "mint.url" "mint.${selected_environment}.iso_file" "sig_file" "sum_file" "sum_algo"
     else
+        # For Debian Edition, directly fetch the values without prompting for environment
         fetch_and_assign_values "gpg_key" "debian.url" "debian.iso_file" "sig_file" "sum_file" "sum_algo"
     fi
 
+    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -185,15 +244,20 @@ download_mint () {
 }
 
 download_ubuntu() {
+    # Prompt the user to choose between the current release or the Long Term Support (LTS) version
     installer_type="$(get_choice "current" "lts")"
+
+    # Prompt the user to select the desired image type (either desktop or server)
     selected_image="$(get_choice "desktop" "server")"
 
+    # Fetch the relevant details based on the chosen installer type
     if [[ "$installer_type" == "current" ]]; then
         fetch_and_assign_values "gpg_key" "current.url" "current.${selected_image}.iso_file" "sig_file" "sum_file" "sum_algo"
     else
         fetch_and_assign_values "gpg_key" "lts.url" "lts.${selected_image}.iso_file" "sig_file" "sum_file" "sum_algo"
     fi
 
+    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -201,50 +265,6 @@ download_ubuntu() {
     gpg_verify "$sum_file"
     wget_file "$iso_file"
     checksum_verify
-}
-
-check_dependencies() {
-    missing_deps=()
-
-    for cmd in wget gpg jq; do
-        command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
-    done
-
-    if [[ "${#missing_deps[@]}" -gt 0 ]]; then
-        echo -e "\nPlease install: ${missing_deps[*]}.\n"
-        exit 1
-    else
-        return 0
-    fi
-}
-
-# This function is used with an external Expect script I made
-# It checks the sig and sum file for each distro's URL(s) and then every ISO combination possible
-# Helps a lot with detecting version and file name changes if I happen to miss an announcement
-wget_spider() {
-    if [[ "$download_path" != "--spider" ]]; then
-        return 0
-    fi
-
-    tracked_file="/tmp/dl-distro_tracked.txt"
-    tracked_string="${distro}_${installer_type:-}_checked"
-
-    spider_file() {
-        local file="$1"
-        if ! wget -nv -c --spider "$url/$file"; then
-            echo -e "\nError: Failed to download $file.\n"
-            exit 1
-        fi
-    }
-
-    if ! grep -q "$tracked_string" "$tracked_file" 2>/dev/null; then
-        spider_file "$sig_file"
-        spider_file "$sum_file"
-        echo "$tracked_string" >> "$tracked_file"
-    fi
-
-    spider_file "$iso_file"
-    exit 0
 }
 
 usage() {
@@ -267,15 +287,34 @@ EXAMPLES:
 EOF
 }
 
+check_dependencies() {
+    # Initialize an array to hold missing dependencies
+    missing_deps=()
+
+    # Check for the presence of each required dependency
+    for cmd in wget gpg jq; do
+        command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
+    done
+
+    # If there are missing dependencies, notify the user and exit
+    if [[ "${#missing_deps[@]}" -gt 0 ]]; then
+        echo -e "\nPlease install: ${missing_deps[*]}.\n"
+        exit 1
+    else
+        return 0
+    fi
+}
+
 dl_distro() {
     distro="${1:-help}"
     download_path="${2:-$(pwd)}"
 
+    # Handle help request
     case "$distro" in
         -h|--help|help) usage; exit 0 ;;
     esac
 
-    # Try to find the json file in the three known paths
+    # Search for the distro data JSON in the predefined paths
     for path in \
         "$HOME/.config/dl-distro/distro_data.json" \
         "$(dirname "$0")/distro_data.json" \
@@ -287,12 +326,13 @@ dl_distro() {
         fi
     done
 
-    # If json_file is not set, exit with an error
+    # Exit if the JSON data file wasn't found
     if [[ -z "$json_file" ]]; then
         echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
         exit 1
     fi
 
+    # Delegate to the appropriate download function based on the chosen distro
     case "$distro" in
         "arch") download_arch ;;
         "debian") download_debian ;;
