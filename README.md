@@ -61,7 +61,7 @@ EXAMPLES:
 ## Supported Distributions
 
 ### [Arch](https://archlinux.org)
-- 2023.08.01
+- 2023.09.01
 
 ### [Debian](https://debian.org)
 - 12.1.0
