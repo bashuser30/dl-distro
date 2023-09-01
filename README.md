@@ -1,8 +1,8 @@
 # dl-distro
 
-`dl-distro` is a Bash script that was first designed to automatically download and verify Arch ISOs every month.
+`dl-distro` is a Bash script that was first designed to automatically download and verify Arch ISOs every month. I've decided to start adding support for more distributions whenever I get the chance. Contributions are welcome.
 
-Currently, `dl-distro` supports downloading 57 different ISOs from 5 different distributions, see [Supported Distributions](#supported-distributions) and [Distribution ISO Breakdown](#distribution-iso-breakdown). I am adding support for more distributions when I get the chance. Contributions are welcome.
+Currently, `dl-distro` supports downloading 57 different ISOs from 5 different distributions, see [Supported Distributions](#supported-distributions) and [Distribution ISO Breakdown](#distribution-iso-breakdown).
 
 **This script will automatically import GPG signing keys to verify the signatures. DO NOT run this script if you DO NOT  want to import the GPG signing keys of the developers.**
 
