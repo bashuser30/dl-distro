@@ -112,7 +112,15 @@ wget_spider() {
 
     # Define file to track checked distro URLs to avoid redundant checks
     tracked_file="/tmp/dl-distro_tracked.txt"
-    tracked_string="${distro}_${installer_type:-}_checked"
+
+    # Determine the tracked string based on installer type and architecture (if relevant)
+    if [[ -n "${installer_type:-}" && "$installer_type" == "net installer" ]]; then
+        tracked_string="${distro}_${installer_type}_${selected_architecture}_checked"
+    elif [[ -n "${installer_type:-}" ]]; then
+        tracked_string="${distro}_${installer_type}_checked"
+    else
+        tracked_string="${distro}_checked"
+    fi
 
     # Nested function to spider a given file from the set URL
     spider_file() {
