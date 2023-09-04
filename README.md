@@ -31,7 +31,7 @@ If you can't access the AUR, you can directly `git clone` the repo.
 git clone https://codeberg.org/bashuser30/dl-distro.git
 ```
 
-Or you can [download the latest release](https://codeberg.org/codeberge/dl-distro/releases/latest).
+Or you can [download the latest release](https://codeberg.org/bashuser30/dl-distro/releases/latest).
 
 Make sure the `distro_data.json` file is always in one of these locations:
 
