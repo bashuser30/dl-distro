@@ -28,7 +28,7 @@ makepkg -si
 If you can't access the AUR, you can directly `git clone` the repo.
 
 ```
-git clone https://codeberg.org/codeberge/dl-distro.git
+git clone https://codeberg.org/bashuser30/dl-distro.git
 ```
 
 Or you can [download the latest release](https://codeberg.org/codeberge/dl-distro/releases/latest).
