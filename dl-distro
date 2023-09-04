@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# https://codeberg.org/codeberge/dl-distro/src/branch/master/README.md
+# https://codeberg.org/bashuser30/dl-distro/src/branch/master/README.md
 
 set -euo pipefail
 
