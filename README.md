@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see [Contributing](#contributing).
 
-Currently, `dl-distro` supports downloading 57 different ISOs from 5 different distributions, with the majority being from Debian and Kali. For a detailed list, see [Supported Distributions](#supported-distributions).
+Currently, `dl-distro` supports downloading 59 different ISOs from 6 different distributions, with the majority being from Debian and Kali. For a detailed list, see [Supported Distributions](#supported-distributions).
 
 > **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
 
@@ -56,6 +56,7 @@ DISTROS:
     kali
     mint
     ubuntu
+    whonix
 
 EXAMPLES:
     dl-distro arch
@@ -89,6 +90,10 @@ EXAMPLES:
 - **23.04 & 22.04.3 (LTS)**
   - Desktop
   - Server
+
+### [Whonix](https://whonix.org)
+- **17.0.3.0 (QEMU)**
+- **17.0.4.5 (VirtualBox)**
 
 ## Contributing
 

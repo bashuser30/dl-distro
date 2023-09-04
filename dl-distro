@@ -275,6 +275,23 @@ download_ubuntu() {
     checksum_verify
 }
 
+download_whonix() {
+    installer_type="$(get_choice "qemu" "virtualbox")"
+
+    if [[ "$installer_type" == "qemu" ]]; then
+        fetch_and_assign_values "qemu.gpg_key" "qemu.url" "qemu.iso_file" "qemu.sig_file" "qemu.sum_file" "sum_algo"
+    else
+        fetch_and_assign_values "virtualbox.gpg_key" "virtualbox.url" "virtualbox.iso_file" "virtualbox.sig_file" "virtualbox.sum_file" "sum_algo"
+    fi
+
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file" "$iso_file"
+    gpg_verify "$iso_file"
+    checksum_verify
+}
+
 usage() {
     cat <<EOF
 
@@ -290,6 +307,7 @@ DISTROS:
     kali
     mint
     ubuntu
+    whonix
 
 EXAMPLES:
     dl-distro arch
@@ -351,6 +369,7 @@ dl_distro() {
         "kali") download_kali ;;
         "mint") download_mint ;;
         "ubuntu") download_ubuntu ;;
+        "whonix") download_whonix ;;
         *) echo -e "\nError: Please use -h or --help for usage and supported distros.\n"; exit 1 ;;
     esac
 }

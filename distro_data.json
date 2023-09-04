@@ -168,5 +168,22 @@
             "server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
             "desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
         }
+    },
+    "whonix": {
+        "sum_algo": "sha512sum",
+        "qemu": {
+            "gpg_key": "04EF2F666D36C354058B9DD450C78B6F9FF2EC85",
+            "url": "https://download.whonix.org/libvirt/17.0.3.0",
+            "iso_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz",
+            "sig_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.asc",
+            "sum_file": "Whonix-Xfce-17.0.3.0.sha512sums"
+        },
+        "virtualbox": {
+            "gpg_key": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA",
+            "url": "https://download.whonix.org/ova/17.0.4.5",
+            "iso_file": "Whonix-Xfce-17.0.4.5.ova",
+            "sig_file": "Whonix-Xfce-17.0.4.5.ova.asc",
+            "sum_file": "Whonix-Xfce-17.0.4.5.sha512sums"
+        }
     }
 }
