@@ -17,6 +17,10 @@ Currently, `dl-distro` supports downloading 59 different ISOs from 6 different d
 
 ### AUR Package
 
+You can either use your preferred AUR helper or manually clone and build the package. Both `dl-distro` and `dl-distro-git` are available.
+
+Manual clone and build:
+
 ```
 git clone https://aur.archlinux.org/dl-distro.git
 cd dl-distro
@@ -25,15 +29,20 @@ makepkg -si
 
 ### Non AUR Install
 
-If you can't access the AUR, you can directly `git clone` the repo.
+If you can't access the AUR, you have two options:
+
+1. [Download the latest release](https://codeberg.org/bashuser30/dl-distro/releases/latest).
+2. Or you can `git clone` the repo:
 
 ```
 git clone https://codeberg.org/bashuser30/dl-distro.git
 ```
 
-Or you can [download the latest release](https://codeberg.org/bashuser30/dl-distro/releases/latest).
+## Usage
 
-Make sure the `distro_data.json` file is always in one of these locations:
+### JSON File
+
+`dl-distro` is designed to read a JSON file using `jq` to retrieve the required details of the selected distro. Make sure the `distro_data.json` file is always in one of these locations:
 
 - `$HOME/.config/dl-distro/distro_data.json`
 - The directory where `dl-distro` is located
@@ -41,7 +50,7 @@ Make sure the `distro_data.json` file is always in one of these locations:
 
 `dl-distro` will look for the file in those places, in the order they are listed.
 
-## Usage
+### Script Usage
 
 ```
 USAGE:
@@ -63,6 +72,16 @@ EXAMPLES:
     dl-distro arch /run/media/$USER/Ventoy
     dl-distro arch --spider
 ```
+
+### Error Importing Signing Key
+
+In the event you are unable to import the desired distro's signing key from the keyserver, fallback keys are provided in the `fallback_keys` directory of the repository. You can manually import the required key using:
+
+```
+gpg --import fallback_keys/distro.asc
+```
+
+If you prefer not to use the provided fallback keys, you can manually find and import the required key yourself. Once done, `dl-distro` will be able to complete the verification process.
 
 ## Supported Distributions
 
