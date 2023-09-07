@@ -89,8 +89,7 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 
 ### [Debian](https://debian.org)
 - **12.1.0**
-  - Net Installer
-  - Live Installer
+  - Net Installer, Live Installer
 
 ### [Fedora](https://fedoraproject.org)
 - **38**
