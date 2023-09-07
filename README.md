@@ -96,7 +96,7 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 ### [Kali](https://kali.org)
 - **2023.3, Weekly**
   - Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Net Installer, Purple
-    - amd64, arm64, i386 (where supported)
+    - amd64, arm64, i386
 
 ### [Mint](https://linuxmint.com)
 - **21.2**
