@@ -277,13 +277,7 @@ download_ubuntu() {
 
 download_whonix() {
     installer_type="$(get_choice "qemu" "virtualbox")"
-
-    if [[ "$installer_type" == "qemu" ]]; then
-        fetch_and_assign_values "qemu.gpg_key" "qemu.url" "qemu.iso_file" "qemu.sig_file" "qemu.sum_file" "sum_algo"
-    else
-        fetch_and_assign_values "virtualbox.gpg_key" "virtualbox.url" "virtualbox.iso_file" "virtualbox.sig_file" "virtualbox.sum_file" "sum_algo"
-    fi
-
+    fetch_and_assign_values "${installer_type}.gpg_key" "${installer_type}.url" "${installer_type}.iso_file" "${installer_type}.sig_file" "${installer_type}.sum_file" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
