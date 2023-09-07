@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see [Contributing](#contributing).
 
-Currently, `dl-distro` supports downloading **59** different ISOs from **6** different distributions, with the majority being from Debian and Kali. For a detailed list, see [Supported Distributions](#supported-distributions).
+Currently, `dl-distro` supports downloading **80** different ISOs from **7** different distributions. For a detailed list, see [Supported Distributions](#supported-distributions).
 
 > **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
 
@@ -60,6 +60,7 @@ OPTIONS:
 DISTROS:
     arch
     debian
+    fedora
     kali
     mint
     ubuntu
@@ -89,14 +90,15 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 ### [Debian](https://debian.org)
 - **12.1.0**
   - Net Installer
-    - amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x
   - Live Installer
-    - Cinnamon, GNOME, KDE, LXDE, LXQt, MATE, Standard, Xfce
+
+### [Fedora](https://fedoraproject.org)
+- **38**
+  - Everything, Server, Silverblue, Spins, Workstation
 
 ### [Kali](https://kali.org)
 - **2023.3, Weekly**
   - Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Net Installer, Purple
-    - amd64, arm64, i386
 
 ### [Mint](https://linuxmint.com)
 - **21.2**

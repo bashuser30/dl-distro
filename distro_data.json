@@ -62,6 +62,87 @@
             "xfce": {"iso_file": "debian-live-12.1.0-amd64-xfce.iso"}
         }
     },
+    "fedora": {
+        "gpg_key": "6A51BBABBA3D5467B6171221809A8D7CEB10B464",
+        "sum_algo": "sha256sum",
+        "everything": {
+            "x86_64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/x86_64/iso",
+                "iso_file": "Fedora-Everything-netinst-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM"
+            },
+            "aarch64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/aarch64/iso",
+                "iso_file": "Fedora-Everything-netinst-aarch64-38-1.6.iso",
+                "sig_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM",
+                "sum_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM"
+            }
+        },
+        "server": {
+            "x86_64": {
+                "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+                "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+                "standard": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
+                    "dvd": {"iso_file": "Fedora-Server-dvd-x86_64-38-1.6.iso"},
+                    "netinst": {"iso_file": "Fedora-Server-netinst-x86_64-38-1.6.iso"}
+                },
+                "vm": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/images",
+                    "iso_file": "Fedora-Server-KVM-38-1.6.x86_64.qcow2"
+                }
+            },
+            "aarch64": {
+                "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+                "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+                "standard": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
+                    "dvd": {"iso_file": "Fedora-Server-dvd-aarch64-38-1.6.iso"},
+                    "netinst": {"iso_file": "Fedora-Server-netinst-aarch64-38-1.6.iso"}
+                },
+                "vm": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
+                    "iso_file": "Fedora-Server-KVM-38-1.6.aarch64.qcow2"
+                }
+            }
+        },
+        "silverblue": {
+            "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
+            "iso_file": "Fedora-Silverblue-ostree-x86_64-38-1.6.iso",
+            "sig_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM",
+            "sum_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM"
+        },
+        "spins": {
+            "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+            "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+            "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+            "budgie": {"iso_file": "Fedora-Budgie-Live-x86_64-38-1.6.iso"},
+            "cinnamon": {"iso_file": "Fedora-Cinnamon-Live-x86_64-38-1.6.iso"},
+            "kde": {"iso_file": "Fedora-KDE-Live-x86_64-38-1.6.iso"},
+            "lxde": {"iso_file": "Fedora-LXDE-Live-x86_64-38-1.6.iso"},
+            "lxqt": {"iso_file": "Fedora-LXQt-Live-x86_64-38-1.6.iso"},
+            "mate": {"iso_file": "Fedora-MATE_Compiz-Live-x86_64-38-1.6.iso"},
+            "sugar": {"iso_file": "Fedora-SoaS-Live-x86_64-38-1.6.iso"},
+            "sway": {"iso_file": "Fedora-Sway-Live-x86_64-38-1.6.iso"},
+            "xfce": {"iso_file": "Fedora-Xfce-Live-x86_64-38-1.6.iso"},
+            "i3": {"iso_file": "Fedora-i3-Live-x86_64-38-1.6.iso"}
+        },
+        "workstation": {
+            "x86_64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso",
+                "iso_file": "Fedora-Workstation-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM"
+            },
+            "aarch64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/aarch64/iso",
+                "iso_file": "Fedora-Workstation-Live-aarch64-38-1.6.iso",
+                "sig_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM",
+                "sum_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM"
+            }
+        }
+    },
     "kali": {
         "gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
         "sig_file": "SHA256SUMS.gpg",

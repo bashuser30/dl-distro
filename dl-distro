@@ -24,18 +24,29 @@ fetch_gpg_key() {
     fi
 }
 
-# Verifies a file using its GPG signature; deletes files and exits on failure. Usage: gpg_verify "$sum_file"
+# Verifies a file using its GPG signature; deletes files and exits on failure.
+# Usage:
+# - gpg_verify
+# - gpg_verify "$sum_file"
 gpg_verify() {
-    if ! gpg --verify "$sig_file" "$1"; then
-        echo -e "\nError: GPG verification failed.\n"
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        exit 1
+    if [[ -z "${1:-}" ]]; then
+        if ! gpg --verify "$sig_file"; then
+            echo -e "\nError: GPG verification failed.\n"
+            rm -f "$iso_file" "$sig_file" "$sum_file"
+            exit 1
+        fi
+    else
+        if ! gpg --verify "$sig_file" "$1"; then
+            echo -e "\nError: GPG verification failed.\n"
+            rm -f "$iso_file" "$sig_file" "$sum_file"
+            exit 1
+        fi
     fi
 }
 
 # Verifies a file using its checksum; deletes files and exits based on success/failure
 checksum_verify() {
-    if ! "$sum_algo" -c --ignore-missing "$sum_file"; then
+    if ! "$sum_algo" -c --ignore-missing "$sum_file" 2>/dev/null; then
         echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
         exit 1
@@ -101,45 +112,19 @@ fetch_and_assign_values() {
     sum_algo="${values[5]}"
 }
 
-# This function is used with an external Expect script I made
-# It checks the sig and sum file for each distro's URL(s) and then every ISO combination possible
-# Helps a lot with detecting version and file name changes if I happen to miss an announcement
+# Checks the iso, sig, and sum file for the chosen combination
 wget_spider() {
-    # If not in spider mode, exit the function
     if [[ "$download_path" != "--spider" ]]; then
         return 0
     fi
 
-    # Define file to track checked distro URLs to avoid redundant checks
-    tracked_file="/tmp/dl-distro_tracked.txt"
-
-    # Determine the tracked string based on installer type and architecture (if relevant)
-    if [[ -n "${installer_type:-}" && "$installer_type" == "net installer" ]]; then
-        tracked_string="${distro}_${installer_type}_${selected_architecture}_checked"
-    elif [[ -n "${installer_type:-}" ]]; then
-        tracked_string="${distro}_${installer_type}_checked"
-    else
-        tracked_string="${distro}_checked"
-    fi
-
-    # Nested function to spider a given file from the set URL
-    spider_file() {
-        local file="$1"
+    for file in "$iso_file" "$sig_file" "$sum_file"; do
         if ! wget -nv -c --spider "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
-    }
+    done
 
-    # Check the sig and sum files only if they haven't been tracked yet
-    if ! grep -q "$tracked_string" "$tracked_file" 2>/dev/null; then
-        spider_file "$sig_file"
-        spider_file "$sum_file"
-        echo "$tracked_string" >> "$tracked_file"
-    fi
-
-    # Always check the ISO file
-    spider_file "$iso_file"
     exit 0
 }
 
@@ -173,6 +158,42 @@ download_debian() {
     fetch_gpg_key
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
+    wget_file "$iso_file"
+    checksum_verify
+}
+
+download_fedora() {
+    installer_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
+
+    if [[ "$installer_type" == "everything" ]]; then
+        selected_architecture="$(get_choice "x86_64" "aarch64")"
+        fetch_and_assign_values "gpg_key" "everything.${selected_architecture}.url" "everything.${selected_architecture}.iso_file" "everything.${selected_architecture}.sig_file" "everything.${selected_architecture}.sum_file" "sum_algo"
+    elif [[ "$installer_type" == "server" ]]; then
+        selected_architecture="$(get_choice "x86_64" "aarch64")"
+        image_type="$(get_choice "standard" "vm")"
+
+        if [[ "$image_type" == "standard" ]]; then
+            install_method="$(get_choice "dvd" "netinst")"
+            fetch_and_assign_values "gpg_key" "server.${selected_architecture}.${image_type}.url" "server.${selected_architecture}.${image_type}.${install_method}.iso_file" "server.${selected_architecture}.sig_file" "server.${selected_architecture}.sum_file" "sum_algo"
+        else
+            fetch_and_assign_values "gpg_key" "server.${selected_architecture}.${image_type}.url" "server.${selected_architecture}.${image_type}.iso_file" "server.${selected_architecture}.sig_file" "server.${selected_architecture}.sum_file" "sum_algo"
+        fi
+
+    elif [[ "$installer_type" == "silverblue" ]]; then
+        fetch_and_assign_values "gpg_key" "silverblue.url" "silverblue.iso_file" "silverblue.sig_file" "silverblue.sum_file" "sum_algo"
+    elif [[ "$installer_type" == "spins" ]]; then
+        selected_environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
+        fetch_and_assign_values "gpg_key" "spins.url" "spins.${selected_environment}.iso_file" "spins.sig_file" "spins.sum_file" "sum_algo"
+    else
+        selected_architecture="$(get_choice "x86_64" "aarch64")"
+        fetch_and_assign_values "gpg_key" "workstation.${selected_architecture}.url" "workstation.${selected_architecture}.iso_file" "workstation.${selected_architecture}.sig_file" "workstation.${selected_architecture}.sum_file" "sum_algo"
+    fi
+
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file"
+    gpg_verify
     wget_file "$iso_file"
     checksum_verify
 }
@@ -298,6 +319,7 @@ OPTIONS:
 DISTROS:
     arch
     debian
+    fedora
     kali
     mint
     ubuntu
@@ -360,6 +382,7 @@ dl_distro() {
     case "$distro" in
         "arch") download_arch ;;
         "debian") download_debian ;;
+        "fedora") download_fedora ;;
         "kali") download_kali ;;
         "mint") download_mint ;;
         "ubuntu") download_ubuntu ;;
