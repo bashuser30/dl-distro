@@ -88,25 +88,21 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 - **2023.09.01**
 
 ### [Debian](https://debian.org)
-- **12.1.0**
-  - Net Installer, Live Installer
+- **12.1.0**: Net & Live Installer
 
 ### [Fedora](https://fedoraproject.org)
-- **38**
-  - Everything, Server, Silverblue, Spins, Workstation
+- **38**: Everything, Server, Silverblue, Spins, Workstation
 
 ### [Kali](https://kali.org)
-- **2023.3, Weekly**
-  - Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Net Installer, Purple
+- **2023.3 & Weekly**: Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Net Installer, Purple
 
 ### [Mint](https://linuxmint.com)
-- **21.2**
-  - Cinnamon, MATE, Xfce
+- **21.2**: Cinnamon, MATE, Xfce
 - **Debian Edition 5**
 
 ### [Ubuntu](https://ubuntu.com)
-- **23.04, 22.04.3 (LTS)**
-  - Desktop, Server
+- **23.04**: Desktop, Server
+- **22.04.3 (LTS)**: Desktop, Server
 
 ### [Whonix](https://whonix.org)
 - **17.0.3.0 (QEMU)**
