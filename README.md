@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see [Contributing](#contributing).
 
-Currently, `dl-distro` supports downloading **80** different ISOs from **7** different distributions. For a detailed list, see [Supported Distributions](#supported-distributions).
+Currently, `dl-distro` supports downloading **114** different ISOs from **8** different distributions. For a detailed list, see [Supported Distributions](#supported-distributions).
 
 > **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
 
@@ -63,6 +63,7 @@ DISTROS:
     fedora
     kali
     mint
+    opensuse
     ubuntu
     whonix
 
@@ -88,21 +89,44 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 - **2023.09.01**
 
 ### [Debian](https://debian.org)
-- **12.1.0**: Net & Live Installer
+- **12.1.0**
+  - Netinst
+    - amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x
+  - Live
+    - Cinnamon, GNOME, KDE, LXDE, LXQt, MATE, Standard, Xfce
 
 ### [Fedora](https://fedoraproject.org)
-- **38**: Everything, Server, Silverblue, Spins, Workstation
+- **38**
+  - Everything
+  - Server
+    - DVD, Netinst, KVM
+  - Silverblue
+  - Spins
+    - Budgie, Cinnamon, KDE, LXDE, LXQt, MATE Compiz, Sugar, Sway, Xfce, i3
+  - Workstation
+
+> x86\_64 and aarch64 supported where available.
 
 ### [Kali](https://kali.org)
-- **2023.3 & Weekly**: Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Net Installer, Purple
+- **2023.3 & Weekly**
+  - Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Netinst, Purple
+
+> amd64, arm64 and i386 supported where available.
 
 ### [Mint](https://linuxmint.com)
-- **21.2**: Cinnamon, MATE, Xfce
+- **21.2**
+  - Cinnamon, MATE, Xfce
 - **Debian Edition 5**
 
+### [openSUSE](https://opensuse.org)
+- **Leap 15.5 & Tumbleweed**
+  - DVD, Netinst, KVM, Hyper-V, VMware, Cloud
+
+> x86\_64, i586, aarch64, ppc64le and s390x supported where available.
+
 ### [Ubuntu](https://ubuntu.com)
-- **23.04**: Desktop, Server
-- **22.04.3 (LTS)**: Desktop, Server
+- **23.04 & 22.04.3 (LTS)**
+  - Desktop, Server
 
 ### [Whonix](https://whonix.org)
 - **17.0.3.0 (QEMU)**

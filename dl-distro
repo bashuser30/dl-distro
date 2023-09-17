@@ -6,7 +6,7 @@ set -euo pipefail
 # Downloads files listed in "$@" using wget; exits on failure. Usage: wget_file "$sig_file" "$sum_file"
 wget_file() {
     for file in "$@"; do
-        if ! wget -q --show-progress -c "$url/$file"; then
+        if ! wget -qc --trust-server-names --show-progress "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
@@ -119,7 +119,7 @@ wget_spider() {
     fi
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
-        if ! wget -nv -c --spider "$url/$file"; then
+        if ! wget -nvc --trust-server-names --spider "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
@@ -272,6 +272,51 @@ download_mint () {
     checksum_verify
 }
 
+download_opensuse() {
+    installer_type="$(get_choice "leap" "tumbleweed")"
+    image_type="$(get_choice "standard" "vm")"
+
+    if [[ "$image_type" == "standard" ]]; then
+        install_method="$(get_choice "dvd" "netinst")"
+
+        if [[ "$installer_type" == "leap" ]]; then
+            selected_architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+        else
+            selected_architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
+        fi
+
+	fetch_and_assign_values "gpg_key" \
+                                "${installer_type}.standard.${install_method}.${selected_architecture}.url" \
+                                "${installer_type}.standard.${install_method}.${selected_architecture}.iso_file" \
+                                "${installer_type}.standard.${install_method}.${selected_architecture}.sig_file" \
+                                "${installer_type}.standard.${install_method}.${selected_architecture}.sum_file" \
+                                "sum_algo"
+    else
+        vm_type="$(get_choice "kvm" "hyperv" "vmware" "cloud")"
+
+        if [[ "$vm_type" == "kvm" || "$vm_type" == "hyperv" || "$vm_type" == "cloud" ]]; then
+            selected_architecture="$(get_choice "x86_64" "aarch64")"
+        else
+            selected_architecture="x86_64"
+        fi
+
+        fetch_and_assign_values "gpg_key" \
+		                "${installer_type}.vm.${vm_type}.${selected_architecture}.url" \
+				"${installer_type}.vm.${vm_type}.${selected_architecture}.iso_file" \
+				"${installer_type}.vm.${vm_type}.${selected_architecture}.sig_file" \
+				"${installer_type}.vm.${vm_type}.${selected_architecture}.sum_file" \
+				"sum_algo"
+    fi
+
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file"
+    gpg_verify "$sum_file"
+    wget_file "$iso_file"
+    checksum_verify
+}
+
 download_ubuntu() {
     # Prompt the user to choose between the current release or the Long Term Support (LTS) version
     installer_type="$(get_choice "current" "lts")"
@@ -322,6 +367,7 @@ DISTROS:
     fedora
     kali
     mint
+    opensuse
     ubuntu
     whonix
 
@@ -385,6 +431,7 @@ dl_distro() {
         "fedora") download_fedora ;;
         "kali") download_kali ;;
         "mint") download_mint ;;
+        "opensuse") download_opensuse ;;
         "ubuntu") download_ubuntu ;;
         "whonix") download_whonix ;;
         *) echo -e "\nError: Please use -h or --help for usage and supported distros.\n"; exit 1 ;;
