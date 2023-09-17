@@ -6,7 +6,7 @@ set -euo pipefail
 # Downloads files listed in "$@" using wget; exits on failure. Usage: wget_file "$sig_file" "$sum_file"
 wget_file() {
     for file in "$@"; do
-        if ! wget -qc --trust-server-names --show-progress "$url/$file"; then
+        if ! wget -qc --show-progress "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
@@ -119,7 +119,7 @@ wget_spider() {
     fi
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
-        if ! wget -nvc --trust-server-names --spider "$url/$file"; then
+        if ! wget -nvc --spider "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
         fi
