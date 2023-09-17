@@ -129,8 +129,13 @@ wget_spider() {
 }
 
 download_arch() {
-    # Download and verify the ISO
-    fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
+
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -140,19 +145,26 @@ download_arch() {
 }
 
 download_debian() {
-    # Prompt the user to select the installer type: either "net installer" or "live installer"
-    installer_type="$(get_choice "net installer" "live installer")"
+    installer_type="$(get_choice "netinst" "live")"
 
-    # Depending on the installer type, prompt the user for either the architecture or the environment and fetch values
-    if [[ "$installer_type" == "net installer" ]]; then
+    if [[ "$installer_type" == "netinst" ]]; then
         selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-        fetch_and_assign_values "gpg_key" "netinst.${selected_architecture}.url" "netinst.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "netinst.${selected_architecture}.url" \
+                                "netinst.${selected_architecture}.iso_file" \
+                                "sig_file" \
+                                "sum_file" \
+                                "sum_algo"
     else
         selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-        fetch_and_assign_values "gpg_key" "live.url" "live.${selected_environment}.iso_file" "sig_file" "sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "live.url" \
+                                "live.${selected_environment}.iso_file" \
+                                "sig_file" \
+                                "sum_file" \
+                                "sum_algo"
     fi
 
-    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -167,26 +179,57 @@ download_fedora() {
 
     if [[ "$installer_type" == "everything" ]]; then
         selected_architecture="$(get_choice "x86_64" "aarch64")"
-        fetch_and_assign_values "gpg_key" "everything.${selected_architecture}.url" "everything.${selected_architecture}.iso_file" "everything.${selected_architecture}.sig_file" "everything.${selected_architecture}.sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "everything.${selected_architecture}.url" \
+                                "everything.${selected_architecture}.iso_file" \
+                                "everything.${selected_architecture}.sig_file" \
+                                "everything.${selected_architecture}.sum_file" \
+                                "sum_algo"
+
     elif [[ "$installer_type" == "server" ]]; then
         selected_architecture="$(get_choice "x86_64" "aarch64")"
         image_type="$(get_choice "standard" "vm")"
 
         if [[ "$image_type" == "standard" ]]; then
             install_method="$(get_choice "dvd" "netinst")"
-            fetch_and_assign_values "gpg_key" "server.${selected_architecture}.${image_type}.url" "server.${selected_architecture}.${image_type}.${install_method}.iso_file" "server.${selected_architecture}.sig_file" "server.${selected_architecture}.sum_file" "sum_algo"
+            fetch_and_assign_values "gpg_key" \
+                                    "server.${selected_architecture}.${image_type}.url" \
+                                    "server.${selected_architecture}.${image_type}.${install_method}.iso_file" \
+                                    "server.${selected_architecture}.sig_file" \
+                                    "server.${selected_architecture}.sum_file" \
+                                    "sum_algo"
         else
-            fetch_and_assign_values "gpg_key" "server.${selected_architecture}.${image_type}.url" "server.${selected_architecture}.${image_type}.iso_file" "server.${selected_architecture}.sig_file" "server.${selected_architecture}.sum_file" "sum_algo"
+            fetch_and_assign_values "gpg_key" \
+                                    "server.${selected_architecture}.${image_type}.url" \
+                                    "server.${selected_architecture}.${image_type}.iso_file" \
+                                    "server.${selected_architecture}.sig_file" \
+                                    "server.${selected_architecture}.sum_file" \
+                                    "sum_algo"
         fi
-
     elif [[ "$installer_type" == "silverblue" ]]; then
-        fetch_and_assign_values "gpg_key" "silverblue.url" "silverblue.iso_file" "silverblue.sig_file" "silverblue.sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "silverblue.url" \
+                                "silverblue.iso_file" \
+                                "silverblue.sig_file" \
+                                "silverblue.sum_file" \
+                                "sum_algo"
+
     elif [[ "$installer_type" == "spins" ]]; then
         selected_environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
-        fetch_and_assign_values "gpg_key" "spins.url" "spins.${selected_environment}.iso_file" "spins.sig_file" "spins.sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "spins.url" \
+                                "spins.${selected_environment}.iso_file" \
+                                "spins.sig_file" \
+                                "spins.sum_file" \
+                                "sum_algo"
     else
         selected_architecture="$(get_choice "x86_64" "aarch64")"
-        fetch_and_assign_values "gpg_key" "workstation.${selected_architecture}.url" "workstation.${selected_architecture}.iso_file" "workstation.${selected_architecture}.sig_file" "workstation.${selected_architecture}.sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "workstation.${selected_architecture}.url" \
+                                "workstation.${selected_architecture}.iso_file" \
+                                "workstation.${selected_architecture}.sig_file" \
+                                "workstation.${selected_architecture}.sum_file" \
+                                "sum_algo"
     fi
 
     wget_spider
@@ -199,19 +242,15 @@ download_fedora() {
 }
 
 download_kali () {
-    # Prompt the user to select the installer type: either "kali" or "weekly"
-    installer_type="$(get_choice "kali" "weekly")"
-
-    # Prompt the user to select the desired image type
+    installer_type="$(get_choice "current" "weekly")"
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
-    # Determine the architecture based on the selected image type
     if [[ "$selected_image" == "live" || "$selected_image" == "installer" || "$selected_image" == "netinst" ]]; then
         selected_architecture="$(get_choice "amd64" "arm64" "i386")"
     elif [[ "$selected_image" == "purple" || "$selected_image" == "hyperv" ]]; then
         selected_architecture="amd64"
     else
-        # This is for all VM images. For weekly builds, default to "amd64". Otherwise, prompt for architecture choice
+        # This is for all VM images (besides hyperv currently). For weekly builds, default to "amd64".
         if [[ "$installer_type" == "weekly" ]]; then
             selected_architecture="amd64"
         else
@@ -219,12 +258,14 @@ download_kali () {
         fi
     fi
 
-    # Fetch the relevant values for the selected image and architecture
-    if [[ "$installer_type" == "kali" ]]; then
-        fetch_and_assign_values "gpg_key" "current.url" "current.${selected_image}.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
-    else
-        fetch_and_assign_values "gpg_key" "weekly.url" "weekly.${selected_image}.${selected_architecture}.iso_file" "sig_file" "sum_file" "sum_algo"
+    fetch_and_assign_values "gpg_key" \
+                            "${installer_type}.url" \
+                            "${installer_type}.${selected_image}.${selected_architecture}.iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
 
+    if [[ "$installer_type" == "weekly" ]]; then
         # Fetch the week number from the URL for weekly builds
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
@@ -238,7 +279,6 @@ download_kali () {
         fi
     fi
 
-    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -249,20 +289,25 @@ download_kali () {
 }
 
 download_mint () {
-    # Prompt the user to choose between standard Mint or Debian Edition
     installer_type="$(get_choice "mint" "debian edition")"
 
-    # Depending on the chosen installer type, fetch the relevant details
     if [[ "$installer_type" == "mint" ]]; then
-        # For standard Mint, prompt the user for the desired environment
         selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
-        fetch_and_assign_values "gpg_key" "mint.url" "mint.${selected_environment}.iso_file" "sig_file" "sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "mint.url" \
+                                "mint.${selected_environment}.iso_file" \
+                                "sig_file" \
+                                "sum_file" \
+                                "sum_algo"
     else
-        # For Debian Edition, directly fetch the values without prompting for environment
-        fetch_and_assign_values "gpg_key" "debian.url" "debian.iso_file" "sig_file" "sum_file" "sum_algo"
+        fetch_and_assign_values "gpg_key" \
+                                "debian.url" \
+                                "debian.iso_file" \
+                                "sig_file" \
+                                "sum_file" \
+                                "sum_algo"
     fi
 
-    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -301,11 +346,11 @@ download_opensuse() {
         fi
 
         fetch_and_assign_values "gpg_key" \
-		                "${installer_type}.vm.${vm_type}.${selected_architecture}.url" \
-				"${installer_type}.vm.${vm_type}.${selected_architecture}.iso_file" \
-				"${installer_type}.vm.${vm_type}.${selected_architecture}.sig_file" \
-				"${installer_type}.vm.${vm_type}.${selected_architecture}.sum_file" \
-				"sum_algo"
+                                "${installer_type}.vm.${vm_type}.${selected_architecture}.url" \
+                                "${installer_type}.vm.${vm_type}.${selected_architecture}.iso_file" \
+                                "${installer_type}.vm.${vm_type}.${selected_architecture}.sig_file" \
+                                "${installer_type}.vm.${vm_type}.${selected_architecture}.sum_file" \
+                                "sum_algo"
     fi
 
     wget_spider
@@ -318,20 +363,16 @@ download_opensuse() {
 }
 
 download_ubuntu() {
-    # Prompt the user to choose between the current release or the Long Term Support (LTS) version
     installer_type="$(get_choice "current" "lts")"
-
-    # Prompt the user to select the desired image type (either desktop or server)
     selected_image="$(get_choice "desktop" "server")"
 
-    # Fetch the relevant details based on the chosen installer type
-    if [[ "$installer_type" == "current" ]]; then
-        fetch_and_assign_values "gpg_key" "current.url" "current.${selected_image}.iso_file" "sig_file" "sum_file" "sum_algo"
-    else
-        fetch_and_assign_values "gpg_key" "lts.url" "lts.${selected_image}.iso_file" "sig_file" "sum_file" "sum_algo"
-    fi
+    fetch_and_assign_values "gpg_key" \
+                            "${installer_type}.url" \
+                            "${installer_type}.${selected_image}.iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
 
-    # Download and verify the ISO
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -343,7 +384,13 @@ download_ubuntu() {
 
 download_whonix() {
     installer_type="$(get_choice "qemu" "virtualbox")"
-    fetch_and_assign_values "${installer_type}.gpg_key" "${installer_type}.url" "${installer_type}.iso_file" "${installer_type}.sig_file" "${installer_type}.sum_file" "sum_algo"
+    fetch_and_assign_values "${installer_type}.gpg_key" \
+                            "${installer_type}.url" \
+                            "${installer_type}.iso_file" \
+                            "${installer_type}.sig_file" \
+                            "${installer_type}.sum_file" \
+                            "sum_algo"
+
     wget_spider
     handle_download_path
     fetch_gpg_key
