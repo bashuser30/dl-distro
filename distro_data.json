@@ -356,9 +356,9 @@
                     },
                     "i586": {
                         "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Snapshot20230915-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Snapshot20230917-Media.iso",
                         "sig_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Snapshot20230915-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Snapshot20230917-Media.iso.sha256"
                     },
                     "aarch64": {
                         "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
@@ -394,9 +394,9 @@
                     },
                     "i586": {
                         "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Snapshot20230915-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Snapshot20230917-Media.iso",
                         "sig_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Snapshot20230915-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Snapshot20230917-Media.iso.sha256"
                     },
                     "aarch64": {
                         "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
