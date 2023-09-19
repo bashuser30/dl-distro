@@ -242,53 +242,53 @@
                 "dvd": {
                     "x86_64": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256"
                     },
                     "aarch64": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256"
                     },
                     "ppc64le": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256"
                     },
                     "s390x": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-s390x-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-s390x-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-s390x-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256"
                     }
                 },
                 "netinst": {
                     "x86_64": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-x86_64-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-x86_64-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-x86_64-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256"
                     },
                     "aarch64": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-aarch64-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-aarch64-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-aarch64-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256"
                     },
                     "ppc64le": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256"
                     },
                     "s390x": {
                         "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-s390x-Build491.1-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-s390x-Build491.1-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-s390x-Build491.1-Media.iso.sha256"
+                        "iso_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso",
+                        "sig_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256.asc",
+                        "sum_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256"
                     }
                 }
             },

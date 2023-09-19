@@ -359,10 +359,9 @@ download_opensuse() {
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
 
-    if [[ "$installer_type" == "tumbleweed" && "$image_type" == "standard" ]]; then
-        read -r line < "$sum_file"
-        iso_file="${line##* }"
-    fi
+    # Ensures we download the filename located in the $sum_file
+    read -r line < "$sum_file"
+    iso_file="${line##* }"
 
     wget_file "$iso_file"
     checksum_verify
