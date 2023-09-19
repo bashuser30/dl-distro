@@ -83,6 +83,21 @@ gpg --import fallback_keys/distro.asc
 
 If you prefer not to use the provided fallback keys, you can manually find and import the required key yourself. Once done, `dl-distro` will be able to complete the verification process.
 
+## Issues and Feedback
+
+Encountered an issue or have feedback? Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues) detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
+
+## Contributing
+
+Thank you for considering contributing to `dl-distro`.
+
+Here are a few guidelines to keep in mind:
+
+- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project.
+- **Simplicity**: When adding support for new distributions or features, try to keep it simple. Ideally, additions should mainly involve creating a new download function and updating the `distro_data.json` file.
+- **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
+- **Pull Requests**: Once you're ready to share your changes, please open a pull request. Ensure your PR has a descriptive title and explains the purpose and context of the change.
+
 ## Supported Distributions
 
 ### [Arch](https://archlinux.org)
@@ -131,16 +146,3 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 ### [Whonix](https://whonix.org)
 - **17.0.3.0 (QEMU)**
 - **17.0.4.5 (VirtualBox)**
-
-## Contributing
-
-Thank you for considering contributing to `dl-distro`.
-
-Here are a few guidelines to keep in mind:
-
-1. **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project.
-2. **Simplicity**: When adding support for new distributions or features, try to keep it simple. Ideally, additions should mainly involve creating a new download function and updating the `distro_data.json` file.
-3. **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
-4. **Pull Requests**: Once you're ready to share your changes, please open a pull request. Ensure your PR has a descriptive title and explains the purpose and context of the change.
-
-Our primary goal is to keep `dl-distro` efficient, simple, and easy to use.
