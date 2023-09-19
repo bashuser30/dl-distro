@@ -100,49 +100,13 @@ Here are a few guidelines to keep in mind:
 
 ## Supported Distributions
 
-### [Arch](https://archlinux.org)
-- **2023.09.01**
-
-### [Debian](https://debian.org)
-- **12.1.0**
-  - Netinst
-    - amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x
-  - Live
-    - Cinnamon, GNOME, KDE, LXDE, LXQt, MATE, Standard, Xfce
-
-### [Fedora](https://fedoraproject.org)
-- **38**
-  - Everything
-  - Server
-    - DVD, Netinst, KVM
-  - Silverblue
-  - Spins
-    - Budgie, Cinnamon, KDE, LXDE, LXQt, MATE Compiz, Sugar, Sway, Xfce, i3
-  - Workstation
-
-> x86\_64 and aarch64 supported where available.
-
-### [Kali](https://kali.org)
-- **2023.3 & Weekly**
-  - Live, QEMU, VirtualBox, VMware, Hyper-V, Installer, Netinst, Purple
-
-> amd64, arm64 and i386 supported where available.
-
-### [Mint](https://linuxmint.com)
-- **21.2**
-  - Cinnamon, MATE, Xfce
-- **Debian Edition 5**
-
-### [openSUSE](https://opensuse.org)
-- **Leap 15.5 & Tumbleweed**
-  - DVD, Netinst, KVM, Hyper-V, VMware, Cloud
-
-> x86\_64, i586, aarch64, ppc64le and s390x supported where available.
-
-### [Ubuntu](https://ubuntu.com)
-- **23.04 & 22.04.3 (LTS)**
-  - Desktop, Server
-
-### [Whonix](https://whonix.org)
-- **17.0.3.0 (QEMU)**
-- **17.0.4.5 (VirtualBox)**
+| Distribution | Version   | Options |
+|--------------|-----------|---------|
+| [Arch](https://archlinux.org) | 2023.09.01 | - |
+| [Debian](https://debian.org)  | 12.1.0 | **Netinst**: amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x <br> **Live**: Cinnamon, GNOME, KDE, LXDE, LXQt, MATE, Standard, Xfce |
+| [Fedora](https://fedoraproject.org) | 38 | **Everything**: x86\_64, aarch64 <br> **Server**: DVD, Netinst, KVM (x86\_64, aarch64) <br> **Silverblue**: x86\_64 <br> **Spins**: Budgie, Cinnamon, KDE, LXDE, LXQt, MATE Compiz, Sugar, Sway, Xfce, i3 <br> **Workstation**: x86\_64, aarch64 |
+| [Kali](https://kali.org) | 2023.3, Weekly | **Live**: amd64, arm64, i386 <br> **QEMU**: amd64, i386‡ <br> **VirtualBox**: amd64, i386‡ <br> **VMware**: amd64, i386‡ <br> **Hyper-V**: amd64 <br> **Installer**: amd64, arm64, i386 <br> **Netinst**: amd64, arm64, i386 <br> **Purple**: amd64 <br> <br> *‡not supported for Weekly images* |
+| [Mint](https://linuxmint.com) | 21.2, Debian Edition 5 | **Cinnamon**‡ <br> **MATE** <br> **Xfce** <br> <br> *‡Debian Edition is Cinnamon only* |
+| [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | **DVD**: x86\_64, i586‡, aarch64, ppc64le, s390x, ppc64‡ <br> **Netinst**: x86\_64, i586‡, aarch64, ppc64le, s390x, ppc64‡ <br> **KVM**: x86\_64, aarch64 <br> **Hyper-V**: x86\_64, aarch64 <br> **VMware**: x86\_64 <br> **Cloud**: x86\_64, aarch64 <br> <br> *‡Tumbleweed only* |
+| [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 | **Desktop** <br> **Server** |
+| [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | **QEMU** <br> **VirtualBox** |
