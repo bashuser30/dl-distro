@@ -350,77 +350,77 @@
                 "dvd": {
                     "x86_64": {
                         "url": "https://download.opensuse.org/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-x86_64-Snapshot20230915-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-x86_64-Snapshot20230915-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256"
                     },
                     "i586": {
                         "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Snapshot20230917-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Snapshot20230917-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256"
                     },
                     "aarch64": {
                         "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-aarch64-Snapshot20230910-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-aarch64-Snapshot20230910-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256"
                     },
                     "ppc64le": {
                         "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-ppc64le-Snapshot20230628-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-ppc64le-Snapshot20230628-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256"
                     },
                     "s390x": {
                         "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-s390x-Snapshot20230915-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-s390x-Snapshot20230915-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256"
                     },
 		    "ppc64": {
                         "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-ppc64-Snapshot20230628-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-ppc64-Snapshot20230628-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256"
                     }
                 },
                 "netinst": {
                     "x86_64": {
                         "url": "https://download.opensuse.org/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-x86_64-Snapshot20230915-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-x86_64-Snapshot20230915-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256"
                     },
                     "i586": {
                         "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Snapshot20230917-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Snapshot20230917-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256"
                     },
                     "aarch64": {
                         "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-aarch64-Snapshot20230910-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-aarch64-Snapshot20230910-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256"
                     },
                     "ppc64le": {
                         "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-ppc64le-Snapshot20230628-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-ppc64le-Snapshot20230628-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256"
                     },
                     "s390x": {
                         "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-s390x-Snapshot20230915-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-s390x-Snapshot20230915-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256"
                     },
                     "ppc64": {
                         "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-ppc64-Snapshot20230628-Media.iso",
+                        "iso_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso",
                         "sig_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-ppc64-Snapshot20230628-Media.iso.sha256"
+                        "sum_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256"
                     }
                 }
             },
