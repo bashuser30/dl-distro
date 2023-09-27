@@ -231,7 +231,8 @@
         },
         "debian": {
             "url": "https://mirrors.layeronline.com/linuxmint/debian",
-            "iso_file": "lmde-5-cinnamon-64bit.iso"
+            "64-bit": {"iso_file": "lmde-6-cinnamon-64bit.iso"},
+            "32-bit": {"iso_file": "lmde-6-cinnamon-32bit.iso"}
         }
     },
     "opensuse": {

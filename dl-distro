@@ -300,9 +300,10 @@ download_mint () {
                                 "sum_file" \
                                 "sum_algo"
     else
+        selected_architecture="$(get_choice "64-bit" "32-bit")"
         fetch_and_assign_values "gpg_key" \
                                 "debian.url" \
-                                "debian.iso_file" \
+                                "debian[\"${selected_architecture}\"].iso_file" \
                                 "sig_file" \
                                 "sum_file" \
                                 "sum_algo"

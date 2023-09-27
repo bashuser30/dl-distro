@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see [Contributing](#contributing).
 
-Currently, `dl-distro` supports downloading **114** different ISOs from **8** different distributions. For a detailed list, see [Supported Distributions](#supported-distributions).
+Currently, `dl-distro` supports downloading **115** different ISOs from **8** different distributions. [Click here](#supported-distributions) for a list of supported distributions.
 
 > **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
 
@@ -83,7 +83,7 @@ gpg --import fallback_keys/distro.asc
 
 If you prefer not to use the provided fallback keys, you can manually find and import the required key yourself. Once done, `dl-distro` will be able to complete the verification process.
 
-## Issues and Feedback
+### Issues and Feedback
 
 Encountered an issue or have feedback? Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues) detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
 
@@ -100,13 +100,13 @@ Here are a few guidelines to keep in mind:
 
 ## Supported Distributions
 
-| Distribution | Version   | Options |
-|--------------|-----------|---------|
-| [Arch](https://archlinux.org) | 2023.09.01 | - |
-| [Debian](https://debian.org)  | 12.1.0 | **Netinst**: amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x <br> **Live**: Cinnamon, GNOME, KDE, LXDE, LXQt, MATE, Standard, Xfce |
-| [Fedora](https://fedoraproject.org) | 38 | **Everything**: x86\_64, aarch64 <br> **Server**: DVD, Netinst, KVM (x86\_64, aarch64) <br> **Silverblue**: x86\_64 <br> **Spins**: Budgie, Cinnamon, KDE, LXDE, LXQt, MATE Compiz, Sugar, Sway, Xfce, i3 <br> **Workstation**: x86\_64, aarch64 |
-| [Kali](https://kali.org) | 2023.3, Weekly | **Live**: amd64, arm64, i386 <br> **QEMU**: amd64, i386‡ <br> **VirtualBox**: amd64, i386‡ <br> **VMware**: amd64, i386‡ <br> **Hyper-V**: amd64 <br> **Installer**: amd64, arm64, i386 <br> **Netinst**: amd64, arm64, i386 <br> **Purple**: amd64 <br> <br> *‡not supported for Weekly images* |
-| [Mint](https://linuxmint.com) | 21.2, Debian Edition 5 | **Cinnamon**‡ <br> **MATE** <br> **Xfce** <br> <br> *‡Debian Edition is Cinnamon only* |
-| [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | **DVD**: x86\_64, i586‡, aarch64, ppc64le, s390x, ppc64‡ <br> **Netinst**: x86\_64, i586‡, aarch64, ppc64le, s390x, ppc64‡ <br> **KVM**: x86\_64, aarch64 <br> **Hyper-V**: x86\_64, aarch64 <br> **VMware**: x86\_64 <br> **Cloud**: x86\_64, aarch64 <br> <br> *‡Tumbleweed only* |
-| [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 | **Desktop** <br> **Server** |
-| [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | **QEMU** <br> **VirtualBox** |
+| Distribution | Version   |
+|--------------|-----------|
+| [Arch](https://archlinux.org) | 2023.09.01 |
+| [Debian](https://debian.org)  | 12.1.0 |
+| [Fedora](https://fedoraproject.org) | 38 |
+| [Kali](https://kali.org) | 2023.3, Weekly |
+| [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 |
+| [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed |
+| [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 (LTS) |
+| [Whonix](https://whonix.org) | 17.0.3.0 (QEMU), 17.0.4.5 (VirtualBox) |
