@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see [Contributing](#contributing).
 
-Currently, `dl-distro` supports downloading **115** different ISOs from **8** different distributions. [Click here](#supported-distributions) for a list of supported distributions.
+Currently, `dl-distro` supports downloading **116** different ISOs from **8** different distributions. [Click here](#supported-distributions) for a list of supported distributions.
 
 > **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
 
