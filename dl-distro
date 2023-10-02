@@ -292,7 +292,7 @@ download_mint () {
     installer_type="$(get_choice "mint" "debian edition")"
 
     if [[ "$installer_type" == "mint" ]]; then
-        selected_environment="$(get_choice "cinnamon" "mate" "xfce")"
+        selected_environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
         fetch_and_assign_values "gpg_key" \
                                 "mint.url" \
                                 "mint.${selected_environment}.iso_file" \
