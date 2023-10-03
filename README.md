@@ -100,13 +100,13 @@ Here are a few guidelines to keep in mind:
 
 ## Supported Distributions
 
-| Distribution | Version   |
-|--------------|-----------|
-| [Arch](https://archlinux.org) | 2023.09.01 |
-| [Debian](https://debian.org)  | 12.1.0 |
-| [Fedora](https://fedoraproject.org) | 38 |
-| [Kali](https://kali.org) | 2023.3, Weekly |
-| [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 |
-| [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed |
-| [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 (LTS) |
-| [Whonix](https://whonix.org) | 17.0.3.0 (QEMU), 17.0.4.5 (VirtualBox) |
+| Distribution | Version   | Options |
+|--------------|-----------|---------|
+| [Arch](https://archlinux.org) | 2023.09.01 | |
+| [Debian](https://debian.org)  | 12.1.0 | Netinst <br> Live |
+| [Fedora](https://fedoraproject.org) | 38 | Everything <br> Server <br> Silverblue <br> Spins <br> Workstation |
+| [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
+| [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
+| [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
+| [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 | Desktop <br> Server |
+| [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
