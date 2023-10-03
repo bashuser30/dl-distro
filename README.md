@@ -55,7 +55,8 @@ USAGE:
     dl-distro [distro] [path | --spider]
 
 OPTIONS:
-    --spider    Use wget --spider to check if the file exists without actually downloading it.
+    --spider     Use wget --spider to check if the file exists without actually downloading it.
+    --help|-h    Display usage.
 
 DISTROS:
     arch
@@ -71,6 +72,7 @@ EXAMPLES:
     dl-distro arch
     dl-distro arch /run/media/$USER/Ventoy
     dl-distro arch --spider
+    dl-distro -h
 ```
 
 ### Error Importing Signing Key
