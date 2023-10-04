@@ -466,7 +466,7 @@ dl_distro() {
         esac
     done
 
-    distro="$1"
+    distro="${1:-}"
     download_path="${2:-$(pwd)}"
 
     # Search for the distro data JSON in the predefined paths
