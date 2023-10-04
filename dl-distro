@@ -122,9 +122,7 @@ fetch_and_assign_values() {
 
 # Checks the iso, sig, and sum file for the chosen combination
 wget_spider() {
-    if [[ "$download_path" != "--spider" ]]; then
-        return 0
-    fi
+    [[ "$spider" != "true" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
         if ! wget -nvc --spider "$url/$file"; then
@@ -416,16 +414,12 @@ download_whonix() {
 usage() {
     cat <<EOF
 
-    dl-distro  Copyright (C) 2023  bashuser30 <bashuser30 at mailbox dot org>
-    This program comes with ABSOLUTELY NO WARRANTY.
-    This is free software, and you are welcome to redistribute it under certain conditions.
-
     USAGE:
-        dl-distro [distro] [path | --spider]
+        dl-distro [OPTIONS] [DISTRO] [PATH]
 
     OPTIONS:
-        --spider     Use wget --spider to check if the file exists without actually downloading it.
-        --help|-h    Display usage.
+        -s, --spider    Use wget --spider to check if ISO exists without downloading it.
+        -h, --help      Display this usage prompt.
 
     DISTROS:
         arch
@@ -440,8 +434,7 @@ usage() {
     EXAMPLES:
         dl-distro arch
         dl-distro arch /run/media/$USER/Ventoy
-        dl-distro arch --spider
-        dl-distro -h
+        dl-distro -s arch
 
 EOF
 }
@@ -465,13 +458,16 @@ check_dependencies() {
 }
 
 dl_distro() {
-    distro="${1:-help}"
-    download_path="${2:-$(pwd)}"
+    while (( "$#" )); do
+        case "$1" in
+            -s|--spider) spider=true; shift ;;
+            -h|--help) usage; exit 0 ;;
+            *) break ;;
+        esac
+    done
 
-    # Handle help request
-    case "$distro" in
-        -h|--help|help) usage; exit 0 ;;
-    esac
+    distro="$1"
+    download_path="${2:-$(pwd)}"
 
     # Search for the distro data JSON in the predefined paths
     for path in \
