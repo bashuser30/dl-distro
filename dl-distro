@@ -122,7 +122,7 @@ fetch_and_assign_values() {
 
 # Checks the iso, sig, and sum file for the chosen combination
 wget_spider() {
-    [[ "$spider" != "true" ]] && return 0
+    [[ "${spider:-}" != "true" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
         if ! wget -nvc --spider "$url/$file"; then
