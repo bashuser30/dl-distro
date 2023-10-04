@@ -52,11 +52,11 @@ As previously mentioned, `jq` is required to read the provided JSON file. `dl-di
 
 ```
 USAGE:
-    dl-distro [distro] [path | --spider]
+    dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS:
-    --spider     Use wget --spider to check if the file exists without actually downloading it.
-    --help|-h    Display usage.
+    -s, --spider    Use wget --spider to check if ISO exists without downloading it.
+    -h, --help      Display this usage prompt.
 
 DISTROS:
     arch
@@ -71,8 +71,7 @@ DISTROS:
 EXAMPLES:
     dl-distro arch
     dl-distro arch /run/media/$USER/Ventoy
-    dl-distro arch --spider
-    dl-distro -h
+    dl-distro -s arch
 ```
 
 ### Error Importing Signing Key
