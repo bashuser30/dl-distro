@@ -125,6 +125,7 @@ wget_spider() {
     [[ "${spider:-}" != "true" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
+        sleep 1
         if ! wget -nvc --spider "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
