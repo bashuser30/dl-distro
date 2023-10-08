@@ -104,7 +104,7 @@ Here are a few guidelines to keep in mind:
 | Distribution | Version   | Options |
 |--------------|-----------|---------|
 | [Arch](https://archlinux.org) | 2023.09.01 | |
-| [Debian](https://debian.org)  | 12.1.0 | Netinst <br> Live |
+| [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
 | [Fedora](https://fedoraproject.org) | 38 | Everything <br> Server <br> Silverblue <br> Spins <br> Workstation |
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
