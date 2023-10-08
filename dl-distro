@@ -399,7 +399,8 @@ download_tails() {
     handle_download_path
     fetch_gpg_key
     wget_file "$sig_file" "$iso_file"
-    gpg_verify
+    gpg_verify "$iso_file"
+    rm -f "$sig_file"
     echo -e "\n[dl-distro] Download and GPG verification successful. Tails does not provide checksum files.\n"
 }
 
