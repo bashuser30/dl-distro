@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #
-# dl-distro - Download and verify ISOs with GnuPG and shasums.
-#
-# Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>
+#   dl-distro - Download and verify ISOs with GnuPG and shasums.
+#   Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
