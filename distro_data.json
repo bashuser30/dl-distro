@@ -19,51 +19,51 @@
         "netinst": {
             "amd64": {
                 "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd",
-                "iso_file": "debian-12.1.0-amd64-netinst.iso"
+                "iso_file": "debian-12.2.0-amd64-netinst.iso"
             },
             "arm64": {
                 "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd",
-                "iso_file": "debian-12.1.0-arm64-netinst.iso"
+                "iso_file": "debian-12.2.0-arm64-netinst.iso"
             },
             "armel": {
                 "url": "https://cdimage.debian.org/debian-cd/current/armel/iso-cd",
-                "iso_file": "debian-12.1.0-armel-netinst.iso"
+                "iso_file": "debian-12.2.0-armel-netinst.iso"
             },
             "armhf": {
                 "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd",
-                "iso_file": "debian-12.1.0-armhf-netinst.iso"
+                "iso_file": "debian-12.2.0-armhf-netinst.iso"
             },
             "i386": {
                 "url": "https://cdimage.debian.org/debian-cd/current/i386/iso-cd",
-                "iso_file": "debian-12.1.0-i386-netinst.iso"
+                "iso_file": "debian-12.2.0-i386-netinst.iso"
             },
             "mips64el": {
                 "url": "https://cdimage.debian.org/debian-cd/current/mips64el/iso-cd",
-                "iso_file": "debian-12.1.0-mips64el-netinst.iso"
+                "iso_file": "debian-12.2.0-mips64el-netinst.iso"
             },
             "mipsel": {
                 "url": "https://cdimage.debian.org/debian-cd/current/mipsel/iso-cd",
-                "iso_file": "debian-12.1.0-mipsel-netinst.iso"
+                "iso_file": "debian-12.2.0-mipsel-netinst.iso"
             },
             "ppc64el": {
                 "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd",
-                "iso_file": "debian-12.1.0-ppc64el-netinst.iso"
+                "iso_file": "debian-12.2.0-ppc64el-netinst.iso"
             },
             "s390x": {
                 "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd",
-                "iso_file": "debian-12.1.0-s390x-netinst.iso"
+                "iso_file": "debian-12.2.0-s390x-netinst.iso"
             }
         },
         "live": {
             "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-            "cinnamon": {"iso_file": "debian-live-12.1.0-amd64-cinnamon.iso"},
-            "gnome": {"iso_file": "debian-live-12.1.0-amd64-gnome.iso"},
-            "kde": {"iso_file": "debian-live-12.1.0-amd64-kde.iso"},
-            "lxde": {"iso_file": "debian-live-12.1.0-amd64-lxde.iso"},
-            "lxqt": {"iso_file": "debian-live-12.1.0-amd64-lxqt.iso"},
-            "mate": {"iso_file": "debian-live-12.1.0-amd64-mate.iso"},
-            "standard": {"iso_file": "debian-live-12.1.0-amd64-standard.iso"},
-            "xfce": {"iso_file": "debian-live-12.1.0-amd64-xfce.iso"}
+            "cinnamon": {"iso_file": "debian-live-12.2.0-amd64-cinnamon.iso"},
+            "gnome": {"iso_file": "debian-live-12.2.0-amd64-gnome.iso"},
+            "kde": {"iso_file": "debian-live-12.2.0-amd64-kde.iso"},
+            "lxde": {"iso_file": "debian-live-12.2.0-amd64-lxde.iso"},
+            "lxqt": {"iso_file": "debian-live-12.2.0-amd64-lxqt.iso"},
+            "mate": {"iso_file": "debian-live-12.2.0-amd64-mate.iso"},
+            "standard": {"iso_file": "debian-live-12.2.0-amd64-standard.iso"},
+            "xfce": {"iso_file": "debian-live-12.2.0-amd64-xfce.iso"}
         }
     },
     "fedora": {
