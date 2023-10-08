@@ -132,7 +132,10 @@ wget_spider() {
     [[ "${spider:-}" != "true" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
+
+        [[ -z "$file" ]] && continue
         sleep 1
+
         if ! wget -nvc --spider "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
             exit 1
@@ -382,6 +385,24 @@ download_opensuse() {
     checksum_verify
 }
 
+download_tails() {
+    installer_type="$(get_choice "usb" "dvd/vm")"
+
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "\"${installer_type}\".iso_file" \
+                            "\"${installer_type}\".sig_file" \
+                            "sum_file" \
+                            "sum_algo"
+
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$iso_file"
+    gpg_verify
+    echo -e "\n[dl-distro] Download and GPG verification successful. Tails does not provide checksum files.\n"
+}
+
 download_ubuntu() {
     installer_type="$(get_choice "current" "lts")"
     selected_image="$(get_choice "desktop" "server")"
@@ -404,6 +425,7 @@ download_ubuntu() {
 
 download_whonix() {
     installer_type="$(get_choice "qemu" "virtualbox")"
+
     fetch_and_assign_values "${installer_type}.gpg_key" \
                             "${installer_type}.url" \
                             "${installer_type}.iso_file" \
@@ -436,6 +458,7 @@ usage() {
         kali
         mint
         opensuse
+        tails
         ubuntu
         whonix
 
@@ -502,6 +525,7 @@ dl_distro() {
         "kali") download_kali ;;
         "mint") download_mint ;;
         "opensuse") download_opensuse ;;
+        "tails") download_tails ;;
         "ubuntu") download_ubuntu ;;
         "whonix") download_whonix ;;
         *) echo -e "\nError: Please use -h or --help for usage and supported distros.\n"; exit 1 ;;
