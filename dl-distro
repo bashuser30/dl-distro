@@ -467,16 +467,15 @@ check_dependencies() {
 }
 
 dl_distro() {
-    while (( "$#" )); do
-        case "$1" in
-            -s|--spider) spider=true; shift ;;
-            -h|--help) usage; exit 0 ;;
-            *) break ;;
-        esac
-    done
+    case "${1:-}" in
+        -s|--spider) spider=true; shift ;;
+        -h|--help) usage; exit 0 ;;
+    esac
 
     distro="${1:-}"
     download_path="${2:-$(pwd)}"
+
+    [[ -z "$distro" ]] && usage && exit 1
 
     # Search for the distro data JSON in the predefined paths
     for path in \
