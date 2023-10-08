@@ -1,6 +1,6 @@
 {
     "license": {
-        "copyright": "Copyright (C) 2023  bashuser30 <bashuser30 at mailbox dot org>",
+        "copyright": "Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>",
         "url": "https://codeberg.org/bashuser30/dl-distro/src/branch/master/LICENSE"
     },
     "arch": {
@@ -483,6 +483,20 @@
                 }
             }
         }
+    },
+    "tails": {
+        "gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
+	"url": "https://download.tails.net/tails/stable/tails-amd64-5.18",
+	"usb": {
+	    "iso_file": "tails-amd64-5.18.img",
+	    "sig_file": "tails-amd64-5.18.img.sig"
+	},
+	"dvd/vm": {
+            "iso_file": "tails-amd64-5.18.iso",
+            "sig_file": "tails-amd64-5.18.iso.sig"
+	},
+	"sum_file": "",
+	"sum_algo": ""
     },
     "ubuntu": {
         "gpg_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
