@@ -95,7 +95,7 @@ Thank you for considering contributing to `dl-distro`.
 Here are a few guidelines to keep in mind:
 
 - **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project.
-- **Simplicity**: When adding support for new distributions or features, try to keep it simple. Ideally, additions should mainly involve creating a new download function and updating the `distro_data.json` file.
+- **Simplicity**: When adding support for new distributions or features, try to keep it simple. Ideally, additions should mainly involve creating a new download function and adding data to `distro_data.json`.
 - **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
 - **Pull Requests**: Once you're ready to share your changes, please open a pull request. Ensure your PR has a descriptive title and explains the purpose and context of the change.
 
@@ -111,3 +111,7 @@ Here are a few guidelines to keep in mind:
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 | Desktop <br> Server |
 | [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
+
+## License
+
+All files in this repository are licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
