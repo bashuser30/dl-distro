@@ -444,29 +444,25 @@ download_whonix() {
 
 usage() {
     cat <<EOF
+USAGE:
+    dl-distro [OPTIONS] [DISTRO] [PATH]
 
-    USAGE:
-        dl-distro [OPTIONS] [DISTRO] [PATH]
+OPTIONS:
+    -h, --help      Display this usage prompt.
+    -s, --spider    Use wget --spider to check if ISO exists without downloading it.
 
-    OPTIONS:
-        -s, --spider    Use wget --spider to check if ISO exists without downloading it.
-        -h, --help      Display this usage prompt.
+DISTROS:
+    arch      opensuse
+    debian    tails
+    fedora    ubuntu
+    kali      whonix
+    mint
 
-    DISTROS:
-        arch
-        debian
-        fedora
-        kali
-        mint
-        opensuse
-        tails
-        ubuntu
-        whonix
+EXAMPLES:
+    dl-distro arch
+    dl-distro arch /run/media/$USER/Ventoy
+    dl-distro -s arch
 
-    EXAMPLES:
-        dl-distro arch
-        dl-distro arch /run/media/$USER/Ventoy
-        dl-distro -s arch
 
 EOF
 }
