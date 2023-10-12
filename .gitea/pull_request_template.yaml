@@ -1,0 +1,43 @@
+name: "Pull Request"
+about: "Submit a pull request for dl-distro"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide the following details for this pull request:
+        - Type of change (e.g., bug fix, new feature).
+        - Summary of the changes.
+        - Any related issues or context.
+        - Additional notes or comments.
+  - type: dropdown
+    attributes:
+      label: "Type of Change"
+      options:
+        - "New distribution"
+        - "Addition to a distribution"
+        - "Bug fix"
+        - "New feature"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Summary"
+      placeholder: "Provide a brief summary of the changes in this PR."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Related Issues"
+      placeholder: "e.g., Closes #ISSUE_NUMBER, Related to #ISSUE_NUMBER"
+  - type: textarea
+    attributes:
+      label: "Additional Notes"
+      placeholder: "Provide any additional information or context about the PR here."
+  - type: checkboxes
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have read the CONTRIBUTING guidelines"
+        - label: "I have tested the changes thoroughly"
+    validations:
+      required: true
