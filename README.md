@@ -1,6 +1,6 @@
 # dl-distro
 
-`dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see [Contributing](#contributing).
+`dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see the [contributing file](https://codeberg.org/bashuser30/dl-distro/src/branch/master/CONTRIBUTING.md).
 
 Currently, `dl-distro` supports downloading **118** different ISOs from **9** different distributions. For more details see [Supported Distributions](#supported-distributions).
 
@@ -88,17 +88,6 @@ If you prefer not to use the provided fallback keys, you can manually find and i
 ### Issues and Feedback
 
 Encountered an issue or have feedback? Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues) detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
-
-## Contributing
-
-Thank you for considering contributing to `dl-distro`.
-
-Here are a few guidelines to keep in mind:
-
-- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project.
-- **Simplicity**: When adding support for new distributions or features, try to keep it simple. Ideally, additions should mainly involve creating a new download function and adding data to `distro_data.json`.
-- **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
-- **Pull Requests**: Once you're ready to share your changes, please open a pull request. Ensure your PR has a descriptive title and explains the purpose and context of the change.
 
 ## Supported Distributions
 
