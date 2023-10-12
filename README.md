@@ -55,19 +55,15 @@ USAGE:
     dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS:
-    -s, --spider    Use wget --spider to check if ISO exists without downloading it.
     -h, --help      Display this usage prompt.
+    -s, --spider    Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    arch
-    debian
-    fedora
-    kali
+    arch      opensuse
+    debian    tails
+    fedora    ubuntu
+    kali      whonix
     mint
-    opensuse
-    tails
-    ubuntu
-    whonix
 
 EXAMPLES:
     dl-distro arch
