@@ -1,0 +1,15 @@
+name: Feature Request
+description: Request a new feature for dl-distro
+labels: enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for requesting a new feature. Please provide the following details:
+        - Detailed explanation of the feature.
+        - Why you think this feature is good and why it should be implemented.   
+  - type: textarea
+    attributes:
+      label: "Describe the new feature"
+    validations:
+      required: true
