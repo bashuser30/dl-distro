@@ -504,9 +504,9 @@
         "sum_file": "SHA256SUMS",
         "sum_algo": "sha256sum",
         "current": {
-            "url": "https://releases.ubuntu.com/23.04",
-            "server": {"iso_file": "ubuntu-23.04-live-server-amd64.iso"},
-            "desktop": {"iso_file": "ubuntu-23.04-desktop-amd64.iso"}
+            "url": "https://releases.ubuntu.com/23.10",
+            "server": {"iso_file": "ubuntu-23.10-live-server-amd64.iso"},
+            "desktop": {"iso_file": "ubuntu-23.10-desktop-amd64.iso"}
         },
         "lts": {
             "url": "https://releases.ubuntu.com/22.04.3",
