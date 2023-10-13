@@ -96,7 +96,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Tails](https://tails.net) | 5.18 | USB <br> DVD/VM |
-| [Ubuntu](https://ubuntu.com) | 23.04, 22.04.3 | Desktop <br> Server |
+| [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
 | [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
 
 ## License
