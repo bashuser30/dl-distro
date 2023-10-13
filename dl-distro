@@ -20,6 +20,7 @@ set -euo pipefail
 
 # Downloads files listed in "$@" using wget; exits on failure. Usage: wget_file "$sig_file" "$sum_file"
 wget_file() {
+    echo
     for file in "$@"; do
         if ! wget -qc --show-progress "$url/$file"; then
             echo -e "\nError: Failed to download $file.\n"
@@ -44,6 +45,7 @@ fetch_gpg_key() {
 # - gpg_verify
 # - gpg_verify "$sum_file"
 gpg_verify() {
+    echo
     if [[ -z "${1:-}" ]]; then
         if ! gpg --verify "$sig_file"; then
             echo -e "\nError: GPG verification failed.\n"
@@ -61,6 +63,7 @@ gpg_verify() {
 
 # Verifies a file using its checksum; deletes files and exits based on success/failure
 checksum_verify() {
+    echo
     if ! "$sum_algo" -c --ignore-missing "$sum_file" 2>/dev/null; then
         echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
