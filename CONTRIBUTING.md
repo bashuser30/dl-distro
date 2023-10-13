@@ -90,7 +90,7 @@ This is the last notable function. It will check the `"$iso_file"` `"$sig_file"`
 
 - Usage: `wget_spider`
 
-NOTE: This function SHOULD ALWAYS be called before `handle_download_path()`.
+**NOTE**: This function **SHOULD ALWAYS** be called before `handle_download_path()`.
 
 ---
 
