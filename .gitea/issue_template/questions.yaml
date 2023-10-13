@@ -7,6 +7,6 @@ body:
       value: "Please enter your question or general issue below."
   - type: textarea
     attributes:
-      label: "Your Question"
+      label: "Your Question or Issue"
     validations:
       required: true
