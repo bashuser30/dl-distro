@@ -1,24 +1,27 @@
 #!/usr/bin/env bash
 #
-#   dl-distro - Download and verify ISOs with GnuPG and shasums.
-#   Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>
+# dl-distro - Bash script to download and verify ISOs with GnuPG and shasums.
 #
-#   This program is free software: you can redistribute it and/or modify
-#   it under the terms of the GNU General Public License as published by
-#   the Free Software Foundation, either version 3 of the License, or
-#   (at your option) any later version.
+# Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>
 #
-#   This program is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
 
 set -euo pipefail
 
-# Downloads files listed in "$@" using wget; exits on failure. Usage: wget_file "$sig_file" "$sum_file"
+# Downloads files listed in "$@" using wget; exits on failure.
+# Usage: wget_file "$sig_file" "$sum_file"
 wget_file() {
     echo
     for file in "$@"; do
@@ -40,10 +43,8 @@ fetch_gpg_key() {
     fi
 }
 
-# Verifies a file using its GPG signature; deletes files and exits on failure.
-# Usage:
-# - gpg_verify
-# - gpg_verify "$sum_file"
+# Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure.
+# Usage: gpg_verify or gpg_verify "$sum_file"
 gpg_verify() {
     echo
     if [[ -z "${1:-}" ]]; then
@@ -155,7 +156,6 @@ download_arch() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -397,7 +397,6 @@ download_tails() {
                             "\"${installer_type}\".sig_file" \
                             "sum_file" \
                             "sum_algo"
-
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -417,7 +416,6 @@ download_ubuntu() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -436,7 +434,6 @@ download_whonix() {
                             "${installer_type}.sig_file" \
                             "${installer_type}.sum_file" \
                             "sum_algo"
-
     wget_spider
     handle_download_path
     fetch_gpg_key
