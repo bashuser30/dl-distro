@@ -1,0 +1,12 @@
+name: Question
+description: General question or if your issue doesn't fall into a category
+labels: question
+body:
+  - type: markdown
+    attributes:
+      value: "Please enter your question or general issue below."
+  - type: textarea
+    attributes:
+      label: "Your Question"
+    validations:
+      required: true
