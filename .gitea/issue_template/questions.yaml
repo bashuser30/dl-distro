@@ -1,5 +1,5 @@
 name: Question
-description: General question or if your issue doesn't fall into a category
+description: Question or if your issue doesn't fall into a category
 labels: question
 body:
   - type: markdown
