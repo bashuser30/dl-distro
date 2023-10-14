@@ -74,12 +74,12 @@ EXAMPLES:
 
 ### Error Importing Signing Key
 
-As mentioned in the note at the start of the README.md, this script imports GPG keys automatically. You have two options if you are unable to import the desired distro's signing key from the keyserver.
+As highlighted earlier, this script automatically imports GPG keys. If you encounter issues importing a distro's key, consider:
 
-1. Find the key yourself and manually import it.
-2. Or use the option: `-n` mentioned in the usage to skip GPG key fetching and verification. 
+1. Manually sourcing and importing the key.
+2. Using the `-n` option to bypass GPG key retrieval and validation.
 
-Option 1 is preferred obviously for security reasons, but if you don't care about GPG verification you may skip it.
+For security, the first option is recommended. However, if GPG verification isn't a concern, you may skip it.
 
 ### Issues and Feedback
 
