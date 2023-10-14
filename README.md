@@ -77,7 +77,7 @@ EXAMPLES:
 As highlighted earlier, this script automatically imports GPG keys. If you encounter issues importing a distro's key, consider:
 
 1. Manually sourcing and importing the key.
-2. Using the `-n` option to bypass GPG key retrieval and validation.
+2. Using the `-n` option to bypass GPG key retrieval and verification.
 
 For security, the first option is recommended. However, if GPG verification isn't a concern, you may skip it.
 
