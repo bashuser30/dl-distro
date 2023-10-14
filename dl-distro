@@ -34,6 +34,8 @@ wget_file() {
 
 # Checks for the GPG key needed, fetches it if missing; exits on failure
 fetch_gpg_key() {
+    [[ "$verify" == "false" ]] && return 0
+
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
         echo -e "\nFetching GPG key: $gpg_key\n"
         if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
@@ -46,6 +48,8 @@ fetch_gpg_key() {
 # Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure.
 # Usage: gpg_verify or gpg_verify "$sum_file"
 gpg_verify() {
+    [[ "$verify" == "false" ]] && return 0
+
     echo
     if [[ -z "${1:-}" ]]; then
         if ! gpg --verify "$sig_file"; then
@@ -448,8 +452,9 @@ USAGE:
     dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS:
-    -h, --help      Display this usage prompt.
-    -s, --spider    Use wget --spider to check if ISO exists without downloading it.
+    -h, --help        Display this usage prompt.
+    -n, --noverify    Skip GPG key fetching and verification.
+    -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
     arch      opensuse
@@ -487,8 +492,9 @@ check_dependencies() {
 
 dl_distro() {
     case "${1:-}" in
-        -s|--spider) spider=true; shift ;;
         -h|--help) usage; exit 0 ;;
+        -n|--noverify) verify=false; shift;;
+        -s|--spider) spider=true; shift ;;
     esac
 
     distro="${1:-}"
