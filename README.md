@@ -55,8 +55,9 @@ USAGE:
     dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS:
-    -h, --help      Display this usage prompt.
-    -s, --spider    Use wget --spider to check if ISO exists without downloading it.
+    -h, --help        Display this usage prompt.
+    -n, --noverify    Skip GPG key fetching and verification.
+    -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
     arch      opensuse
@@ -73,13 +74,12 @@ EXAMPLES:
 
 ### Error Importing Signing Key
 
-In the event you are unable to import the desired distro's signing key from the keyserver, fallback keys are provided in the `fallback_keys` directory of the repository. You can manually import the required key using:
+As mentioned in the note at the start of the README.md, this script imports GPG keys automatically. You have two options if you are unable to import the desired distro's signing key from the keyserver.
 
-```
-gpg --import fallback_keys/distro.asc
-```
+1. Find the key yourself and manually import it.
+2. Or use the option: `-n` mentioned in the usage to skip GPG key fetching and verification. 
 
-If you prefer not to use the provided fallback keys, you can manually find and import the required key yourself. Once done, `dl-distro` will be able to complete the verification process.
+Option 1 is preferred obviously for security reasons, but if you don't care about GPG verification you may skip it.
 
 ### Issues and Feedback
 
