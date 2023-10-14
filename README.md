@@ -89,7 +89,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 
 | Distribution | Version   | Options |
 |--------------|-----------|---------|
-| [Arch](https://archlinux.org) | 2023.09.01 | |
+| [Arch](https://archlinux.org) | 2023.10.14 | |
 | [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
 | [Fedora](https://fedoraproject.org) | 38 | Everything <br> Server <br> Silverblue <br> Spins <br> Workstation |
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
