@@ -55,7 +55,7 @@ USAGE:
     dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS:
-    -h, --help        Display this usage prompt.
+    -h, --help        Display this usage message.
     -n, --noverify    Skip GPG key fetching and verification.
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
