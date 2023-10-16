@@ -394,6 +394,51 @@ download_opensuse() {
     checksum_verify
 }
 
+download_parrotos() {
+    parrot_edition="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
+
+    if [[ "$parrot_edition" == "raspberry pi" ]]; then
+        iso_type="$(get_choice "core" "home" "security")"
+	architecture="$(get_choice "armhf" "arm64")"
+
+        if [[ "$iso_type" == "security" && "$architecture" == "armhf" ]]; then
+            echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
+            exit
+        fi
+
+	fetch_and_assign_values "gpg_key" \
+                                "url" \
+                                "\"raspberry pi\".${iso_type}.${architecture}.iso_file" \
+                                "sig_file" \
+                                "sum_file" \
+                                "sum_algo"
+
+    else
+        if [[ "$parrot_edition" == "security" || "$parrot_edition" == "home" ]]; then
+            iso_type="$(get_choice "iso" "virtualbox" "utm")"
+        elif [[ "$parrot_edition" == "architect" ]]; then
+            iso_type="$(get_choice "arm64" "amd64" "i386")"
+        else
+            iso_type="iso"
+        fi
+
+        fetch_and_assign_values "gpg_key" \
+                                "url" \
+                                "\"${parrot_edition}\".${iso_type}.iso_file" \
+                                "sig_file" \
+                                "sum_file" \
+                                "sum_algo"
+    fi
+
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file"
+    gpg_verify
+    wget_file "$iso_file"
+    checksum_verify
+}
+
 download_tails() {
     installer_type="$(get_choice "usb" "dvd/vm")"
 
@@ -460,10 +505,10 @@ OPTIONS:
 
 DISTROS:
     arch      opensuse
-    debian    tails
-    fedora    ubuntu
-    kali      whonix
-    mint
+    debian    parrotos
+    fedora    tails
+    kali      ubuntu
+    mint      whonix
 
 EXAMPLES:
     dl-distro arch
@@ -530,6 +575,7 @@ dl_distro() {
         "kali") download_kali ;;
         "mint") download_mint ;;
         "opensuse") download_opensuse ;;
+        "parrotos") download_parrotos ;;
         "tails") download_tails ;;
         "ubuntu") download_ubuntu ;;
         "whonix") download_whonix ;;
