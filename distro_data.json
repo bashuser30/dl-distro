@@ -484,6 +484,45 @@
             }
         }
     },
+    "parrotos" : {
+        "gpg_key": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
+        "url": "https://deb.parrot.sh/parrot/iso/current",
+        "sig_file": "signed-hashes.txt",
+        "sum_file": "signed-hashes.txt",
+        "sum_algo": "sha512sum",
+        "security": {
+            "iso": {"iso_file": "Parrot-security-5.3_amd64.iso"},
+            "virtualbox": {"iso_file": "Parrot-security-5.3_amd64.ova"},
+            "utm": {"iso_file": "Parrot-security-5.3_arm64.utm.zip"}
+        },
+        "home": {
+            "iso": {"iso_file": "Parrot-home-5.3_amd64.iso"},
+            "virtualbox": {"iso_file": "Parrot-home-5.3_amd64.ova"},
+            "utm": {"iso_file": "Parrot-home-5.3_arm64.utm.zip"}
+        },
+        "hack the box": {
+            "iso": {"iso_file": "Parrot-htb-5.3_amd64.iso"}
+        },
+        "architect": {
+            "arm64": {"iso_file": "Parrot-architect-5.3_arm64.iso"},
+            "amd64": {"iso_file": "Parrot-architect-5.3_amd64.iso"},
+            "i386": {"iso_file": "Parrot-architect-5.3_i386.iso"}
+        },
+        "raspberry pi": {
+            "core": {
+                "armhf": {"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz"},
+                "arm64": {"iso_file": "Parrot-core-rpi-5.3_arm64.img.xz"}
+            },
+            "home": {
+                "armhf": {"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz"},
+                "arm64": {"iso_file": "Parrot-home-rpi-5.3_arm64.img.xz"}
+            },
+            "security": {
+                "armhf": {"iso_file": "Parrot-security-rpi-5.3_armhf.img.xz"},
+                "arm64": {"iso_file": "Parrot-security-rpi-5.3_arm64.img.xz"}
+            }
+        }
+    },
     "tails": {
         "gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
 	"url": "https://download.tails.net/tails/stable/tails-amd64-5.18",
