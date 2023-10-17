@@ -333,38 +333,37 @@ download_opensuse() {
     installer_type="$(get_choice "leap" "tumbleweed")"
     image_type="$(get_choice "standard" "vm")"
 
-    if [[ "$image_type" == "standard" ]]; then
-        install_method="$(get_choice "dvd" "netinst")"
+    case "$image_type" in
+        "standard")
+            install_method="$(get_choice "dvd" "netinst")"
 
-        if [[ "$installer_type" == "leap" ]]; then
-            selected_architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
-        else
-            selected_architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
-        fi
+            if [[ "$installer_type" == "leap" ]]; then
+                selected_architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+            else
+                selected_architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
+            fi
 
-	fetch_and_assign_values "gpg_key" \
-                                "${installer_type}.standard.${install_method}.${selected_architecture}.url" \
-                                "${installer_type}.standard.${install_method}.${selected_architecture}.iso_file" \
-                                "${installer_type}.standard.${install_method}.${selected_architecture}.sig_file" \
-                                "${installer_type}.standard.${install_method}.${selected_architecture}.sum_file" \
-                                "sum_algo"
-    else
-        vm_type="$(get_choice "kvm" "hyperv" "vmware" "cloud")"
+            prefix="${installer_type}.${image_type}.${install_method}.${selected_architecture}"
+            ;;
+        "vm")
+            vm_type="$(get_choice "kvm" "hyperv" "vmware" "cloud")"
 
-        if [[ "$vm_type" == "kvm" || "$vm_type" == "hyperv" || "$vm_type" == "cloud" ]]; then
-            selected_architecture="$(get_choice "x86_64" "aarch64")"
-        else
-            selected_architecture="x86_64"
-        fi
+            if [[ "$vm_type" == "vmware" ]]; then
+                selected_architecture="x86_64"
+            else
+                selected_architecture="$(get_choice "x86_64" "aarch64")"
+            fi
 
-        fetch_and_assign_values "gpg_key" \
-                                "${installer_type}.vm.${vm_type}.${selected_architecture}.url" \
-                                "${installer_type}.vm.${vm_type}.${selected_architecture}.iso_file" \
-                                "${installer_type}.vm.${vm_type}.${selected_architecture}.sig_file" \
-                                "${installer_type}.vm.${vm_type}.${selected_architecture}.sum_file" \
-                                "sum_algo"
-    fi
+            prefix="${installer_type}.${image_type}.${vm_type}.${selected_architecture}"
+            ;;
+    esac
 
+    fetch_and_assign_values "gpg_key" \
+                            "${prefix}.url" \
+                            "${prefix}.iso_file" \
+                            "${prefix}.sig_file" \
+                            "${prefix}.sum_file" \
+                            "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
