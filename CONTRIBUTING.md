@@ -95,7 +95,7 @@ This is the last notable function. It will check the `"$iso_file"` `"$sig_file"`
 ---
 
 ### Download Functions
-The rest of the functions are download functions. These are simply just a bunch of if statements to get the required key combinations. Breaking down each one would get out of control. You will have to read the functions yourself to fully grasp them if you wish.
+The rest of the functions are download functions. These are case statements to get the required key combinations for `fetch_and_assign_values()`. Breaking down each one would get out of control. You will have to read the functions yourself to fully grasp them if you wish.
 
 That is pretty much all there is for now... I dont really forsee adding many new notable functions, but if it happens I'll add it above.
 
