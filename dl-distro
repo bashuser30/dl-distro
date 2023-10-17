@@ -303,24 +303,20 @@ download_kali () {
 download_mint () {
     installer_type="$(get_choice "mint" "debian edition")"
 
-    if [[ "$installer_type" == "mint" ]]; then
-        selected_environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
-        fetch_and_assign_values "gpg_key" \
-                                "mint.url" \
-                                "mint.${selected_environment}.iso_file" \
-                                "sig_file" \
-                                "sum_file" \
-                                "sum_algo"
-    else
-        selected_architecture="$(get_choice "64-bit" "32-bit")"
-        fetch_and_assign_values "gpg_key" \
-                                "debian.url" \
-                                "debian.\"${selected_architecture}\".iso_file" \
-                                "sig_file" \
-                                "sum_file" \
-                                "sum_algo"
-    fi
+    case "$installer_type" in
+        "mint")
+            selected_environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
+            url_key="mint.url"
+            iso_key="mint.${selected_environment}.iso_file"
+            ;;
+        "debian edition")
+            selected_architecture="$(get_choice "64-bit" "32-bit")"
+            url_key="debian.url"
+            iso_key="debian.\"${selected_architecture}\".iso_file"
+            ;;
+    esac
 
+    fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "sig_file" "sum_file" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
