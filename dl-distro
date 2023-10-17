@@ -199,61 +199,51 @@ download_debian() {
 download_fedora() {
     installer_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
 
-    if [[ "$installer_type" == "everything" ]]; then
-        selected_architecture="$(get_choice "x86_64" "aarch64")"
-        fetch_and_assign_values "gpg_key" \
-                                "everything.${selected_architecture}.url" \
-                                "everything.${selected_architecture}.iso_file" \
-                                "everything.${selected_architecture}.sig_file" \
-                                "everything.${selected_architecture}.sum_file" \
-                                "sum_algo"
+    case "$installer_type" in
+        "everything")
+            selected_architecture="$(get_choice "x86_64" "aarch64")"
+            url_key="everything.${selected_architecture}.url"
+            iso_key="everything.${selected_architecture}.iso_file"
+            sig_key="everything.${selected_architecture}.sig_file"
+            sum_key="everything.${selected_architecture}.sum_file"
+            ;;
+        "server")
+            selected_architecture="$(get_choice "x86_64" "aarch64")"
+            image_type="$(get_choice "standard" "vm")"
+            url_key="server.${selected_architecture}.${image_type}.url"
+            sig_key="server.${selected_architecture}.sig_file"
+            sum_key="server.${selected_architecture}.sum_file"
 
-    elif [[ "$installer_type" == "server" ]]; then
-        selected_architecture="$(get_choice "x86_64" "aarch64")"
-        image_type="$(get_choice "standard" "vm")"
+            if [[ "$image_type" == "standard" ]]; then
+                install_method="$(get_choice "dvd" "netinst")"
+                iso_key="server.${selected_architecture}.${image_type}.${install_method}.iso_file"
+            else
+                iso_key="server.${selected_architecture}.${image_type}.iso_file"
+            fi
+            ;;
+        "silverblue")
+            url_key="silverblue.url"
+            iso_key="silverblue.iso_file"
+            sig_key="silverblue.sig_file"
+            sum_key="silverblue.sum_file"
+            ;;
+        "spins")
+            selected_environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
+            url_key="spins.url"
+            iso_key="spins.${selected_environment}.iso_file"
+            sig_key="spins.sig_file"
+            sum_key="spins.sum_file"
+            ;;
+        "workstation")
+            selected_architecture="$(get_choice "x86_64" "aarch64")"
+            url_key="workstation.${selected_architecture}.url"
+            iso_key="workstation.${selected_architecture}.iso_file"
+            sig_key="workstation.${selected_architecture}.sig_file"
+            sum_key="workstation.${selected_architecture}.sum_file"
+            ;;
+    esac
 
-        if [[ "$image_type" == "standard" ]]; then
-            install_method="$(get_choice "dvd" "netinst")"
-            fetch_and_assign_values "gpg_key" \
-                                    "server.${selected_architecture}.${image_type}.url" \
-                                    "server.${selected_architecture}.${image_type}.${install_method}.iso_file" \
-                                    "server.${selected_architecture}.sig_file" \
-                                    "server.${selected_architecture}.sum_file" \
-                                    "sum_algo"
-        else
-            fetch_and_assign_values "gpg_key" \
-                                    "server.${selected_architecture}.${image_type}.url" \
-                                    "server.${selected_architecture}.${image_type}.iso_file" \
-                                    "server.${selected_architecture}.sig_file" \
-                                    "server.${selected_architecture}.sum_file" \
-                                    "sum_algo"
-        fi
-    elif [[ "$installer_type" == "silverblue" ]]; then
-        fetch_and_assign_values "gpg_key" \
-                                "silverblue.url" \
-                                "silverblue.iso_file" \
-                                "silverblue.sig_file" \
-                                "silverblue.sum_file" \
-                                "sum_algo"
-
-    elif [[ "$installer_type" == "spins" ]]; then
-        selected_environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
-        fetch_and_assign_values "gpg_key" \
-                                "spins.url" \
-                                "spins.${selected_environment}.iso_file" \
-                                "spins.sig_file" \
-                                "spins.sum_file" \
-                                "sum_algo"
-    else
-        selected_architecture="$(get_choice "x86_64" "aarch64")"
-        fetch_and_assign_values "gpg_key" \
-                                "workstation.${selected_architecture}.url" \
-                                "workstation.${selected_architecture}.iso_file" \
-                                "workstation.${selected_architecture}.sig_file" \
-                                "workstation.${selected_architecture}.sum_file" \
-                                "sum_algo"
-    fi
-
+    fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "$sig_key" "$sum_key" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
