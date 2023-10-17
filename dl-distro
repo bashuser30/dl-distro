@@ -156,12 +156,7 @@ wget_spider() {
 }
 
 download_arch() {
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+    fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
@@ -496,15 +491,12 @@ EOF
 }
 
 check_dependencies() {
-    # Initialize an array to hold missing dependencies
     missing_deps=()
 
-    # Check for the presence of each required dependency
     for cmd in wget gpg jq; do
         command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
     done
 
-    # If there are missing dependencies, notify the user and exit
     if [[ "${#missing_deps[@]}" -gt 0 ]]; then
         echo -e "\nPlease install: ${missing_deps[*]}.\n"
         exit 1
@@ -543,20 +535,13 @@ dl_distro() {
         exit 1
     fi
 
-    # Delegate to the appropriate download function based on the chosen distro
-    case "$distro" in
-        "arch") download_arch ;;
-        "debian") download_debian ;;
-        "fedora") download_fedora ;;
-        "kali") download_kali ;;
-        "mint") download_mint ;;
-        "opensuse") download_opensuse ;;
-        "parrotos") download_parrotos ;;
-        "tails") download_tails ;;
-        "ubuntu") download_ubuntu ;;
-        "whonix") download_whonix ;;
-        *) echo -e "\nError: Please use -h or --help for usage and supported distros.\n"; exit 1 ;;
-    esac
+    # Call the requested $distro's download function
+    if type download_"$distro" &>/dev/null; then
+        download_"$distro"
+    else
+        echo -e "\nError: Invalid distro: $distro. Use 'dl-distro --help' for supported distros.\n"
+        exit 1
+    fi
 }
 
 check_dependencies
