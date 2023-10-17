@@ -173,24 +173,20 @@ download_arch() {
 download_debian() {
     installer_type="$(get_choice "netinst" "live")"
 
-    if [[ "$installer_type" == "netinst" ]]; then
-        selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-        fetch_and_assign_values "gpg_key" \
-                                "netinst.${selected_architecture}.url" \
-                                "netinst.${selected_architecture}.iso_file" \
-                                "sig_file" \
-                                "sum_file" \
-                                "sum_algo"
-    else
-        selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-        fetch_and_assign_values "gpg_key" \
-                                "live.url" \
-                                "live.${selected_environment}.iso_file" \
-                                "sig_file" \
-                                "sum_file" \
-                                "sum_algo"
-    fi
+    case "$installer_type" in
+        "netinst")
+            selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
+            url_key="netinst.${selected_architecture}.url"
+            iso_key="netinst.${selected_architecture}.iso_file"
+            ;;
+        "live")
+            selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
+            url_key="live.url"
+            iso_key="live.${selected_environment}.iso_file"
+            ;;
+    esac
 
+    fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "sig_file" "sum_file" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
