@@ -379,39 +379,31 @@ download_opensuse() {
 download_parrotos() {
     parrot_edition="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
 
-    if [[ "$parrot_edition" == "raspberry pi" ]]; then
-        iso_type="$(get_choice "core" "home" "security")"
-	architecture="$(get_choice "armhf" "arm64")"
-
-        if [[ "$iso_type" == "security" && "$architecture" == "armhf" ]]; then
-            echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
-            exit
-        fi
-
-	fetch_and_assign_values "gpg_key" \
-                                "url" \
-                                "\"raspberry pi\".${iso_type}.${architecture}.iso_file" \
-                                "sig_file" \
-                                "sum_file" \
-                                "sum_algo"
-
-    else
-        if [[ "$parrot_edition" == "security" || "$parrot_edition" == "home" ]]; then
+    case "$parrot_edition" in
+        security|home)
             iso_type="$(get_choice "iso" "virtualbox" "utm")"
-        elif [[ "$parrot_edition" == "architect" ]]; then
-            iso_type="$(get_choice "arm64" "amd64" "i386")"
-        else
-            iso_type="iso"
-        fi
+            iso_key="${parrot_edition}.${iso_type}.iso_file"
+            ;;
+        "hack the box")
+            iso_key="\"hack the box\".iso.iso_file"
+            ;;
+        "architect")
+            selected_architecture="$(get_choice "arm64" "amd64" "i386")"
+            iso_key="architect.${selected_architecture}.iso_file"
+            ;;
+        "raspberry pi")
+            iso_type="$(get_choice "core" "home" "security")"
+            architecture="$(get_choice "armhf" "arm64")"
+            iso_key="\"raspberry pi\".${iso_type}.${architecture}.iso_file"
 
-        fetch_and_assign_values "gpg_key" \
-                                "url" \
-                                "\"${parrot_edition}\".${iso_type}.iso_file" \
-                                "sig_file" \
-                                "sum_file" \
-                                "sum_algo"
-    fi
+            if [[ "$iso_type" == "security" && "$architecture" == "armhf" ]]; then
+                echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
+                exit
+            fi
+            ;;
+    esac
 
+    fetch_and_assign_values "gpg_key" "url" "$iso_key" "sig_file" "sum_file" "sum_algo"
     wget_spider
     handle_download_path
     fetch_gpg_key
