@@ -257,18 +257,21 @@ download_kali () {
     installer_type="$(get_choice "current" "weekly")"
     selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
-    if [[ "$selected_image" == "live" || "$selected_image" == "installer" || "$selected_image" == "netinst" ]]; then
-        selected_architecture="$(get_choice "amd64" "arm64" "i386")"
-    elif [[ "$selected_image" == "purple" || "$selected_image" == "hyperv" ]]; then
-        selected_architecture="amd64"
-    else
-        # This is for all VM images (besides hyperv currently). For weekly builds, default to "amd64".
-        if [[ "$installer_type" == "weekly" ]]; then
+    case "$selected_image" in
+        live|installer|netinst)
+            selected_architecture="$(get_choice "amd64" "arm64" "i386")"
+            ;;
+        purple|hyperv)
             selected_architecture="amd64"
-        else
-            selected_architecture="$(get_choice "amd64" "i386")"
-        fi
-    fi
+            ;;
+        qemu|virtualbox|vmware)
+            if [[ "$installer_type" == "weekly" ]]; then
+                selected_architecture="amd64"
+            else
+                selected_architecture="$(get_choice "amd64" "i386")"
+            fi
+            ;;
+    esac
 
     fetch_and_assign_values "gpg_key" \
                             "${installer_type}.url" \
