@@ -545,7 +545,7 @@
         "current": {
             "url": "https://releases.ubuntu.com/23.10",
             "server": {"iso_file": "ubuntu-23.10-live-server-amd64.iso"},
-            "desktop": {"iso_file": "ubuntu-23.10-desktop-amd64.iso"}
+            "desktop": {"iso_file": "ubuntu-23.10.1-desktop-amd64.iso"}
         },
         "lts": {
             "url": "https://releases.ubuntu.com/22.04.3",
