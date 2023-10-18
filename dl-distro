@@ -195,12 +195,12 @@ download_fedora() {
     installer_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
 
     case "$installer_type" in
-        "everything")
+        everything|workstation)
             selected_architecture="$(get_choice "x86_64" "aarch64")"
-            url_key="everything.${selected_architecture}.url"
-            iso_key="everything.${selected_architecture}.iso_file"
-            sig_key="everything.${selected_architecture}.sig_file"
-            sum_key="everything.${selected_architecture}.sum_file"
+            url_key="${installer_type}.${selected_architecture}.url"
+            iso_key="${installer_type}.${selected_architecture}.iso_file"
+            sig_key="${installer_type}.${selected_architecture}.sig_file"
+            sum_key="${installer_type}.${selected_architecture}.sum_file"
             ;;
         "server")
             selected_architecture="$(get_choice "x86_64" "aarch64")"
@@ -228,13 +228,6 @@ download_fedora() {
             iso_key="spins.${selected_environment}.iso_file"
             sig_key="spins.sig_file"
             sum_key="spins.sum_file"
-            ;;
-        "workstation")
-            selected_architecture="$(get_choice "x86_64" "aarch64")"
-            url_key="workstation.${selected_architecture}.url"
-            iso_key="workstation.${selected_architecture}.iso_file"
-            sig_key="workstation.${selected_architecture}.sig_file"
-            sum_key="workstation.${selected_architecture}.sum_file"
             ;;
     esac
 
