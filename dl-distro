@@ -52,7 +52,7 @@ gpg_verify() {
 
     cmd=("gpg" "--verify" "$sig_file")
 
-    [[ -n "$1" ]] && cmd+=("$1")
+    [[ -n "${1:-}" ]] && cmd+=("$1")
 
     echo
     if ! "${cmd[@]}"; then
