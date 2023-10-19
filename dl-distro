@@ -16,7 +16,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
 
 set -euo pipefail
 
@@ -33,7 +32,7 @@ wget_file() {
 
 # Checks for the GPG key needed, fetches it if missing; exits on failure
 fetch_gpg_key() {
-    [[ "${verify:-}" == "false" ]] && return 0
+    [[ "$verify" == "false" ]] && return 0
 
     if ! gpg --list-keys "$gpg_key" &> /dev/null; then
         echo -e "\nFetching GPG key: $gpg_key\n"
@@ -49,21 +48,17 @@ fetch_gpg_key() {
 # Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure.
 # Usage: gpg_verify or gpg_verify "$sum_file"
 gpg_verify() {
-    [[ "${verify:-}" == "false" ]] && return 0
+    [[ "$verify" == "false" ]] && return 0
+
+    cmd=("gpg" "--verify" "$sig_file")
+
+    [[ -n "$1" ]] && cmd+=("$1")
 
     echo
-    if [[ -z "${1:-}" ]]; then
-        if ! gpg --verify "$sig_file"; then
-            echo -e "\nError: GPG verification failed.\n"
-            rm -f "$iso_file" "$sig_file" "$sum_file"
-            exit 1
-        fi
-    else
-        if ! gpg --verify "$sig_file" "$1"; then
-            echo -e "\nError: GPG verification failed.\n"
-            rm -f "$iso_file" "$sig_file" "$sum_file"
-            exit 1
-        fi
+    if ! "${cmd[@]}"; then
+        echo -e "\nError: GPG verification failed.\n"
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        exit 1
     fi
     echo
 }
@@ -71,7 +66,7 @@ gpg_verify() {
 # Verifies a file using its checksum; deletes files and exits based on success/failure
 checksum_verify() {
     echo
-    if ! "$sum_algo" -c --ignore-missing "$sum_file" 2>/dev/null; then
+    if ! "$sum_algo" -c --ignore-missing "$sum_file" 2> /dev/null; then
         echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
         exit 1
@@ -82,7 +77,6 @@ checksum_verify() {
     fi
 }
 
-# Ensures the specified download path exists and changes to it; exits on failure
 handle_download_path() {
     if [[ "$download_path" != "$(pwd)" ]]; then
         mkdir -p "$download_path" && cd "$download_path" || exit 1
@@ -115,7 +109,7 @@ get_choice() {
 }
 
 # Fetches and assigns specific values from a JSON file to global variables
-# Keys provided should match the desired sequence of variable assignments
+# Keys provided should match the sequence of variable assignments
 # Usage: fetch_and_assign_values "key1" "key2" ...
 # Example: fetch_and_assign_values "gpg_key" "netinst.amd64.url" ...
 fetch_and_assign_values() {
@@ -139,7 +133,7 @@ fetch_and_assign_values() {
 
 # Checks the iso, sig, and sum file for the chosen combination
 wget_spider() {
-    [[ "${spider:-}" != "true" ]] && return 0
+    [[ "$spider" == "false" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
 
@@ -158,8 +152,8 @@ wget_spider() {
 download_arch() {
     fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
     gpg_verify "$iso_file"
     checksum_verify
@@ -183,8 +177,8 @@ download_debian() {
 
     fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "sig_file" "sum_file" "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
     wget_file "$iso_file"
@@ -233,8 +227,8 @@ download_fedora() {
 
     fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "$sig_key" "$sum_key" "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file"
     gpg_verify
     wget_file "$iso_file"
@@ -283,8 +277,8 @@ download_kali () {
     fi
 
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
     wget_file "$iso_file"
@@ -309,8 +303,8 @@ download_mint () {
 
     fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "sig_file" "sum_file" "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
     wget_file "$iso_file"
@@ -353,8 +347,8 @@ download_opensuse() {
                             "${prefix}.sum_file" \
                             "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
 
@@ -395,8 +389,8 @@ download_parrotos() {
 
     fetch_and_assign_values "gpg_key" "url" "$iso_key" "sig_file" "sum_file" "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file"
     gpg_verify
     wget_file "$iso_file"
@@ -413,8 +407,8 @@ download_tails() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$iso_file"
     gpg_verify "$iso_file"
     rm -f "$sig_file"
@@ -432,8 +426,8 @@ download_ubuntu() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file"
     gpg_verify "$sum_file"
     wget_file "$iso_file"
@@ -450,8 +444,8 @@ download_whonix() {
                             "${installer_type}.sum_file" \
                             "sum_algo"
     wget_spider
-    handle_download_path
     fetch_gpg_key
+    handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
     gpg_verify "$iso_file"
     checksum_verify
@@ -498,44 +492,61 @@ check_dependencies() {
     fi
 }
 
-dl_distro() {
-    case "${1:-}" in
-        -h|--help) usage; exit 0 ;;
-        -n|--noverify) verify=false; shift;;
-        -s|--spider) spider=true; shift ;;
-    esac
+fetch_json() {
+    json_paths=(
+        "$HOME/.config/dl-distro/distro_data.json"
+        "$(dirname "$0")/distro_data.json"
+        "/usr/share/dl-distro/distro_data.json"
+    )
 
-    distro="${1:-}"
-    download_path="${2:-$(pwd)}"
-
-    [[ -z "$distro" ]] && usage && exit 1
-
-    # Search for the distro data JSON in the predefined paths
-    for path in \
-        "$HOME/.config/dl-distro/distro_data.json" \
-        "$(dirname "$0")/distro_data.json" \
-        "/usr/share/dl-distro/distro_data.json";
-    do
+    for path in "${json_paths[@]}"; do
         if [[ -f "$path" ]]; then
             json_file="$path"
-            break
+            return
         fi
     done
 
-    # Exit if the JSON data file wasn't found
-    if [[ -z "$json_file" ]]; then
-        echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
+    echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
+    for path in "${json_paths[@]}"; do
+        echo " - $path"
+    done
+    echo
+
+    exit 1
+}
+
+main() {
+    check_dependencies
+    fetch_json
+
+    verify=true
+    spider=false
+
+    while [[ "$#" -gt 0 ]]; do
+        case "$1" in
+            -h|--help) usage; exit 0 ;;
+            -n|--noverify) verify=false; shift ;;
+            -s|--spider) spider=true; shift ;;
+            -*) echo -e "\nError: Unknown option: $1\nUse -h for available options: dl-distro -h\n"; exit 1 ;;
+            *) break ;;
+        esac
+    done
+
+    distro="${1:-none}"
+    download_path="${2:-$(pwd)}"
+
+    if [[ "$distro" == "none" ]]; then
+        echo -e "\nError: No distro provided.\nUse -h for available options and distros: dl-distro -h\n"
         exit 1
     fi
 
     # Call the requested $distro's download function
-    if type download_"$distro" &>/dev/null; then
+    if type download_"$distro" &> /dev/null; then
         download_"$distro"
     else
-        echo -e "\nError: Invalid distro: $distro. Use 'dl-distro --help' for supported distros.\n"
+        echo -e "\nError: Invalid distro: $distro\nUse -h for available distros: dl-distro -h\n"
         exit 1
     fi
 }
 
-check_dependencies
-dl_distro "$@"
+main "$@"
