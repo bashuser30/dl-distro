@@ -4,12 +4,12 @@
 
 Currently, `dl-distro` supports downloading **160** different ISOs from **11** different distributions. For more details see [Supported Distributions](#supported-distributions).
 
-> **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
+> **Note:** dl-distro imports GPG keys by default. If this is not desired, refer to [Script Usage](#script-usage) to disable this feature.
 
 ## Dependencies
 
 - bash
-- gnupg
+- gnupg (optional: use -n to disable verification)
 - jq
 - minisign (optional: void signature verification)
 - wget
