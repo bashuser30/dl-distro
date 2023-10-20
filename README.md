@@ -102,9 +102,9 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 
 ## Mirrors
 
-[Codeberg (main)](https://codeberg.org/bashuser30/dl-distro)
-[GitLab](https://gitlab.com/bashuser30/dl-distro)
-[GitHub](https://github.com/bashuser30/dl-distro)
+- [Codeberg (main)](https://codeberg.org/bashuser30/dl-distro)
+- [GitLab](https://gitlab.com/bashuser30/dl-distro)
+- [GitHub](https://github.com/bashuser30/dl-distro)
 
 ## License
 
