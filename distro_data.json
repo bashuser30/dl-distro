@@ -553,6 +553,98 @@
             "desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
         }
     },
+    "void": {
+        "gpg_key": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20230628.pub",
+        "url": "https://repo-default.voidlinux.org/live/current",
+        "sig_file": "sha256sum.sig",
+        "sum_file": "sha256sum.txt",
+        "sum_algo": "sha256sum",
+        "x86_64": {
+            "base": {
+                "live":{
+                    "glibc": {"iso_file": "void-live-x86_64-20230628-base.iso"},
+                    "musl": {"iso_file": "void-live-x86_64-musl-20230628-base.iso"}
+                },
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-x86_64-ROOTFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-x86_64-musl-ROOTFS-20230628.tar.xz"}
+                }
+            },
+            "xfce": {
+                "live": {
+                    "glibc": {"iso_file": "void-live-x86_64-20230628-xfce.iso"},
+                    "musl": {"iso_file": "void-live-x86_64-musl-20230628-xfce.iso"}
+                }
+            }
+        },
+        "i686": {
+            "base": {
+                "live": {
+                    "glibc": {"iso_file": "void-live-i686-20230628-base.iso"}
+                },
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-i686-ROOTFS-20230628.tar.xz"}
+                }
+            },
+            "xfce": {
+                "live": {
+                    "glibc": {"iso_file": "void-live-i686-20230628-xfce.iso"}
+                }
+            }
+        },
+        "arm": {
+            "armv6l": {
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-armv6l-ROOTFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-armv6l-musl-ROOTFS-20230628.tar.xz"}
+                }
+            },
+            "armv7l": {
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-armv7l-ROOTFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-armv7l-musl-ROOTFS-20230628.tar.xz"}
+                }
+            },
+            "aarch64": {
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-aarch64-ROOTFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-aarch64-musl-ROOTFS-20230628.tar.xz"}
+                }
+            }
+        },
+        "arm platforms": {
+            "rpi-armv6l": {
+                "live": {
+                    "glibc": {"iso_file": "void-rpi-armv6l-20230628.img.xz"},
+                    "musl": {"iso_file": "void-rpi-armv6l-musl-20230628.img.xz"}
+                },
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-rpi-armv6l-PLATFORMFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20230628.tar.xz"}
+                }
+            },
+            "rpi-armv7l": {
+                "live": {
+                    "glibc": {"iso_file": "void-rpi-armv7l-20230628.img.xz"},
+                    "musl": {"iso_file": "void-rpi-armv7l-musl-20230628.img.xz"}
+                },
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-rpi-armv7l-PLATFORMFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20230628.tar.xz"}
+                }
+            },
+            "rpi-aarch64": {
+                "live": {
+                    "glibc": {"iso_file": "void-rpi-aarch64-20230628.img.xz"},
+                    "musl": {"iso_file": "void-rpi-aarch64-musl-20230628.img.xz"}
+                },
+                "rootfs tarball": {
+                    "glibc": {"iso_file": "void-rpi-aarch64-PLATFORMFS-20230628.tar.xz"},
+                    "musl": {"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20230628.tar.xz"}
+                }
+            }
+        }
+    },
     "whonix": {
         "sum_algo": "sha512sum",
         "qemu": {
