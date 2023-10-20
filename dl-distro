@@ -182,7 +182,12 @@ wget_spider() {
 }
 
 download_arch() {
-    fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
     wget_spider
     fetch_gpg_key
     handle_download_path
@@ -197,17 +202,18 @@ download_debian() {
     case "$debian_type" in
         "netinst")
             architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-            url_key="${debian_type}.${architecture}.url"
-            iso_key="${debian_type}.${architecture}.iso_file"
             ;;
         "live")
             environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-            url_key="${debian_type}.url"
-            iso_key="${debian_type}.${environment}.iso_file"
             ;;
     esac
 
-    fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "sig_file" "sum_file" "sum_algo"
+    fetch_and_assign_values "gpg_key" \
+                            "${debian_type}.${architecture:-$environment}.url" \
+                            "${debian_type}.${architecture:-$environment}.iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
     wget_spider
     fetch_gpg_key
     handle_download_path
@@ -223,41 +229,35 @@ download_fedora() {
     case "$fedora_type" in
         "everything"|"workstation")
             architecture="$(get_choice "x86_64" "aarch64")"
-            url_key="${fedora_type}.${architecture}.url"
-            iso_key="${fedora_type}.${architecture}.iso_file"
-            sig_key="${fedora_type}.${architecture}.sig_file"
-            sum_key="${fedora_type}.${architecture}.sum_file"
+            prefix="${fedora_type}.${architecture}"
             ;;
         "server")
             architecture="$(get_choice "x86_64" "aarch64")"
-            image_type="$(get_choice "standard" "vm")"
-            url_key="${fedora_type}.${architecture}.${image_type}.url"
-            sig_key="${fedora_type}.${architecture}.sig_file"
-            sum_key="${fedora_type}.${architecture}.sum_file"
 
-            if [[ "$image_type" == "standard" ]]; then
-                install_method="$(get_choice "dvd" "netinst")"
-                iso_key="${fedora_type}.${architecture}.${image_type}.${install_method}.iso_file"
+            if [[ "$architecture" == "x86_64" ]]; then
+                image_type="$(get_choice "qemu" "dvd" "netinst")"
             else
-                iso_key="${fedora_type}.${architecture}.${image_type}.iso_file"
+                image_type="$(get_choice "raw" "qemu" "dvd" "netinst")"
             fi
+
+            prefix="${fedora_type}.${architecture}.${image_type}"
             ;;
         "silverblue")
-            url_key="${fedora_type}.url"
-            iso_key="${fedora_type}.iso_file"
-            sig_key="${fedora_type}.sig_file"
-            sum_key="${fedora_type}.sum_file"
+            architecture="x86_64"
+            prefix="${fedora_type}.${architecture}"
             ;;
         "spins")
             environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
-            url_key="${fedora_type}.url"
-            iso_key="${fedora_type}.${environment}.iso_file"
-            sig_key="${fedora_type}.sig_file"
-            sum_key="${fedora_type}.sum_file"
+            prefix="${fedora_type}.${environment}"
             ;;
     esac
 
-    fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "$sig_key" "$sum_key" "sum_algo"
+    fetch_and_assign_values "gpg_key" \
+                            "${prefix}.url" \
+                            "${prefix}.iso_file" \
+                            "${prefix}.sig_file" \
+                            "${prefix}.sum_file" \
+                            "sum_algo"
     wget_spider
     fetch_gpg_key
     handle_download_path
@@ -323,17 +323,18 @@ download_mint () {
     case "$mint_type" in
         "mint")
             environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
-            url_key="${mint_type}.url"
-            iso_key="${mint_type}.${environment}.iso_file"
             ;;
         "debian edition")
             architecture="$(get_choice "64-bit" "32-bit")"
-            url_key="\"${mint_type}\".url"
-            iso_key="\"${mint_type}\".\"${architecture}\".iso_file"
             ;;
     esac
 
-    fetch_and_assign_values "gpg_key" "$url_key" "$iso_key" "sig_file" "sum_file" "sum_algo"
+    fetch_and_assign_values "gpg_key" \
+                            "\"${mint_type}\".\"${environment:-$architecture}\".url" \
+                            "\"${mint_type}\".\"${environment:-$architecture}\".iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
     wget_spider
     fetch_gpg_key
     handle_download_path
@@ -345,38 +346,29 @@ download_mint () {
 
 download_opensuse() {
     opensuse_type="$(get_choice "leap" "tumbleweed")"
-    image_type="$(get_choice "standard" "vm")"
+    image_type="$(get_choice "dvd" "netinst" "kvm" "hyperv" "vmware" "cloud")"
 
     case "$image_type" in
-        "standard")
-            install_method="$(get_choice "dvd" "netinst")"
-
+        "dvd"|"netinst")
             if [[ "$opensuse_type" == "leap" ]]; then
                 architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
             else
                 architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
             fi
-
-            prefix="${opensuse_type}.${image_type}.${install_method}.${architecture}"
             ;;
-        "vm")
-            vm_type="$(get_choice "kvm" "hyperv" "vmware" "cloud")"
-
-            if [[ "$vm_type" == "vmware" ]]; then
-                architecture="x86_64"
-            else
-                architecture="$(get_choice "x86_64" "aarch64")"
-            fi
-
-            prefix="${opensuse_type}.${image_type}.${vm_type}.${architecture}"
+        "kvm"|"hyperv"|"cloud")
+            architecture="$(get_choice "x86_64" "aarch64")"
+            ;;
+        "vmware")
+            architecture="x86_64"
             ;;
     esac
 
     fetch_and_assign_values "gpg_key" \
-                            "${prefix}.url" \
-                            "${prefix}.iso_file" \
-                            "${prefix}.sig_file" \
-                            "${prefix}.sum_file" \
+                            "${opensuse_type}.${image_type}.${architecture}.url" \
+                            "${opensuse_type}.${image_type}.${architecture}.iso_file" \
+                            "${opensuse_type}.${image_type}.${architecture}.sig_file" \
+                            "${opensuse_type}.${image_type}.${architecture}.sum_file" \
                             "sum_algo"
     wget_spider
     fetch_gpg_key
@@ -398,19 +390,16 @@ download_parrotos() {
     case "$parrot_type" in
         "security"|"home")
             image_type="$(get_choice "iso" "virtualbox" "utm")"
-            iso_key="${parrot_type}.${image_type}.iso_file"
             ;;
         "hack the box")
-            iso_key="\"${parrot_type}\".iso.iso_file"
+            image_type="iso"
             ;;
         "architect")
             architecture="$(get_choice "arm64" "amd64" "i386")"
-            iso_key="${parrot_type}.${architecture}.iso_file"
             ;;
         "raspberry pi")
             image_type="$(get_choice "core" "home" "security")"
             architecture="$(get_choice "armhf" "arm64")"
-            iso_key="\"${parrot_type}\".${image_type}.${architecture}.iso_file"
 
             if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
                 echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
@@ -419,7 +408,18 @@ download_parrotos() {
             ;;
     esac
 
-    fetch_and_assign_values "gpg_key" "url" "$iso_key" "sig_file" "sum_file" "sum_algo"
+    if [[ "$parrot_type" == "raspberry pi" ]]; then
+        prefix="\"${parrot_type}\".${image_type}.${architecture}"
+    else
+        prefix="\"${parrot_type}\".${image_type:-$architecture}"
+    fi
+
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "${prefix}.iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
     wget_spider
     fetch_gpg_key
     handle_download_path
