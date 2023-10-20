@@ -36,7 +36,7 @@ fetch_gpg_key() {
     [[ "$verify" == "false" ]] && return 0
 
     case "$minisign" in
-        false)
+        "false")
             if ! gpg --list-keys "$gpg_key" &> /dev/null; then
                 echo -e "\nFetching GPG key: $gpg_key\n"
                 if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
@@ -47,7 +47,7 @@ fetch_gpg_key() {
                 fi
             fi
             ;;
-        true)
+        "true")
             check_dependencies "minisign"
 
             minisign_file="$(mktemp --tmpdir="$download_path")"
@@ -70,7 +70,7 @@ gpg_verify() {
     [[ "$verify" == "false" ]] && return 0
 
     case "$minisign" in
-        false)
+        "false")
             cmd=("gpg" "--verify" "$sig_file")
 
             [[ -n "${1:-}" ]] && cmd+=("$1")
@@ -83,7 +83,7 @@ gpg_verify() {
             fi
             echo
             ;;
-        true)
+        "true")
             echo
             if ! minisign -V -p "$minisign_file" -x "$sig_file" -m "$sum_file"; then
                 echo -e "\nError: Minisign verification failed.\n"
@@ -221,7 +221,7 @@ download_fedora() {
     fedora_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
 
     case "$fedora_type" in
-        everything|workstation)
+        "everything"|"workstation")
             architecture="$(get_choice "x86_64" "aarch64")"
             url_key="${fedora_type}.${architecture}.url"
             iso_key="${fedora_type}.${architecture}.iso_file"
@@ -272,13 +272,13 @@ download_kali () {
     image_type="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
     case "$image_type" in
-        live|installer|netinst)
+        "live"|"installer"|"netinst")
             architecture="$(get_choice "amd64" "arm64" "i386")"
             ;;
-        purple|hyperv)
+        "purple"|"hyperv")
             architecture="amd64"
             ;;
-        qemu|virtualbox|vmware)
+        "qemu"|"virtualbox"|"vmware")
             if [[ "$kali_type" == "weekly" ]]; then
                 architecture="amd64"
             else
@@ -396,7 +396,7 @@ download_parrotos() {
     parrot_type="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
 
     case "$parrot_type" in
-        security|home)
+        "security"|"home")
             image_type="$(get_choice "iso" "virtualbox" "utm")"
             iso_key="${parrot_type}.${image_type}.iso_file"
             ;;
