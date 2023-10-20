@@ -100,6 +100,12 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
 | [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
 
+## Mirrors
+
+[Codeberg (main)](https://codeberg.org/bashuser30/dl-distro)
+[GitLab](https://gitlab.com/bashuser30/dl-distro)
+[GitHub](https://github.com/bashuser30/dl-distro)
+
 ## License
 
 All files in this repository are licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
