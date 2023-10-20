@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script designed to download and verify a chosen ISO from a list of supported distributions. It fetches the necessary details for downloading and verification using `jq` and the provided `distro_data.json` file. I am expanding the list of supported distributions when time permits. Your contributions are always appreciated, please see the [contributing file](https://codeberg.org/bashuser30/dl-distro/src/branch/master/CONTRIBUTING.md).
 
-Currently, `dl-distro` supports downloading **133** different ISOs from **10** different distributions. For more details see [Supported Distributions](#supported-distributions).
+Currently, `dl-distro` supports downloading **160** different ISOs from **11** different distributions. For more details see [Supported Distributions](#supported-distributions).
 
 > **NOTE**: This script will automatically import GPG signing keys to verify the signatures. **DO NOT** run this script if you don't want to import the GPG signing keys of the developers.
 
@@ -11,6 +11,7 @@ Currently, `dl-distro` supports downloading **133** different ISOs from **10** d
 - bash
 - gnupg
 - jq
+- minisign (optional: void signature verification)
 - wget
 
 ## Install
@@ -60,11 +61,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    arch      opensuse
+    arch      opensuse    whonix
     debian    parrotos
     fedora    tails
     kali      ubuntu
-    mint      whonix
+    mint      void
 
 EXAMPLES:
     dl-distro arch
@@ -95,9 +96,10 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
-| [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Core, Home, and Security Editions |
+| [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
 | [Tails](https://tails.net) | 5.18 | USB <br> DVD/VM |
 | [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
+| [Void](https://voidlinux.org) | 20230628 | x86\_64 <br> i686 <br> arm <br> arm platforms (RPi) |
 | [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
 
 ## Mirrors
