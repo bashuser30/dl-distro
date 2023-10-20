@@ -369,16 +369,16 @@ download_parrotos() {
             iso_key="${parrot_type}.${image_type}.iso_file"
             ;;
         "hack the box")
-            iso_key="\"hack the box\".iso.iso_file"
+            iso_key="\"$parrot_type\".iso.iso_file"
             ;;
         "architect")
             architecture="$(get_choice "arm64" "amd64" "i386")"
-            iso_key="architect.${architecture}.iso_file"
+            iso_key="$parrot_type.${architecture}.iso_file"
             ;;
         "raspberry pi")
             image_type="$(get_choice "core" "home" "security")"
             architecture="$(get_choice "armhf" "arm64")"
-            iso_key="\"raspberry pi\".${image_type}.${architecture}.iso_file"
+            iso_key="\"$parrot_type\".${image_type}.${architecture}.iso_file"
 
             if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
                 echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
