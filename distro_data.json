@@ -55,15 +55,38 @@
             }
         },
         "live": {
-            "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-            "cinnamon": {"iso_file": "debian-live-12.2.0-amd64-cinnamon.iso"},
-            "gnome": {"iso_file": "debian-live-12.2.0-amd64-gnome.iso"},
-            "kde": {"iso_file": "debian-live-12.2.0-amd64-kde.iso"},
-            "lxde": {"iso_file": "debian-live-12.2.0-amd64-lxde.iso"},
-            "lxqt": {"iso_file": "debian-live-12.2.0-amd64-lxqt.iso"},
-            "mate": {"iso_file": "debian-live-12.2.0-amd64-mate.iso"},
-            "standard": {"iso_file": "debian-live-12.2.0-amd64-standard.iso"},
-            "xfce": {"iso_file": "debian-live-12.2.0-amd64-xfce.iso"}
+            "cinnamon": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-cinnamon.iso"
+            },
+            "gnome": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-gnome.iso"
+            },
+            "kde": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-kde.iso"
+            },
+            "lxde": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-lxde.iso"
+            },
+            "lxqt": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-lxqt.iso"
+            },
+            "mate": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-mate.iso"
+            },
+            "standard": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-standard.iso"
+            },
+            "xfce": {
+                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+                "iso_file": "debian-live-12.2.0-amd64-xfce.iso"
+            }
         }
     },
     "fedora": {
@@ -85,52 +108,121 @@
         },
         "server": {
             "x86_64": {
-                "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
-                "standard": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
-                    "dvd": {"iso_file": "Fedora-Server-dvd-x86_64-38-1.6.iso"},
-                    "netinst": {"iso_file": "Fedora-Server-netinst-x86_64-38-1.6.iso"}
-                },
-                "vm": {
+                "qemu": {
                     "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/images",
-                    "iso_file": "Fedora-Server-KVM-38-1.6.x86_64.qcow2"
+                    "iso_file": "Fedora-Server-KVM-38-1.6.x86_64.qcow2",
+                    "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
+                },
+                "dvd": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
+                    "iso_file": "Fedora-Server-dvd-x86_64-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
+                },
+                "netinst": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
+                    "iso_file": "Fedora-Server-netinst-x86_64-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
                 }
             },
             "aarch64": {
-                "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
-                "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
-                "standard": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
-                    "dvd": {"iso_file": "Fedora-Server-dvd-aarch64-38-1.6.iso"},
-                    "netinst": {"iso_file": "Fedora-Server-netinst-aarch64-38-1.6.iso"}
-                },
-                "vm": {
+                "raw": {
                     "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
-                    "iso_file": "Fedora-Server-KVM-38-1.6.aarch64.qcow2"
+                    "iso_file": "Fedora-Server-38-1.6.aarch64.raw.xz",
+                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+                },
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
+                    "iso_file": "Fedora-Server-KVM-38-1.6.aarch64.qcow2",
+                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+                },
+                "dvd": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
+                    "iso_file": "Fedora-Server-dvd-aarch64-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+                },
+                "netinst": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
+                    "iso_file": "Fedora-Server-netinst-aarch64-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
                 }
             }
         },
         "silverblue": {
-            "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
-            "iso_file": "Fedora-Silverblue-ostree-x86_64-38-1.6.iso",
-            "sig_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM",
-            "sum_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM"
+            "x86_64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
+                "iso_file": "Fedora-Silverblue-ostree-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM"
+            }
         },
         "spins": {
-            "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-            "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-            "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-            "budgie": {"iso_file": "Fedora-Budgie-Live-x86_64-38-1.6.iso"},
-            "cinnamon": {"iso_file": "Fedora-Cinnamon-Live-x86_64-38-1.6.iso"},
-            "kde": {"iso_file": "Fedora-KDE-Live-x86_64-38-1.6.iso"},
-            "lxde": {"iso_file": "Fedora-LXDE-Live-x86_64-38-1.6.iso"},
-            "lxqt": {"iso_file": "Fedora-LXQt-Live-x86_64-38-1.6.iso"},
-            "mate": {"iso_file": "Fedora-MATE_Compiz-Live-x86_64-38-1.6.iso"},
-            "sugar": {"iso_file": "Fedora-SoaS-Live-x86_64-38-1.6.iso"},
-            "sway": {"iso_file": "Fedora-Sway-Live-x86_64-38-1.6.iso"},
-            "xfce": {"iso_file": "Fedora-Xfce-Live-x86_64-38-1.6.iso"},
-            "i3": {"iso_file": "Fedora-i3-Live-x86_64-38-1.6.iso"}
+            "budgie": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-Budgie-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "cinnamon": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-Cinnamon-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "kde": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-KDE-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "lxde": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-LXDE-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "lxqt": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-LXQt-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "mate": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-MATE_Compiz-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "sugar": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-SoaS-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "sway": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-Sway-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "xfce": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-Xfce-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            },
+            "i3": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+                "iso_file": "Fedora-i3-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+            }
         },
         "workstation": {
             "x86_64": {
@@ -228,258 +320,266 @@
         "sum_file": "sha256sum.txt",
         "sum_algo": "sha256sum",
         "mint": {
-            "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-            "cinnamon": {"iso_file": "linuxmint-21.2-cinnamon-64bit.iso"},
-            "mate": {"iso_file": "linuxmint-21.2-mate-64bit.iso"},
-            "xfce": {"iso_file": "linuxmint-21.2-xfce-64bit.iso"},
-            "edge": {"iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso"}
+            "cinnamon": {
+                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+                "iso_file": "linuxmint-21.2-cinnamon-64bit.iso"
+            },
+            "mate": {
+                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+                "iso_file": "linuxmint-21.2-mate-64bit.iso"
+            },
+            "xfce": {
+                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+                "iso_file": "linuxmint-21.2-xfce-64bit.iso"
+            },
+            "edge": {
+                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+                "iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso"
+            }
         },
         "debian edition": {
-            "url": "https://mirrors.layeronline.com/linuxmint/debian",
-            "64-bit": {"iso_file": "lmde-6-cinnamon-64bit.iso"},
-            "32-bit": {"iso_file": "lmde-6-cinnamon-32bit.iso"}
+            "64-bit": {
+                "url": "https://mirrors.layeronline.com/linuxmint/debian",
+                "iso_file": "lmde-6-cinnamon-64bit.iso"
+            },
+            "32-bit": {
+                "url": "https://mirrors.layeronline.com/linuxmint/debian",
+                "iso_file": "lmde-6-cinnamon-32bit.iso"
+            }
         }
     },
     "opensuse": {
         "gpg_key": "AD485664E901B867051AB15F35A2F86E29B700A4",
         "sum_algo": "sha256sum",
         "leap": {
-            "standard": {
-                "dvd": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256"
-                    },
-                    "ppc64le": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256"
-                    },
-                    "s390x": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256"
-                    }
+            "dvd": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256"
                 },
-                "netinst": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256"
-                    },
-                    "ppc64le": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256"
-                    },
-                    "s390x": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                        "iso_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso",
-                        "sig_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256"
-                    }
+                "aarch64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256"
+                },
+                "ppc64le": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256"
+                },
+                "s390x": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256"
                 }
             },
-            "vm": {
-                "kvm": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256"
-                    }
+            "netinst": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256"
                 },
-                "hyperv": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
-                    }
+                "aarch64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256"
                 },
-                "vmware": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-                    }
+                "ppc64le": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256"
                 },
-                "cloud": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                        "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2",
-                        "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256"
-                    }
+                "s390x": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+                    "iso_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso",
+                    "sig_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256"
+                }
+            },
+            "kvm": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256"
+                }
+            },
+            "hyperv": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
+                }
+            },
+            "vmware": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
+                }
+            },
+            "cloud": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2",
+                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256"
                 }
             }
         },
         "tumbleweed": {
-            "standard": {
-                "dvd": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256"
-                    },
-                    "i586": {
-                        "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256"
-                    },
-                    "ppc64le": {
-                        "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256"
-                    },
-                    "s390x": {
-                        "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256"
-                    },
-                    "ppc64": {
-                        "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256"
-                    }
+            "dvd": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256"
                 },
-                "netinst": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256"
-                    },
-                    "i586": {
-                        "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256"
-                    },
-                    "ppc64le": {
-                        "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256"
-                    },
-                    "s390x": {
-                        "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256"
-                    },
-                    "ppc64": {
-                        "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                        "iso_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso",
-                        "sig_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256"
-                    }
+                "i586": {
+                    "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256"
+                },
+                "ppc64le": {
+                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256"
+                },
+                "s390x": {
+                    "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256"
+                },
+                "ppc64": {
+                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256"
                 }
             },
-            "vm": {
-                "kvm": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256"
-                    }
+            "netinst": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256"
                 },
-                "hyperv": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
-                    }
+                "i586": {
+                    "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256"
                 },
-                "vmware": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-                    }
+                "aarch64": {
+                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256"
                 },
-                "cloud": {
-                    "x86_64": {
-                        "url": "https://download.opensuse.org/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256"
-                    },
-                    "aarch64": {
-                        "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
-                        "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2",
-                        "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
-                        "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256"
-                    }
+                "ppc64le": {
+                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256"
+                },
+                "s390x": {
+                    "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256"
+                },
+                "ppc64": {
+                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+                    "iso_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso",
+                    "sig_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256"
+                }
+            },
+            "kvm": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256"
+                }
+            },
+            "hyperv": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
+                }
+            },
+            "vmware": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
+                }
+            },
+            "cloud": {
+                "x86_64": {
+                    "url": "https://download.opensuse.org/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256"
+                },
+                "aarch64": {
+                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2",
+                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
+                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256"
                 }
             }
         }
@@ -543,12 +643,12 @@
         "sum_file": "SHA256SUMS",
         "sum_algo": "sha256sum",
         "current": {
-            "url": "https://releases.ubuntu.com/23.10",
+            "url": "https://releases.ubuntu.com/mantic",
             "server": {"iso_file": "ubuntu-23.10-live-server-amd64.iso"},
             "desktop": {"iso_file": "ubuntu-23.10.1-desktop-amd64.iso"}
         },
         "lts": {
-            "url": "https://releases.ubuntu.com/22.04.3",
+            "url": "https://releases.ubuntu.com/jammy",
             "server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
             "desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
         }
