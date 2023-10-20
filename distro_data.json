@@ -234,7 +234,7 @@
             "xfce": {"iso_file": "linuxmint-21.2-xfce-64bit.iso"},
             "edge": {"iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso"}
         },
-        "debian": {
+        "debian edition": {
             "url": "https://mirrors.layeronline.com/linuxmint/debian",
             "64-bit": {"iso_file": "lmde-6-cinnamon-64bit.iso"},
             "32-bit": {"iso_file": "lmde-6-cinnamon-32bit.iso"}

@@ -296,8 +296,8 @@ download_mint () {
             ;;
         "debian edition")
             architecture="$(get_choice "64-bit" "32-bit")"
-            url_key="${mint_type}.url"
-            iso_key="${mint_type}.\"${architecture}\".iso_file"
+            url_key="\"${mint_type}\".url"
+            iso_key="\"${mint_type}\".\"${architecture}\".iso_file"
             ;;
     esac
 
