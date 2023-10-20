@@ -160,18 +160,18 @@ download_arch() {
 }
 
 download_debian() {
-    installer_type="$(get_choice "netinst" "live")"
+    debian_type="$(get_choice "netinst" "live")"
 
-    case "$installer_type" in
+    case "$debian_type" in
         "netinst")
-            selected_architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-            url_key="netinst.${selected_architecture}.url"
-            iso_key="netinst.${selected_architecture}.iso_file"
+            architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
+            url_key="${debian_type}.${architecture}.url"
+            iso_key="${debian_type}.${architecture}.iso_file"
             ;;
         "live")
-            selected_environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-            url_key="live.url"
-            iso_key="live.${selected_environment}.iso_file"
+            environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
+            url_key="${debian_type}.url"
+            iso_key="${debian_type}.${environment}.iso_file"
             ;;
     esac
 
@@ -186,42 +186,42 @@ download_debian() {
 }
 
 download_fedora() {
-    installer_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
+    fedora_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
 
-    case "$installer_type" in
+    case "$fedora_type" in
         everything|workstation)
-            selected_architecture="$(get_choice "x86_64" "aarch64")"
-            url_key="${installer_type}.${selected_architecture}.url"
-            iso_key="${installer_type}.${selected_architecture}.iso_file"
-            sig_key="${installer_type}.${selected_architecture}.sig_file"
-            sum_key="${installer_type}.${selected_architecture}.sum_file"
+            architecture="$(get_choice "x86_64" "aarch64")"
+            url_key="${fedora_type}.${architecture}.url"
+            iso_key="${fedora_type}.${architecture}.iso_file"
+            sig_key="${fedora_type}.${architecture}.sig_file"
+            sum_key="${fedora_type}.${architecture}.sum_file"
             ;;
         "server")
-            selected_architecture="$(get_choice "x86_64" "aarch64")"
+            architecture="$(get_choice "x86_64" "aarch64")"
             image_type="$(get_choice "standard" "vm")"
-            url_key="server.${selected_architecture}.${image_type}.url"
-            sig_key="server.${selected_architecture}.sig_file"
-            sum_key="server.${selected_architecture}.sum_file"
+            url_key="${fedora_type}.${architecture}.${image_type}.url"
+            sig_key="${fedora_type}.${architecture}.sig_file"
+            sum_key="${fedora_type}.${architecture}.sum_file"
 
             if [[ "$image_type" == "standard" ]]; then
                 install_method="$(get_choice "dvd" "netinst")"
-                iso_key="server.${selected_architecture}.${image_type}.${install_method}.iso_file"
+                iso_key="${fedora_type}.${architecture}.${image_type}.${install_method}.iso_file"
             else
-                iso_key="server.${selected_architecture}.${image_type}.iso_file"
+                iso_key="${fedora_type}.${architecture}.${image_type}.iso_file"
             fi
             ;;
         "silverblue")
-            url_key="silverblue.url"
-            iso_key="silverblue.iso_file"
-            sig_key="silverblue.sig_file"
-            sum_key="silverblue.sum_file"
+            url_key="${fedora_type}.url"
+            iso_key="${fedora_type}.iso_file"
+            sig_key="${fedora_type}.sig_file"
+            sum_key="${fedora_type}.sum_file"
             ;;
         "spins")
-            selected_environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
-            url_key="spins.url"
-            iso_key="spins.${selected_environment}.iso_file"
-            sig_key="spins.sig_file"
-            sum_key="spins.sum_file"
+            environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
+            url_key="${fedora_type}.url"
+            iso_key="${fedora_type}.${environment}.iso_file"
+            sig_key="${fedora_type}.sig_file"
+            sum_key="${fedora_type}.sum_file"
             ;;
     esac
 
@@ -236,33 +236,33 @@ download_fedora() {
 }
 
 download_kali () {
-    installer_type="$(get_choice "current" "weekly")"
-    selected_image="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
+    kali_type="$(get_choice "current" "weekly")"
+    image_type="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
-    case "$selected_image" in
+    case "$image_type" in
         live|installer|netinst)
-            selected_architecture="$(get_choice "amd64" "arm64" "i386")"
+            architecture="$(get_choice "amd64" "arm64" "i386")"
             ;;
         purple|hyperv)
-            selected_architecture="amd64"
+            architecture="amd64"
             ;;
         qemu|virtualbox|vmware)
-            if [[ "$installer_type" == "weekly" ]]; then
-                selected_architecture="amd64"
+            if [[ "$kali_type" == "weekly" ]]; then
+                architecture="amd64"
             else
-                selected_architecture="$(get_choice "amd64" "i386")"
+                architecture="$(get_choice "amd64" "i386")"
             fi
             ;;
     esac
 
     fetch_and_assign_values "gpg_key" \
-                            "${installer_type}.url" \
-                            "${installer_type}.${selected_image}.${selected_architecture}.iso_file" \
+                            "${kali_type}.url" \
+                            "${kali_type}.${image_type}.${architecture}.iso_file" \
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
 
-    if [[ "$installer_type" == "weekly" ]]; then
+    if [[ "$kali_type" == "weekly" ]]; then
         # Fetch the week number from the URL for weekly builds
         html_content="$(wget -qO- "$url")"
         current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
@@ -286,18 +286,18 @@ download_kali () {
 }
 
 download_mint () {
-    installer_type="$(get_choice "mint" "debian edition")"
+    mint_type="$(get_choice "mint" "debian edition")"
 
-    case "$installer_type" in
+    case "$mint_type" in
         "mint")
-            selected_environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
-            url_key="mint.url"
-            iso_key="mint.${selected_environment}.iso_file"
+            environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
+            url_key="${mint_type}.url"
+            iso_key="${mint_type}.${environment}.iso_file"
             ;;
         "debian edition")
-            selected_architecture="$(get_choice "64-bit" "32-bit")"
-            url_key="debian.url"
-            iso_key="debian.\"${selected_architecture}\".iso_file"
+            architecture="$(get_choice "64-bit" "32-bit")"
+            url_key="${mint_type}.url"
+            iso_key="${mint_type}.\"${architecture}\".iso_file"
             ;;
     esac
 
@@ -312,31 +312,31 @@ download_mint () {
 }
 
 download_opensuse() {
-    installer_type="$(get_choice "leap" "tumbleweed")"
+    opensuse_type="$(get_choice "leap" "tumbleweed")"
     image_type="$(get_choice "standard" "vm")"
 
     case "$image_type" in
         "standard")
             install_method="$(get_choice "dvd" "netinst")"
 
-            if [[ "$installer_type" == "leap" ]]; then
-                selected_architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+            if [[ "$opensuse_type" == "leap" ]]; then
+                architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
             else
-                selected_architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
+                architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
             fi
 
-            prefix="${installer_type}.${image_type}.${install_method}.${selected_architecture}"
+            prefix="${opensuse_type}.${image_type}.${install_method}.${architecture}"
             ;;
         "vm")
             vm_type="$(get_choice "kvm" "hyperv" "vmware" "cloud")"
 
             if [[ "$vm_type" == "vmware" ]]; then
-                selected_architecture="x86_64"
+                architecture="x86_64"
             else
-                selected_architecture="$(get_choice "x86_64" "aarch64")"
+                architecture="$(get_choice "x86_64" "aarch64")"
             fi
 
-            prefix="${installer_type}.${image_type}.${vm_type}.${selected_architecture}"
+            prefix="${opensuse_type}.${image_type}.${vm_type}.${architecture}"
             ;;
     esac
 
@@ -361,26 +361,26 @@ download_opensuse() {
 }
 
 download_parrotos() {
-    parrot_edition="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
+    parrot_type="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
 
-    case "$parrot_edition" in
+    case "$parrot_type" in
         security|home)
-            iso_type="$(get_choice "iso" "virtualbox" "utm")"
-            iso_key="${parrot_edition}.${iso_type}.iso_file"
+            image_type="$(get_choice "iso" "virtualbox" "utm")"
+            iso_key="${parrot_type}.${image_type}.iso_file"
             ;;
         "hack the box")
             iso_key="\"hack the box\".iso.iso_file"
             ;;
         "architect")
-            selected_architecture="$(get_choice "arm64" "amd64" "i386")"
-            iso_key="architect.${selected_architecture}.iso_file"
+            architecture="$(get_choice "arm64" "amd64" "i386")"
+            iso_key="architect.${architecture}.iso_file"
             ;;
         "raspberry pi")
-            iso_type="$(get_choice "core" "home" "security")"
+            image_type="$(get_choice "core" "home" "security")"
             architecture="$(get_choice "armhf" "arm64")"
-            iso_key="\"raspberry pi\".${iso_type}.${architecture}.iso_file"
+            iso_key="\"raspberry pi\".${image_type}.${architecture}.iso_file"
 
-            if [[ "$iso_type" == "security" && "$architecture" == "armhf" ]]; then
+            if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
                 echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
                 exit
             fi
@@ -398,12 +398,12 @@ download_parrotos() {
 }
 
 download_tails() {
-    installer_type="$(get_choice "usb" "dvd/vm")"
+    tails_type="$(get_choice "usb" "dvd/vm")"
 
     fetch_and_assign_values "gpg_key" \
                             "url" \
-                            "\"${installer_type}\".iso_file" \
-                            "\"${installer_type}\".sig_file" \
+                            "\"${tails_type}\".iso_file" \
+                            "\"${tails_type}\".sig_file" \
                             "sum_file" \
                             "sum_algo"
     wget_spider
@@ -416,12 +416,12 @@ download_tails() {
 }
 
 download_ubuntu() {
-    installer_type="$(get_choice "current" "lts")"
-    selected_image="$(get_choice "desktop" "server")"
+    ubuntu_type="$(get_choice "current" "lts")"
+    image_type="$(get_choice "desktop" "server")"
 
     fetch_and_assign_values "gpg_key" \
-                            "${installer_type}.url" \
-                            "${installer_type}.${selected_image}.iso_file" \
+                            "${ubuntu_type}.url" \
+                            "${ubuntu_type}.${image_type}.iso_file" \
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
@@ -435,13 +435,13 @@ download_ubuntu() {
 }
 
 download_whonix() {
-    installer_type="$(get_choice "qemu" "virtualbox")"
+    whonix_type="$(get_choice "qemu" "virtualbox")"
 
-    fetch_and_assign_values "${installer_type}.gpg_key" \
-                            "${installer_type}.url" \
-                            "${installer_type}.iso_file" \
-                            "${installer_type}.sig_file" \
-                            "${installer_type}.sum_file" \
+    fetch_and_assign_values "${whonix_type}.gpg_key" \
+                            "${whonix_type}.url" \
+                            "${whonix_type}.iso_file" \
+                            "${whonix_type}.sig_file" \
+                            "${whonix_type}.sum_file" \
                             "sum_algo"
     wget_spider
     fetch_gpg_key
