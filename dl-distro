@@ -31,36 +31,68 @@ wget_file() {
 }
 
 # Checks for the GPG key needed, fetches it if missing; exits on failure
+# If $distro requires minisign, fetch the key; exit on failure
 fetch_gpg_key() {
     [[ "$verify" == "false" ]] && return 0
 
-    if ! gpg --list-keys "$gpg_key" &> /dev/null; then
-        echo -e "\nFetching GPG key: $gpg_key\n"
-        if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
-            echo -e "\nError: Failed to fetch GPG key $gpg_key.\n"
-            exit 1
-        else
-            echo
-        fi
-    fi
+    case "$minisign" in
+        false)
+            if ! gpg --list-keys "$gpg_key" &> /dev/null; then
+                echo -e "\nFetching GPG key: $gpg_key\n"
+                if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
+                    echo -e "\nError: Failed to fetch GPG key $gpg_key.\n"
+                    exit 1
+                else
+                    echo
+                fi
+            fi
+            ;;
+        true)
+            check_dependencies "minisign"
+
+            minisign_file="$(mktemp --tmpdir="$download_path")"
+
+            trap 'rm -f "$minisign_file"' EXIT
+
+            echo -e "\nFetching Minisign key from: $gpg_key\n"
+            if ! wget -qO- "$gpg_key" > "$minisign_file"; then
+                echo -e "\nError: Failed to fetch minisign key from: $gpg_key\n"
+                exit 1
+            fi
+            ;;
+    esac
 }
 
-# Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure.
+# GPG: Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure
+# Minisign: Verifies signature using all required files; deletes files and exits on failure
 # Usage: gpg_verify or gpg_verify "$sum_file"
 gpg_verify() {
     [[ "$verify" == "false" ]] && return 0
 
-    cmd=("gpg" "--verify" "$sig_file")
+    case "$minisign" in
+        false)
+            cmd=("gpg" "--verify" "$sig_file")
 
-    [[ -n "${1:-}" ]] && cmd+=("$1")
+            [[ -n "${1:-}" ]] && cmd+=("$1")
 
-    echo
-    if ! "${cmd[@]}"; then
-        echo -e "\nError: GPG verification failed.\n"
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        exit 1
-    fi
-    echo
+            echo
+            if ! "${cmd[@]}"; then
+                echo -e "\nError: GPG verification failed.\n"
+                rm -f "$iso_file" "$sig_file" "$sum_file"
+                exit 1
+            fi
+            echo
+            ;;
+        true)
+            echo
+            if ! minisign -V -p "$minisign_file" -x "$sig_file" -m "$sum_file"; then
+                echo -e "\nError: Minisign verification failed.\n"
+                rm -rf "$iso_file" "$sig_file" "$sum_file"
+                exit 1
+            fi
+            echo
+            ;;
+    esac
 }
 
 # Verifies a file using its checksum; deletes files and exits based on success/failure
@@ -434,6 +466,60 @@ download_ubuntu() {
     checksum_verify
 }
 
+download_void() {
+    minisign=true
+    architecture="$(get_choice "x86_64" "i686" "arm" "arm platforms")"
+
+    case "$architecture" in
+        "x86_64")
+            void_type="$(get_choice "base" "xfce")"
+
+            if [[ "$void_type" == "base" ]]; then
+                image_type="$(get_choice "live" "rootfs tarball")"
+                lib_type="$(get_choice "glibc" "musl")"
+            else
+                image_type="live"
+                lib_type="$(get_choice "glibc" "musl")"
+            fi
+            ;;
+        "i686")
+            void_type="$(get_choice "base" "xfce")"
+
+            if [[ "$void_type" == "base" ]]; then
+                image_type="$(get_choice "live" "rootfs tarball")"
+                lib_type="glibc"
+            else
+                image_type="live"
+                lib_type="glibc"
+            fi
+            ;;
+        "arm")
+            void_type="$(get_choice "armv6l" "armv7l" "aarch64")"
+            image_type="rootfs tarball"
+            lib_type="$(get_choice "glibc" "musl")"
+            ;;
+        "arm platforms")
+            void_type="$(get_choice "rpi-armv6l" "rpi-armv7l" "rpi-aarch64")"
+            image_type="$(get_choice "live" "rootfs tarball")"
+            lib_type="$(get_choice "glibc" "musl")"
+            ;;
+    esac
+
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "\"${architecture}\".\"${void_type}\".\"${image_type}\".\"${lib_type}\".iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
+    wget_spider
+    handle_download_path
+    fetch_gpg_key
+    wget_file "$sig_file" "$sum_file"
+    gpg_verify
+    wget_file "$iso_file"
+    checksum_verify
+}
+
 download_whonix() {
     whonix_type="$(get_choice "qemu" "virtualbox")"
 
@@ -462,11 +548,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    arch      opensuse
+    arch      opensuse    whonix
     debian    parrotos
     fedora    tails
     kali      ubuntu
-    mint      whonix
+    mint      void
 
 EXAMPLES:
     dl-distro arch
@@ -480,7 +566,7 @@ EOF
 check_dependencies() {
     missing_deps=()
 
-    for cmd in wget gpg jq; do
+    for cmd in "$@"; do
         command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
     done
 
@@ -516,11 +602,12 @@ fetch_json() {
 }
 
 main() {
-    check_dependencies
+    check_dependencies "gpg" "jq" "wget"
     fetch_json
 
     verify=true
     spider=false
+    minisign=false
 
     while [[ "$#" -gt 0 ]]; do
         case "$1" in
