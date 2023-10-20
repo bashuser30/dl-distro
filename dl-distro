@@ -602,7 +602,6 @@ fetch_json() {
 }
 
 main() {
-    check_dependencies "gpg" "jq" "wget"
     fetch_json
 
     verify=true
@@ -618,6 +617,12 @@ main() {
             *) break ;;
         esac
     done
+
+    if [[ "$verify" == "true" ]]; then
+        check_dependencies "gpg" "jq" "wget"
+    else
+        check_dependencies "jq" "wget"
+    fi
 
     distro="${1:-none}"
     download_path="${2:-$(pwd)}"
