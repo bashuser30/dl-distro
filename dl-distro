@@ -339,11 +339,11 @@ download_kali () {
     if [[ "$kali_type" == "weekly" ]]; then
         # Fetch the week number from the URL for weekly builds
         html_content="$(wget -qO- "$url")"
-        current_week_num="$(echo "$html_content" | grep -o 'W[0-9]\+' | sort -r | head -n1 | cut -c2-)"
+        current_week_num="$(grep -o 'W[0-9]\+' <<< "$html_content" | sort -r | head -n 1 | cut -c2-)"
         iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
         # If the specified ISO is not available for the current week, default to the previous week's ISO
-        if ! echo "$html_content" | grep -q "$iso_file"; then
+        if ! grep -q "$iso_file" <<< "$html_content"; then
             echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
