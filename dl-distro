@@ -181,6 +181,48 @@ wget_spider() {
     exit 0
 }
 
+download_alpine() {
+    alpine_type="$(get_choice "standard" "extended" "netboot" "raspberry pi" \
+                              "generic arm" "mini root filesystem" "virtual" "xen")"
+
+    case "$alpine_type" in
+        "standard")
+            architecture="$(get_choice "aarch64" "armv7" "ppc64le" "s390x" "x86" "x86_64")"
+            ;;
+        "extended")
+            architecture="$(get_choice "x86" "x86_64")"
+            ;;
+        "netboot"|"mini root filesystem")
+            architecture="$(get_choice "aarch64" "armhf" "armv7" "ppc64le" "s390x" "x86" "x86_64")"
+            ;;
+        "raspberry pi")
+            architecture="$(get_choice "aarch64" "armhf" "armv7")"
+            ;;
+        "generic arm")
+            architecture="$(get_choice "aarch64" "armv7")"
+            ;;
+        "virtual")
+            architecture="$(get_choice "aarch64" "armv7" "x86" "x86_64")"
+            ;;
+        "xen")
+            architecture="x86_64"
+            ;;
+    esac
+
+    fetch_and_assign_values "gpg_key" \
+                            "\"${alpine_type}\".\"${architecture}\".url" \
+                            "\"${alpine_type}\".\"${architecture}\".iso_file" \
+                            "\"${alpine_type}\".\"${architecture}\".sig_file" \
+                            "\"${alpine_type}\".\"${architecture}\".sum_file" \
+                            "sum_algo"
+    wget_spider
+    fetch_gpg_key
+    handle_download_path
+    wget_file "$sig_file" "$sum_file" "$iso_file"
+    gpg_verify "$iso_file"
+    checksum_verify
+}
+
 download_arch() {
     fetch_and_assign_values "gpg_key" \
                             "url" \
@@ -548,11 +590,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
+    alpine    mint        void
     arch      opensuse    whonix
     debian    parrotos
     fedora    tails
     kali      ubuntu
-    mint      void
 
 EXAMPLES:
     dl-distro arch
