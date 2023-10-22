@@ -19,8 +19,6 @@
 
 set -euo pipefail
 
-# Downloads files listed in "$@" using wget; exits on failure.
-# Usage: wget_file "$sig_file" "$sum_file"
 wget_file() {
     for file in "$@"; do
         if ! wget -qc --show-progress "$url/$file"; then
@@ -30,8 +28,6 @@ wget_file() {
     done
 }
 
-# Checks for the GPG key needed, fetches it if missing to a dedicated gpg dir; exits on failure
-# If $distro requires minisign, fetch the key; exit on failure
 fetch_verification_key() {
     [[ "$verification_enabled" == "false" ]] && return 0
 
@@ -67,9 +63,6 @@ fetch_verification_key() {
     esac
 }
 
-# GPG: Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure
-# Minisign: Verifies signature using all required files; deletes files and exits on failure
-# Usage: verify_signature or verify_signature "$sum_file"
 verify_signature() {
     [[ "$verification_enabled" == "false" ]] && return 0
 
@@ -99,7 +92,6 @@ verify_signature() {
     esac
 }
 
-# Verifies a file using its checksum; deletes files and exits based on success/failure
 verify_checksum() {
     echo
     if ! "$sum_algo" -c --ignore-missing "$sum_file" 2> /dev/null; then
@@ -118,9 +110,6 @@ handle_download_path() {
     cd "$download_path" || exit 1
 }
 
-# Presents a list of options to the user and returns their selected choice
-# Usage: selected_option="$(get_choice "option1" "option2" ...)"
-# Example: If user selects "amd64", then selected_option="amd64"
 get_choice() {
     options=("$@")
     num_options="${#options[@]}"
@@ -143,21 +132,14 @@ get_choice() {
     done
 }
 
-# Fetches and assigns specific values from a JSON file to global variables
-# Keys provided should match the sequence of variable assignments
-# Usage: fetch_and_assign_values "key1" "key2" ...
-# Example: fetch_and_assign_values "gpg_key" "netinst.amd64.url" ...
 fetch_and_assign_values() {
     keys=("$@")
 
-    # Create a single jq query string to fetch all values and remove the trailing comma and space
     jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
     jq_query="${jq_query%, }"
 
-    # Fetch values using the jq query string into an array
     readarray -t values < <(jq -r "$jq_query" "$json_file")
 
-    # Assign values to variables
     gpg_key="${values[0]}"
     url="${values[1]}"
     iso_file="${values[2]}"
@@ -166,9 +148,8 @@ fetch_and_assign_values() {
     sum_algo="${values[5]}"
 }
 
-# Checks the iso, sig, and sum file for the chosen combination
 wget_spider() {
-    [[ "$spider" == "false" ]] && return 0
+    [[ "$spider_mode_enabled" == "false" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
 
@@ -340,12 +321,10 @@ download_kali () {
                             "sum_algo"
 
     if [[ "$kali_type" == "weekly" ]]; then
-        # Fetch the week number from the URL for weekly builds
         html_content="$(wget -qO- "$url")"
         current_week_num="$(grep -o 'W[0-9]\+' <<< "$html_content" | sort -r | head -n 1 | cut -c2-)"
         iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
-        # If the specified ISO is not available for the current week, default to the previous week's ISO
         if ! grep -q "$iso_file" <<< "$html_content"; then
             echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
@@ -420,11 +399,8 @@ download_opensuse() {
     handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
-
-    # Ensures we download the filename located in the $sum_file
     read -r line < "$sum_file"
     iso_file="${line##* }"
-
     wget_file "$iso_file"
     verify_checksum
 }
@@ -675,7 +651,6 @@ main() {
         exit 1
     fi
 
-    # Call the requested $distro's download function
     if type download_"$distro" &> /dev/null; then
         download_"$distro"
     else
