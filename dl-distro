@@ -22,7 +22,7 @@ set -euo pipefail
 wget_file() {
     for file in "$@"; do
         if ! wget -qc --show-progress "$url/$file"; then
-            echo -e "\nError: Failed to download $file.\n"
+            echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
             exit 1
         fi
     done
@@ -38,12 +38,9 @@ fetch_verification_key() {
             [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
             if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
-                echo -e "\nFetching GPG key: $gpg_key\n"
                 if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
-                    echo -e "\nError: Failed to fetch GPG key $gpg_key.\n"
+                    echo -e "\n[dl-distro] Error: Failed to fetch GPG key: $gpg_key\n" >&2
                     exit 1
-                else
-                    echo
                 fi
             fi
             ;;
@@ -54,9 +51,8 @@ fetch_verification_key() {
 
             trap 'rm -f "$minisign_key"' EXIT INT TERM
 
-            echo -e "\nFetching Minisign key from: $gpg_key\n"
             if ! wget -qO- "$gpg_key" > "$minisign_key"; then
-                echo -e "\nError: Failed to fetch minisign key from: $gpg_key\n"
+                echo -e "\n[dl-distro] Error: Failed to fetch Minisign key from: $gpg_key\n" >&2
                 exit 1
             fi
             ;;
@@ -74,8 +70,8 @@ verify_signature() {
 
             echo
             if ! "${cmd[@]}"; then
-                echo -e "\nError: GPG verification failed.\n"
                 rm -f "$iso_file" "$sig_file" "$sum_file"
+                echo -e "\n[dl-distro] Error: GPG verification failed.\n" >&2
                 exit 1
             fi
             echo
@@ -83,8 +79,8 @@ verify_signature() {
         "minisign")
             echo
             if ! minisign -V -p "$minisign_key" -x "$sig_file" -m "$sum_file"; then
-                echo -e "\nError: Minisign verification failed.\n"
-                rm -rf "$iso_file" "$sig_file" "$sum_file"
+                rm -f "$iso_file" "$sig_file" "$sum_file"
+                echo -e "\n[dl-distro] Error: Minisign verification failed.\n" >&2
                 exit 1
             fi
             echo
@@ -95,8 +91,8 @@ verify_signature() {
 verify_checksum() {
     echo
     if ! "$sum_algo" -c --ignore-missing "$sum_file" 2> /dev/null; then
-        echo -e "\nError: $sum_algo verification failed.\n"
         rm -f "$iso_file" "$sig_file" "$sum_file"
+        echo -e "\n[dl-distro] Error: $sum_algo verification failed.\n" >&2
         exit 1
     else
         rm -f "$sig_file" "$sum_file"
@@ -108,6 +104,7 @@ verify_checksum() {
 handle_download_path() {
     [[ ! -d "$download_path" ]] && mkdir -p "$download_path"
     cd "$download_path" || exit 1
+    echo -e "\n[dl-distro] Saving to: $(pwd)\n"
 }
 
 get_choice() {
@@ -152,12 +149,11 @@ wget_spider() {
     [[ "$spider_mode_enabled" == "false" ]] && return 0
 
     for file in "$iso_file" "$sig_file" "$sum_file"; do
-
         [[ -z "$file" ]] && continue
         sleep 1
 
         if ! wget -nvc --spider "$url/$file"; then
-            echo -e "\nError: Failed to download $file.\n"
+            echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
             exit 1
         fi
     done
@@ -326,7 +322,7 @@ download_kali () {
         iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
         if ! grep -q "$iso_file" <<< "$html_content"; then
-            echo -e "\nNo new ISO for week: $current_week_num. Downloading previous week.\n"
+            echo -e "\n[dl-distro] No new ISO for week: $current_week_num. Downloading previous week.\n"
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
         fi
@@ -423,8 +419,8 @@ download_parrotos() {
             architecture="$(get_choice "armhf" "arm64")"
 
             if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
-                echo -e "\nThis image is currently unavailable. It should be back next Parrot OS release.\n"
-                exit
+                echo -e "\n[dl-distro] This image is currently unavailable. It should be back next Parrot OS release.\n" >&2
+                exit 1
             fi
             ;;
     esac
@@ -466,6 +462,7 @@ download_tails() {
     verify_signature "$iso_file"
     rm -f "$sig_file"
     echo -e "\n[dl-distro] Download and GPG verification successful. Tails does not provide checksum files.\n"
+    exit 0
 }
 
 download_ubuntu() {
@@ -593,7 +590,7 @@ check_dependencies() {
     done
 
     if [[ "${#missing_deps[@]}" -gt 0 ]]; then
-        echo -e "\nPlease install: ${missing_deps[*]}.\n"
+        echo -e "\n[dl-distro] Please install: ${missing_deps[*]}.\n" >&2
         exit 1
     else
         return 0
@@ -614,7 +611,7 @@ fetch_json() {
         fi
     done
 
-    echo -e "\nError: distro_data.json not found in any of the expected locations.\n"
+    echo -e "\n[dl-distro] Error: distro_data.json not found in any of the expected locations.\n" >&2
     for path in "${json_paths[@]}"; do
         echo " - $path"
     done
@@ -638,7 +635,7 @@ main() {
             -l|--listkeys) gpg --homedir "$gpg_dir" --list-keys; exit 0 ;;
             -n|--noverify) verification_enabled="false"; shift ;;
             -s|--spider) spider_mode_enabled="true"; shift ;;
-            -*) echo -e "\nError: Unknown option: $1\nUse -h for available options: dl-distro -h\n"; exit 1 ;;
+            -*) echo -e "\n[dl-distro] Error: Unknown option: '$1'. Use -h for help.\n" >&2; exit 1 ;;
             *) break ;;
         esac
     done
@@ -647,14 +644,14 @@ main() {
     download_path="${2:-$(pwd)}"
 
     if [[ "$distro" == "none" ]]; then
-        echo -e "\nError: No distro provided.\nUse -h for available options and distros: dl-distro -h\n"
+        echo -e "\n[dl-distro] Error: No distro provided. Use -h for help.\n" >&2
         exit 1
     fi
 
     if type download_"$distro" &> /dev/null; then
         download_"$distro"
     else
-        echo -e "\nError: Invalid distro: $distro\nUse -h for available distros: dl-distro -h\n"
+        echo -e "\n[dl-distro] Error: Invalid distro: '$distro'. Use -h for help.\n" >&2
         exit 1
     fi
 }
