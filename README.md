@@ -4,7 +4,7 @@
 
 Currently, `dl-distro` supports downloading **194** different ISOs from **12** different distributions. For more details see [Supported Distributions](#supported-distributions).
 
-> **Note:** dl-distro imports GPG keys by default. If this is not desired, refer to [Script Usage](#script-usage) to disable this feature.
+> **Note:** dl-distro imports GPG keys by default. They will be imported to a new keyring, leaving your user's keyring untouched. If you wish to skip GPG key fetching and verification you may disable it, see [Script Usage](#script-usage).
 
 ## Dependencies
 
@@ -57,6 +57,7 @@ USAGE:
 
 OPTIONS:
     -h, --help        Display this usage message.
+    -l, --listkeys    List the saved GPG keys.
     -n, --noverify    Skip GPG key fetching and verification.
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
@@ -75,12 +76,16 @@ EXAMPLES:
 
 ### Error Importing Signing Key
 
-As highlighted earlier, this script automatically imports GPG keys. If you encounter issues importing a distro's key, consider:
+This script automatically imports GPG keys. If you encounter issues importing a distro's key, you will need to manually source it and import it, or skip fetching and verification.
 
-1. Manually sourcing and importing the key.
-2. Using the `-n` option to bypass GPG key retrieval and verification.
+If you decide to find and import the key, you will need to import it to one of the expected keyring locations:
 
-For security, the first option is recommended. However, if GPG verification isn't a concern, you may skip it.
+- `$XDG_DATA_HOME/dl-distro`
+- `$HOME/.local/share/dl-distro`
+
+```
+gpg --homedir /path/to/directory --import /path/to/key.asc
+```
 
 ### Issues and Feedback
 
