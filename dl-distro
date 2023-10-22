@@ -104,7 +104,7 @@ verify_checksum() {
 handle_download_path() {
     [[ ! -d "$download_path" ]] && mkdir -p "$download_path"
     cd "$download_path" || exit 1
-    echo -e "\n[dl-distro] Saving to: $(pwd)\n"
+    echo -e "\n[dl-distro] Saving to: $download_path\n"
 }
 
 get_choice() {
@@ -606,7 +606,7 @@ fetch_json() {
 
     for path in "${json_paths[@]}"; do
         if [[ -f "$path" ]]; then
-            json_file="$path"
+            json_file="$(realpath "$path")"
             return
         fi
     done
@@ -641,7 +641,7 @@ main() {
     done
 
     distro="${1:-none}"
-    download_path="${2:-$(pwd)}"
+    download_path="$(realpath "${2:-$(pwd)}")"
 
     if [[ "$distro" == "none" ]]; then
         echo -e "\n[dl-distro] Error: No distro provided. Use -h for help.\n" >&2
