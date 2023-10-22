@@ -32,11 +32,11 @@ wget_file() {
 
 # Checks for the GPG key needed, fetches it if missing to a dedicated gpg dir; exits on failure
 # If $distro requires minisign, fetch the key; exit on failure
-fetch_gpg_key() {
-    [[ "$verify" == "false" ]] && return 0
+fetch_verification_key() {
+    [[ "$verification_enabled" == "false" ]] && return 0
 
-    case "$minisign" in
-        "false")
+    case "$verification_tool" in
+        "gpg")
             check_dependencies "gpg"
 
             [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
@@ -51,15 +51,15 @@ fetch_gpg_key() {
                 fi
             fi
             ;;
-        "true")
+        "minisign")
             check_dependencies "minisign"
 
-            minisign_file="$(mktemp --tmpdir="$download_path")"
+            minisign_key="$(mktemp)"
 
-            trap 'rm -f "$minisign_file"' EXIT
+            trap 'rm -f "$minisign_key"' EXIT INT TERM
 
             echo -e "\nFetching Minisign key from: $gpg_key\n"
-            if ! wget -qO- "$gpg_key" > "$minisign_file"; then
+            if ! wget -qO- "$gpg_key" > "$minisign_key"; then
                 echo -e "\nError: Failed to fetch minisign key from: $gpg_key\n"
                 exit 1
             fi
@@ -69,12 +69,12 @@ fetch_gpg_key() {
 
 # GPG: Verifies the "$sig_file" itself or provided file "$1"; deletes files and exits on failure
 # Minisign: Verifies signature using all required files; deletes files and exits on failure
-# Usage: gpg_verify or gpg_verify "$sum_file"
-gpg_verify() {
-    [[ "$verify" == "false" ]] && return 0
+# Usage: verify_signature or verify_signature "$sum_file"
+verify_signature() {
+    [[ "$verification_enabled" == "false" ]] && return 0
 
-    case "$minisign" in
-        "false")
+    case "$verification_tool" in
+        "gpg")
             cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
 
             [[ -n "${1:-}" ]] && cmd+=("$1")
@@ -87,9 +87,9 @@ gpg_verify() {
             fi
             echo
             ;;
-        "true")
+        "minisign")
             echo
-            if ! minisign -V -p "$minisign_file" -x "$sig_file" -m "$sum_file"; then
+            if ! minisign -V -p "$minisign_key" -x "$sig_file" -m "$sum_file"; then
                 echo -e "\nError: Minisign verification failed.\n"
                 rm -rf "$iso_file" "$sig_file" "$sum_file"
                 exit 1
@@ -100,7 +100,7 @@ gpg_verify() {
 }
 
 # Verifies a file using its checksum; deletes files and exits based on success/failure
-checksum_verify() {
+verify_checksum() {
     echo
     if ! "$sum_algo" -c --ignore-missing "$sum_file" 2> /dev/null; then
         echo -e "\nError: $sum_algo verification failed.\n"
@@ -219,11 +219,11 @@ download_alpine() {
                             "\"${alpine_type}\".\"${architecture}\".sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
-    gpg_verify "$iso_file"
-    checksum_verify
+    verify_signature "$iso_file"
+    verify_checksum
 }
 
 download_arch() {
@@ -234,11 +234,11 @@ download_arch() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
-    gpg_verify "$iso_file"
-    checksum_verify
+    verify_signature "$iso_file"
+    verify_checksum
 }
 
 download_debian() {
@@ -260,12 +260,12 @@ download_debian() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file"
-    gpg_verify "$sum_file"
+    verify_signature "$sum_file"
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_fedora() {
@@ -304,12 +304,12 @@ download_fedora() {
                             "${prefix}.sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file"
-    gpg_verify
+    verify_signature
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_kali () {
@@ -354,12 +354,12 @@ download_kali () {
     fi
 
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file"
-    gpg_verify "$sum_file"
+    verify_signature "$sum_file"
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_mint () {
@@ -381,12 +381,12 @@ download_mint () {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file"
-    gpg_verify "$sum_file"
+    verify_signature "$sum_file"
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_opensuse() {
@@ -416,17 +416,17 @@ download_opensuse() {
                             "${opensuse_type}.${image_type}.${architecture}.sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file"
-    gpg_verify "$sum_file"
+    verify_signature "$sum_file"
 
     # Ensures we download the filename located in the $sum_file
     read -r line < "$sum_file"
     iso_file="${line##* }"
 
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_parrotos() {
@@ -466,12 +466,12 @@ download_parrotos() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file"
-    gpg_verify
+    verify_signature
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_tails() {
@@ -484,10 +484,10 @@ download_tails() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$iso_file"
-    gpg_verify "$iso_file"
+    verify_signature "$iso_file"
     rm -f "$sig_file"
     echo -e "\n[dl-distro] Download and GPG verification successful. Tails does not provide checksum files.\n"
 }
@@ -503,16 +503,16 @@ download_ubuntu() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file"
-    gpg_verify "$sum_file"
+    verify_signature "$sum_file"
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_void() {
-    minisign=true
+    verification_tool="minisign"
     architecture="$(get_choice "x86_64" "i686" "arm" "arm platforms")"
 
     case "$architecture" in
@@ -557,12 +557,12 @@ download_void() {
                             "sum_file" \
                             "sum_algo"
     wget_spider
+    fetch_verification_key
     handle_download_path
-    fetch_gpg_key
     wget_file "$sig_file" "$sum_file"
-    gpg_verify
+    verify_signature
     wget_file "$iso_file"
-    checksum_verify
+    verify_checksum
 }
 
 download_whonix() {
@@ -575,11 +575,11 @@ download_whonix() {
                             "${whonix_type}.sum_file" \
                             "sum_algo"
     wget_spider
-    fetch_gpg_key
+    fetch_verification_key
     handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
-    gpg_verify "$iso_file"
-    checksum_verify
+    verify_signature "$iso_file"
+    verify_checksum
 }
 
 usage() {
@@ -648,21 +648,20 @@ fetch_json() {
 }
 
 main() {
+    verification_enabled="true"
+    verification_tool="gpg"
+    spider_mode_enabled="false"
+    gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
+
     check_dependencies "jq" "wget"
     fetch_json
-
-    verify=true
-    spider=false
-    minisign=false
-
-    gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 
     while [[ "$#" -gt 0 ]]; do
         case "$1" in
             -h|--help) usage; exit 0 ;;
             -l|--listkeys) gpg --homedir "$gpg_dir" --list-keys; exit 0 ;;
-            -n|--noverify) verify=false; shift ;;
-            -s|--spider) spider=true; shift ;;
+            -n|--noverify) verification_enabled="false"; shift ;;
+            -s|--spider) spider_mode_enabled="true"; shift ;;
             -*) echo -e "\nError: Unknown option: $1\nUse -h for available options: dl-distro -h\n"; exit 1 ;;
             *) break ;;
         esac
