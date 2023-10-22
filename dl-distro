@@ -30,16 +30,18 @@ wget_file() {
     done
 }
 
-# Checks for the GPG key needed, fetches it if missing; exits on failure
+# Checks for the GPG key needed, fetches it if missing to a dedicated gpg dir; exits on failure
 # If $distro requires minisign, fetch the key; exit on failure
 fetch_gpg_key() {
     [[ "$verify" == "false" ]] && return 0
 
     case "$minisign" in
         "false")
-            if ! gpg --list-keys "$gpg_key" &> /dev/null; then
+            [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
+
+            if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
                 echo -e "\nFetching GPG key: $gpg_key\n"
-                if ! gpg --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
+                if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
                     echo -e "\nError: Failed to fetch GPG key $gpg_key.\n"
                     exit 1
                 else
@@ -71,7 +73,7 @@ gpg_verify() {
 
     case "$minisign" in
         "false")
-            cmd=("gpg" "--verify" "$sig_file")
+            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
 
             [[ -n "${1:-}" ]] && cmd+=("$1")
 
@@ -110,9 +112,8 @@ checksum_verify() {
 }
 
 handle_download_path() {
-    if [[ "$download_path" != "$(pwd)" ]]; then
-        mkdir -p "$download_path" && cd "$download_path" || exit 1
-    fi
+    [[ ! -d "$download_path" ]] && mkdir -p "$download_path"
+    cd "$download_path" || exit 1
 }
 
 # Presents a list of options to the user and returns their selected choice
@@ -131,7 +132,7 @@ get_choice() {
 
         read -rp "Enter your choice (1-$num_options): " user_choice >&2
 
-        if [[ "$user_choice" -ge 1 && "$user_choice" -le "$num_options" ]]; then
+        if [[ $user_choice =~ ^[0-9]+$ ]] && (( user_choice >= 1 && user_choice <= num_options )); then
             printf "%s" "${options[$user_choice-1]}"
             return 0
         else
@@ -586,6 +587,7 @@ USAGE:
 
 OPTIONS:
     -h, --help        Display this usage message.
+    -l, --listkeys    List the saved GPG keys.
     -n, --noverify    Skip GPG key fetching and verification.
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
@@ -650,9 +652,12 @@ main() {
     spider=false
     minisign=false
 
+    gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
+
     while [[ "$#" -gt 0 ]]; do
         case "$1" in
             -h|--help) usage; exit 0 ;;
+            -l|--listkeys) gpg --homedir "$gpg_dir" --list-keys; exit 0 ;;
             -n|--noverify) verify=false; shift ;;
             -s|--spider) spider=true; shift ;;
             -*) echo -e "\nError: Unknown option: $1\nUse -h for available options: dl-distro -h\n"; exit 1 ;;
