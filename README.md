@@ -9,9 +9,10 @@ Currently, `dl-distro` supports downloading **194** different ISOs from **12** d
 ## Dependencies
 
 - bash
-- gnupg (optional: use -n to disable verification)
+- coreutils
+- gnupg (optional)
 - jq
-- minisign (optional: void signature verification)
+- minisign (optional: Void Linux verification)
 - wget
 
 ## Install
