@@ -37,6 +37,8 @@ fetch_gpg_key() {
 
     case "$minisign" in
         "false")
+            check_dependencies "gpg"
+
             [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
             if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
@@ -646,6 +648,7 @@ fetch_json() {
 }
 
 main() {
+    check_dependencies "jq" "wget"
     fetch_json
 
     verify=true
@@ -664,12 +667,6 @@ main() {
             *) break ;;
         esac
     done
-
-    if [[ "$verify" == "true" ]]; then
-        check_dependencies "gpg" "jq" "wget"
-    else
-        check_dependencies "jq" "wget"
-    fi
 
     distro="${1:-none}"
     download_path="${2:-$(pwd)}"
