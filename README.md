@@ -1,6 +1,6 @@
 # dl-distro
 
-`dl-distro` is a Bash script that simplifies downloading and verifying Linux ISOs. It uses `jq` and a JSON file to fetch the required details. It will use `gpg` and `shasums` to verify the downloaded image, providing errors in the case of tampering or corruption.
+`dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the required data. It downloads the chosen ISO file along with its accompanying signature and checksum files via `wget`. Finally, it will use `gpg` and `shasums` to verify the integrity of the downloaded image, providing error notifications in instances of tampering or corruption.
 
 Currently, `dl-distro` supports downloading **194** different ISOs from **12** different distributions.
 
