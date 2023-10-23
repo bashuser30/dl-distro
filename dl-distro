@@ -420,7 +420,7 @@ download_parrotos() {
 
             if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
                 echo -e "\n[dl-distro] This image is currently unavailable. It should be back next Parrot OS release.\n" >&2
-                exit 1
+                exit 0
             fi
             ;;
     esac
@@ -621,10 +621,10 @@ fetch_json() {
 }
 
 main() {
+    gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
     verification_enabled="true"
     verification_tool="gpg"
     spider_mode_enabled="false"
-    gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 
     check_dependencies "jq" "wget"
     fetch_json
