@@ -1,12 +1,12 @@
 # dl-distro
 
-`dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the required data. It downloads the chosen ISO file along with its accompanying signature and checksum files via `wget`. Finally, it will use `gpg` and `shasums` to verify the integrity of the downloaded image, providing error notifications in instances of tampering or corruption.
+`dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the necessary data. It downloads the selected ISO file, along with its accompanying signature and checksum files, using `wget`. Finally, it employs `gpg` with the retrieved GPG key to verify the signature, and the appropriate `shasum` algorithm to confirm the checksums, issuing error notifications if there are instances of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **194** different ISOs from **12** different distributions.
+Currently, `dl-distro` supports downloading **194** different ISOs from **12** distinct distributions.
 
-The list of [Supported Distributions](#supported-distributions) is being expanded when time permits. Your contributions are always appreciated, please see the [contributing file](https://codeberg.org/bashuser30/dl-distro/src/branch/master/CONTRIBUTING.md).
+The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
-> **Note:** dl-distro imports GPG keys by default. They will be imported to a new keyring, leaving your user's keyring untouched. If you wish to skip GPG key fetching and verification you may disable it, see [Script Usage](#script-usage).
+> **Note:** By default, dl-distro imports GPG keys into a new keyring, leaving your user's keyring untouched. If you prefer to skip GPG key retrieval and verification, you have the option to disable this feature. See [Script Usage](#script-usage) for details.
 
 ## Dependencies
 
