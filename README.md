@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the necessary data. It downloads the selected ISO file, along with its accompanying signature and checksum files, using `wget`. Finally, it employs `gpg` with the retrieved GPG key to verify the signature, and the appropriate `shasum` algorithm to confirm the checksums, issuing error notifications if there are instances of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **194** different ISOs from **12** distinct distributions.
+Currently, `dl-distro` supports downloading **235** different ISOs from **13** distinct distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -16,6 +16,7 @@ The list of [Supported Distributions](#supported-distributions) continues to exp
 - gnupg (optional)
 - jq
 - minisign (optional: Void Linux verification)
+- signify (optional: OpenBSD verification)
 - wget
 
 ## Install
@@ -66,11 +67,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    alpine    mint        void
-    arch      opensuse    whonix
-    debian    parrotos
-    fedora    tails
-    kali      ubuntu
+    alpine    mint        ubuntu
+    arch      openbsd     void
+    debian    opensuse    whonix
+    fedora    parrotos
+    kali      tails
 
 EXAMPLES:
     dl-distro arch
@@ -105,6 +106,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [Fedora](https://fedoraproject.org) | 38 | Everything <br> Server <br> Silverblue <br> Spins <br> Workstation |
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
+| [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
 | [Tails](https://tails.net) | 5.18 | USB <br> DVD/VM |
