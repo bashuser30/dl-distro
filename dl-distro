@@ -90,7 +90,7 @@ verify_signature() {
             fi
             ;;
         "signify")
-            if ! signify -Cp "$fetched_verification_key" -x "$download_path/$sig_file" "$download_path/$iso_file" &> /dev/null; then
+            if ! signify -Vp "$fetched_verification_key" -m "$download_path/$sum_file" &> /dev/null; then
                 rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
                 echo -e "\n[dl-distro] Error: Signify verification failed.\n" >&2
                 exit 1
@@ -508,7 +508,7 @@ download_tails() {
     wget_file "$sig_file" "$iso_file"
     verify_signature "$iso_file"
     rm -f "$download_path/$sig_file"
-    echo -e "\n[dl-distro] Download and GPG verification successful. Tails does not provide checksum files.\n"
+    echo "[dl-distro] Download and GPG verification successful. Tails does not provide checksum files."
     exit 0
 }
 
