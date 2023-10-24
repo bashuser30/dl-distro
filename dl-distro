@@ -81,7 +81,7 @@ verify_signature() {
             fi
             ;;
         "minisign")
-            if ! minisign -V -p "$fetched_verification_key" -x "$download_path/$sig_file" -m "$download_path/$sum_file" &> /dev/null; then
+            if ! minisign -Vp "$fetched_verification_key" -x "$download_path/$sig_file" -m "$download_path/$sum_file" &> /dev/null; then
                 rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
                 echo -e "\n[dl-distro] Error: Minisign verification failed.\n" >&2
                 exit 1
@@ -90,7 +90,7 @@ verify_signature() {
             fi
             ;;
         "signify")
-            if ! signify -Vp "$fetched_verification_key" -m "$download_path/$sum_file" &> /dev/null; then
+            if ! signify -Vp "$fetched_verification_key" -x "$download_path/$sig_file" -m "$download_path/$sum_file" &> /dev/null; then
                 rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
                 echo -e "\n[dl-distro] Error: Signify verification failed.\n" >&2
                 exit 1
