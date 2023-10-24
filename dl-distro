@@ -21,7 +21,7 @@ set -euo pipefail
 
 wget_file() {
     for file in "$@"; do
-        if ! wget -qc --show-progress "$url/$file"; then
+        if ! wget -P "$download_path" -qc --show-progress "$url/$file"; then
             echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
             exit 1
         fi
@@ -68,12 +68,12 @@ verify_signature() {
 
     case "$verification_tool" in
         "gpg")
-            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
+            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$download_path/$sig_file")
 
-            [[ -n "${1:-}" ]] && cmd+=("$1")
+            [[ -n "${1:-}" ]] && cmd+=("$download_path/$1")
 
             if ! "${cmd[@]}" &> /dev/null; then
-                rm -f "$iso_file" "$sig_file" "$sum_file"
+                rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
                 echo -e "\n[dl-distro] Error: GPG verification failed.\n" >&2
                 exit 1
             else
@@ -81,8 +81,8 @@ verify_signature() {
             fi
             ;;
         "minisign")
-            if ! minisign -V -p "$fetched_verification_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
-                rm -f "$iso_file" "$sig_file" "$sum_file"
+            if ! minisign -V -p "$fetched_verification_key" -x "$download_path/$sig_file" -m "$download_path/$sum_file" &> /dev/null; then
+                rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
                 echo -e "\n[dl-distro] Error: Minisign verification failed.\n" >&2
                 exit 1
             else
@@ -90,8 +90,8 @@ verify_signature() {
             fi
             ;;
         "signify")
-            if ! signify -Cp "$fetched_verification_key" -x "$sig_file" "$iso_file" &> /dev/null; then
-                rm -f "$iso_file" "$sig_file" "$sum_file"
+            if ! signify -Cp "$fetched_verification_key" -x "$download_path/$sig_file" "$download_path/$iso_file" &> /dev/null; then
+                rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
                 echo -e "\n[dl-distro] Error: Signify verification failed.\n" >&2
                 exit 1
             else
@@ -102,6 +102,8 @@ verify_signature() {
 }
 
 verify_checksum() {
+    cd "$download_path" || exit 1
+
     if ! "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
         rm -f "$iso_file" "$sig_file" "$sum_file"
         echo -e "\n[dl-distro] Error: $sum_algo verification failed.\n" >&2
@@ -112,12 +114,6 @@ verify_checksum() {
         echo "[dl-distro] Download and verification successful."
         exit 0
     fi
-}
-
-handle_download_path() {
-    [[ ! -d "$download_path" ]] && mkdir -p "$download_path"
-    cd "$download_path" || exit 1
-    echo -e "\n[dl-distro] Saving to: $download_path\n"
 }
 
 get_choice() {
@@ -210,7 +206,6 @@ download_alpine() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
     verify_signature "$iso_file"
     verify_checksum
@@ -225,7 +220,6 @@ download_arch() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
     verify_signature "$iso_file"
     verify_checksum
@@ -251,7 +245,6 @@ download_debian() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
     wget_file "$iso_file"
@@ -295,7 +288,6 @@ download_fedora() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file"
     verify_signature
     wget_file "$iso_file"
@@ -343,7 +335,6 @@ download_kali () {
 
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
     wget_file "$iso_file"
@@ -370,7 +361,6 @@ download_mint () {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
     wget_file "$iso_file"
@@ -419,7 +409,6 @@ download_openbsd() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
     verify_signature
     verify_checksum
@@ -453,10 +442,9 @@ download_opensuse() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
-    read -r line < "$sum_file"
+    read -r line < "$download_path/$sum_file"
     iso_file="${line##* }"
     wget_file "$iso_file"
     verify_checksum
@@ -500,7 +488,6 @@ download_parrotos() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file"
     verify_signature
     wget_file "$iso_file"
@@ -518,10 +505,9 @@ download_tails() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$iso_file"
     verify_signature "$iso_file"
-    rm -f "$sig_file"
+    rm -f "$download_path/$sig_file"
     echo -e "\n[dl-distro] Download and GPG verification successful. Tails does not provide checksum files.\n"
     exit 0
 }
@@ -538,7 +524,6 @@ download_ubuntu() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
     wget_file "$iso_file"
@@ -592,7 +577,6 @@ download_void() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file"
     verify_signature
     wget_file "$iso_file"
@@ -610,7 +594,6 @@ download_whonix() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    handle_download_path
     wget_file "$sig_file" "$sum_file" "$iso_file"
     verify_signature "$iso_file"
     verify_checksum
