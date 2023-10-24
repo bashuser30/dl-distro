@@ -560,6 +560,240 @@
             }
         }
     },
+    "openbsd": {
+        "gpg_key": "https://cdn.openbsd.org/pub/OpenBSD/7.4/openbsd-74-base.pub",
+        "sum_algo": "sha256sum",
+        "sig_file": "SHA256.sig",
+        "sum_file": "SHA256",
+        "img with file sets": {
+            "amd64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+                "iso_file": "install74.img"
+            },
+            "arm64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
+                "iso_file": "install74.img"
+            },
+            "i386": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+                "iso_file": "install74.img"
+            },
+            "octeon": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
+                "iso_file": "install74.img"
+            },
+            "powerpc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+                "iso_file": "install74.img"
+            },
+            "riscv64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
+                "iso_file": "install74.img"
+            },
+            "sparc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+                "iso_file": "install74.img"
+            }
+        },
+        "img without file sets": {
+            "alpha": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+                "iso_file": "miniroot74.img"
+            },
+            "amd64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+                "iso_file": "miniroot74.img"
+            },
+            "arm64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
+                "iso_file": "miniroot74.img"
+            },
+            "armv7": {
+                "am335x": {
+                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+                    "iso_file": "miniroot-am335x-74.img"
+                },
+                "cubie": {
+                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+                    "iso_file": "miniroot-cubie-74.img"
+                },
+                "cubox": {
+                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+                    "iso_file": "miniroot-cubox-74.img"
+                },
+                "nitrogen": {
+                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+                    "iso_file": "miniroot-nitrogen-74.img"
+                },
+                "panda": {
+                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+                    "iso_file": "miniroot-panda-74.img"
+                },
+                "wandboard": {
+                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+                    "iso_file": "miniroot-wandboard-74.img"
+                }
+            },
+            "i386": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+                "iso_file": "miniroot74.img"
+            },
+            "landisk": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/landisk",
+                "iso_file": "miniroot74.img"
+            },
+            "loongson": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
+                "iso_file": "miniroot74.img"
+            },
+            "luna88k": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/luna88k",
+                "iso_file": "miniroot74.img"
+            },
+            "octeon": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
+                "iso_file": "miniroot74.img"
+            },
+            "powerpc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+                "iso_file": "miniroot74.img"
+            },
+            "riscv64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
+                "iso_file": "miniroot74.img"
+            },
+            "sparc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+                "iso_file": "miniroot74.img"
+            }
+        },
+        "iso with file sets": {
+            "alpha": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+                "iso_file": "install74.iso"
+            },
+            "amd64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+                "iso_file": "install74.iso"
+            },
+            "hppa": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
+                "iso_file": "install74.iso"
+            },
+            "i386": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+                "iso_file": "install74.iso"
+            },
+            "macppc": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
+                "iso_file": "install74.iso"
+            },
+            "powerpc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+                "iso_file": "install74.iso"
+            },
+            "sparc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+                "iso_file": "install74.iso"
+            }
+        },
+        "iso without file sets": {
+            "alpha": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+                "iso_file": "cd74.iso"
+            },
+            "amd64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+                "iso_file": "cd74.iso"
+            },
+            "hppa": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
+                "iso_file": "cd74.iso"
+            },
+            "i386": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+                "iso_file": "cd74.iso"
+            },
+            "loongson": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
+                "iso_file": "cd74.iso"
+            },
+            "macppc": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
+                "iso_file": "cd74.iso"
+            },
+            "sparc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+                "iso_file": "cd74.iso"
+            }
+        },
+        "floppy": {
+            "amd64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+                "iso_file": "floppy74.img"
+            },
+            "i386": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+                "iso_file": "floppy74.img"
+            },
+            "sparc64": {
+                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+                "iso_file": "floppy74.img"
+            }
+        },
+        "alpha": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        },
+        "amd64": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        },
+        "arm64": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64"
+        },
+        "armv7": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7"
+        },
+        "hppa": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
+            "iso with file sets":{"iso_file": "install74.iso"},
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        },
+        "i386": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        },
+        "landisk": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/landisk"
+        },
+        "loongson": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        },
+        "luna88k": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/luna88k"
+        },
+        "macppc": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        },
+        "octeon": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon"
+        },
+        "powerpc64": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+            "iso with file sets":{"iso_file": "install74.iso"}
+        },
+        "riscv64": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64"
+        },
+        "sparc64": {
+            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+            "iso with file sets":{"iso_file": "install74.iso"},
+            "iso without file sets": {"iso_file": "cd74.iso"}
+        }
+    },
     "opensuse": {
         "gpg_key": "AD485664E901B867051AB15F35A2F86E29B700A4",
         "sum_algo": "sha256sum",
