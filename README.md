@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the necessary data. It downloads the selected ISO file, along with its accompanying signature and checksum files, using `wget`. Finally, it employs `gpg` with the retrieved GPG key to verify the signature, and the appropriate `shasum` algorithm to confirm the checksums, issuing error notifications if there are instances of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **235** different ISOs from **13** distinct distributions.
+Currently, `dl-distro` supports downloading **239** different ISOs from **14** distinct distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -67,11 +67,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    alpine    mint        ubuntu
-    arch      openbsd     void
-    debian    opensuse    whonix
-    fedora    parrotos
-    kali      tails
+    alpine    mint        tails
+    arch      openbsd     ubuntu
+    debian    opensuse    void
+    fedora    parrotos    whonix
+    kali      solus
 
 EXAMPLES:
     dl-distro arch
@@ -109,6 +109,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
+| [Solus](https://getsol.us) | 4.4 | Budgie <br> GNOME <br> MATE <br> Plasma
 | [Tails](https://tails.net) | 5.18 | USB <br> DVD/VM |
 | [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
 | [Void](https://voidlinux.org) | 20230628 | x86\_64 <br> i686 <br> ARM <br> ARM platforms (RPi) |
