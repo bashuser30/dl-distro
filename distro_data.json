@@ -1017,6 +1017,31 @@
             }
         }
     },
+    "solus": {
+        "gpg_key": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
+        "url": "https://downloads.getsol.us/isos/4.4",
+        "sum_algo": "sha256sum",
+        "budgie": {
+            "iso_file": "Solus-4.4-Budgie.iso",
+            "sig_file": "Solus-4.4-Budgie.iso.sha256sum.sign",
+            "sum_file": "Solus-4.4-Budgie.iso.sha256sum"
+        },
+        "gnome": {
+            "iso_file": "Solus-4.4-GNOME.iso",
+            "sig_file": "Solus-4.4-GNOME.iso.sha256sum.sign",
+            "sum_file": "Solus-4.4-GNOME.iso.sha256sum"
+        },
+        "mate": {
+            "iso_file": "Solus-4.4-MATE.iso",
+            "sig_file": "Solus-4.4-MATE.iso.sha256sum.sign",
+            "sum_file": "Solus-4.4-MATE.iso.sha256sum"
+        },
+        "plasma": {
+            "iso_file": "Solus-4.4-Plasma.iso",
+            "sig_file": "Solus-4.4-Plasma.iso.sha256sum.sign",
+            "sum_file": "Solus-4.4-Plasma.iso.sha256sum"
+        }
+    },
     "tails": {
         "gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
         "url": "https://download.tails.net/tails/stable/tails-amd64-5.18",
