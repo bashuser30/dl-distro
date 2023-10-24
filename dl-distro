@@ -494,6 +494,23 @@ download_parrotos() {
     verify_checksum
 }
 
+download_solus() {
+    solus_type="$(get_choice "budgie" "gnome" "mate" "plasma")"
+
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "${solus_type}.iso_file" \
+                            "${solus_type}.sig_file" \
+                            "${solus_type}.sum_file" \
+                            "sum_algo"
+    wget_spider
+    fetch_verification_key
+    wget_file "$sig_file" "$sum_file"
+    verify_signature "$sum_file"
+    wget_file "$iso_file"
+    verify_checksum
+}
+
 download_tails() {
     tails_type="$(get_choice "usb" "dvd/vm")"
 
@@ -611,11 +628,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    alpine    mint        ubuntu
-    arch      openbsd     void
-    debian    opensuse    whonix
-    fedora    parrotos
-    kali      tails
+    alpine    mint        tails
+    arch      openbsd     ubuntu
+    debian    opensuse    void
+    fedora    parrotos    whonix
+    kali      solus
 
 EXAMPLES:
     dl-distro arch
