@@ -38,21 +38,25 @@ fetch_verification_key() {
             [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
             if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
-                if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key"; then
+                if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
                     echo -e "\n[dl-distro] Error: Failed to fetch GPG key: $gpg_key\n" >&2
                     exit 1
                 fi
             fi
             ;;
-        "minisign")
-            check_dependencies "minisign"
+        "minisign"|"signify")
+            if [[ "$verification_tool" == "minisign" ]]; then
+                check_dependencies "minisign"
+            else
+                check_dependencies "signify"
+            fi
 
-            minisign_key="$(mktemp)"
+            fetched_verification_key="$(mktemp)"
 
-            trap 'rm -f "$minisign_key"' EXIT INT TERM
+            trap 'rm -f "$fetched_verification_key"' EXIT INT TERM
 
-            if ! wget -qO- "$gpg_key" > "$minisign_key"; then
-                echo -e "\n[dl-distro] Error: Failed to fetch Minisign key from: $gpg_key\n" >&2
+            if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
+                echo -e "\n[dl-distro] Error: Failed to fetch $verification_tool key from: $gpg_key\n" >&2
                 exit 1
             fi
             ;;
@@ -68,35 +72,44 @@ verify_signature() {
 
             [[ -n "${1:-}" ]] && cmd+=("$1")
 
-            echo
-            if ! "${cmd[@]}"; then
+            if ! "${cmd[@]}" &> /dev/null; then
                 rm -f "$iso_file" "$sig_file" "$sum_file"
                 echo -e "\n[dl-distro] Error: GPG verification failed.\n" >&2
                 exit 1
+            else
+                echo "[dl-distro] GPG verification: SUCCESS"
             fi
-            echo
             ;;
         "minisign")
-            echo
-            if ! minisign -V -p "$minisign_key" -x "$sig_file" -m "$sum_file"; then
+            if ! minisign -V -p "$fetched_verification_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
                 rm -f "$iso_file" "$sig_file" "$sum_file"
                 echo -e "\n[dl-distro] Error: Minisign verification failed.\n" >&2
                 exit 1
+            else
+                echo "[dl-distro] Minisign verification: SUCCESS"
             fi
-            echo
+            ;;
+        "signify")
+            if ! signify -Cp "$fetched_verification_key" -x "$sig_file" "$iso_file" &> /dev/null; then
+                rm -f "$iso_file" "$sig_file" "$sum_file"
+                echo -e "\n[dl-distro] Error: Signify verification failed.\n" >&2
+                exit 1
+            else
+                echo "[dl-distro] Signify verification: SUCCESS"
+            fi
             ;;
     esac
 }
 
 verify_checksum() {
-    echo
-    if ! "$sum_algo" -c --ignore-missing "$sum_file" 2> /dev/null; then
+    if ! "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
         rm -f "$iso_file" "$sig_file" "$sum_file"
         echo -e "\n[dl-distro] Error: $sum_algo verification failed.\n" >&2
         exit 1
     else
         rm -f "$sig_file" "$sum_file"
-        echo -e "\n[dl-distro] Download and verification successful.\n"
+        echo "[dl-distro] $sum_algo verification: SUCCESS"
+        echo "[dl-distro] Download and verification successful."
         exit 0
     fi
 }
@@ -364,6 +377,54 @@ download_mint () {
     verify_checksum
 }
 
+download_openbsd() {
+    verification_tool="signify"
+    openbsd_type="$(get_choice "img with file sets" "img without file sets" \
+                               "iso with file sets" "iso without file sets" "floppy")"
+
+    case "$openbsd_type" in
+        "img with file sets")
+            architecture="$(get_choice "amd64" "arm64" "i386" "octeon" "powerpc64" "riscv64" "sparc64")"
+            ;;
+        "img without file sets")
+            architecture="$(get_choice "alpha" "amd64" "arm64" "armv7" "i386" "landisk" \
+                                       "loongson" "luna88k" "octeon" "powerpc64" "riscv64" "sparc64")"
+
+            if [[ "$architecture" == "armv7" ]]; then
+                image_type="$(get_choice "am335x" "cubie" "cubox" "nitrogen" "panda" "wandboard")"
+            fi
+            ;;
+        "iso with file sets")
+            architecture="$(get_choice "alpha" "amd64" "hppa" "i386" "macppc" "powerpc64" "sparc64")"
+            ;;
+        "iso without file sets")
+            architecture="$(get_choice "alpha" "amd64" "hppa" "i386" "loongson" "macppc" "sparc64")"
+            ;;
+        "floppy")
+            architecture="$(get_choice "amd64" "i386" "sparc64")"
+            ;;
+    esac
+
+    if [[ -n "${image_type:-}" ]]; then
+        prefix="\"${openbsd_type}\".${architecture}.${image_type}"
+    else
+        prefix="\"${openbsd_type}\".${architecture}"
+    fi
+
+    fetch_and_assign_values "gpg_key" \
+                            "${prefix}.url" \
+                            "${prefix}.iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
+    wget_spider
+    fetch_verification_key
+    handle_download_path
+    wget_file "$sig_file" "$sum_file" "$iso_file"
+    verify_signature
+    verify_checksum
+}
+
 download_opensuse() {
     opensuse_type="$(get_choice "leap" "tumbleweed")"
     image_type="$(get_choice "dvd" "netinst" "kvm" "hyperv" "vmware" "cloud")"
@@ -567,11 +628,11 @@ OPTIONS:
     -s, --spider      Use wget --spider to check if ISO exists without downloading it.
 
 DISTROS:
-    alpine    mint        void
-    arch      opensuse    whonix
-    debian    parrotos
-    fedora    tails
-    kali      ubuntu
+    alpine    mint        ubuntu
+    arch      openbsd     void
+    debian    opensuse    whonix
+    fedora    parrotos
+    kali      tails
 
 EXAMPLES:
     dl-distro arch
