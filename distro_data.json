@@ -740,58 +740,6 @@
                 "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
                 "iso_file": "floppy74.img"
             }
-        },
-        "alpha": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-            "iso without file sets": {"iso_file": "cd74.iso"}
-        },
-        "amd64": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-            "iso without file sets": {"iso_file": "cd74.iso"}
-        },
-        "arm64": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64"
-        },
-        "armv7": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7"
-        },
-        "hppa": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
-            "iso with file sets":{"iso_file": "install74.iso"},
-            "iso without file sets": {"iso_file": "cd74.iso"}
-        },
-        "i386": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-            "iso without file sets": {"iso_file": "cd74.iso"}
-        },
-        "landisk": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/landisk"
-        },
-        "loongson": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
-            "iso without file sets": {"iso_file": "cd74.iso"}
-        },
-        "luna88k": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/luna88k"
-        },
-        "macppc": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
-            "iso without file sets": {"iso_file": "cd74.iso"}
-        },
-        "octeon": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon"
-        },
-        "powerpc64": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-            "iso with file sets":{"iso_file": "install74.iso"}
-        },
-        "riscv64": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64"
-        },
-        "sparc64": {
-            "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-            "iso with file sets":{"iso_file": "install74.iso"},
-            "iso without file sets": {"iso_file": "cd74.iso"}
         }
     },
     "opensuse": {
