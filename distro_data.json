@@ -495,6 +495,36 @@
                 "sig_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM",
                 "sum_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM"
             }
+        },
+        "iot": {
+            "x86_64": {
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/images",
+                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.x86_64.raw.xz",
+                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
+                },
+                "ostree": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/iso",
+                    "iso_file": "Fedora-IoT-ostree-x86_64-38-20230419.2.iso",
+                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
+                }
+            },
+            "aarch64": {
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/images",
+                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.aarch64.raw.xz",
+                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
+                },
+                "ostree": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/iso",
+                    "iso_file": "Fedora-IoT-ostree-aarch64-38-20230419.2.iso",
+                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
+                }
+            }
         }
     },
     "kali": {
