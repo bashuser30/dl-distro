@@ -476,6 +476,14 @@
                 "sum_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM"
             }
         },
+        "sericea": {
+            "x86_64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Sericea/x86_64/iso",
+                "iso_file": "Fedora-Sericea-ostree-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Sericea-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Sericea-38-1.6-x86_64-CHECKSUM"
+            }
+        },
         "spins": {
             "budgie": {
                 "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
