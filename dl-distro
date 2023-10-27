@@ -240,7 +240,7 @@ download_fedora() {
     fedora_type="$(get_choice "everything" "server" "silverblue" "spins" "workstation")"
 
     case "$fedora_type" in
-        "everything"|"workstation")
+        "everything")
             architecture="$(get_choice "x86_64" "aarch64")"
             prefix="${fedora_type}.${architecture}"
             ;;
@@ -262,6 +262,10 @@ download_fedora() {
         "spins")
             environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
             prefix="${fedora_type}.${environment}"
+            ;;
+        "workstation")
+            architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
+            prefix="${fedora_type}.${architecture}"
             ;;
     esac
 

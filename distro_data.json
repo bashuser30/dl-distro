@@ -448,6 +448,12 @@
                 "iso_file": "Fedora-Workstation-Live-aarch64-38-1.6.iso",
                 "sig_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM",
                 "sum_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM"
+            },
+            "ppc64le": {
+                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Workstation/ppc64le/iso",
+                "iso_file": "Fedora-Workstation-Live-ppc64le-38-1.6.iso",
+                "sig_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM",
+                "sum_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM"
             }
         }
     },
