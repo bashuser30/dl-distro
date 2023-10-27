@@ -245,12 +245,12 @@ download_fedora() {
             prefix="${fedora_type}.${architecture}"
             ;;
         "server")
-            architecture="$(get_choice "x86_64" "aarch64")"
+            architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
 
-            if [[ "$architecture" == "x86_64" ]]; then
-                image_type="$(get_choice "qemu" "dvd" "netinst")"
-            else
+            if [[ "$architecture" == "aarch64" ]]; then
                 image_type="$(get_choice "raw" "qemu" "dvd" "netinst")"
+            else
+                image_type="$(get_choice "qemu" "dvd" "netinst")"
             fi
 
             prefix="${fedora_type}.${architecture}.${image_type}"

@@ -364,6 +364,46 @@
                     "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
                     "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
                 }
+            },
+            "ppc64le": {
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/images",
+                    "iso_file": "Fedora-Server-KVM-38-1.6.ppc64le.qcow2",
+                    "sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
+                },
+                "dvd": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/iso",
+                    "iso_file": "Fedora-Server-dvd-ppc64le-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
+                },
+                "netinst": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/iso",
+                    "iso_file": "Fedora-Server-netinst-ppc64le-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
+                }
+            },
+            "s390x": {
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/images",
+                    "iso_file": "Fedora-Server-KVM-38-1.6.s390x.qcow2",
+                    "sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
+                },
+                "dvd": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/iso",
+                    "iso_file": "Fedora-Server-dvd-s390x-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
+                },
+                "netinst": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/iso",
+                    "iso_file": "Fedora-Server-netinst-s390x-38-1.6.iso",
+                    "sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
+                    "sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
+                }
             }
         },
         "silverblue": {
