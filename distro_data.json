@@ -304,18 +304,24 @@
     "fedora": {
         "gpg_key": "6A51BBABBA3D5467B6171221809A8D7CEB10B464",
         "sum_algo": "sha256sum",
-        "everything": {
+        "workstation": {
             "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/x86_64/iso",
-                "iso_file": "Fedora-Everything-netinst-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM"
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso",
+                "iso_file": "Fedora-Workstation-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM"
             },
             "aarch64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/aarch64/iso",
-                "iso_file": "Fedora-Everything-netinst-aarch64-38-1.6.iso",
-                "sig_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM",
-                "sum_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM"
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/aarch64/iso",
+                "iso_file": "Fedora-Workstation-Live-aarch64-38-1.6.iso",
+                "sig_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM",
+                "sum_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM"
+            },
+            "ppc64le": {
+                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Workstation/ppc64le/iso",
+                "iso_file": "Fedora-Workstation-Live-ppc64le-38-1.6.iso",
+                "sig_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM",
+                "sum_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM"
             }
         },
         "server": {
@@ -406,6 +412,36 @@
                 }
             }
         },
+        "iot": {
+            "x86_64": {
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/images",
+                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.x86_64.raw.xz",
+                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
+                },
+                "ostree": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/iso",
+                    "iso_file": "Fedora-IoT-ostree-x86_64-38-20230419.2.iso",
+                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
+                }
+            },
+            "aarch64": {
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/images",
+                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.aarch64.raw.xz",
+                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
+                },
+                "ostree": {
+                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/iso",
+                    "iso_file": "Fedora-IoT-ostree-aarch64-38-20230419.2.iso",
+                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
+                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
+                }
+            }
+        },
         "silverblue": {
             "x86_64": {
                 "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
@@ -418,6 +454,26 @@
                 "iso_file": "Fedora-Silverblue-ostree-ppc64le-38-1.6.iso",
                 "sig_file": "Fedora-Silverblue-38-1.6-ppc64le-CHECKSUM",
                 "sum_file": "Fedora-Silverblue-38-1.6-ppc64le-CHECKSUM"
+            }
+        },
+        "kinoite": {
+            "x86_64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/x86_64/iso",
+                "iso_file": "Fedora-Kinoite-ostree-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Kinoite-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Kinoite-38-1.6-x86_64-CHECKSUM"
+            },
+            "aarch64": {
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/aarch64/iso",
+                "iso_file": "Fedora-Kinoite-ostree-aarch64-38-1.6.iso",
+                "sig_file": "Fedora-Kinoite-38-1.6-aarch64-CHECKSUM",
+                "sum_file": "Fedora-Kinoite-38-1.6-aarch64-CHECKSUM"
+            },
+            "ppc64le": {
+                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Kinoite/ppc64le/iso",
+                "iso_file": "Fedora-Kinoite-ostree-ppc64le-38-1.6.iso",
+                "sig_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM",
+                "sum_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM"
             }
         },
         "spins": {
@@ -482,54 +538,18 @@
                 "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
             }
         },
-        "workstation": {
+        "everything": {
             "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso",
-                "iso_file": "Fedora-Workstation-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM"
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/x86_64/iso",
+                "iso_file": "Fedora-Everything-netinst-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM"
             },
             "aarch64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/aarch64/iso",
-                "iso_file": "Fedora-Workstation-Live-aarch64-38-1.6.iso",
-                "sig_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM",
-                "sum_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM"
-            },
-            "ppc64le": {
-                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Workstation/ppc64le/iso",
-                "iso_file": "Fedora-Workstation-Live-ppc64le-38-1.6.iso",
-                "sig_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM",
-                "sum_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM"
-            }
-        },
-        "iot": {
-            "x86_64": {
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/images",
-                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.x86_64.raw.xz",
-                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
-                },
-                "ostree": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/iso",
-                    "iso_file": "Fedora-IoT-ostree-x86_64-38-20230419.2.iso",
-                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
-                }
-            },
-            "aarch64": {
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/images",
-                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.aarch64.raw.xz",
-                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
-                },
-                "ostree": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/iso",
-                    "iso_file": "Fedora-IoT-ostree-aarch64-38-20230419.2.iso",
-                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
-                }
+                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/aarch64/iso",
+                "iso_file": "Fedora-Everything-netinst-aarch64-38-1.6.iso",
+                "sig_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM",
+                "sum_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM"
             }
         }
     },

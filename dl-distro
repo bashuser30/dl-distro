@@ -237,7 +237,7 @@ download_debian() {
 }
 
 download_fedora() {
-    fedora_type="$(get_choice "workstation" "server" "iot" "silverblue" "spins" "everything")"
+    fedora_type="$(get_choice "workstation" "server" "iot" "silverblue" "kinoite" "spins" "everything")"
 
     case "$fedora_type" in
         "workstation")
@@ -262,6 +262,10 @@ download_fedora() {
             ;;
         "silverblue")
             architecture="$(get_choice "x86_64" "ppc64le")"
+            prefix="${fedora_type}.${architecture}"
+            ;;
+        "kinoite")
+            architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
             prefix="${fedora_type}.${architecture}"
             ;;
         "spins")
