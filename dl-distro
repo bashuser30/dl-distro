@@ -71,34 +71,19 @@ verify_signature() {
             cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$download_path/$sig_file")
 
             [[ -n "${1:-}" ]] && cmd+=("$download_path/$1")
-
-            if ! "${cmd[@]}" &> /dev/null; then
-                rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
-                echo -e "\n[dl-distro] Error: GPG verification failed.\n" >&2
-                exit 1
-            else
-                echo "[dl-distro] GPG verification: SUCCESS"
-            fi
             ;;
-        "minisign")
-            if ! minisign -Vp "$fetched_verification_key" -x "$download_path/$sig_file" -m "$download_path/$sum_file" &> /dev/null; then
-                rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
-                echo -e "\n[dl-distro] Error: Minisign verification failed.\n" >&2
-                exit 1
-            else
-                echo "[dl-distro] Minisign verification: SUCCESS"
-            fi
-            ;;
-        "signify")
-            if ! signify -Vp "$fetched_verification_key" -x "$download_path/$sig_file" -m "$download_path/$sum_file" &> /dev/null; then
-                rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
-                echo -e "\n[dl-distro] Error: Signify verification failed.\n" >&2
-                exit 1
-            else
-                echo "[dl-distro] Signify verification: SUCCESS"
-            fi
+        "minisign"|"signify")
+            cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$download_path/$sig_file" "-m" "$download_path/$sum_file")
             ;;
     esac
+
+    if ! "${cmd[@]}" &> /dev/null; then
+        rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
+        echo -e "\n[dl-distro] Error: $verification_tool verification failed.\n" >&2
+        exit 1
+    else
+        echo "[dl-distro] $verification_tool verification: SUCCESS"
+    fi
 }
 
 verify_checksum() {
