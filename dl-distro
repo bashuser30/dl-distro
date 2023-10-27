@@ -261,7 +261,7 @@ download_fedora() {
             prefix="${fedora_type}.${architecture}.${image_type}"
             ;;
         "silverblue")
-            architecture="x86_64"
+            architecture="$(get_choice "x86_64" "ppc64le")"
             prefix="${fedora_type}.${architecture}"
             ;;
         "spins")
