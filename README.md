@@ -19,13 +19,11 @@ The list of [Supported Distributions](#supported-distributions) continues to exp
 - signify (optional: OpenBSD verification)
 - wget
 
-## Install
+## Installation
 
-### AUR Package
+### AUR
 
 You can either use your preferred AUR helper or manually clone and build the package. Both `dl-distro` and `dl-distro-git` are available.
-
-Manual clone and build:
 
 ```
 git clone https://aur.archlinux.org/dl-distro.git
@@ -33,28 +31,50 @@ cd dl-distro
 makepkg -si
 ```
 
-### Non AUR Install
+### Non AUR
 
-If you can't access the AUR, you have two options:
-
-1. [Download the latest release](https://codeberg.org/bashuser30/dl-distro/releases/latest).
-2. Or you can `git clone` the repository:
+If you can't access the AUR, you should `git clone` the repository:
 
 ```
 git clone https://codeberg.org/bashuser30/dl-distro.git
+cd dl-distro
 ```
 
+#### Install
+
+```
+sudo cp dl-distro /usr/bin/dl-distro
+sudo chmod +x /usr/bin/dl-distro
+```
+
+#### Update
+
+```
+git pull
+sudo cp dl-distro /usr/bin/dl-distro
+sudo chmod +x /usr/bin/dl-distro
+```
+
+You will only need to update `dl-distro` upon new additions being added to it. Changes to the JSON file, like a version bump, do not require an update.
+
+#### Uninstall
+
+```
+sudo rm /usr/bin/dl-distro
+```
+
+## JSON File
+
+`dl-distro` will look for the JSON file in these locations before fetching the latest file from the master branch:
+
+- `$HOME/.config/dl-distro/data.json`
+- The directory `dl-distro` is located in
+
+This is for testing and if you wish to change some of the data, such as a URL to a faster mirror. Do note however, most distributions use a redirecting system, so you should get the closest mirror to your location.
+
+If the JSON file isn't found in these locations, it fetches the latest file from the master branch. This is so users won't have to update every version change, filename change, etc. Only additions to `dl-distro` itself will require an update.
+
 ## Usage
-
-### JSON File
-
-As previously mentioned, `jq` is required to read the provided JSON file. `dl-distro` will look for the file in the listed locations below, in the order they are listed.
-
-- `$HOME/.config/dl-distro/distro_data.json`
-- The directory where `dl-distro` is located
-- `/usr/share/dl-distro/distro_data.json`
-
-### Script Usage
 
 ```
 USAGE:
@@ -79,7 +99,7 @@ EXAMPLES:
     dl-distro -s arch
 ```
 
-### Error Importing Signing Key
+## Error Importing Signing Key
 
 This script automatically imports GPG keys. If you encounter issues importing a distro's key, you will need to manually source it and import it, or skip fetching and verification.
 
@@ -92,7 +112,7 @@ If you decide to find and import the key, you will need to import it to one of t
 gpg --homedir /path/to/directory --import /path/to/key.asc
 ```
 
-### Issues and Feedback
+## Issues and Feedback
 
 Encountered an issue or have feedback? Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues) detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
 
