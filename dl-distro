@@ -124,6 +124,7 @@ get_choice() {
 }
 
 fetch_and_assign_values() {
+    fetch_json
     keys=("$@")
 
     jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
@@ -719,7 +720,6 @@ main() {
     spider_mode_enabled="false"
 
     check_dependencies "jq" "wget"
-    fetch_json
 
     while [[ "$#" -gt 0 ]]; do
         case "$1" in
