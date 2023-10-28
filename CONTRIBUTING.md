@@ -9,9 +9,9 @@ Here are a few guidelines to keep in mind:
 - **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project.
 
 - **Simplicity**: When adding support for new distributions, additions or features, try to keep it simple. Ideally, additions should mainly involve:
-  - Adding data to `distro_data.json`.
+  - Adding data to `data.json`.
   - Creating a download function for the distribution.
-  - Adding a new entry to [Supported Distributions](./README.md#supported-distributions).
+  - Adding a new entry to [Supported Distributions](README.md#supported-distributions).
   - Updating the usage in the script and README.md.
 
 - **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
