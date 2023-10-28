@@ -18,6 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 set -euo pipefail
+trap 'rm -f "${fetched_verification_key:-}" "${fetched_json_file:-}"' EXIT INT TERM
 
 get_choice() {
     options=("$@")
@@ -48,7 +49,7 @@ fetch_and_assign_values() {
     jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
     jq_query="${jq_query%, }"
 
-    readarray -t values < <(jq -r "$jq_query" "$json_file")
+    readarray -t values < <(jq -r "$jq_query" "${json_file:-$fetched_json_file}")
 
     gpg_key="${values[0]}"
     url="${values[1]}"
@@ -78,12 +79,10 @@ fetch_json() {
         fi
     done
 
-    json_file="$(mktemp)"
-
-    trap 'rm -f "$json_file"' EXIT INT TERM
+    fetched_json_file="$(mktemp)"
 
     for json_url in "${json_urls[@]}"; do
-        if ! wget -qc -O "$json_file" "$json_url"; then
+        if ! wget -qc -O "$fetched_json_file" "$json_url"; then
             echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\n[dl-distro] Trying next mirror...\n" >&2
         else
             return 0
@@ -135,8 +134,6 @@ fetch_verification_key() {
             fi
 
             fetched_verification_key="$(mktemp)"
-
-            trap 'rm -f "$fetched_verification_key"' EXIT INT TERM
 
             if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
                 echo -e "\n[dl-distro] Error: Failed to fetch $verification_tool key from: $gpg_key\n" >&2
