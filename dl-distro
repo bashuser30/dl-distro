@@ -237,7 +237,7 @@ download_debian() {
 }
 
 download_fedora() {
-    fedora_type="$(get_choice "workstation" "server" "iot" "silverblue" "kinoite" "sericea" "spins" "labs" "everything")"
+    fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" "kinoite" "sericea" "spins" "labs" "everything")"
 
     case "$fedora_type" in
         "workstation")
@@ -259,6 +259,17 @@ download_fedora() {
             architecture="$(get_choice "x86_64" "aarch64")"
             image_type="$(get_choice "raw" "ostree")"
             prefix="${fedora_type}.${architecture}.${image_type}"
+            ;;
+        "cloud")
+            architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+
+            if [[ "$architecture" == "x86_64" ]]; then
+                image_type="$(get_choice "qemu" "raw" "compressed image" "vagrant libvirt" "vagrant virtualbox")"
+            else
+                image_type="$(get_choice "qemu" "raw")"
+            fi
+
+            prefix="${fedora_type}.${architecture}.\"${image_type}\""
             ;;
         "silverblue")
             architecture="$(get_choice "x86_64" "ppc64le")"

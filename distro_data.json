@@ -442,6 +442,82 @@
                 }
             }
         },
+        "cloud": {
+            "x86_64": {
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.x86_64.qcow2",
+                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+                },
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.x86_64.raw.xz",
+                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+                },
+                "compressed image": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+                    "iso_file": "Fedora-Cloud-Base-GCP-38-1.6.x86_64.tar.gz",
+                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+                },
+                "vagrant libvirt": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+                    "iso_file": "/Fedora-Cloud-Base-Vagrant-38-1.6.x86_64.vagrant-libvirt.box",
+                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+                },
+                "vagrant virtualbox": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+                    "iso_file": "Fedora-Cloud-Base-Vagrant-38-1.6.x86_64.vagrant-virtualbox.box",
+                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+                }
+            },
+            "aarch64": {
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/aarch64/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.aarch64.qcow2",
+                    "sig_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM"
+                },
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/aarch64/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.aarch64.raw.xz",
+                    "sig_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM"
+                }
+            },
+            "ppc64le": {
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/ppc64le/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.ppc64le.qcow2",
+                    "sig_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM"
+                },
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/ppc64le/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.ppc64le.raw.xz",
+                    "sig_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM"
+                }
+            },
+            "s390x": {
+                "qemu": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/s390x/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.s390x.qcow2",
+                    "sig_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM"
+                },
+                "raw": {
+                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/s390x/images",
+                    "iso_file": "Fedora-Cloud-Base-38-1.6.s390x.raw.xz",
+                    "sig_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM",
+                    "sum_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM"
+                }
+            }
+        },
         "silverblue": {
             "x86_64": {
                 "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
