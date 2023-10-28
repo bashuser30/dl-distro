@@ -63,6 +63,13 @@ You will only need to update `dl-distro` upon new additions being added to it. C
 sudo rm /usr/bin/dl-distro
 ```
 
+If you imported any GPG keys, they are located in two possible directories:
+
+```
+rm -rf $XDG_DATA_HOME/dl-distro
+rm -rf $HOME/.local/share/dl-distro
+```
+
 ## JSON File
 
 `dl-distro` will look for the JSON file in these locations before fetching the latest file from the master branch:
