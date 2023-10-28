@@ -701,11 +701,15 @@ fetch_json() {
 
     for json_url in "${json_urls[@]}"; do
         if ! wget -qc -O "$json_file" "$json_url"; then
-            echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\nTrying next mirror...\n" >&2
+            echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\n[dl-distro] Trying next mirror...\n" >&2
         else
             return 0
         fi
     done
+
+    echo -e "\n[dl-distro] Error: Couldn't find or download data.json file.\n" >&2
+
+    exit 1
 }
 
 main() {
