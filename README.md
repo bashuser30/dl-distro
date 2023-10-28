@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the necessary data. It downloads the selected ISO file, along with its accompanying signature and checksum files, using `wget`. Finally, it employs `gpg` with the retrieved GPG key to verify the signature, and the appropriate `shasum` algorithm to confirm the checksums, issuing error notifications if there are instances of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **239** different ISOs from **14** distinct distributions.
+Currently, `dl-distro` supports downloading **275** different ISOs from **14** distinct distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -103,7 +103,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [Alpine](https://alpinelinux.org) | 3.18.4 | Standard <br> Extended <br> Netboot <br> Raspberry Pi <br> Generic ARM <br> Mini Root Filesystems <br> Virtual <br> Xen |
 | [Arch](https://archlinux.org) | 2023.10.14 | - |
 | [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
-| [Fedora](https://fedoraproject.org) | 38 | Everything <br> Server <br> Silverblue <br> Spins <br> Workstation |
+| [Fedora](https://fedoraproject.org) | 38 | Workstation <br> Server <br> IoT <br> Cloud <br> Silverblue <br> Kinoite <br> Sericea <br> Spins <br> Labs <br> Everything |
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
 | [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
