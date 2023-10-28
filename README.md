@@ -68,7 +68,7 @@ sudo rm /usr/bin/dl-distro
 `dl-distro` will look for the JSON file in these locations before fetching the latest file from the master branch:
 
 - `$HOME/.config/dl-distro/data.json`
-- The directory `dl-distro` is located in
+- The directory `dl-distro` is ran from
 
 This is for testing and if you wish to change some of the data, such as a URL to a faster mirror. Do note however, most distributions use a redirecting system, so you should get the closest mirror to your location.
 
