@@ -677,25 +677,35 @@ check_dependencies() {
 
 fetch_json() {
     json_paths=(
-        "$HOME/.config/dl-distro/distro_data.json"
-        "$(dirname "$0")/distro_data.json"
-        "/usr/share/dl-distro/distro_data.json"
+        "$HOME/.config/dl-distro/data.json"
+        "$(dirname "$0")/data.json"
     )
 
-    for path in "${json_paths[@]}"; do
-        if [[ -f "$path" ]]; then
-            json_file="$(realpath "$path")"
-            return
+    json_urls=(
+        "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
+        "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
+        "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
+    )
+
+    for json_path in "${json_paths[@]}"; do
+        if [[ -f "$json_path" ]]; then
+            json_file="$(realpath "$json_path")"
+            echo "[dl-distro] Warning: Using local copy of data.json. Data might be out of date..."
+            return 0
         fi
     done
 
-    echo -e "\n[dl-distro] Error: distro_data.json not found in any of the expected locations.\n" >&2
-    for path in "${json_paths[@]}"; do
-        echo " - $path"
-    done
-    echo
+    json_file="$(mktemp)"
 
-    exit 1
+    trap 'rm -f "$json_file"' EXIT INT TERM
+
+    for json_url in "${json_urls[@]}"; do
+        if ! wget -qc -O "$json_file" "$json_url"; then
+            echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\nTrying next mirror...\n" >&2
+        else
+            return 0
+        fi
+    done
 }
 
 main() {
