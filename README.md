@@ -7,7 +7,7 @@ Currently, `dl-distro` supports downloading **275** different ISOs from **14** d
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
 > **Note**<br>
-> By default, dl-distro imports GPG keys into a new keyring, leaving your user's keyring untouched. If you prefer to skip GPG key retrieval and verification, you have the option to disable this feature. See [Script Usage](#script-usage) for details.
+> By default, dl-distro imports GPG keys into a new keyring, leaving your user's keyring untouched. If you prefer to skip GPG key retrieval and verification, you have the option to disable this feature. See [Usage](#usage) for details.
 
 ## Dependencies
 
