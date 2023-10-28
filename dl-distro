@@ -237,7 +237,7 @@ download_debian() {
 }
 
 download_fedora() {
-    fedora_type="$(get_choice "workstation" "server" "iot" "silverblue" "kinoite" "sericea" "spins" "everything")"
+    fedora_type="$(get_choice "workstation" "server" "iot" "silverblue" "kinoite" "sericea" "spins" "labs" "everything")"
 
     case "$fedora_type" in
         "workstation")
@@ -275,6 +275,10 @@ download_fedora() {
         "spins")
             environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
             prefix="${fedora_type}.${environment}"
+            ;;
+        "labs")
+            image_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" "python classroom" "robotics" "scientific" "security")"
+            prefix="${fedora_type}.\"${image_type}\""
             ;;
         "everything")
             architecture="$(get_choice "x86_64" "aarch64")"

@@ -546,6 +546,62 @@
                 "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
             }
         },
+        "labs": {
+            "astronomy": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Astronomy_KDE-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "comp neuro": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Comp_Neuro-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "design suite": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Design_suite-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "games": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Games-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "jam": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Jam_KDE-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "python classroom": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Python-Classroom-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "robotics": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Robotics-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "scientific": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Scientific_KDE-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            },
+            "security": {
+                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+                "iso_file": "Fedora-Security-Live-x86_64-38-1.6.iso",
+                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+            }
+        },
         "everything": {
             "x86_64": {
                 "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/x86_64/iso",
