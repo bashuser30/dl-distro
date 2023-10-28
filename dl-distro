@@ -19,88 +19,6 @@
 
 set -euo pipefail
 
-wget_file() {
-    for file in "$@"; do
-        if ! wget -P "$download_path" -qc --show-progress "$url/$file"; then
-            echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
-            exit 1
-        fi
-    done
-}
-
-fetch_verification_key() {
-    [[ "$verification_enabled" == "false" ]] && return 0
-
-    case "$verification_tool" in
-        "gpg")
-            check_dependencies "gpg"
-
-            [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
-
-            if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
-                if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
-                    echo -e "\n[dl-distro] Error: Failed to fetch GPG key: $gpg_key\n" >&2
-                    exit 1
-                fi
-            fi
-            ;;
-        "minisign"|"signify")
-            if [[ "$verification_tool" == "minisign" ]]; then
-                check_dependencies "minisign"
-            else
-                check_dependencies "signify"
-            fi
-
-            fetched_verification_key="$(mktemp)"
-
-            trap 'rm -f "$fetched_verification_key"' EXIT INT TERM
-
-            if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
-                echo -e "\n[dl-distro] Error: Failed to fetch $verification_tool key from: $gpg_key\n" >&2
-                exit 1
-            fi
-            ;;
-    esac
-}
-
-verify_signature() {
-    [[ "$verification_enabled" == "false" ]] && return 0
-
-    case "$verification_tool" in
-        "gpg")
-            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$download_path/$sig_file")
-
-            [[ -n "${1:-}" ]] && cmd+=("$download_path/$1")
-            ;;
-        "minisign"|"signify")
-            cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$download_path/$sig_file" "-m" "$download_path/$sum_file")
-            ;;
-    esac
-
-    if ! "${cmd[@]}" &> /dev/null; then
-        rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
-        echo -e "\n[dl-distro] Error: $verification_tool verification failed.\n" >&2
-        exit 1
-    else
-        echo "[dl-distro] $verification_tool verification: SUCCESS"
-    fi
-}
-
-verify_checksum() {
-    cd "$download_path" || exit 1
-
-    if ! "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        echo -e "\n[dl-distro] Error: $sum_algo verification failed.\n" >&2
-        exit 1
-    else
-        rm -f "$sig_file" "$sum_file"
-        echo "[dl-distro] $sum_algo verification: SUCCESS"
-        echo "[dl-distro] Download and verification successful."
-        exit 0
-    fi
-}
-
 get_choice() {
     options=("$@")
     num_options="${#options[@]}"
@@ -140,6 +58,43 @@ fetch_and_assign_values() {
     sum_algo="${values[5]}"
 }
 
+fetch_json() {
+    json_paths=(
+        "$HOME/.config/dl-distro/data.json"
+        "$(dirname "$0")/data.json"
+    )
+
+    json_urls=(
+        "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
+        "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
+        "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
+    )
+
+    for json_path in "${json_paths[@]}"; do
+        if [[ -f "$json_path" ]]; then
+            json_file="$(realpath "$json_path")"
+            echo "[dl-distro] Warning: Using local copy of data.json. Data might be out of date..."
+            return 0
+        fi
+    done
+
+    json_file="$(mktemp)"
+
+    trap 'rm -f "$json_file"' EXIT INT TERM
+
+    for json_url in "${json_urls[@]}"; do
+        if ! wget -qc -O "$json_file" "$json_url"; then
+            echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\n[dl-distro] Trying next mirror...\n" >&2
+        else
+            return 0
+        fi
+    done
+
+    echo -e "\n[dl-distro] Error: Couldn't find or download data.json file.\n" >&2
+
+    exit 1
+}
+
 wget_spider() {
     [[ "$spider_mode_enabled" == "false" ]] && return 0
 
@@ -154,6 +109,88 @@ wget_spider() {
     done
 
     exit 0
+}
+
+fetch_verification_key() {
+    [[ "$verification_enabled" == "false" ]] && return 0
+
+    case "$verification_tool" in
+        "gpg")
+            check_dependencies "gpg"
+
+            [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
+
+            if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
+                if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
+                    echo -e "\n[dl-distro] Error: Failed to fetch GPG key: $gpg_key\n" >&2
+                    exit 1
+                fi
+            fi
+            ;;
+        "minisign"|"signify")
+            if [[ "$verification_tool" == "minisign" ]]; then
+                check_dependencies "minisign"
+            else
+                check_dependencies "signify"
+            fi
+
+            fetched_verification_key="$(mktemp)"
+
+            trap 'rm -f "$fetched_verification_key"' EXIT INT TERM
+
+            if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
+                echo -e "\n[dl-distro] Error: Failed to fetch $verification_tool key from: $gpg_key\n" >&2
+                exit 1
+            fi
+            ;;
+    esac
+}
+
+wget_file() {
+    for file in "$@"; do
+        if ! wget -P "$download_path" -qc --show-progress "$url/$file"; then
+            echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
+            exit 1
+        fi
+    done
+}
+
+verify_signature() {
+    [[ "$verification_enabled" == "false" ]] && return 0
+
+    case "$verification_tool" in
+        "gpg")
+            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$download_path/$sig_file")
+
+            [[ -n "${1:-}" ]] && cmd+=("$download_path/$1")
+            ;;
+        "minisign"|"signify")
+            cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$download_path/$sig_file" "-m" "$download_path/$sum_file")
+            ;;
+    esac
+
+    if ! "${cmd[@]}" &> /dev/null; then
+        rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
+        echo -e "\n[dl-distro] Error: $verification_tool verification failed.\n" >&2
+        exit 1
+    else
+        echo "[dl-distro] $verification_tool verification: SUCCESS"
+    fi
+}
+
+verify_checksum() {
+    cd "$download_path" || exit 1
+
+    if ! "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        echo -e "\n[dl-distro] Error: $sum_algo verification failed.\n" >&2
+        exit 1
+    else
+        rm -f "$sig_file" "$sum_file"
+        echo "[dl-distro] $sum_algo verification: SUCCESS"
+        echo "[dl-distro] Download and verification successful."
+        exit 0
+    fi
 }
 
 download_alpine() {
@@ -674,43 +711,6 @@ check_dependencies() {
     else
         return 0
     fi
-}
-
-fetch_json() {
-    json_paths=(
-        "$HOME/.config/dl-distro/data.json"
-        "$(dirname "$0")/data.json"
-    )
-
-    json_urls=(
-        "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
-        "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
-        "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
-    )
-
-    for json_path in "${json_paths[@]}"; do
-        if [[ -f "$json_path" ]]; then
-            json_file="$(realpath "$json_path")"
-            echo "[dl-distro] Warning: Using local copy of data.json. Data might be out of date..."
-            return 0
-        fi
-    done
-
-    json_file="$(mktemp)"
-
-    trap 'rm -f "$json_file"' EXIT INT TERM
-
-    for json_url in "${json_urls[@]}"; do
-        if ! wget -qc -O "$json_file" "$json_url"; then
-            echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\n[dl-distro] Trying next mirror...\n" >&2
-        else
-            return 0
-        fi
-    done
-
-    echo -e "\n[dl-distro] Error: Couldn't find or download data.json file.\n" >&2
-
-    exit 1
 }
 
 main() {
