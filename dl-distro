@@ -130,7 +130,7 @@ fetch_verification_key() {
             if [[ "$verification_tool" == "minisign" ]]; then
                 check_dependencies "minisign"
             else
-                check_dependencies "signify"
+                find_signify_version
             fi
 
             fetched_verification_key="$(mktemp)"
@@ -141,6 +141,26 @@ fetch_verification_key() {
             fi
             ;;
     esac
+}
+
+find_signify_version(){
+    if [[ ! -f /etc/os-release ]]; then
+        echo -e "\n[dl-distro] Error: Cannot determine your distribution because /etc/os-release is missing.\n" >&2
+        exit 1
+    fi
+
+    # shellcheck disable=SC1091
+    source /etc/os-release
+
+    if [[ "$ID" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
+        signify_version="signify-openbsd"
+    else
+        signify_version="signify"
+    fi
+
+    verification_tool="$signify_version"
+
+    check_dependencies "$verification_tool"
 }
 
 wget_file() {
@@ -161,7 +181,7 @@ verify_signature() {
 
             [[ -n "${1:-}" ]] && cmd+=("$download_path/$1")
             ;;
-        "minisign"|"signify")
+        "minisign"|"signify"|"signify-openbsd")
             cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$download_path/$sig_file" "-m" "$download_path/$sum_file")
             ;;
     esac
