@@ -102,7 +102,7 @@ wget_spider() {
         sleep 1
 
         if ! wget -nvc --spider "$url/$file"; then
-            echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
+            echo -e "\n[dl-distro] Error: Failed to download: $url/$file\n" >&2
             exit 1
         fi
     done
@@ -166,7 +166,7 @@ find_signify_version(){
 wget_file() {
     for file in "$@"; do
         if ! wget -P "$download_path" -qc --show-progress "$url/$file"; then
-            echo -e "\n[dl-distro] Error: Failed to download: $file\n" >&2
+            echo -e "\n[dl-distro] Error: Failed to download: $url/$file\n" >&2
             exit 1
         fi
     done
