@@ -55,7 +55,7 @@ sudo cp dl-distro /usr/bin/dl-distro
 sudo chmod +x /usr/bin/dl-distro
 ```
 
-You will only need to update `dl-distro` upon new additions being added to it. Changes to the JSON file, like a version bump, do not require an update.
+You will only need to update `dl-distro` upon new additions being added to it. Changes to the [JSON file](#json-file), like a version bump, do not require an update.
 
 #### Uninstall
 
