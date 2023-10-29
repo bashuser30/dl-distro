@@ -84,23 +84,21 @@ If the JSON file isn't found in these locations, it fetches the latest file from
 ## Usage
 
 ```
-USAGE:
-    dl-distro [OPTIONS] [DISTRO] [PATH]
+USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-OPTIONS:
-    -h, --help        Display this usage message.
-    -l, --listkeys    List the saved GPG keys.
-    -n, --noverify    Skip GPG key fetching and verification.
-    -s, --spider      Use wget --spider to check if ISO exists without downloading it.
+    -h, --help     Display this usage message
+    -l, --listkeys List the saved GPG keys
+    -n, --noverify Skip key fetching and verification
+    -s, --spider   Check ISO availability without downloading
 
-DISTROS:
+DISTROS
     alpine    mint        tails
     arch      openbsd     ubuntu
     debian    opensuse    void
     fedora    parrotos    whonix
     kali      solus
 
-EXAMPLES:
+EXAMPLES
     dl-distro arch
     dl-distro arch /run/media/$USER/Ventoy
     dl-distro -s arch
