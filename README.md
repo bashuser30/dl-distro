@@ -86,22 +86,22 @@ If the JSON file isn't found in these locations, it fetches the latest file from
 ```
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-    -h, --help     Display this usage message
-    -l, --listkeys List the saved GPG keys
-    -n, --noverify Skip key fetching and verification
-    -s, --spider   Check ISO availability without downloading
+  -h, --help       Display this usage message
+  -l, --list-keys  List the saved GPG keys
+  -n, --no-verify  Skip key fetching and verification
+  -s, --spider     Check ISO availability without downloading
 
 DISTROS
-    alpine    mint        tails
-    arch      openbsd     ubuntu
-    debian    opensuse    void
-    fedora    parrotos    whonix
-    kali      solus
+  alpine  mint      tails
+  arch    openbsd   ubuntu
+  debian  opensuse  void
+  fedora  parrotos  whonix
+  kali    solus
 
 EXAMPLES
-    dl-distro arch
-    dl-distro arch /run/media/$USER/Ventoy
-    dl-distro -s arch
+  dl-distro arch
+  dl-distro arch /run/media/$USER/Ventoy
+  dl-distro -n arch
 ```
 
 ## Error Importing Signing Key
