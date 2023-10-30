@@ -174,12 +174,12 @@ find_signify_name(){
     source /etc/os-release
 
     if [[ "$ID" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
-        signify_version="signify-openbsd"
+        signify_name="signify-openbsd"
     else
-        signify_version="signify"
+        signify_name="signify"
     fi
 
-    verification_tool="$signify_version"
+    verification_tool="$signify_name"
 
     check_dependencies "$verification_tool"
 }
