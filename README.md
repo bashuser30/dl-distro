@@ -2,7 +2,7 @@
 
 `dl-distro` is a Bash script that simplifies the process of downloading and verifying Linux ISOs. Using `jq` and a JSON file, the script fetches the necessary data. It downloads the selected ISO file, along with its accompanying signature and checksum files, using `wget`. Finally, it employs `gpg` with the retrieved GPG key to verify the signature, and the appropriate `shasum` algorithm to confirm the checksums, issuing error notifications if there are instances of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **275** different ISOs from **14** distinct distributions.
+Currently, `dl-distro` supports downloading **281** different ISOs from **15** distinct distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -92,11 +92,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check ISO availability without downloading
 
 DISTROS
-  alpine  mint      tails
-  arch    openbsd   ubuntu
-  debian  opensuse  void
-  fedora  parrotos  whonix
-  kali    solus
+  alpine   kali      solus
+  arch     mint      tails
+  debian   openbsd   ubuntu
+  fedora   opensuse  void
+  gparted  parrotos  whonix
 
 EXAMPLES
   dl-distro arch
@@ -129,6 +129,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [Arch](https://archlinux.org) | 2023.10.14 | - |
 | [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
 | [Fedora](https://fedoraproject.org) | 38 | Workstation <br> Server <br> IoT <br> Cloud <br> Silverblue <br> Kinoite <br> Sericea <br> Spins <br> Labs <br> Everything |
+| [GParted Live](https://gparted.org) | 1.5.0-6 | amd64 <br> i686 <br> i686-pae |
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
 | [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
