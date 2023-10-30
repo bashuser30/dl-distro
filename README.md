@@ -1,6 +1,6 @@
 # dl-distro
 
-`dl-distro` is a Bash script that simplifies the process of downloading and verifying operating system images. 
+`dl-distro` is a Bash script that simplifies the process of downloading and verifying operating system images.
 
 Leveraging `jq` and a JSON file, the script fetches the necessary data. It downloads the chosen image file, along with its corresponding signature and checksum files, using `wget`.
 
