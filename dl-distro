@@ -18,18 +18,44 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 set -euo pipefail
-trap 'rm -f "${fetched_verification_key:-}" "${fetched_json_file:-}"' EXIT INT TERM
+
+print_error_and_exit() {
+    printf "[dl-distro] Error: %s\n" "$1" >&2
+    exit 1
+}
+
+print_warning() {
+    printf "[dl-distro] Warning: %s\n" "$1" >&2
+}
+
+print_message() {
+    printf "[dl-distro] %s\n" "$1"
+}
+
+check_dependencies() {
+    missing_deps=()
+
+    for cmd in "$@"; do
+        command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
+    done
+
+    if [[ "${#missing_deps[@]}" -eq 0 ]]; then
+        return 0
+    else
+        print_error_and_exit "Please install: ${missing_deps[*]}"
+    fi
+}
 
 get_choice() {
     options=("$@")
     num_options="${#options[@]}"
 
     while true; do
-        echo >&2
+        printf "\n" >&2
         for i in "${!options[@]}"; do
             printf "   %d. %s\n" "$((i+1))" "${options[$i]}" >&2
         done
-        echo >&2
+        printf "\n" >&2
 
         read -rp "Enter your choice (1-$num_options): " user_choice >&2
 
@@ -37,7 +63,7 @@ get_choice() {
             printf "%s" "${options[$user_choice-1]}"
             return 0
         else
-            echo -e "\nInvalid choice. Please choose a number 1 to $num_options." >&2
+            printf "\nInvalid choice. Please choose a number 1 to %s.\n" "$num_options" >&2
         fi
     done
 }
@@ -74,7 +100,7 @@ fetch_json() {
     for json_path in "${json_paths[@]}"; do
         if [[ -f "$json_path" ]]; then
             json_file="$(realpath "$json_path")"
-            echo "[dl-distro] Warning: Using local copy of data.json. Data might be out of date..."
+            print_warning "Using local copy of data.json. Data could be outdated."
             return 0
         fi
     done
@@ -82,16 +108,15 @@ fetch_json() {
     fetched_json_file="$(mktemp)"
 
     for json_url in "${json_urls[@]}"; do
-        if ! wget -qc -O "$fetched_json_file" "$json_url"; then
-            echo -e "\n[dl-distro] Error: Failed to download data.json from: $json_url\n[dl-distro] Trying next mirror...\n" >&2
-        else
+        if wget -qc -O "$fetched_json_file" "$json_url"; then
             return 0
+        else
+            print_warning "Failed to download data.json from: $json_url"
+            print_message "Trying next mirror..."
         fi
     done
 
-    echo -e "\n[dl-distro] Error: Couldn't find or download data.json file.\n" >&2
-
-    exit 1
+    print_error_and_exit "Couldn't find or download data.json file."
 }
 
 wget_spider() {
@@ -102,8 +127,7 @@ wget_spider() {
         sleep 1
 
         if ! wget -nvc --spider "$url/$file"; then
-            echo -e "\n[dl-distro] Error: Failed to download: $url/$file\n" >&2
-            exit 1
+            print_error_and_exit "Spider failed for: $url/$file"
         fi
     done
 
@@ -121,8 +145,7 @@ fetch_verification_key() {
 
             if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
                 if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
-                    echo -e "\n[dl-distro] Error: Failed to fetch GPG key: $gpg_key\n" >&2
-                    exit 1
+                    print_error_and_exit "Failed to fetch GPG key: $gpg_key"
                 fi
             fi
             ;;
@@ -130,23 +153,21 @@ fetch_verification_key() {
             if [[ "$verification_tool" == "minisign" ]]; then
                 check_dependencies "minisign"
             else
-                find_signify_version
+                find_signify_name
             fi
 
             fetched_verification_key="$(mktemp)"
 
             if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
-                echo -e "\n[dl-distro] Error: Failed to fetch $verification_tool key from: $gpg_key\n" >&2
-                exit 1
+                print_error_and_exit "Failed to fetch $verification_tool key from: $gpg_key"
             fi
             ;;
     esac
 }
 
-find_signify_version(){
+find_signify_name(){
     if [[ ! -f /etc/os-release ]]; then
-        echo -e "\n[dl-distro] Error: Cannot determine your distribution because /etc/os-release is missing.\n" >&2
-        exit 1
+        print_error_and_exit "Cannot determine your distribution because /etc/os-release is missing."
     fi
 
     # shellcheck disable=SC1091
@@ -166,8 +187,7 @@ find_signify_version(){
 wget_file() {
     for file in "$@"; do
         if ! wget -P "$download_path" -qc --show-progress "$url/$file"; then
-            echo -e "\n[dl-distro] Error: Failed to download: $url/$file\n" >&2
-            exit 1
+            print_error_and_exit "Failed to download: $url/$file"
         fi
     done
 }
@@ -175,38 +195,38 @@ wget_file() {
 verify_signature() {
     [[ "$verification_enabled" == "false" ]] && return 0
 
+    cd "$download_path" || exit 1
+
     case "$verification_tool" in
         "gpg")
-            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$download_path/$sig_file")
+            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
 
-            [[ -n "${1:-}" ]] && cmd+=("$download_path/$1")
+            [[ -n "${1:-}" ]] && cmd+=("$1")
             ;;
         "minisign"|"signify"|"signify-openbsd")
-            cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$download_path/$sig_file" "-m" "$download_path/$sum_file")
+            cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$sig_file" "-m" "$sum_file")
             ;;
     esac
 
-    if ! "${cmd[@]}" &> /dev/null; then
-        rm -f "$download_path/$iso_file" "$download_path/$sig_file" "$download_path/$sum_file"
-        echo -e "\n[dl-distro] Error: $verification_tool verification failed.\n" >&2
-        exit 1
+    if "${cmd[@]}" &> /dev/null; then
+        print_message "$verification_tool verification: SUCCESS"
     else
-        echo "[dl-distro] $verification_tool verification: SUCCESS"
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        print_error_and_exit "$verification_tool verification: FAILED"
     fi
 }
 
 verify_checksum() {
     cd "$download_path" || exit 1
 
-    if ! "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        echo -e "\n[dl-distro] Error: $sum_algo verification failed.\n" >&2
-        exit 1
-    else
+    if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
         rm -f "$sig_file" "$sum_file"
-        echo "[dl-distro] $sum_algo verification: SUCCESS"
-        echo "[dl-distro] Download and verification successful."
+        print_message "$sum_algo verification: SUCCESS"
+        print_message "Download and verification successful."
         exit 0
+    else
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        print_error_and_exit "$sum_algo verification: FAILED"
     fi
 }
 
@@ -252,12 +272,7 @@ download_alpine() {
 }
 
 download_arch() {
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+    fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
     wget_spider
     fetch_verification_key
     wget_file "$sig_file" "$sum_file" "$iso_file"
@@ -292,7 +307,8 @@ download_debian() {
 }
 
 download_fedora() {
-    fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" "kinoite" "sericea" "spins" "labs" "everything")"
+    fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" \
+                              "kinoite" "sericea" "spins" "labs" "everything")"
 
     case "$fedora_type" in
         "workstation")
@@ -343,7 +359,8 @@ download_fedora() {
             prefix="${fedora_type}.${environment}"
             ;;
         "labs")
-            image_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" "python classroom" "robotics" "scientific" "security")"
+            image_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" \
+                                     "python classroom" "robotics" "scientific" "security")"
             prefix="${fedora_type}.\"${image_type}\""
             ;;
         "everything")
@@ -399,7 +416,8 @@ download_kali () {
         iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
         if ! grep -q "$iso_file" <<< "$html_content"; then
-            echo -e "\n[dl-distro] No new ISO for week: $current_week_num. Downloading previous week.\n"
+            print_warning "No new ISO for week: $current_week_num"
+            print_message "Downloading previous week."
             (( prev_week_num=current_week_num-1 ))
             iso_file="${iso_file//$current_week_num/$prev_week_num}"
         fi
@@ -516,7 +534,7 @@ download_opensuse() {
     fetch_verification_key
     wget_file "$sig_file" "$sum_file"
     verify_signature "$sum_file"
-    read -r line < "$download_path/$sum_file"
+    read -r line < "$sum_file"
     iso_file="${line##* }"
     wget_file "$iso_file"
     verify_checksum
@@ -540,7 +558,7 @@ download_parrotos() {
             architecture="$(get_choice "armhf" "arm64")"
 
             if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
-                echo -e "\n[dl-distro] This image is currently unavailable. It should be back next Parrot OS release.\n" >&2
+                print_message "This image is currently unavailable. It should be back next Parrot OS release."
                 exit 0
             fi
             ;;
@@ -596,8 +614,8 @@ download_tails() {
     fetch_verification_key
     wget_file "$sig_file" "$iso_file"
     verify_signature "$iso_file"
-    rm -f "$download_path/$sig_file"
-    echo "[dl-distro] Download and GPG verification successful. Tails does not provide checksum files."
+    rm -f "$sig_file"
+    print_message "Download and GPG verification successful. Tails does not provide checksum files."
     exit 0
 }
 
@@ -692,72 +710,70 @@ usage() {
     cat <<EOF
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-    -h, --help     Display this usage message
-    -l, --listkeys List the saved GPG keys
-    -n, --noverify Skip key fetching and verification
-    -s, --spider   Check ISO availability without downloading
+  -h, --help       Display this usage message
+  -l, --list-keys  List the saved GPG keys
+  -n, --no-verify  Skip key fetching and verification
+  -s, --spider     Check ISO availability without downloading
 
 DISTROS
-    alpine    mint        tails
-    arch      openbsd     ubuntu
-    debian    opensuse    void
-    fedora    parrotos    whonix
-    kali      solus
+  alpine  mint      tails
+  arch    openbsd   ubuntu
+  debian  opensuse  void
+  fedora  parrotos  whonix
+  kali    solus
 
 EXAMPLES
-    dl-distro arch
-    dl-distro arch /run/media/$USER/Ventoy
-    dl-distro -s arch
+  dl-distro arch
+  dl-distro arch /run/media/$USER/Ventoy
+  dl-distro -n arch
 EOF
-}
-
-check_dependencies() {
-    missing_deps=()
-
-    for cmd in "$@"; do
-        command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
-    done
-
-    if [[ "${#missing_deps[@]}" -gt 0 ]]; then
-        echo -e "\n[dl-distro] Please install: ${missing_deps[*]}.\n" >&2
-        exit 1
-    else
-        return 0
-    fi
+    exit 0
 }
 
 main() {
+    check_dependencies "jq" "wget"
+
     gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
     verification_enabled="true"
     verification_tool="gpg"
     spider_mode_enabled="false"
 
-    check_dependencies "jq" "wget"
-
     while [[ "$#" -gt 0 ]]; do
         case "$1" in
-            -h|--help) usage; exit 0 ;;
-            -l|--listkeys) gpg --homedir "$gpg_dir" --list-keys; exit 0 ;;
-            -n|--noverify) verification_enabled="false"; shift ;;
-            -s|--spider) spider_mode_enabled="true"; shift ;;
-            -*) echo -e "\n[dl-distro] Error: Unknown option: '$1'. Use -h for help.\n" >&2; exit 1 ;;
-            *) break ;;
+            -h|--help)
+                usage
+                ;;
+            -l|--list-keys)
+                gpg --homedir "$gpg_dir" --list-keys
+                exit 0
+                ;;
+            -n|--no-verify)
+                verification_enabled="false"
+                shift
+                ;;
+            -s|--spider)
+                spider_mode_enabled="true"
+                shift
+                ;;
+            -*)
+                print_error_and_exit "Invalid option: $1"
+                ;;
+            *)
+                break
+                ;;
         esac
     done
 
-    distro="${1:-none}"
+    distro="${1:-}"
     download_path="$(realpath "${2:-$(pwd)}")"
 
-    if [[ "$distro" == "none" ]]; then
-        echo -e "\n[dl-distro] Error: No distro provided. Use -h for help.\n" >&2
-        exit 1
-    fi
+    [[ -z "$distro" ]] && print_error_and_exit "No distro provided."
 
     if type download_"$distro" &> /dev/null; then
+        trap 'rm -f "${fetched_verification_key:-}" "${fetched_json_file:-}"' EXIT INT TERM
         download_"$distro"
     else
-        echo -e "\n[dl-distro] Error: Invalid distro: '$distro'. Use -h for help.\n" >&2
-        exit 1
+        print_error_and_exit "Invalid distro: $distro"
     fi
 }
 
