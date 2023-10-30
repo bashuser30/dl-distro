@@ -732,8 +732,6 @@ EOF
 }
 
 main() {
-    check_dependencies "jq" "wget"
-
     gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
     verification_enabled="true"
     verification_tool="gpg"
@@ -745,11 +743,10 @@ main() {
                 usage
                 ;;
             -l|--list-keys)
-                if ! gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
-                    print_message "$gpg_dir"
-                    print_error_and_exit "GPG directory not found"
-                else
+                if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
                     exit 0
+                else
+                    print_error_and_exit "GPG directory not found: $gpg_dir"
                 fi
                 ;;
             -n|--no-verify)
@@ -775,6 +772,7 @@ main() {
     [[ -z "$distro" ]] && print_error_and_exit "No distro provided."
 
     if type download_"$distro" &> /dev/null; then
+        check_dependencies "jq" "wget"
         trap 'rm -f "${fetched_verification_key:-}" "${fetched_json_file:-}"' EXIT INT TERM
         download_"$distro"
     else
