@@ -389,7 +389,7 @@ download_gparted() {
 
     fetch_and_assign_values "gpg_key" \
                             "url" \
-                            "${architecture}.${gparted_type}.iso_file" \
+                            "\"${architecture}\".${gparted_type}.iso_file" \
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
