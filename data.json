@@ -693,6 +693,25 @@
             }
         }
     },
+    "gparted": {
+        "gpg_key": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
+        "url": "https://downloads.sourceforge.net/gparted",
+        "sig_file": "CHECKSUMS.TXT.gpg",
+        "sum_file": "gparted-live-1.5.0-6-README.md",
+        "sum_algo": "sha256sum",
+        "amd64": {
+            "iso": {"iso_file": "gparted-live-1.5.0-6-amd64.iso"},
+            "zip": {"iso_file": "gparted-live-1.5.0-6-amd64.zip"}
+        },
+        "i686": {
+            "iso": {"iso_file": "gparted-live-1.5.0-6-i686.iso"},
+            "zip": {"iso_file": "gparted-live-1.5.0-6-i686.zip"}
+        },
+        "i686-pae": {
+            "iso": {"iso_file": "gparted-live-1.5.0-6-i686-pae.iso"},
+            "zip": {"iso_file": "gparted-live-1.5.0-6-i686-pae.zip"}
+        }
+    },
     "kali": {
         "gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
         "sig_file": "SHA256SUMS.gpg",
