@@ -696,7 +696,7 @@
     "gparted": {
         "gpg_key": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
         "url": "https://downloads.sourceforge.net/gparted",
-        "sig_file": "CHECKSUMS.TXT.gpg",
+        "sig_file": "",
         "sum_file": "gparted-live-1.5.0-6-README.md",
         "sum_algo": "sha256sum",
         "amd64": {
