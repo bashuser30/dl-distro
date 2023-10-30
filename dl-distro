@@ -267,18 +267,19 @@ download_alpine() {
                             "\"${alpine_type}\".\"${architecture}\".sig_file" \
                             "\"${alpine_type}\".\"${architecture}\".sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file" "$iso_file"
+    wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
     verify_signature "$iso_file"
     verify_checksum
 }
 
 download_arch() {
     fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-    wget_spider
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file" "$iso_file"
+    wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
     verify_signature "$iso_file"
     verify_checksum
 }
@@ -301,11 +302,12 @@ download_debian() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature "$sum_file"
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -378,11 +380,12 @@ download_fedora() {
                             "${prefix}.sig_file" \
                             "${prefix}.sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file"}
     fetch_verification_key
-    wget_file "$sig_file"
+    wget_file "$url/$sig_file"
     verify_signature
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -447,11 +450,11 @@ download_kali () {
         fi
     fi
 
-    wget_spider
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature "$sum_file"
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -473,11 +476,12 @@ download_mint () {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature "$sum_file"
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -521,11 +525,12 @@ download_openbsd() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -555,13 +560,14 @@ download_opensuse() {
                             "${opensuse_type}.${image_type}.${architecture}.sig_file" \
                             "${opensuse_type}.${image_type}.${architecture}.sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature "$sum_file"
     read -r line < "$sum_file"
     iso_file="${line##* }"
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -601,11 +607,12 @@ download_parrotos() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file"}
     fetch_verification_key
-    wget_file "$sig_file"
+    wget_file "$url/$sig_file"
     verify_signature
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -618,11 +625,12 @@ download_solus() {
                             "${solus_type}.sig_file" \
                             "${solus_type}.sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature "$sum_file"
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -635,9 +643,10 @@ download_tails() {
                             "\"${tails_type}\".sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$iso_file"
+    wget_file "$url"/{"$sig_file","$iso_file"}
     verify_signature "$iso_file"
     rm -f "$sig_file"
     print_message "Download and GPG verification successful. Tails does not provide checksum files."
@@ -654,11 +663,12 @@ download_ubuntu() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature "$sum_file"
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -707,11 +717,12 @@ download_void() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file"
+    wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature
-    wget_file "$iso_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
@@ -724,9 +735,10 @@ download_whonix() {
                             "${whonix_type}.sig_file" \
                             "${whonix_type}.sum_file" \
                             "sum_algo"
-    wget_spider
+
+    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file" "$iso_file"
+    wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
     verify_signature "$iso_file"
     verify_checksum
 }
