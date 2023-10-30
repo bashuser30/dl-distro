@@ -499,8 +499,9 @@ download_openbsd() {
                             "sum_algo"
     wget_spider
     fetch_verification_key
-    wget_file "$sig_file" "$sum_file" "$iso_file"
+    wget_file "$sig_file" "$sum_file"
     verify_signature
+    wget_file "$iso_file"
     verify_checksum
 }
 
@@ -744,8 +745,12 @@ main() {
                 usage
                 ;;
             -l|--list-keys)
-                gpg --homedir "$gpg_dir" --list-keys
-                exit 0
+                if ! gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
+                    print_message "$gpg_dir"
+                    print_error_and_exit "GPG directory not found"
+                else
+                    exit 0
+                fi
                 ;;
             -n|--no-verify)
                 verification_enabled="false"
