@@ -383,6 +383,22 @@ download_fedora() {
     verify_checksum
 }
 
+download_gparted() {
+    architecture="$(get_choice "amd64" "i686" "i686-pae")"
+    gparted_type="$(get_choice "iso" "zip")"
+
+    fetch_and_assign_values "gpg_key" \
+                            "url" \
+                            "${architecture}.${gparted_type}.iso_file" \
+                            "sig_file" \
+                            "sum_file" \
+                            "sum_algo"
+    wget_spider
+    wget_file "$sum_file" "$iso_file"
+    print_warning "GPG verification not implemented yet."
+    verify_checksum
+}
+
 download_kali () {
     kali_type="$(get_choice "current" "weekly")"
     image_type="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
@@ -717,11 +733,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check ISO availability without downloading
 
 DISTROS
-  alpine  mint      tails
-  arch    openbsd   ubuntu
-  debian  opensuse  void
-  fedora  parrotos  whonix
-  kali    solus
+  alpine   kali      solus
+  arch     mint      tails
+  debian   openbsd   ubuntu
+  fedora   opensuse  void
+  gparted  parrotos  whonix
 
 EXAMPLES
   dl-distro arch
