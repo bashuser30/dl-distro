@@ -122,12 +122,13 @@ fetch_json() {
 wget_spider() {
     [[ "$spider_mode_enabled" == "false" ]] && return 0
 
-    for file in "$iso_file" "$sig_file" "$sum_file"; do
-        [[ -z "$file" ]] && continue
+    local url
+
+    for url in "$@"; do
         sleep 1
 
-        if ! wget -nvc --spider "$url/$file"; then
-            print_error_and_exit "Spider failed for: $url/$file"
+        if ! wget -nvc --spider "$url"; then
+            print_error_and_exit "Spider failed for: $url"
         fi
     done
 
@@ -185,9 +186,11 @@ find_signify_name(){
 }
 
 wget_file() {
-    for file in "$@"; do
-        if ! wget -P "$download_path" -qc --show-progress "$url/$file"; then
-            print_error_and_exit "Failed to download: $url/$file"
+    local url
+
+    for url in "$@"; do
+        if ! wget -P "$download_path" -qc --show-progress "$url"; then
+            print_error_and_exit "Failed to download: $url"
         fi
     done
 }
@@ -393,9 +396,14 @@ download_gparted() {
                             "sig_file" \
                             "sum_file" \
                             "sum_algo"
-    wget_spider
-    wget_file "$sum_file" "$iso_file"
-    print_warning "GPG verification not implemented yet."
+
+    sig_sum_url="https://gparted.org/gparted-live/stable"
+
+    wget_spider "$sig_sum_url"/{"$sig_file","$sum_file"} "$url/$iso_file"
+    fetch_verification_key
+    wget_file "$sig_sum_url"/{"$sig_file","$sum_file"}
+    verify_signature "$sum_file"
+    wget_file "$url/$iso_file"
     verify_checksum
 }
 
