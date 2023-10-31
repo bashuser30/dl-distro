@@ -1305,14 +1305,14 @@
     },
     "tails": {
         "gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
-        "url": "https://download.tails.net/tails/stable/tails-amd64-5.18",
+        "url": "https://download.tails.net/tails/stable/tails-amd64-5.19",
         "usb": {
-            "iso_file": "tails-amd64-5.18.img",
-            "sig_file": "tails-amd64-5.18.img.sig"
+            "iso_file": "tails-amd64-5.19.img",
+            "sig_file": "tails-amd64-5.19.img.sig"
         },
         "dvd/vm": {
-            "iso_file": "tails-amd64-5.18.iso",
-            "sig_file": "tails-amd64-5.18.iso.sig"
+            "iso_file": "tails-amd64-5.19.iso",
+            "sig_file": "tails-amd64-5.19.iso.sig"
         },
         "sum_file": "",
         "sum_algo": ""

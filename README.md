@@ -140,7 +140,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
 | [Solus](https://getsol.us) | 4.4 | Budgie <br> GNOME <br> MATE <br> Plasma
-| [Tails](https://tails.net) | 5.18 | USB <br> DVD/VM |
+| [Tails](https://tails.net) | 5.19 | USB <br> DVD/VM |
 | [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
 | [Void](https://voidlinux.org) | 20230628 | x86\_64 <br> i686 <br> ARM <br> ARM platforms (RPi) |
 | [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
