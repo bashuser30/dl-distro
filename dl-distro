@@ -20,745 +20,745 @@
 set -euo pipefail
 
 print_error_and_exit() {
-    printf "[dl-distro] Error: %s\n" "$1" >&2
-    exit 1
+	printf "[dl-distro] Error: %s\n" "$1" >&2
+	exit 1
 }
 
 print_warning() {
-    printf "[dl-distro] Warning: %s\n" "$1" >&2
+	printf "[dl-distro] Warning: %s\n" "$1" >&2
 }
 
 print_message() {
-    printf "[dl-distro] %s\n" "$1"
+	printf "[dl-distro] %s\n" "$1"
 }
 
 check_dependencies() {
-    missing_deps=()
+	missing_deps=()
 
-    for cmd in "$@"; do
-        command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
-    done
+	for cmd in "$@"; do
+		command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
+	done
 
-    if [[ "${#missing_deps[@]}" -eq 0 ]]; then
-        return 0
-    else
-        print_error_and_exit "Please install: ${missing_deps[*]}"
-    fi
+	if [[ "${#missing_deps[@]}" -eq 0 ]]; then
+		return 0
+	else
+		print_error_and_exit "Please install: ${missing_deps[*]}"
+	fi
 }
 
 get_choice() {
-    options=("$@")
-    num_options="${#options[@]}"
+	options=("$@")
+	num_options="${#options[@]}"
 
-    while true; do
-        printf "\n" >&2
-        for i in "${!options[@]}"; do
-            printf "   %d. %s\n" "$((i+1))" "${options[$i]}" >&2
-        done
-        printf "\n" >&2
+	while true; do
+		printf "\n" >&2
+		for i in "${!options[@]}"; do
+			printf "   %d. %s\n" "$((i+1))" "${options[$i]}" >&2
+		done
+		printf "\n" >&2
 
-        read -rp "Enter your choice (1-$num_options): " user_choice >&2
+		read -rp "Enter your choice (1-$num_options): " user_choice >&2
 
-        if [[ $user_choice =~ ^[0-9]+$ ]] && (( user_choice >= 1 && user_choice <= num_options )); then
-            printf "%s" "${options[$user_choice-1]}"
-            return 0
-        else
-            printf "\nInvalid choice. Please choose a number 1 to %s.\n" "$num_options" >&2
-        fi
-    done
+		if [[ $user_choice =~ ^[0-9]+$ ]] && (( user_choice >= 1 && user_choice <= num_options )); then
+			printf "%s" "${options[$user_choice-1]}"
+			return 0
+		else
+			printf "\nInvalid choice. Please choose a number 1 to %s.\n" "$num_options" >&2
+		fi
+	done
 }
 
 fetch_and_assign_values() {
-    fetch_json
-    keys=("$@")
+	fetch_json
+	keys=("$@")
 
-    jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
-    jq_query="${jq_query%, }"
+	jq_query="$(printf ".${distro}.%s, " "${keys[@]}")"
+	jq_query="${jq_query%, }"
 
-    readarray -t values < <(jq -r "$jq_query" "${json_file:-$fetched_json_file}")
+	readarray -t values < <(jq -r "$jq_query" "${json_file:-$fetched_json_file}")
 
-    gpg_key="${values[0]}"
-    url="${values[1]}"
-    iso_file="${values[2]}"
-    sig_file="${values[3]}"
-    sum_file="${values[4]}"
-    sum_algo="${values[5]}"
+	gpg_key="${values[0]}"
+	url="${values[1]}"
+	iso_file="${values[2]}"
+	sig_file="${values[3]}"
+	sum_file="${values[4]}"
+	sum_algo="${values[5]}"
 }
 
 fetch_json() {
-    json_paths=(
-        "$HOME/.config/dl-distro/data.json"
-        "$(dirname "$0")/data.json"
-    )
+	json_paths=(
+	    "$HOME/.config/dl-distro/data.json"
+	    "$(dirname "$0")/data.json"
+	)
 
-    json_urls=(
-        "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
-        "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
-        "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
-    )
+	json_urls=(
+	    "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
+	    "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
+	    "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
+	)
 
-    for json_path in "${json_paths[@]}"; do
-        if [[ -f "$json_path" ]]; then
-            json_file="$(realpath "$json_path")"
-            print_warning "Using local copy of data.json. Data could be outdated."
-            return 0
-        fi
-    done
+	for json_path in "${json_paths[@]}"; do
+		if [[ -f "$json_path" ]]; then
+			json_file="$(realpath "$json_path")"
+			print_warning "Using local copy of data.json. Data could be outdated."
+			return 0
+		fi
+	done
 
-    fetched_json_file="$(mktemp)"
+	fetched_json_file="$(mktemp)"
 
-    for json_url in "${json_urls[@]}"; do
-        if wget -qc -O "$fetched_json_file" "$json_url"; then
-            return 0
-        else
-            print_warning "Failed to download data.json from: $json_url"
-            print_message "Trying next mirror..."
-        fi
-    done
+	for json_url in "${json_urls[@]}"; do
+		if wget -qc -O "$fetched_json_file" "$json_url"; then
+			return 0
+		else
+			print_warning "Failed to download data.json from: $json_url"
+			print_message "Trying next mirror..."
+		fi
+	done
 
-    print_error_and_exit "Couldn't find or download data.json file."
+	print_error_and_exit "Couldn't find or download data.json file."
 }
 
 wget_spider() {
-    [[ "$spider_mode_enabled" == "false" ]] && return 0
+	[[ "$spider_mode_enabled" == "false" ]] && return 0
 
-    local url
+	local url
 
-    for url in "$@"; do
-        sleep 1
+	for url in "$@"; do
+		sleep 1
 
-        if ! wget -nvc --spider "$url"; then
-            print_error_and_exit "Spider failed for: $url"
-        fi
-    done
+		if ! wget -nvc --spider "$url"; then
+			print_error_and_exit "Spider failed for: $url"
+		fi
+	done
 
-    exit 0
+	exit 0
 }
 
 fetch_verification_key() {
-    [[ "$verification_enabled" == "false" ]] && return 0
+	[[ "$verification_enabled" == "false" ]] && return 0
 
-    case "$verification_tool" in
-        "gpg")
-            check_dependencies "gpg"
+	case "$verification_tool" in
+		"gpg")
+			check_dependencies "gpg"
 
-            [[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
+			[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
-            if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
-                if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
-                    print_error_and_exit "Failed to fetch GPG key: $gpg_key"
-                fi
-            fi
-            ;;
-        "minisign"|"signify")
-            if [[ "$verification_tool" == "minisign" ]]; then
-                check_dependencies "minisign"
-            else
-                find_signify_name
-            fi
+			if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
+				if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
+					print_error_and_exit "Failed to fetch GPG key: $gpg_key"
+				fi
+			fi
+			;;
+		"minisign"|"signify")
+			if [[ "$verification_tool" == "minisign" ]]; then
+				check_dependencies "minisign"
+			else
+				find_signify_name
+			fi
 
-            fetched_verification_key="$(mktemp)"
+			fetched_verification_key="$(mktemp)"
 
-            if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
-                print_error_and_exit "Failed to fetch $verification_tool key from: $gpg_key"
-            fi
-            ;;
-    esac
+			if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
+				print_error_and_exit "Failed to fetch $verification_tool key from: $gpg_key"
+			fi
+			;;
+	esac
 }
 
 find_signify_name(){
-    if [[ ! -f /etc/os-release ]]; then
-        print_error_and_exit "Cannot determine your distribution because /etc/os-release is missing."
-    fi
+	if [[ ! -f /etc/os-release ]]; then
+		print_error_and_exit "Cannot determine your distribution because /etc/os-release is missing."
+	fi
 
-    # shellcheck disable=SC1091
-    source /etc/os-release
+	# shellcheck disable=SC1091
+	source /etc/os-release
 
-    if [[ "$ID" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
-        signify_name="signify-openbsd"
-    else
-        signify_name="signify"
-    fi
+	if [[ "$ID" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
+		signify_name="signify-openbsd"
+	else
+		signify_name="signify"
+	fi
 
-    verification_tool="$signify_name"
+	verification_tool="$signify_name"
 
-    check_dependencies "$verification_tool"
+	check_dependencies "$verification_tool"
 }
 
 wget_file() {
-    local url
+	local url
 
-    for url in "$@"; do
-        if ! wget -P "$download_path" -qc --show-progress "$url"; then
-            print_error_and_exit "Failed to download: $url"
-        fi
-    done
+	for url in "$@"; do
+		if ! wget -P "$download_path" -qc --show-progress "$url"; then
+			print_error_and_exit "Failed to download: $url"
+		fi
+	done
 }
 
 verify_signature() {
-    [[ "$verification_enabled" == "false" ]] && return 0
+	[[ "$verification_enabled" == "false" ]] && return 0
 
-    cd "$download_path" || exit 1
+	cd "$download_path" || exit 1
 
-    case "$verification_tool" in
-        "gpg")
-            cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
+	case "$verification_tool" in
+		"gpg")
+			cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
 
-            [[ -n "${1:-}" ]] && cmd+=("$1")
-            ;;
-        "minisign"|"signify"|"signify-openbsd")
-            cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$sig_file" "-m" "$sum_file")
-            ;;
-    esac
+			[[ -n "${1:-}" ]] && cmd+=("$1")
+			;;
+		"minisign"|"signify"|"signify-openbsd")
+			cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$sig_file" "-m" "$sum_file")
+			;;
+	esac
 
-    if "${cmd[@]}" &> /dev/null; then
-        print_message "$verification_tool verification: SUCCESS"
-    else
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        print_error_and_exit "$verification_tool verification: FAILED"
-    fi
+	if "${cmd[@]}" &> /dev/null; then
+		print_message "$verification_tool verification: SUCCESS"
+	else
+		rm -f "$iso_file" "$sig_file" "$sum_file"
+		print_error_and_exit "$verification_tool verification: FAILED"
+	fi
 }
 
 verify_checksum() {
-    cd "$download_path" || exit 1
+	cd "$download_path" || exit 1
 
-    if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
-        rm -f "$sig_file" "$sum_file"
-        print_message "$sum_algo verification: SUCCESS"
-        print_message "Download and verification successful."
-        exit 0
-    else
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        print_error_and_exit "$sum_algo verification: FAILED"
-    fi
+	if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
+		rm -f "$sig_file" "$sum_file"
+		print_message "$sum_algo verification: SUCCESS"
+		print_message "Download and verification successful."
+		exit 0
+	else
+		rm -f "$iso_file" "$sig_file" "$sum_file"
+		print_error_and_exit "$sum_algo verification: FAILED"
+	fi
 }
 
 download_alpine() {
-    alpine_type="$(get_choice "standard" "extended" "netboot" "raspberry pi" \
-                              "generic arm" "mini root filesystem" "virtual" "xen")"
+	alpine_type="$(get_choice "standard" "extended" "netboot" "raspberry pi" \
+	                          "generic arm" "mini root filesystem" "virtual" "xen")"
 
-    case "$alpine_type" in
-        "standard")
-            architecture="$(get_choice "aarch64" "armv7" "ppc64le" "s390x" "x86" "x86_64")"
-            ;;
-        "extended")
-            architecture="$(get_choice "x86" "x86_64")"
-            ;;
-        "netboot"|"mini root filesystem")
-            architecture="$(get_choice "aarch64" "armhf" "armv7" "ppc64le" "s390x" "x86" "x86_64")"
-            ;;
-        "raspberry pi")
-            architecture="$(get_choice "aarch64" "armhf" "armv7")"
-            ;;
-        "generic arm")
-            architecture="$(get_choice "aarch64" "armv7")"
-            ;;
-        "virtual")
-            architecture="$(get_choice "aarch64" "armv7" "x86" "x86_64")"
-            ;;
-        "xen")
-            architecture="x86_64"
-            ;;
-    esac
+	case "$alpine_type" in
+		"standard")
+			architecture="$(get_choice "aarch64" "armv7" "ppc64le" "s390x" "x86" "x86_64")"
+			;;
+		"extended")
+			architecture="$(get_choice "x86" "x86_64")"
+			;;
+		"netboot"|"mini root filesystem")
+			architecture="$(get_choice "aarch64" "armhf" "armv7" "ppc64le" "s390x" "x86" "x86_64")"
+			;;
+		"raspberry pi")
+			architecture="$(get_choice "aarch64" "armhf" "armv7")"
+			;;
+		"generic arm")
+			architecture="$(get_choice "aarch64" "armv7")"
+			;;
+		"virtual")
+			architecture="$(get_choice "aarch64" "armv7" "x86" "x86_64")"
+			;;
+		"xen")
+			architecture="x86_64"
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "\"${alpine_type}\".\"${architecture}\".url" \
-                            "\"${alpine_type}\".\"${architecture}\".iso_file" \
-                            "\"${alpine_type}\".\"${architecture}\".sig_file" \
-                            "\"${alpine_type}\".\"${architecture}\".sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "\"${alpine_type}\".\"${architecture}\".url" \
+	                        "\"${alpine_type}\".\"${architecture}\".iso_file" \
+	                        "\"${alpine_type}\".\"${architecture}\".sig_file" \
+	                        "\"${alpine_type}\".\"${architecture}\".sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
-    verify_signature "$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_signature "$iso_file"
+	verify_checksum
 }
 
 download_arch() {
-    fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
-    verify_signature "$iso_file"
-    verify_checksum
+	fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_signature "$iso_file"
+	verify_checksum
 }
 
 download_debian() {
-    debian_type="$(get_choice "netinst" "live")"
+	debian_type="$(get_choice "netinst" "live")"
 
-    case "$debian_type" in
-        "netinst")
-            architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
-            ;;
-        "live")
-            environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
-            ;;
-    esac
+	case "$debian_type" in
+		"netinst")
+			architecture="$(get_choice "amd64" "arm64" "armel" "armhf" "i386" "mips64el" "mipsel" "ppc64el" "s390x")"
+			;;
+		"live")
+			environment="$(get_choice "cinnamon" "gnome" "kde" "lxde" "lxqt" "mate" "standard" "xfce")"
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "${debian_type}.${architecture:-$environment}.url" \
-                            "${debian_type}.${architecture:-$environment}.iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "${debian_type}.${architecture:-$environment}.url" \
+	                        "${debian_type}.${architecture:-$environment}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_fedora() {
-    fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" \
-                              "kinoite" "sericea" "spins" "labs" "everything")"
+	fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" \
+	                          "kinoite" "sericea" "spins" "labs" "everything")"
 
-    case "$fedora_type" in
-        "workstation")
-            architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
-            prefix="${fedora_type}.${architecture}"
-            ;;
-        "server")
-            architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+	case "$fedora_type" in
+		"workstation")
+			architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
+			prefix="${fedora_type}.${architecture}"
+			;;
+		"server")
+			architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
 
-            if [[ "$architecture" == "aarch64" ]]; then
-                image_type="$(get_choice "raw" "qemu" "dvd" "netinst")"
-            else
-                image_type="$(get_choice "qemu" "dvd" "netinst")"
-            fi
+			if [[ "$architecture" == "aarch64" ]]; then
+				image_type="$(get_choice "raw" "qemu" "dvd" "netinst")"
+			else
+				image_type="$(get_choice "qemu" "dvd" "netinst")"
+			fi
 
-            prefix="${fedora_type}.${architecture}.${image_type}"
-            ;;
-        "iot")
-            architecture="$(get_choice "x86_64" "aarch64")"
-            image_type="$(get_choice "raw" "ostree")"
-            prefix="${fedora_type}.${architecture}.${image_type}"
-            ;;
-        "cloud")
-            architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+			prefix="${fedora_type}.${architecture}.${image_type}"
+			;;
+		"iot")
+			architecture="$(get_choice "x86_64" "aarch64")"
+			image_type="$(get_choice "raw" "ostree")"
+			prefix="${fedora_type}.${architecture}.${image_type}"
+			;;
+		"cloud")
+			architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
 
-            if [[ "$architecture" == "x86_64" ]]; then
-                image_type="$(get_choice "qemu" "raw" "compressed image" "vagrant libvirt" "vagrant virtualbox")"
-            else
-                image_type="$(get_choice "qemu" "raw")"
-            fi
+			if [[ "$architecture" == "x86_64" ]]; then
+				image_type="$(get_choice "qemu" "raw" "compressed image" "vagrant libvirt" "vagrant virtualbox")"
+			else
+				image_type="$(get_choice "qemu" "raw")"
+			fi
 
-            prefix="${fedora_type}.${architecture}.\"${image_type}\""
-            ;;
-        "silverblue")
-            architecture="$(get_choice "x86_64" "ppc64le")"
-            prefix="${fedora_type}.${architecture}"
-            ;;
-        "kinoite")
-            architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
-            prefix="${fedora_type}.${architecture}"
-            ;;
-        "sericea")
-            architecture="x86_64"
-            prefix="${fedora_type}.${architecture}"
-            ;;
-        "spins")
-            environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
-            prefix="${fedora_type}.${environment}"
-            ;;
-        "labs")
-            image_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" \
-                                     "python classroom" "robotics" "scientific" "security")"
-            prefix="${fedora_type}.\"${image_type}\""
-            ;;
-        "everything")
-            architecture="$(get_choice "x86_64" "aarch64")"
-            prefix="${fedora_type}.${architecture}"
-            ;;
-    esac
+			prefix="${fedora_type}.${architecture}.\"${image_type}\""
+			;;
+		"silverblue")
+			architecture="$(get_choice "x86_64" "ppc64le")"
+			prefix="${fedora_type}.${architecture}"
+			;;
+		"kinoite")
+			architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
+			prefix="${fedora_type}.${architecture}"
+			;;
+		"sericea")
+			architecture="x86_64"
+			prefix="${fedora_type}.${architecture}"
+			;;
+		"spins")
+			environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
+			prefix="${fedora_type}.${environment}"
+			;;
+		"labs")
+			image_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" \
+			                         "python classroom" "robotics" "scientific" "security")"
+			prefix="${fedora_type}.\"${image_type}\""
+			;;
+		"everything")
+			architecture="$(get_choice "x86_64" "aarch64")"
+			prefix="${fedora_type}.${architecture}"
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "${prefix}.url" \
-                            "${prefix}.iso_file" \
-                            "${prefix}.sig_file" \
-                            "${prefix}.sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "${prefix}.url" \
+	                        "${prefix}.iso_file" \
+	                        "${prefix}.sig_file" \
+	                        "${prefix}.sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file"}
-    fetch_verification_key
-    wget_file "$url/$sig_file"
-    verify_signature
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file"}
+	fetch_verification_key
+	wget_file "$url/$sig_file"
+	verify_signature
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_gparted() {
-    architecture="$(get_choice "amd64" "i686" "i686-pae")"
-    gparted_type="$(get_choice "iso" "zip")"
+	architecture="$(get_choice "amd64" "i686" "i686-pae")"
+	gparted_type="$(get_choice "iso" "zip")"
 
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "\"${architecture}\".${gparted_type}.iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "url" \
+	                        "\"${architecture}\".${gparted_type}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    sig_sum_url="https://gparted.org/gparted-live/stable"
+	sig_sum_url="https://gparted.org/gparted-live/stable"
 
-    wget_spider "$sig_sum_url"/{"$sig_file","$sum_file"} "$url/$iso_file"
-    fetch_verification_key
-    wget_file "$sig_sum_url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$sig_sum_url"/{"$sig_file","$sum_file"} "$url/$iso_file"
+	fetch_verification_key
+	wget_file "$sig_sum_url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_kali () {
-    kali_type="$(get_choice "current" "weekly")"
-    image_type="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
+	kali_type="$(get_choice "current" "weekly")"
+	image_type="$(get_choice "live" "qemu" "virtualbox" "vmware" "hyperv" "installer" "netinst" "purple")"
 
-    case "$image_type" in
-        "live"|"installer"|"netinst")
-            architecture="$(get_choice "amd64" "arm64" "i386")"
-            ;;
-        "purple"|"hyperv")
-            architecture="amd64"
-            ;;
-        "qemu"|"virtualbox"|"vmware")
-            if [[ "$kali_type" == "weekly" ]]; then
-                architecture="amd64"
-            else
-                architecture="$(get_choice "amd64" "i386")"
-            fi
-            ;;
-    esac
+	case "$image_type" in
+		"live"|"installer"|"netinst")
+			architecture="$(get_choice "amd64" "arm64" "i386")"
+			;;
+		"purple"|"hyperv")
+			architecture="amd64"
+			;;
+		"qemu"|"virtualbox"|"vmware")
+			if [[ "$kali_type" == "weekly" ]]; then
+				architecture="amd64"
+			else
+				architecture="$(get_choice "amd64" "i386")"
+			fi
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "${kali_type}.url" \
-                            "${kali_type}.${image_type}.${architecture}.iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "${kali_type}.url" \
+	                        "${kali_type}.${image_type}.${architecture}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    if [[ "$kali_type" == "weekly" ]]; then
-        html_content="$(wget -qO- "$url")"
-        current_week_num="$(grep -o 'W[0-9]\+' <<< "$html_content" | sort -r | head -n 1 | cut -c2-)"
-        iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
+	if [[ "$kali_type" == "weekly" ]]; then
+		html_content="$(wget -qO- "$url")"
+		current_week_num="$(grep -o 'W[0-9]\+' <<< "$html_content" | sort -r | head -n 1 | cut -c2-)"
+		iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
-        if ! grep -q "$iso_file" <<< "$html_content"; then
-            print_warning "No new ISO for week: $current_week_num"
-            print_message "Downloading previous week."
-            (( prev_week_num=current_week_num-1 ))
-            iso_file="${iso_file//$current_week_num/$prev_week_num}"
-        fi
-    fi
+		if ! grep -q "$iso_file" <<< "$html_content"; then
+			print_warning "No new ISO for week: $current_week_num"
+			print_message "Downloading previous week."
+			(( prev_week_num=current_week_num-1 ))
+			iso_file="${iso_file//$current_week_num/$prev_week_num}"
+		fi
+	fi
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_mint () {
-    mint_type="$(get_choice "mint" "debian edition")"
+	mint_type="$(get_choice "mint" "debian edition")"
 
-    case "$mint_type" in
-        "mint")
-            environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
-            ;;
-        "debian edition")
-            architecture="$(get_choice "64-bit" "32-bit")"
-            ;;
-    esac
+	case "$mint_type" in
+		"mint")
+			environment="$(get_choice "cinnamon" "mate" "xfce" "edge")"
+			;;
+		"debian edition")
+			architecture="$(get_choice "64-bit" "32-bit")"
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "\"${mint_type}\".\"${environment:-$architecture}\".url" \
-                            "\"${mint_type}\".\"${environment:-$architecture}\".iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "\"${mint_type}\".\"${environment:-$architecture}\".url" \
+	                        "\"${mint_type}\".\"${environment:-$architecture}\".iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_openbsd() {
-    verification_tool="signify"
-    openbsd_type="$(get_choice "img with file sets" "img without file sets" \
-                               "iso with file sets" "iso without file sets" "floppy")"
+	verification_tool="signify"
+	openbsd_type="$(get_choice "img with file sets" "img without file sets" \
+	                           "iso with file sets" "iso without file sets" "floppy")"
 
-    case "$openbsd_type" in
-        "img with file sets")
-            architecture="$(get_choice "amd64" "arm64" "i386" "octeon" "powerpc64" "riscv64" "sparc64")"
-            ;;
-        "img without file sets")
-            architecture="$(get_choice "alpha" "amd64" "arm64" "armv7" "i386" "landisk" \
-                                       "loongson" "luna88k" "octeon" "powerpc64" "riscv64" "sparc64")"
+	case "$openbsd_type" in
+		"img with file sets")
+			architecture="$(get_choice "amd64" "arm64" "i386" "octeon" "powerpc64" "riscv64" "sparc64")"
+			;;
+		"img without file sets")
+			architecture="$(get_choice "alpha" "amd64" "arm64" "armv7" "i386" "landisk" \
+			                           "loongson" "luna88k" "octeon" "powerpc64" "riscv64" "sparc64")"
 
-            if [[ "$architecture" == "armv7" ]]; then
-                image_type="$(get_choice "am335x" "cubie" "cubox" "nitrogen" "panda" "wandboard")"
-            fi
-            ;;
-        "iso with file sets")
-            architecture="$(get_choice "alpha" "amd64" "hppa" "i386" "macppc" "powerpc64" "sparc64")"
-            ;;
-        "iso without file sets")
-            architecture="$(get_choice "alpha" "amd64" "hppa" "i386" "loongson" "macppc" "sparc64")"
-            ;;
-        "floppy")
-            architecture="$(get_choice "amd64" "i386" "sparc64")"
-            ;;
-    esac
+			if [[ "$architecture" == "armv7" ]]; then
+				image_type="$(get_choice "am335x" "cubie" "cubox" "nitrogen" "panda" "wandboard")"
+			fi
+			;;
+		"iso with file sets")
+			architecture="$(get_choice "alpha" "amd64" "hppa" "i386" "macppc" "powerpc64" "sparc64")"
+			;;
+		"iso without file sets")
+			architecture="$(get_choice "alpha" "amd64" "hppa" "i386" "loongson" "macppc" "sparc64")"
+			;;
+		"floppy")
+			architecture="$(get_choice "amd64" "i386" "sparc64")"
+			;;
+	esac
 
-    if [[ -n "${image_type:-}" ]]; then
-        prefix="\"${openbsd_type}\".${architecture}.${image_type}"
-    else
-        prefix="\"${openbsd_type}\".${architecture}"
-    fi
+	if [[ -n "${image_type:-}" ]]; then
+		prefix="\"${openbsd_type}\".${architecture}.${image_type}"
+	else
+		prefix="\"${openbsd_type}\".${architecture}"
+	fi
 
-    fetch_and_assign_values "gpg_key" \
-                            "${prefix}.url" \
-                            "${prefix}.iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "${prefix}.url" \
+	                        "${prefix}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature
-    wget_file "$url/$iso_file"
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature
+	wget_file "$url/$iso_file"
 
-    cd "$download_path" || exit 1
+	cd "$download_path" || exit 1
 
-    if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
-        rm -f "$sig_file" "$sum_file"
-        base_name="${iso_file%.*}"
-        ext="${iso_file##*.}"
-        mv "$iso_file" "${base_name}-${architecture}.${ext}"
-        print_message "$sum_algo verification: SUCCESS"
-        print_message "Download and verification successful."
-        exit 0
-    else
-        rm -f "$iso_file" "$sig_file" "$sum_file"
-        print_error_and_exit "$sum_algo verification: FAILED"
-    fi
+	if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
+		rm -f "$sig_file" "$sum_file"
+		base_name="${iso_file%.*}"
+		ext="${iso_file##*.}"
+		mv "$iso_file" "${base_name}-${architecture}.${ext}"
+		print_message "$sum_algo verification: SUCCESS"
+		print_message "Download and verification successful."
+		exit 0
+	else
+		rm -f "$iso_file" "$sig_file" "$sum_file"
+		print_error_and_exit "$sum_algo verification: FAILED"
+	fi
 }
 
 download_opensuse() {
-    opensuse_type="$(get_choice "leap" "tumbleweed")"
-    image_type="$(get_choice "dvd" "netinst" "kvm" "hyperv" "vmware" "cloud")"
+	opensuse_type="$(get_choice "leap" "tumbleweed")"
+	image_type="$(get_choice "dvd" "netinst" "kvm" "hyperv" "vmware" "cloud")"
 
-    case "$image_type" in
-        "dvd"|"netinst")
-            if [[ "$opensuse_type" == "leap" ]]; then
-                architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
-            else
-                architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
-            fi
-            ;;
-        "kvm"|"hyperv"|"cloud")
-            architecture="$(get_choice "x86_64" "aarch64")"
-            ;;
-        "vmware")
-            architecture="x86_64"
-            ;;
-    esac
+	case "$image_type" in
+		"dvd"|"netinst")
+			if [[ "$opensuse_type" == "leap" ]]; then
+				architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+			else
+				architecture="$(get_choice "x86_64" "i586" "aarch64" "ppc64le" "s390x" "ppc64")"
+			fi
+			;;
+		"kvm"|"hyperv"|"cloud")
+			architecture="$(get_choice "x86_64" "aarch64")"
+			;;
+		"vmware")
+			architecture="x86_64"
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "${opensuse_type}.${image_type}.${architecture}.url" \
-                            "${opensuse_type}.${image_type}.${architecture}.iso_file" \
-                            "${opensuse_type}.${image_type}.${architecture}.sig_file" \
-                            "${opensuse_type}.${image_type}.${architecture}.sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "${opensuse_type}.${image_type}.${architecture}.url" \
+	                        "${opensuse_type}.${image_type}.${architecture}.iso_file" \
+	                        "${opensuse_type}.${image_type}.${architecture}.sig_file" \
+	                        "${opensuse_type}.${image_type}.${architecture}.sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    read -r line < "$sum_file"
-    iso_file="${line##* }"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	read -r line < "$sum_file"
+	iso_file="${line##* }"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_parrotos() {
-    parrot_type="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
+	parrot_type="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
 
-    case "$parrot_type" in
-        "security"|"home")
-            image_type="$(get_choice "iso" "virtualbox" "utm")"
-            ;;
-        "hack the box")
-            image_type="iso"
-            ;;
-        "architect")
-            architecture="$(get_choice "arm64" "amd64" "i386")"
-            ;;
-        "raspberry pi")
-            image_type="$(get_choice "core" "home" "security")"
-            architecture="$(get_choice "armhf" "arm64")"
+	case "$parrot_type" in
+		"security"|"home")
+			image_type="$(get_choice "iso" "virtualbox" "utm")"
+			;;
+		"hack the box")
+			image_type="iso"
+			;;
+		"architect")
+			architecture="$(get_choice "arm64" "amd64" "i386")"
+			;;
+		"raspberry pi")
+			image_type="$(get_choice "core" "home" "security")"
+			architecture="$(get_choice "armhf" "arm64")"
 
-            if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
-                print_message "This image is currently unavailable. It should be back next Parrot OS release."
-                exit 0
-            fi
-            ;;
-    esac
+			if [[ "$image_type" == "security" && "$architecture" == "armhf" ]]; then
+				print_message "This image is currently unavailable. It should be back next Parrot OS release."
+				exit 0
+			fi
+			;;
+	esac
 
-    if [[ "$parrot_type" == "raspberry pi" ]]; then
-        prefix="\"${parrot_type}\".${image_type}.${architecture}"
-    else
-        prefix="\"${parrot_type}\".${image_type:-$architecture}"
-    fi
+	if [[ "$parrot_type" == "raspberry pi" ]]; then
+		prefix="\"${parrot_type}\".${image_type}.${architecture}"
+	else
+		prefix="\"${parrot_type}\".${image_type:-$architecture}"
+	fi
 
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "${prefix}.iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "url" \
+	                        "${prefix}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file"}
-    fetch_verification_key
-    wget_file "$url/$sig_file"
-    verify_signature
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file"}
+	fetch_verification_key
+	wget_file "$url/$sig_file"
+	verify_signature
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_solus() {
-    solus_type="$(get_choice "budgie" "gnome" "mate" "plasma")"
+	solus_type="$(get_choice "budgie" "gnome" "mate" "plasma")"
 
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "${solus_type}.iso_file" \
-                            "${solus_type}.sig_file" \
-                            "${solus_type}.sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "url" \
+	                        "${solus_type}.iso_file" \
+	                        "${solus_type}.sig_file" \
+	                        "${solus_type}.sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_tails() {
-    tails_type="$(get_choice "usb" "dvd/vm")"
+	tails_type="$(get_choice "usb" "dvd/vm")"
 
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "\"${tails_type}\".iso_file" \
-                            "\"${tails_type}\".sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "url" \
+	                        "\"${tails_type}\".iso_file" \
+	                        "\"${tails_type}\".sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$iso_file"}
-    verify_signature "$iso_file"
-    rm -f "$sig_file"
-    print_message "Download and GPG verification successful. Tails does not provide checksum files."
-    exit 0
+	wget_spider "$url"/{"$iso_file","$sig_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$iso_file"}
+	verify_signature "$iso_file"
+	rm -f "$sig_file"
+	print_message "Download and GPG verification successful. Tails does not provide checksum files."
+	exit 0
 }
 
 download_ubuntu() {
-    ubuntu_type="$(get_choice "current" "lts")"
-    image_type="$(get_choice "desktop" "server")"
+	ubuntu_type="$(get_choice "current" "lts")"
+	image_type="$(get_choice "desktop" "server")"
 
-    fetch_and_assign_values "gpg_key" \
-                            "${ubuntu_type}.url" \
-                            "${ubuntu_type}.${image_type}.iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "${ubuntu_type}.url" \
+	                        "${ubuntu_type}.${image_type}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature "$sum_file"
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_void() {
-    verification_tool="minisign"
-    architecture="$(get_choice "x86_64" "i686" "arm" "arm platforms")"
+	verification_tool="minisign"
+	architecture="$(get_choice "x86_64" "i686" "arm" "arm platforms")"
 
-    case "$architecture" in
-        "x86_64")
-            void_type="$(get_choice "base" "xfce")"
+	case "$architecture" in
+		"x86_64")
+			void_type="$(get_choice "base" "xfce")"
 
-            if [[ "$void_type" == "base" ]]; then
-                image_type="$(get_choice "live" "rootfs tarball")"
-                lib_type="$(get_choice "glibc" "musl")"
-            else
-                image_type="live"
-                lib_type="$(get_choice "glibc" "musl")"
-            fi
-            ;;
-        "i686")
-            void_type="$(get_choice "base" "xfce")"
+			if [[ "$void_type" == "base" ]]; then
+				image_type="$(get_choice "live" "rootfs tarball")"
+				lib_type="$(get_choice "glibc" "musl")"
+			else
+				image_type="live"
+				lib_type="$(get_choice "glibc" "musl")"
+			fi
+			;;
+		"i686")
+			void_type="$(get_choice "base" "xfce")"
 
-            if [[ "$void_type" == "base" ]]; then
-                image_type="$(get_choice "live" "rootfs tarball")"
-                lib_type="glibc"
-            else
-                image_type="live"
-                lib_type="glibc"
-            fi
-            ;;
-        "arm")
-            void_type="$(get_choice "armv6l" "armv7l" "aarch64")"
-            image_type="rootfs tarball"
-            lib_type="$(get_choice "glibc" "musl")"
-            ;;
-        "arm platforms")
-            void_type="$(get_choice "rpi-armv6l" "rpi-armv7l" "rpi-aarch64")"
-            image_type="$(get_choice "live" "rootfs tarball")"
-            lib_type="$(get_choice "glibc" "musl")"
-            ;;
-    esac
+			if [[ "$void_type" == "base" ]]; then
+				image_type="$(get_choice "live" "rootfs tarball")"
+				lib_type="glibc"
+			else
+				image_type="live"
+				lib_type="glibc"
+			fi
+			;;
+		"arm")
+			void_type="$(get_choice "armv6l" "armv7l" "aarch64")"
+			image_type="rootfs tarball"
+			lib_type="$(get_choice "glibc" "musl")"
+			;;
+		"arm platforms")
+			void_type="$(get_choice "rpi-armv6l" "rpi-armv7l" "rpi-aarch64")"
+			image_type="$(get_choice "live" "rootfs tarball")"
+			lib_type="$(get_choice "glibc" "musl")"
+			;;
+	esac
 
-    fetch_and_assign_values "gpg_key" \
-                            "url" \
-                            "\"${architecture}\".\"${void_type}\".\"${image_type}\".\"${lib_type}\".iso_file" \
-                            "sig_file" \
-                            "sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "gpg_key" \
+	                        "url" \
+	                        "\"${architecture}\".\"${void_type}\".\"${image_type}\".\"${lib_type}\".iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file"}
-    verify_signature
-    wget_file "$url/$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_signature
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_whonix() {
-    whonix_type="$(get_choice "qemu" "virtualbox")"
+	whonix_type="$(get_choice "qemu" "virtualbox")"
 
-    fetch_and_assign_values "${whonix_type}.gpg_key" \
-                            "${whonix_type}.url" \
-                            "${whonix_type}.iso_file" \
-                            "${whonix_type}.sig_file" \
-                            "${whonix_type}.sum_file" \
-                            "sum_algo"
+	fetch_and_assign_values "${whonix_type}.gpg_key" \
+	                        "${whonix_type}.url" \
+	                        "${whonix_type}.iso_file" \
+	                        "${whonix_type}.sig_file" \
+	                        "${whonix_type}.sum_file" \
+	                        "sum_algo"
 
-    wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-    fetch_verification_key
-    wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
-    verify_signature "$iso_file"
-    verify_checksum
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_verification_key
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_signature "$iso_file"
+	verify_checksum
 }
 
 usage() {
-    cat <<EOF
+	cat <<EOF
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
   -h, --help       Display this usage message
@@ -778,56 +778,56 @@ EXAMPLES
   dl-distro arch /run/media/$USER/Ventoy
   dl-distro -n arch
 EOF
-    exit 0
+	exit 0
 }
 
 main() {
-    gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
-    verification_enabled="true"
-    verification_tool="gpg"
-    spider_mode_enabled="false"
+	gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
+	verification_enabled="true"
+	verification_tool="gpg"
+	spider_mode_enabled="false"
 
-    while [[ "$#" -gt 0 ]]; do
-        case "$1" in
-            -h|--help)
-                usage
-                ;;
-            -l|--list-keys)
-                if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
-                    exit 0
-                else
-                    print_error_and_exit "GPG directory not found: $gpg_dir"
-                fi
-                ;;
-            -n|--no-verify)
-                verification_enabled="false"
-                shift
-                ;;
-            -s|--spider)
-                spider_mode_enabled="true"
-                shift
-                ;;
-            -*)
-                print_error_and_exit "Invalid option: $1"
-                ;;
-            *)
-                break
-                ;;
-        esac
-    done
+	while [[ "$#" -gt 0 ]]; do
+		case "$1" in
+			-h|--help)
+				usage
+				;;
+			-l|--list-keys)
+				if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
+					exit 0
+				else
+					print_error_and_exit "GPG directory not found: $gpg_dir"
+				fi
+				;;
+			-n|--no-verify)
+				verification_enabled="false"
+				shift
+				;;
+			-s|--spider)
+				spider_mode_enabled="true"
+				shift
+				;;
+			-*)
+				print_error_and_exit "Invalid option: $1"
+				;;
+			*)
+				break
+				;;
+		esac
+	done
 
-    distro="${1:-}"
-    download_path="$(realpath "${2:-$(pwd)}")"
+	distro="${1:-}"
+	download_path="$(realpath "${2:-$(pwd)}")"
 
-    [[ -z "$distro" ]] && print_error_and_exit "No distro provided."
+	[[ -z "$distro" ]] && print_error_and_exit "No distro provided."
 
-    if type download_"$distro" &> /dev/null; then
-        check_dependencies "jq" "wget"
-        trap 'rm -f "${fetched_verification_key:-}" "${fetched_json_file:-}"' EXIT INT TERM
-        download_"$distro"
-    else
-        print_error_and_exit "Invalid distro: $distro"
-    fi
+	if type download_"$distro" &> /dev/null; then
+		check_dependencies "jq" "wget"
+		trap 'rm -f "${fetched_verification_key:-}" "${fetched_json_file:-}"' EXIT INT TERM
+		download_"$distro"
+	else
+		print_error_and_exit "Invalid distro: $distro"
+	fi
 }
 
 main "$@"
