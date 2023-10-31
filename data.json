@@ -1,1445 +1,1445 @@
 {
-    "license": {
-        "copyright": "Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>",
-        "url": "https://codeberg.org/bashuser30/dl-distro/src/branch/master/LICENSE"
-    },
-    "alpine": {
-        "gpg_key": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
-        "sum_algo": "sha256sum",
-        "standard": {
-            "aarch64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
-                "iso_file": "alpine-standard-3.18.4-aarch64.iso",
-                "sig_file": "alpine-standard-3.18.4-aarch64.iso.asc",
-                "sum_file": "alpine-standard-3.18.4-aarch64.iso.sha256"
-            },
-            "armv7": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
-                "iso_file": "alpine-standard-3.18.4-armv7.iso",
-                "sig_file": "alpine-standard-3.18.4-armv7.iso.asc",
-                "sum_file": "alpine-standard-3.18.4-armv7.iso.sha256"
-            },
-            "ppc64le": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/ppc64le",
-                "iso_file": "alpine-standard-3.18.4-ppc64le.iso",
-                "sig_file": "alpine-standard-3.18.4-ppc64le.iso.asc",
-                "sum_file": "alpine-standard-3.18.4-ppc64le.iso.sha256"
-            },
-            "s390x": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/s390x",
-                "iso_file": "alpine-standard-3.18.4-s390x.iso",
-                "sig_file": "alpine-standard-3.18.4-s390x.iso.asc",
-                "sum_file": "alpine-standard-3.18.4-s390x.iso.sha256"
-            },
-            "x86": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
-                "iso_file": "alpine-standard-3.18.4-x86.iso",
-                "sig_file": "alpine-standard-3.18.4-x86.iso.asc",
-                "sum_file": "alpine-standard-3.18.4-x86.iso.sha256"
-            },
-            "x86_64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-                "iso_file": "alpine-standard-3.18.4-x86_64.iso",
-                "sig_file": "alpine-standard-3.18.4-x86_64.iso.asc",
-                "sum_file": "alpine-standard-3.18.4-x86_64.iso.sha256"
-            }
-        },
-        "extended": {
-            "x86": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
-                "iso_file": "alpine-extended-3.18.4-x86.iso",
-                "sig_file": "alpine-extended-3.18.4-x86.iso.asc",
-                "sum_file": "alpine-extended-3.18.4-x86.iso.sha256"
-            },
-            "x86_64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-                "iso_file": "alpine-extended-3.18.4-x86_64.iso",
-                "sig_file": "alpine-extended-3.18.4-x86_64.iso.asc",
-                "sum_file": "alpine-extended-3.18.4-x86_64.iso.sha256"
-            }
-        },
-        "netboot": {
-            "aarch64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
-                "iso_file": "alpine-netboot-3.18.4-aarch64.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-aarch64.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-aarch64.tar.gz.sha256"
-            },
-            "armhf": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armhf",
-                "iso_file": "alpine-netboot-3.18.4-armhf.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-armhf.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-armhf.tar.gz.sha256"
-            },
-            "armv7": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
-                "iso_file": "alpine-netboot-3.18.4-armv7.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-armv7.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-armv7.tar.gz.sha256"
-            },
-            "ppc64le": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/ppc64le",
-                "iso_file": "alpine-netboot-3.18.4-ppc64le.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-ppc64le.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-ppc64le.tar.gz.sha256"
-            },
-            "s390x": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/s390x",
-                "iso_file": "alpine-netboot-3.18.4-s390x.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-s390x.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-s390x.tar.gz.sha256"
-            },
-            "x86": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
-                "iso_file": "alpine-netboot-3.18.4-x86.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-x86.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-x86.tar.gz.sha256"
-            },
-            "x86_64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-                "iso_file": "alpine-netboot-3.18.4-x86_64.tar.gz",
-                "sig_file": "alpine-netboot-3.18.4-x86_64.tar.gz.asc",
-                "sum_file": "alpine-netboot-3.18.4-x86_64.tar.gz.sha256"
-            }
-        },
-        "raspberry pi": {
-            "aarch64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
-                "iso_file": "alpine-rpi-3.18.4-aarch64.tar.gz",
-                "sig_file": "alpine-rpi-3.18.4-aarch64.tar.gz.asc",
-                "sum_file": "alpine-rpi-3.18.4-aarch64.tar.gz.sha256"
-            },
-            "armhf": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armhf",
-                "iso_file": "alpine-rpi-3.18.4-armhf.tar.gz",
-                "sig_file": "alpine-rpi-3.18.4-armhf.tar.gz.asc",
-                "sum_file": "alpine-rpi-3.18.4-armhf.tar.gz.sha256"
-            },
-            "armv7": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
-                "iso_file": "alpine-rpi-3.18.4-armv7.tar.gz",
-                "sig_file": "alpine-rpi-3.18.4-armv7.tar.gz.asc",
-                "sum_file": "alpine-rpi-3.18.4-armv7.tar.gz.sha256"
-            }
-        },
-        "generic arm": {
-            "aarch64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
-                "iso_file": "alpine-uboot-3.18.4-aarch64.tar.gz",
-                "sig_file": "alpine-uboot-3.18.4-aarch64.tar.gz.asc",
-                "sum_file": "alpine-uboot-3.18.4-aarch64.tar.gz.sha256"
-            },
-            "armv7": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
-                "iso_file": "alpine-uboot-3.18.4-armv7.tar.gz",
-                "sig_file": "alpine-uboot-3.18.4-armv7.tar.gz.asc",
-                "sum_file": "alpine-uboot-3.18.4-armv7.tar.gz.sha256"
-            }
-        },
-        "mini root filesystem": {
-            "aarch64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
-                "iso_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz.sha256"
-            },
-            "armhf": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armhf",
-                "iso_file": "alpine-minirootfs-3.18.4-armhf.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-armhf.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-armhf.tar.gz.sha256"
-            },
-            "armv7": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
-                "iso_file": "alpine-minirootfs-3.18.4-armv7.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-armv7.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-armv7.tar.gz.sha256"
-            },
-            "ppc64le": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/ppc64le",
-                "iso_file": "alpine-minirootfs-3.18.4-ppc64le.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-ppc64le.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-ppc64le.tar.gz.sha256"
-            },
-            "s390x": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/s390x",
-                "iso_file": "alpine-minirootfs-3.18.4-s390x.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-s390x.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-s390x.tar.gz.sha256"
-            },
-            "x86": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
-                "iso_file": "alpine-minirootfs-3.18.4-x86.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-x86.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-x86.tar.gz.sha256"
-            },
-            "x86_64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-                "iso_file": "alpine-minirootfs-3.18.4-x86_64.tar.gz",
-                "sig_file": "alpine-minirootfs-3.18.4-x86_64.tar.gz.asc",
-                "sum_file": "alpine-minirootfs-3.18.4-x86_64.tar.gz.sha256"
-            }
-        },
-        "virtual": {
-            "aarch64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
-                "iso_file": "alpine-virt-3.18.4-aarch64.iso",
-                "sig_file": "alpine-virt-3.18.4-aarch64.iso.asc",
-                "sum_file": "alpine-virt-3.18.4-aarch64.iso.sha256"
-            },
-            "armv7": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
-                "iso_file": "alpine-virt-3.18.4-armv7.iso",
-                "sig_file": "alpine-virt-3.18.4-armv7.iso.asc",
-                "sum_file": "alpine-virt-3.18.4-armv7.iso.sha256"
-            },
-            "x86": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
-                "iso_file": "alpine-virt-3.18.4-x86.iso",
-                "sig_file": "alpine-virt-3.18.4-x86.iso.asc",
-                "sum_file": "alpine-virt-3.18.4-x86.iso.sha256"
-            },
-            "x86_64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-                "iso_file": "alpine-virt-3.18.4-x86_64.iso",
-                "sig_file": "alpine-virt-3.18.4-x86_64.iso.asc",
-                "sum_file": "alpine-virt-3.18.4-x86_64.iso.sha256"
-            }
-        },
-        "xen": {
-            "x86_64": {
-                "url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-                "iso_file": "alpine-xen-3.18.4-x86_64.iso",
-                "sig_file": "alpine-xen-3.18.4-x86_64.iso.asc",
-                "sum_file": "alpine-xen-3.18.4-x86_64.iso.sha256"
-            }
-        }
-    },
-    "arch": {
-        "gpg_key": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
-        "url": "https://geo.mirror.pkgbuild.com/iso/2023.10.14",
-        "iso_file": "archlinux-2023.10.14-x86_64.iso",
-        "sig_file": "archlinux-2023.10.14-x86_64.iso.sig",
-        "sum_file": "b2sums.txt",
-        "sum_algo": "b2sum"
-    },
-    "debian": {
-        "gpg_key": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
-        "sig_file": "SHA512SUMS.sign",
-        "sum_file": "SHA512SUMS",
-        "sum_algo": "sha512sum",
-        "netinst": {
-            "amd64": {
-                "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd",
-                "iso_file": "debian-12.2.0-amd64-netinst.iso"
-            },
-            "arm64": {
-                "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd",
-                "iso_file": "debian-12.2.0-arm64-netinst.iso"
-            },
-            "armel": {
-                "url": "https://cdimage.debian.org/debian-cd/current/armel/iso-cd",
-                "iso_file": "debian-12.2.0-armel-netinst.iso"
-            },
-            "armhf": {
-                "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd",
-                "iso_file": "debian-12.2.0-armhf-netinst.iso"
-            },
-            "i386": {
-                "url": "https://cdimage.debian.org/debian-cd/current/i386/iso-cd",
-                "iso_file": "debian-12.2.0-i386-netinst.iso"
-            },
-            "mips64el": {
-                "url": "https://cdimage.debian.org/debian-cd/current/mips64el/iso-cd",
-                "iso_file": "debian-12.2.0-mips64el-netinst.iso"
-            },
-            "mipsel": {
-                "url": "https://cdimage.debian.org/debian-cd/current/mipsel/iso-cd",
-                "iso_file": "debian-12.2.0-mipsel-netinst.iso"
-            },
-            "ppc64el": {
-                "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd",
-                "iso_file": "debian-12.2.0-ppc64el-netinst.iso"
-            },
-            "s390x": {
-                "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd",
-                "iso_file": "debian-12.2.0-s390x-netinst.iso"
-            }
-        },
-        "live": {
-            "cinnamon": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-cinnamon.iso"
-            },
-            "gnome": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-gnome.iso"
-            },
-            "kde": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-kde.iso"
-            },
-            "lxde": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-lxde.iso"
-            },
-            "lxqt": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-lxqt.iso"
-            },
-            "mate": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-mate.iso"
-            },
-            "standard": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-standard.iso"
-            },
-            "xfce": {
-                "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-                "iso_file": "debian-live-12.2.0-amd64-xfce.iso"
-            }
-        }
-    },
-    "fedora": {
-        "gpg_key": "6A51BBABBA3D5467B6171221809A8D7CEB10B464",
-        "sum_algo": "sha256sum",
-        "workstation": {
-            "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso",
-                "iso_file": "Fedora-Workstation-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM"
-            },
-            "aarch64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/aarch64/iso",
-                "iso_file": "Fedora-Workstation-Live-aarch64-38-1.6.iso",
-                "sig_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM",
-                "sum_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM"
-            },
-            "ppc64le": {
-                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Workstation/ppc64le/iso",
-                "iso_file": "Fedora-Workstation-Live-ppc64le-38-1.6.iso",
-                "sig_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM",
-                "sum_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM"
-            }
-        },
-        "server": {
-            "x86_64": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/images",
-                    "iso_file": "Fedora-Server-KVM-38-1.6.x86_64.qcow2",
-                    "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
-                },
-                "dvd": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
-                    "iso_file": "Fedora-Server-dvd-x86_64-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
-                },
-                "netinst": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
-                    "iso_file": "Fedora-Server-netinst-x86_64-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
-                }
-            },
-            "aarch64": {
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
-                    "iso_file": "Fedora-Server-38-1.6.aarch64.raw.xz",
-                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
-                },
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
-                    "iso_file": "Fedora-Server-KVM-38-1.6.aarch64.qcow2",
-                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
-                },
-                "dvd": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
-                    "iso_file": "Fedora-Server-dvd-aarch64-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
-                },
-                "netinst": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
-                    "iso_file": "Fedora-Server-netinst-aarch64-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
-                }
-            },
-            "ppc64le": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/images",
-                    "iso_file": "Fedora-Server-KVM-38-1.6.ppc64le.qcow2",
-                    "sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
-                },
-                "dvd": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/iso",
-                    "iso_file": "Fedora-Server-dvd-ppc64le-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
-                },
-                "netinst": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/iso",
-                    "iso_file": "Fedora-Server-netinst-ppc64le-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
-                }
-            },
-            "s390x": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/images",
-                    "iso_file": "Fedora-Server-KVM-38-1.6.s390x.qcow2",
-                    "sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
-                },
-                "dvd": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/iso",
-                    "iso_file": "Fedora-Server-dvd-s390x-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
-                },
-                "netinst": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/iso",
-                    "iso_file": "Fedora-Server-netinst-s390x-38-1.6.iso",
-                    "sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
-                    "sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
-                }
-            }
-        },
-        "iot": {
-            "x86_64": {
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/images",
-                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.x86_64.raw.xz",
-                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
-                },
-                "ostree": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/iso",
-                    "iso_file": "Fedora-IoT-ostree-x86_64-38-20230419.2.iso",
-                    "sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
-                }
-            },
-            "aarch64": {
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/images",
-                    "iso_file": "Fedora-IoT-38.20230419.2-20230419.2.aarch64.raw.xz",
-                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
-                },
-                "ostree": {
-                    "url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/iso",
-                    "iso_file": "Fedora-IoT-ostree-aarch64-38-20230419.2.iso",
-                    "sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
-                    "sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
-                }
-            }
-        },
-        "cloud": {
-            "x86_64": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.x86_64.qcow2",
-                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
-                },
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.x86_64.raw.xz",
-                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
-                },
-                "compressed image": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
-                    "iso_file": "Fedora-Cloud-Base-GCP-38-1.6.x86_64.tar.gz",
-                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
-                },
-                "vagrant libvirt": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
-                    "iso_file": "/Fedora-Cloud-Base-Vagrant-38-1.6.x86_64.vagrant-libvirt.box",
-                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
-                },
-                "vagrant virtualbox": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
-                    "iso_file": "Fedora-Cloud-Base-Vagrant-38-1.6.x86_64.vagrant-virtualbox.box",
-                    "sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
-                }
-            },
-            "aarch64": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/aarch64/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.aarch64.qcow2",
-                    "sig_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM"
-                },
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/aarch64/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.aarch64.raw.xz",
-                    "sig_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM"
-                }
-            },
-            "ppc64le": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/ppc64le/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.ppc64le.qcow2",
-                    "sig_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM"
-                },
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/ppc64le/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.ppc64le.raw.xz",
-                    "sig_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM"
-                }
-            },
-            "s390x": {
-                "qemu": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/s390x/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.s390x.qcow2",
-                    "sig_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM"
-                },
-                "raw": {
-                    "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/s390x/images",
-                    "iso_file": "Fedora-Cloud-Base-38-1.6.s390x.raw.xz",
-                    "sig_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM",
-                    "sum_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM"
-                }
-            }
-        },
-        "silverblue": {
-            "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
-                "iso_file": "Fedora-Silverblue-ostree-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM"
-            },
-            "ppc64le": {
-                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Silverblue/ppc64le/iso",
-                "iso_file": "Fedora-Silverblue-ostree-ppc64le-38-1.6.iso",
-                "sig_file": "Fedora-Silverblue-38-1.6-ppc64le-CHECKSUM",
-                "sum_file": "Fedora-Silverblue-38-1.6-ppc64le-CHECKSUM"
-            }
-        },
-        "kinoite": {
-            "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/x86_64/iso",
-                "iso_file": "Fedora-Kinoite-ostree-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Kinoite-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Kinoite-38-1.6-x86_64-CHECKSUM"
-            },
-            "aarch64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/aarch64/iso",
-                "iso_file": "Fedora-Kinoite-ostree-aarch64-38-1.6.iso",
-                "sig_file": "Fedora-Kinoite-38-1.6-aarch64-CHECKSUM",
-                "sum_file": "Fedora-Kinoite-38-1.6-aarch64-CHECKSUM"
-            },
-            "ppc64le": {
-                "url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Kinoite/ppc64le/iso",
-                "iso_file": "Fedora-Kinoite-ostree-ppc64le-38-1.6.iso",
-                "sig_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM",
-                "sum_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM"
-            }
-        },
-        "sericea": {
-            "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Sericea/x86_64/iso",
-                "iso_file": "Fedora-Sericea-ostree-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Sericea-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Sericea-38-1.6-x86_64-CHECKSUM"
-            }
-        },
-        "spins": {
-            "budgie": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-Budgie-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "cinnamon": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-Cinnamon-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "kde": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-KDE-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "lxde": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-LXDE-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "lxqt": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-LXQt-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "mate": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-MATE_Compiz-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "sugar": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-SoaS-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "sway": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-Sway-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "xfce": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-Xfce-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            },
-            "i3": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
-                "iso_file": "Fedora-i3-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
-            }
-        },
-        "labs": {
-            "astronomy": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Astronomy_KDE-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "comp neuro": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Comp_Neuro-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "design suite": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Design_suite-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "games": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Games-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "jam": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Jam_KDE-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "python classroom": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Python-Classroom-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "robotics": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Robotics-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "scientific": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Scientific_KDE-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            },
-            "security": {
-                "url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-                "iso_file": "Fedora-Security-Live-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
-            }
-        },
-        "everything": {
-            "x86_64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/x86_64/iso",
-                "iso_file": "Fedora-Everything-netinst-x86_64-38-1.6.iso",
-                "sig_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM",
-                "sum_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM"
-            },
-            "aarch64": {
-                "url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/aarch64/iso",
-                "iso_file": "Fedora-Everything-netinst-aarch64-38-1.6.iso",
-                "sig_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM",
-                "sum_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM"
-            }
-        }
-    },
-    "gparted": {
-        "gpg_key": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
-        "url": "https://downloads.sourceforge.net/gparted",
-        "sig_file": "CHECKSUMS.TXT.gpg",
-        "sum_file": "CHECKSUMS.TXT",
-        "sum_algo": "sha256sum",
-        "amd64": {
-            "iso": {"iso_file": "gparted-live-1.5.0-6-amd64.iso"},
-            "zip": {"iso_file": "gparted-live-1.5.0-6-amd64.zip"}
-        },
-        "i686": {
-            "iso": {"iso_file": "gparted-live-1.5.0-6-i686.iso"},
-            "zip": {"iso_file": "gparted-live-1.5.0-6-i686.zip"}
-        },
-        "i686-pae": {
-            "iso": {"iso_file": "gparted-live-1.5.0-6-i686-pae.iso"},
-            "zip": {"iso_file": "gparted-live-1.5.0-6-i686-pae.zip"}
-        }
-    },
-    "kali": {
-        "gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
-        "sig_file": "SHA256SUMS.gpg",
-        "sum_file": "SHA256SUMS",
-        "sum_algo": "sha256sum",
-        "current": {
-            "url": "https://cdimage.kali.org/current",
-            "live": {
-                "amd64": {"iso_file": "kali-linux-2023.3-live-amd64.iso"},
-                "arm64": {"iso_file": "kali-linux-2023.3-live-arm64.iso"},
-                "i386": {"iso_file": "kali-linux-2023.3-live-i386.iso"}
-            },
-            "qemu": {
-                "amd64": {"iso_file": "kali-linux-2023.3-qemu-amd64.7z"},
-                "i386": {"iso_file": "kali-linux-2023.3-qemu-i386.7z"}
-            },
-            "virtualbox": {
-                "amd64": {"iso_file": "kali-linux-2023.3-virtualbox-amd64.7z"},
-                "i386": {"iso_file": "kali-linux-2023.3-virtualbox-i386.7z"}
-            },
-            "vmware": {
-                "amd64": {"iso_file": "kali-linux-2023.3-vmware-amd64.7z"},
-                "i386": {"iso_file": "kali-linux-2023.3-vmware-i386.7z"}
-            },
-            "hyperv": {
-                "amd64": {"iso_file": "kali-linux-2023.3a-hyperv-amd64.7z"}
-            },
-            "installer": {
-                "amd64": {"iso_file": "kali-linux-2023.3-installer-amd64.iso"},
-                "arm64": {"iso_file": "kali-linux-2023.3-installer-arm64.iso"},
-                "i386": {"iso_file": "kali-linux-2023.3-installer-i386.iso"}
-            },
-            "netinst": {
-                "amd64": {"iso_file": "kali-linux-2023.3-installer-netinst-amd64.iso"},
-                "arm64": {"iso_file": "kali-linux-2023.3-installer-netinst-arm64.iso"},
-                "i386": {"iso_file": "kali-linux-2023.3-installer-netinst-i386.iso"}
-            },
-            "purple": {
-                "amd64": {"iso_file": "kali-linux-2023.3-installer-purple-amd64.iso"}
-            }
-        },
-        "weekly": {
-            "url": "https://cdimage.kali.org/kali-weekly",
-            "live": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-amd64.iso"},
-                "arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-arm64.iso"},
-                "i386": {"iso_file": "kali-linux-2023-W{current_week_num}-live-i386.iso"}
-            },
-            "qemu": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-qemu-amd64.7z"}
-            },
-            "virtualbox": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-virtualbox-amd64.7z"}
-            },
-            "vmware": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-vmware-amd64.7z"}
-            },
-            "hyperv": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-hyperv-amd64.7z"}
-            },
-            "installer": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-amd64.iso"},
-                "arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-arm64.iso"},
-                "i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-i386.iso"}
-            },
-            "netinst": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-amd64.iso"},
-                "arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-arm64.iso"},
-                "i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-i386.iso"}
-            },
-            "purple": {
-                "amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-purple-amd64.iso"}
-            }
-        }
-    },
-    "mint": {
-        "gpg_key": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
-        "sig_file": "sha256sum.txt.gpg",
-        "sum_file": "sha256sum.txt",
-        "sum_algo": "sha256sum",
-        "mint": {
-            "cinnamon": {
-                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-                "iso_file": "linuxmint-21.2-cinnamon-64bit.iso"
-            },
-            "mate": {
-                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-                "iso_file": "linuxmint-21.2-mate-64bit.iso"
-            },
-            "xfce": {
-                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-                "iso_file": "linuxmint-21.2-xfce-64bit.iso"
-            },
-            "edge": {
-                "url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-                "iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso"
-            }
-        },
-        "debian edition": {
-            "64-bit": {
-                "url": "https://mirrors.layeronline.com/linuxmint/debian",
-                "iso_file": "lmde-6-cinnamon-64bit.iso"
-            },
-            "32-bit": {
-                "url": "https://mirrors.layeronline.com/linuxmint/debian",
-                "iso_file": "lmde-6-cinnamon-32bit.iso"
-            }
-        }
-    },
-    "openbsd": {
-        "gpg_key": "https://cdn.openbsd.org/pub/OpenBSD/7.4/openbsd-74-base.pub",
-        "sum_algo": "sha256sum",
-        "sig_file": "SHA256.sig",
-        "sum_file": "SHA256",
-        "img with file sets": {
-            "amd64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-                "iso_file": "install74.img"
-            },
-            "arm64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
-                "iso_file": "install74.img"
-            },
-            "i386": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-                "iso_file": "install74.img"
-            },
-            "octeon": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
-                "iso_file": "install74.img"
-            },
-            "powerpc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-                "iso_file": "install74.img"
-            },
-            "riscv64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
-                "iso_file": "install74.img"
-            },
-            "sparc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-                "iso_file": "install74.img"
-            }
-        },
-        "img without file sets": {
-            "alpha": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-                "iso_file": "miniroot74.img"
-            },
-            "amd64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-                "iso_file": "miniroot74.img"
-            },
-            "arm64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
-                "iso_file": "miniroot74.img"
-            },
-            "armv7": {
-                "am335x": {
-                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-                    "iso_file": "miniroot-am335x-74.img"
-                },
-                "cubie": {
-                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-                    "iso_file": "miniroot-cubie-74.img"
-                },
-                "cubox": {
-                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-                    "iso_file": "miniroot-cubox-74.img"
-                },
-                "nitrogen": {
-                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-                    "iso_file": "miniroot-nitrogen-74.img"
-                },
-                "panda": {
-                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-                    "iso_file": "miniroot-panda-74.img"
-                },
-                "wandboard": {
-                    "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-                    "iso_file": "miniroot-wandboard-74.img"
-                }
-            },
-            "i386": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-                "iso_file": "miniroot74.img"
-            },
-            "landisk": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/landisk",
-                "iso_file": "miniroot74.img"
-            },
-            "loongson": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
-                "iso_file": "miniroot74.img"
-            },
-            "luna88k": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/luna88k",
-                "iso_file": "miniroot74.img"
-            },
-            "octeon": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
-                "iso_file": "miniroot74.img"
-            },
-            "powerpc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-                "iso_file": "miniroot74.img"
-            },
-            "riscv64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
-                "iso_file": "miniroot74.img"
-            },
-            "sparc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-                "iso_file": "miniroot74.img"
-            }
-        },
-        "iso with file sets": {
-            "alpha": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-                "iso_file": "install74.iso"
-            },
-            "amd64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-                "iso_file": "install74.iso"
-            },
-            "hppa": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
-                "iso_file": "install74.iso"
-            },
-            "i386": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-                "iso_file": "install74.iso"
-            },
-            "macppc": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
-                "iso_file": "install74.iso"
-            },
-            "powerpc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-                "iso_file": "install74.iso"
-            },
-            "sparc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-                "iso_file": "install74.iso"
-            }
-        },
-        "iso without file sets": {
-            "alpha": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-                "iso_file": "cd74.iso"
-            },
-            "amd64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-                "iso_file": "cd74.iso"
-            },
-            "hppa": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
-                "iso_file": "cd74.iso"
-            },
-            "i386": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-                "iso_file": "cd74.iso"
-            },
-            "loongson": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
-                "iso_file": "cd74.iso"
-            },
-            "macppc": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
-                "iso_file": "cd74.iso"
-            },
-            "sparc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-                "iso_file": "cd74.iso"
-            }
-        },
-        "floppy": {
-            "amd64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-                "iso_file": "floppy74.img"
-            },
-            "i386": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-                "iso_file": "floppy74.img"
-            },
-            "sparc64": {
-                "url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-                "iso_file": "floppy74.img"
-            }
-        }
-    },
-    "opensuse": {
-        "gpg_key": "AD485664E901B867051AB15F35A2F86E29B700A4",
-        "sum_algo": "sha256sum",
-        "leap": {
-            "dvd": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256"
-                },
-                "ppc64le": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256"
-                },
-                "s390x": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256"
-                }
-            },
-            "netinst": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256"
-                },
-                "ppc64le": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256"
-                },
-                "s390x": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-                    "iso_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso",
-                    "sig_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256"
-                }
-            },
-            "kvm": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256"
-                }
-            },
-            "hyperv": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
-                }
-            },
-            "vmware": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-                }
-            },
-            "cloud": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-                    "iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2",
-                    "sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256"
-                }
-            }
-        },
-        "tumbleweed": {
-            "dvd": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256"
-                },
-                "i586": {
-                    "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256"
-                },
-                "ppc64le": {
-                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256"
-                },
-                "s390x": {
-                    "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256"
-                },
-                "ppc64": {
-                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256"
-                }
-            },
-            "netinst": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256"
-                },
-                "i586": {
-                    "url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256"
-                },
-                "ppc64le": {
-                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256"
-                },
-                "s390x": {
-                    "url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256"
-                },
-                "ppc64": {
-                    "url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
-                    "iso_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso",
-                    "sig_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256"
-                }
-            },
-            "kvm": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256"
-                }
-            },
-            "hyperv": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
-                }
-            },
-            "vmware": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-                }
-            },
-            "cloud": {
-                "x86_64": {
-                    "url": "https://download.opensuse.org/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256"
-                },
-                "aarch64": {
-                    "url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
-                    "iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2",
-                    "sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
-                    "sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256"
-                }
-            }
-        }
-    },
-    "parrotos" : {
-        "gpg_key": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
-        "url": "https://deb.parrot.sh/parrot/iso/current",
-        "sig_file": "signed-hashes.txt",
-        "sum_file": "signed-hashes.txt",
-        "sum_algo": "sha512sum",
-        "security": {
-            "iso": {"iso_file": "Parrot-security-5.3_amd64.iso"},
-            "virtualbox": {"iso_file": "Parrot-security-5.3_amd64.ova"},
-            "utm": {"iso_file": "Parrot-security-5.3_arm64.utm.zip"}
-        },
-        "home": {
-            "iso": {"iso_file": "Parrot-home-5.3_amd64.iso"},
-            "virtualbox": {"iso_file": "Parrot-home-5.3_amd64.ova"},
-            "utm": {"iso_file": "Parrot-home-5.3_arm64.utm.zip"}
-        },
-        "hack the box": {
-            "iso": {"iso_file": "Parrot-htb-5.3_amd64.iso"}
-        },
-        "architect": {
-            "arm64": {"iso_file": "Parrot-architect-5.3_arm64.iso"},
-            "amd64": {"iso_file": "Parrot-architect-5.3_amd64.iso"},
-            "i386": {"iso_file": "Parrot-architect-5.3_i386.iso"}
-        },
-        "raspberry pi": {
-            "core": {
-                "armhf": {"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz"},
-                "arm64": {"iso_file": "Parrot-core-rpi-5.3_arm64.img.xz"}
-            },
-            "home": {
-                "armhf": {"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz"},
-                "arm64": {"iso_file": "Parrot-home-rpi-5.3_arm64.img.xz"}
-            },
-            "security": {
-                "armhf": {"iso_file": "Parrot-security-rpi-5.3_armhf.img.xz"},
-                "arm64": {"iso_file": "Parrot-security-rpi-5.3_arm64.img.xz"}
-            }
-        }
-    },
-    "solus": {
-        "gpg_key": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
-        "url": "https://downloads.getsol.us/isos/4.4",
-        "sum_algo": "sha256sum",
-        "budgie": {
-            "iso_file": "Solus-4.4-Budgie.iso",
-            "sig_file": "Solus-4.4-Budgie.iso.sha256sum.sign",
-            "sum_file": "Solus-4.4-Budgie.iso.sha256sum"
-        },
-        "gnome": {
-            "iso_file": "Solus-4.4-GNOME.iso",
-            "sig_file": "Solus-4.4-GNOME.iso.sha256sum.sign",
-            "sum_file": "Solus-4.4-GNOME.iso.sha256sum"
-        },
-        "mate": {
-            "iso_file": "Solus-4.4-MATE.iso",
-            "sig_file": "Solus-4.4-MATE.iso.sha256sum.sign",
-            "sum_file": "Solus-4.4-MATE.iso.sha256sum"
-        },
-        "plasma": {
-            "iso_file": "Solus-4.4-Plasma.iso",
-            "sig_file": "Solus-4.4-Plasma.iso.sha256sum.sign",
-            "sum_file": "Solus-4.4-Plasma.iso.sha256sum"
-        }
-    },
-    "tails": {
-        "gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
-        "url": "https://download.tails.net/tails/stable/tails-amd64-5.19",
-        "usb": {
-            "iso_file": "tails-amd64-5.19.img",
-            "sig_file": "tails-amd64-5.19.img.sig"
-        },
-        "dvd/vm": {
-            "iso_file": "tails-amd64-5.19.iso",
-            "sig_file": "tails-amd64-5.19.iso.sig"
-        },
-        "sum_file": "",
-        "sum_algo": ""
-    },
-    "ubuntu": {
-        "gpg_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
-        "sig_file": "SHA256SUMS.gpg",
-        "sum_file": "SHA256SUMS",
-        "sum_algo": "sha256sum",
-        "current": {
-            "url": "https://releases.ubuntu.com/mantic",
-            "server": {"iso_file": "ubuntu-23.10-live-server-amd64.iso"},
-            "desktop": {"iso_file": "ubuntu-23.10.1-desktop-amd64.iso"}
-        },
-        "lts": {
-            "url": "https://releases.ubuntu.com/jammy",
-            "server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
-            "desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
-        }
-    },
-    "void": {
-        "gpg_key": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20230628.pub",
-        "url": "https://repo-default.voidlinux.org/live/current",
-        "sig_file": "sha256sum.sig",
-        "sum_file": "sha256sum.txt",
-        "sum_algo": "sha256sum",
-        "x86_64": {
-            "base": {
-                "live":{
-                    "glibc": {"iso_file": "void-live-x86_64-20230628-base.iso"},
-                    "musl": {"iso_file": "void-live-x86_64-musl-20230628-base.iso"}
-                },
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-x86_64-ROOTFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-x86_64-musl-ROOTFS-20230628.tar.xz"}
-                }
-            },
-            "xfce": {
-                "live": {
-                    "glibc": {"iso_file": "void-live-x86_64-20230628-xfce.iso"},
-                    "musl": {"iso_file": "void-live-x86_64-musl-20230628-xfce.iso"}
-                }
-            }
-        },
-        "i686": {
-            "base": {
-                "live": {
-                    "glibc": {"iso_file": "void-live-i686-20230628-base.iso"}
-                },
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-i686-ROOTFS-20230628.tar.xz"}
-                }
-            },
-            "xfce": {
-                "live": {
-                    "glibc": {"iso_file": "void-live-i686-20230628-xfce.iso"}
-                }
-            }
-        },
-        "arm": {
-            "armv6l": {
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-armv6l-ROOTFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-armv6l-musl-ROOTFS-20230628.tar.xz"}
-                }
-            },
-            "armv7l": {
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-armv7l-ROOTFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-armv7l-musl-ROOTFS-20230628.tar.xz"}
-                }
-            },
-            "aarch64": {
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-aarch64-ROOTFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-aarch64-musl-ROOTFS-20230628.tar.xz"}
-                }
-            }
-        },
-        "arm platforms": {
-            "rpi-armv6l": {
-                "live": {
-                    "glibc": {"iso_file": "void-rpi-armv6l-20230628.img.xz"},
-                    "musl": {"iso_file": "void-rpi-armv6l-musl-20230628.img.xz"}
-                },
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-rpi-armv6l-PLATFORMFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20230628.tar.xz"}
-                }
-            },
-            "rpi-armv7l": {
-                "live": {
-                    "glibc": {"iso_file": "void-rpi-armv7l-20230628.img.xz"},
-                    "musl": {"iso_file": "void-rpi-armv7l-musl-20230628.img.xz"}
-                },
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-rpi-armv7l-PLATFORMFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20230628.tar.xz"}
-                }
-            },
-            "rpi-aarch64": {
-                "live": {
-                    "glibc": {"iso_file": "void-rpi-aarch64-20230628.img.xz"},
-                    "musl": {"iso_file": "void-rpi-aarch64-musl-20230628.img.xz"}
-                },
-                "rootfs tarball": {
-                    "glibc": {"iso_file": "void-rpi-aarch64-PLATFORMFS-20230628.tar.xz"},
-                    "musl": {"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20230628.tar.xz"}
-                }
-            }
-        }
-    },
-    "whonix": {
-        "sum_algo": "sha512sum",
-        "qemu": {
-            "gpg_key": "04EF2F666D36C354058B9DD450C78B6F9FF2EC85",
-            "url": "https://download.whonix.org/libvirt/17.0.3.0",
-            "iso_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz",
-            "sig_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.asc",
-            "sum_file": "Whonix-Xfce-17.0.3.0.sha512sums"
-        },
-        "virtualbox": {
-            "gpg_key": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA",
-            "url": "https://download.whonix.org/ova/17.0.4.5",
-            "iso_file": "Whonix-Xfce-17.0.4.5.ova",
-            "sig_file": "Whonix-Xfce-17.0.4.5.ova.asc",
-            "sum_file": "Whonix-Xfce-17.0.4.5.sha512sums"
-        }
-    }
+	"license": {
+		"copyright": "Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>",
+		"url": "https://codeberg.org/bashuser30/dl-distro/src/branch/master/LICENSE"
+	},
+	"alpine": {
+		"gpg_key": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
+		"sum_algo": "sha256sum",
+		"standard": {
+			"aarch64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
+				"iso_file": "alpine-standard-3.18.4-aarch64.iso",
+				"sig_file": "alpine-standard-3.18.4-aarch64.iso.asc",
+				"sum_file": "alpine-standard-3.18.4-aarch64.iso.sha256"
+			},
+			"armv7": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
+				"iso_file": "alpine-standard-3.18.4-armv7.iso",
+				"sig_file": "alpine-standard-3.18.4-armv7.iso.asc",
+				"sum_file": "alpine-standard-3.18.4-armv7.iso.sha256"
+			},
+			"ppc64le": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/ppc64le",
+				"iso_file": "alpine-standard-3.18.4-ppc64le.iso",
+				"sig_file": "alpine-standard-3.18.4-ppc64le.iso.asc",
+				"sum_file": "alpine-standard-3.18.4-ppc64le.iso.sha256"
+			},
+			"s390x": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/s390x",
+				"iso_file": "alpine-standard-3.18.4-s390x.iso",
+				"sig_file": "alpine-standard-3.18.4-s390x.iso.asc",
+				"sum_file": "alpine-standard-3.18.4-s390x.iso.sha256"
+			},
+			"x86": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
+				"iso_file": "alpine-standard-3.18.4-x86.iso",
+				"sig_file": "alpine-standard-3.18.4-x86.iso.asc",
+				"sum_file": "alpine-standard-3.18.4-x86.iso.sha256"
+			},
+			"x86_64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+				"iso_file": "alpine-standard-3.18.4-x86_64.iso",
+				"sig_file": "alpine-standard-3.18.4-x86_64.iso.asc",
+				"sum_file": "alpine-standard-3.18.4-x86_64.iso.sha256"
+			}
+		},
+		"extended": {
+			"x86": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
+				"iso_file": "alpine-extended-3.18.4-x86.iso",
+				"sig_file": "alpine-extended-3.18.4-x86.iso.asc",
+				"sum_file": "alpine-extended-3.18.4-x86.iso.sha256"
+			},
+			"x86_64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+				"iso_file": "alpine-extended-3.18.4-x86_64.iso",
+				"sig_file": "alpine-extended-3.18.4-x86_64.iso.asc",
+				"sum_file": "alpine-extended-3.18.4-x86_64.iso.sha256"
+			}
+		},
+		"netboot": {
+			"aarch64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
+				"iso_file": "alpine-netboot-3.18.4-aarch64.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-aarch64.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-aarch64.tar.gz.sha256"
+			},
+			"armhf": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armhf",
+				"iso_file": "alpine-netboot-3.18.4-armhf.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-armhf.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-armhf.tar.gz.sha256"
+			},
+			"armv7": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
+				"iso_file": "alpine-netboot-3.18.4-armv7.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-armv7.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-armv7.tar.gz.sha256"
+			},
+			"ppc64le": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/ppc64le",
+				"iso_file": "alpine-netboot-3.18.4-ppc64le.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-ppc64le.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-ppc64le.tar.gz.sha256"
+			},
+			"s390x": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/s390x",
+				"iso_file": "alpine-netboot-3.18.4-s390x.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-s390x.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-s390x.tar.gz.sha256"
+			},
+			"x86": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
+				"iso_file": "alpine-netboot-3.18.4-x86.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-x86.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-x86.tar.gz.sha256"
+			},
+			"x86_64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+				"iso_file": "alpine-netboot-3.18.4-x86_64.tar.gz",
+				"sig_file": "alpine-netboot-3.18.4-x86_64.tar.gz.asc",
+				"sum_file": "alpine-netboot-3.18.4-x86_64.tar.gz.sha256"
+			}
+		},
+		"raspberry pi": {
+			"aarch64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
+				"iso_file": "alpine-rpi-3.18.4-aarch64.tar.gz",
+				"sig_file": "alpine-rpi-3.18.4-aarch64.tar.gz.asc",
+				"sum_file": "alpine-rpi-3.18.4-aarch64.tar.gz.sha256"
+			},
+			"armhf": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armhf",
+				"iso_file": "alpine-rpi-3.18.4-armhf.tar.gz",
+				"sig_file": "alpine-rpi-3.18.4-armhf.tar.gz.asc",
+				"sum_file": "alpine-rpi-3.18.4-armhf.tar.gz.sha256"
+			},
+			"armv7": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
+				"iso_file": "alpine-rpi-3.18.4-armv7.tar.gz",
+				"sig_file": "alpine-rpi-3.18.4-armv7.tar.gz.asc",
+				"sum_file": "alpine-rpi-3.18.4-armv7.tar.gz.sha256"
+			}
+		},
+		"generic arm": {
+			"aarch64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
+				"iso_file": "alpine-uboot-3.18.4-aarch64.tar.gz",
+				"sig_file": "alpine-uboot-3.18.4-aarch64.tar.gz.asc",
+				"sum_file": "alpine-uboot-3.18.4-aarch64.tar.gz.sha256"
+			},
+			"armv7": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
+				"iso_file": "alpine-uboot-3.18.4-armv7.tar.gz",
+				"sig_file": "alpine-uboot-3.18.4-armv7.tar.gz.asc",
+				"sum_file": "alpine-uboot-3.18.4-armv7.tar.gz.sha256"
+			}
+		},
+		"mini root filesystem": {
+			"aarch64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
+				"iso_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz.sha256"
+			},
+			"armhf": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armhf",
+				"iso_file": "alpine-minirootfs-3.18.4-armhf.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-armhf.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-armhf.tar.gz.sha256"
+			},
+			"armv7": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
+				"iso_file": "alpine-minirootfs-3.18.4-armv7.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-armv7.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-armv7.tar.gz.sha256"
+			},
+			"ppc64le": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/ppc64le",
+				"iso_file": "alpine-minirootfs-3.18.4-ppc64le.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-ppc64le.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-ppc64le.tar.gz.sha256"
+			},
+			"s390x": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/s390x",
+				"iso_file": "alpine-minirootfs-3.18.4-s390x.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-s390x.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-s390x.tar.gz.sha256"
+			},
+			"x86": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
+				"iso_file": "alpine-minirootfs-3.18.4-x86.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-x86.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-x86.tar.gz.sha256"
+			},
+			"x86_64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+				"iso_file": "alpine-minirootfs-3.18.4-x86_64.tar.gz",
+				"sig_file": "alpine-minirootfs-3.18.4-x86_64.tar.gz.asc",
+				"sum_file": "alpine-minirootfs-3.18.4-x86_64.tar.gz.sha256"
+			}
+		},
+		"virtual": {
+			"aarch64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
+				"iso_file": "alpine-virt-3.18.4-aarch64.iso",
+				"sig_file": "alpine-virt-3.18.4-aarch64.iso.asc",
+				"sum_file": "alpine-virt-3.18.4-aarch64.iso.sha256"
+			},
+			"armv7": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7",
+				"iso_file": "alpine-virt-3.18.4-armv7.iso",
+				"sig_file": "alpine-virt-3.18.4-armv7.iso.asc",
+				"sum_file": "alpine-virt-3.18.4-armv7.iso.sha256"
+			},
+			"x86": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86",
+				"iso_file": "alpine-virt-3.18.4-x86.iso",
+				"sig_file": "alpine-virt-3.18.4-x86.iso.asc",
+				"sum_file": "alpine-virt-3.18.4-x86.iso.sha256"
+			},
+			"x86_64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+				"iso_file": "alpine-virt-3.18.4-x86_64.iso",
+				"sig_file": "alpine-virt-3.18.4-x86_64.iso.asc",
+				"sum_file": "alpine-virt-3.18.4-x86_64.iso.sha256"
+			}
+		},
+		"xen": {
+			"x86_64": {
+				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+				"iso_file": "alpine-xen-3.18.4-x86_64.iso",
+				"sig_file": "alpine-xen-3.18.4-x86_64.iso.asc",
+				"sum_file": "alpine-xen-3.18.4-x86_64.iso.sha256"
+			}
+		}
+	},
+	"arch": {
+		"gpg_key": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
+		"url": "https://geo.mirror.pkgbuild.com/iso/2023.10.14",
+		"iso_file": "archlinux-2023.10.14-x86_64.iso",
+		"sig_file": "archlinux-2023.10.14-x86_64.iso.sig",
+		"sum_file": "b2sums.txt",
+		"sum_algo": "b2sum"
+	},
+	"debian": {
+		"gpg_key": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
+		"sig_file": "SHA512SUMS.sign",
+		"sum_file": "SHA512SUMS",
+		"sum_algo": "sha512sum",
+		"netinst": {
+			"amd64": {
+				"url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd",
+				"iso_file": "debian-12.2.0-amd64-netinst.iso"
+			},
+			"arm64": {
+				"url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd",
+				"iso_file": "debian-12.2.0-arm64-netinst.iso"
+			},
+			"armel": {
+				"url": "https://cdimage.debian.org/debian-cd/current/armel/iso-cd",
+				"iso_file": "debian-12.2.0-armel-netinst.iso"
+			},
+			"armhf": {
+				"url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd",
+				"iso_file": "debian-12.2.0-armhf-netinst.iso"
+			},
+			"i386": {
+				"url": "https://cdimage.debian.org/debian-cd/current/i386/iso-cd",
+				"iso_file": "debian-12.2.0-i386-netinst.iso"
+			},
+			"mips64el": {
+				"url": "https://cdimage.debian.org/debian-cd/current/mips64el/iso-cd",
+				"iso_file": "debian-12.2.0-mips64el-netinst.iso"
+			},
+			"mipsel": {
+				"url": "https://cdimage.debian.org/debian-cd/current/mipsel/iso-cd",
+				"iso_file": "debian-12.2.0-mipsel-netinst.iso"
+			},
+			"ppc64el": {
+				"url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd",
+				"iso_file": "debian-12.2.0-ppc64el-netinst.iso"
+			},
+			"s390x": {
+				"url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd",
+				"iso_file": "debian-12.2.0-s390x-netinst.iso"
+			}
+		},
+		"live": {
+			"cinnamon": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-cinnamon.iso"
+			},
+			"gnome": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-gnome.iso"
+			},
+			"kde": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-kde.iso"
+			},
+			"lxde": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-lxde.iso"
+			},
+			"lxqt": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-lxqt.iso"
+			},
+			"mate": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-mate.iso"
+			},
+			"standard": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-standard.iso"
+			},
+			"xfce": {
+				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+				"iso_file": "debian-live-12.2.0-amd64-xfce.iso"
+			}
+		}
+	},
+	"fedora": {
+		"gpg_key": "6A51BBABBA3D5467B6171221809A8D7CEB10B464",
+		"sum_algo": "sha256sum",
+		"workstation": {
+			"x86_64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso",
+				"iso_file": "Fedora-Workstation-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Workstation-38-1.6-x86_64-CHECKSUM"
+			},
+			"aarch64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/aarch64/iso",
+				"iso_file": "Fedora-Workstation-Live-aarch64-38-1.6.iso",
+				"sig_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Workstation-38-1.6-aarch64-CHECKSUM"
+			},
+			"ppc64le": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Workstation/ppc64le/iso",
+				"iso_file": "Fedora-Workstation-Live-ppc64le-38-1.6.iso",
+				"sig_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Workstation-38-1.6-ppc64le-CHECKSUM"
+			}
+		},
+		"server": {
+			"x86_64": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/images",
+					"iso_file": "Fedora-Server-KVM-38-1.6.x86_64.qcow2",
+					"sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
+				},
+				"dvd": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
+					"iso_file": "Fedora-Server-dvd-x86_64-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
+				},
+				"netinst": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso",
+					"iso_file": "Fedora-Server-netinst-x86_64-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-x86_64-CHECKSUM"
+				}
+			},
+			"aarch64": {
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
+					"iso_file": "Fedora-Server-38-1.6.aarch64.raw.xz",
+					"sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+				},
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/images",
+					"iso_file": "Fedora-Server-KVM-38-1.6.aarch64.qcow2",
+					"sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+				},
+				"dvd": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
+					"iso_file": "Fedora-Server-dvd-aarch64-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+				},
+				"netinst": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/aarch64/iso",
+					"iso_file": "Fedora-Server-netinst-aarch64-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-aarch64-CHECKSUM"
+				}
+			},
+			"ppc64le": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/images",
+					"iso_file": "Fedora-Server-KVM-38-1.6.ppc64le.qcow2",
+					"sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
+				},
+				"dvd": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/iso",
+					"iso_file": "Fedora-Server-dvd-ppc64le-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
+				},
+				"netinst": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/ppc64le/iso",
+					"iso_file": "Fedora-Server-netinst-ppc64le-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-ppc64le-CHECKSUM"
+				}
+			},
+			"s390x": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/images",
+					"iso_file": "Fedora-Server-KVM-38-1.6.s390x.qcow2",
+					"sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
+				},
+				"dvd": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/iso",
+					"iso_file": "Fedora-Server-dvd-s390x-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
+				},
+				"netinst": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Server/s390x/iso",
+					"iso_file": "Fedora-Server-netinst-s390x-38-1.6.iso",
+					"sig_file": "Fedora-Server-38-1.6-s390x-CHECKSUM",
+					"sum_file": "Fedora-Server-38-1.6-s390x-CHECKSUM"
+				}
+			}
+		},
+		"iot": {
+			"x86_64": {
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/images",
+					"iso_file": "Fedora-IoT-38.20230419.2-20230419.2.x86_64.raw.xz",
+					"sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
+					"sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
+				},
+				"ostree": {
+					"url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/x86_64/iso",
+					"iso_file": "Fedora-IoT-ostree-x86_64-38-20230419.2.iso",
+					"sig_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM",
+					"sum_file": "Fedora-IoT-38-x86_64-20230419.2-CHECKSUM"
+				}
+			},
+			"aarch64": {
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/images",
+					"iso_file": "Fedora-IoT-38.20230419.2-20230419.2.aarch64.raw.xz",
+					"sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
+					"sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
+				},
+				"ostree": {
+					"url": "https://download.fedoraproject.org/pub/alt/iot/38/IoT/aarch64/iso",
+					"iso_file": "Fedora-IoT-ostree-aarch64-38-20230419.2.iso",
+					"sig_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM",
+					"sum_file": "Fedora-IoT-38-aarch64-20230419.2-CHECKSUM"
+				}
+			}
+		},
+		"cloud": {
+			"x86_64": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.x86_64.qcow2",
+					"sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+				},
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.x86_64.raw.xz",
+					"sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+				},
+				"compressed image": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-GCP-38-1.6.x86_64.tar.gz",
+					"sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+				},
+				"vagrant libvirt": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+					"iso_file": "/Fedora-Cloud-Base-Vagrant-38-1.6.x86_64.vagrant-libvirt.box",
+					"sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+				},
+				"vagrant virtualbox": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-Vagrant-38-1.6.x86_64.vagrant-virtualbox.box",
+					"sig_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-x86_64-CHECKSUM"
+				}
+			},
+			"aarch64": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.aarch64.qcow2",
+					"sig_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM"
+				},
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.aarch64.raw.xz",
+					"sig_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-aarch64-CHECKSUM"
+				}
+			},
+			"ppc64le": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/ppc64le/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.ppc64le.qcow2",
+					"sig_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM"
+				},
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/ppc64le/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.ppc64le.raw.xz",
+					"sig_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-ppc64le-CHECKSUM"
+				}
+			},
+			"s390x": {
+				"qemu": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/s390x/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.s390x.qcow2",
+					"sig_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM"
+				},
+				"raw": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Cloud/s390x/images",
+					"iso_file": "Fedora-Cloud-Base-38-1.6.s390x.raw.xz",
+					"sig_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM",
+					"sum_file": "Fedora-Cloud-38-1.6-s390x-CHECKSUM"
+				}
+			}
+		},
+		"silverblue": {
+			"x86_64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Silverblue/x86_64/iso",
+				"iso_file": "Fedora-Silverblue-ostree-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Silverblue-38-1.6-x86_64-CHECKSUM"
+			},
+			"ppc64le": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Silverblue/ppc64le/iso",
+				"iso_file": "Fedora-Silverblue-ostree-ppc64le-38-1.6.iso",
+				"sig_file": "Fedora-Silverblue-38-1.6-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Silverblue-38-1.6-ppc64le-CHECKSUM"
+			}
+		},
+		"kinoite": {
+			"x86_64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/x86_64/iso",
+				"iso_file": "Fedora-Kinoite-ostree-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Kinoite-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Kinoite-38-1.6-x86_64-CHECKSUM"
+			},
+			"aarch64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Kinoite/aarch64/iso",
+				"iso_file": "Fedora-Kinoite-ostree-aarch64-38-1.6.iso",
+				"sig_file": "Fedora-Kinoite-38-1.6-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Kinoite-38-1.6-aarch64-CHECKSUM"
+			},
+			"ppc64le": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/38/Kinoite/ppc64le/iso",
+				"iso_file": "Fedora-Kinoite-ostree-ppc64le-38-1.6.iso",
+				"sig_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Kinoite-38-1.6-ppc64le-CHECKSUM"
+			}
+		},
+		"sericea": {
+			"x86_64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Sericea/x86_64/iso",
+				"iso_file": "Fedora-Sericea-ostree-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Sericea-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Sericea-38-1.6-x86_64-CHECKSUM"
+			}
+		},
+		"spins": {
+			"budgie": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-Budgie-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"cinnamon": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-Cinnamon-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"kde": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-KDE-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"lxde": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-LXDE-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"lxqt": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-LXQt-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"mate": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-MATE_Compiz-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"sugar": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-SoaS-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"sway": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-Sway-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"xfce": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-Xfce-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			},
+			"i3": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso",
+				"iso_file": "Fedora-i3-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-38-1.6-x86_64-CHECKSUM"
+			}
+		},
+		"labs": {
+			"astronomy": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Astronomy_KDE-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"comp neuro": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Comp_Neuro-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"design suite": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Design_suite-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"games": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Games-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"jam": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Jam_KDE-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"python classroom": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Python-Classroom-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"robotics": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Robotics-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"scientific": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Scientific_KDE-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			},
+			"security": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Security-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
+			}
+		},
+		"everything": {
+			"x86_64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/x86_64/iso",
+				"iso_file": "Fedora-Everything-netinst-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Everything-38-1.6-x86_64-CHECKSUM"
+			},
+			"aarch64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Everything/aarch64/iso",
+				"iso_file": "Fedora-Everything-netinst-aarch64-38-1.6.iso",
+				"sig_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Everything-38-1.6-aarch64-CHECKSUM"
+			}
+		}
+	},
+	"gparted": {
+		"gpg_key": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
+		"url": "https://downloads.sourceforge.net/gparted",
+		"sig_file": "CHECKSUMS.TXT.gpg",
+		"sum_file": "CHECKSUMS.TXT",
+		"sum_algo": "sha256sum",
+		"amd64": {
+			"iso": {"iso_file": "gparted-live-1.5.0-6-amd64.iso"},
+			"zip": {"iso_file": "gparted-live-1.5.0-6-amd64.zip"}
+		},
+		"i686": {
+			"iso": {"iso_file": "gparted-live-1.5.0-6-i686.iso"},
+			"zip": {"iso_file": "gparted-live-1.5.0-6-i686.zip"}
+		},
+		"i686-pae": {
+			"iso": {"iso_file": "gparted-live-1.5.0-6-i686-pae.iso"},
+			"zip": {"iso_file": "gparted-live-1.5.0-6-i686-pae.zip"}
+		}
+	},
+	"kali": {
+		"gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
+		"sig_file": "SHA256SUMS.gpg",
+		"sum_file": "SHA256SUMS",
+		"sum_algo": "sha256sum",
+		"current": {
+			"url": "https://cdimage.kali.org/current",
+			"live": {
+				"amd64": {"iso_file": "kali-linux-2023.3-live-amd64.iso"},
+				"arm64": {"iso_file": "kali-linux-2023.3-live-arm64.iso"},
+				"i386": {"iso_file": "kali-linux-2023.3-live-i386.iso"}
+			},
+			"qemu": {
+				"amd64": {"iso_file": "kali-linux-2023.3-qemu-amd64.7z"},
+				"i386": {"iso_file": "kali-linux-2023.3-qemu-i386.7z"}
+			},
+			"virtualbox": {
+				"amd64": {"iso_file": "kali-linux-2023.3-virtualbox-amd64.7z"},
+				"i386": {"iso_file": "kali-linux-2023.3-virtualbox-i386.7z"}
+			},
+			"vmware": {
+				"amd64": {"iso_file": "kali-linux-2023.3-vmware-amd64.7z"},
+				"i386": {"iso_file": "kali-linux-2023.3-vmware-i386.7z"}
+			},
+			"hyperv": {
+				"amd64": {"iso_file": "kali-linux-2023.3a-hyperv-amd64.7z"}
+			},
+			"installer": {
+				"amd64": {"iso_file": "kali-linux-2023.3-installer-amd64.iso"},
+				"arm64": {"iso_file": "kali-linux-2023.3-installer-arm64.iso"},
+				"i386": {"iso_file": "kali-linux-2023.3-installer-i386.iso"}
+			},
+			"netinst": {
+				"amd64": {"iso_file": "kali-linux-2023.3-installer-netinst-amd64.iso"},
+				"arm64": {"iso_file": "kali-linux-2023.3-installer-netinst-arm64.iso"},
+				"i386": {"iso_file": "kali-linux-2023.3-installer-netinst-i386.iso"}
+			},
+			"purple": {
+				"amd64": {"iso_file": "kali-linux-2023.3-installer-purple-amd64.iso"}
+			}
+		},
+		"weekly": {
+			"url": "https://cdimage.kali.org/kali-weekly",
+			"live": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-amd64.iso"},
+				"arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-arm64.iso"},
+				"i386": {"iso_file": "kali-linux-2023-W{current_week_num}-live-i386.iso"}
+			},
+			"qemu": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-qemu-amd64.7z"}
+			},
+			"virtualbox": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-virtualbox-amd64.7z"}
+			},
+			"vmware": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-vmware-amd64.7z"}
+			},
+			"hyperv": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-hyperv-amd64.7z"}
+			},
+			"installer": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-amd64.iso"},
+				"arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-arm64.iso"},
+				"i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-i386.iso"}
+			},
+			"netinst": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-amd64.iso"},
+				"arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-arm64.iso"},
+				"i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-i386.iso"}
+			},
+			"purple": {
+				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-purple-amd64.iso"}
+			}
+		}
+	},
+	"mint": {
+		"gpg_key": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
+		"sig_file": "sha256sum.txt.gpg",
+		"sum_file": "sha256sum.txt",
+		"sum_algo": "sha256sum",
+		"mint": {
+			"cinnamon": {
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+				"iso_file": "linuxmint-21.2-cinnamon-64bit.iso"
+			},
+			"mate": {
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+				"iso_file": "linuxmint-21.2-mate-64bit.iso"
+			},
+			"xfce": {
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+				"iso_file": "linuxmint-21.2-xfce-64bit.iso"
+			},
+			"edge": {
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
+				"iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso"
+			}
+		},
+		"debian edition": {
+			"64-bit": {
+				"url": "https://mirrors.layeronline.com/linuxmint/debian",
+				"iso_file": "lmde-6-cinnamon-64bit.iso"
+			},
+			"32-bit": {
+				"url": "https://mirrors.layeronline.com/linuxmint/debian",
+				"iso_file": "lmde-6-cinnamon-32bit.iso"
+			}
+		}
+	},
+	"openbsd": {
+		"gpg_key": "https://cdn.openbsd.org/pub/OpenBSD/7.4/openbsd-74-base.pub",
+		"sum_algo": "sha256sum",
+		"sig_file": "SHA256.sig",
+		"sum_file": "SHA256",
+		"img with file sets": {
+			"amd64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+				"iso_file": "install74.img"
+			},
+			"arm64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
+				"iso_file": "install74.img"
+			},
+			"i386": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+				"iso_file": "install74.img"
+			},
+			"octeon": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
+				"iso_file": "install74.img"
+			},
+			"powerpc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+				"iso_file": "install74.img"
+			},
+			"riscv64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
+				"iso_file": "install74.img"
+			},
+			"sparc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+				"iso_file": "install74.img"
+			}
+		},
+		"img without file sets": {
+			"alpha": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+				"iso_file": "miniroot74.img"
+			},
+			"amd64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+				"iso_file": "miniroot74.img"
+			},
+			"arm64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
+				"iso_file": "miniroot74.img"
+			},
+			"armv7": {
+				"am335x": {
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+					"iso_file": "miniroot-am335x-74.img"
+				},
+				"cubie": {
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+					"iso_file": "miniroot-cubie-74.img"
+				},
+				"cubox": {
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+					"iso_file": "miniroot-cubox-74.img"
+				},
+				"nitrogen": {
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+					"iso_file": "miniroot-nitrogen-74.img"
+				},
+				"panda": {
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+					"iso_file": "miniroot-panda-74.img"
+				},
+				"wandboard": {
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
+					"iso_file": "miniroot-wandboard-74.img"
+				}
+			},
+			"i386": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+				"iso_file": "miniroot74.img"
+			},
+			"landisk": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/landisk",
+				"iso_file": "miniroot74.img"
+			},
+			"loongson": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
+				"iso_file": "miniroot74.img"
+			},
+			"luna88k": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/luna88k",
+				"iso_file": "miniroot74.img"
+			},
+			"octeon": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
+				"iso_file": "miniroot74.img"
+			},
+			"powerpc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+				"iso_file": "miniroot74.img"
+			},
+			"riscv64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
+				"iso_file": "miniroot74.img"
+			},
+			"sparc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+				"iso_file": "miniroot74.img"
+			}
+		},
+		"iso with file sets": {
+			"alpha": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+				"iso_file": "install74.iso"
+			},
+			"amd64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+				"iso_file": "install74.iso"
+			},
+			"hppa": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
+				"iso_file": "install74.iso"
+			},
+			"i386": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+				"iso_file": "install74.iso"
+			},
+			"macppc": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
+				"iso_file": "install74.iso"
+			},
+			"powerpc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
+				"iso_file": "install74.iso"
+			},
+			"sparc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+				"iso_file": "install74.iso"
+			}
+		},
+		"iso without file sets": {
+			"alpha": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
+				"iso_file": "cd74.iso"
+			},
+			"amd64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+				"iso_file": "cd74.iso"
+			},
+			"hppa": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
+				"iso_file": "cd74.iso"
+			},
+			"i386": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+				"iso_file": "cd74.iso"
+			},
+			"loongson": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
+				"iso_file": "cd74.iso"
+			},
+			"macppc": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
+				"iso_file": "cd74.iso"
+			},
+			"sparc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+				"iso_file": "cd74.iso"
+			}
+		},
+		"floppy": {
+			"amd64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
+				"iso_file": "floppy74.img"
+			},
+			"i386": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
+				"iso_file": "floppy74.img"
+			},
+			"sparc64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
+				"iso_file": "floppy74.img"
+			}
+		}
+	},
+	"opensuse": {
+		"gpg_key": "AD485664E901B867051AB15F35A2F86E29B700A4",
+		"sum_algo": "sha256sum",
+		"leap": {
+			"dvd": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256"
+				},
+				"ppc64le": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256"
+				},
+				"s390x": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256"
+				}
+			},
+			"netinst": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256"
+				},
+				"ppc64le": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256"
+				},
+				"s390x": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
+					"iso_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso",
+					"sig_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256"
+				}
+			},
+			"kvm": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256"
+				}
+			},
+			"hyperv": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
+				}
+			},
+			"vmware": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
+				}
+			},
+			"cloud": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2",
+					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256"
+				}
+			}
+		},
+		"tumbleweed": {
+			"dvd": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256"
+				},
+				"i586": {
+					"url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-LegacyX86-DVD-i586-Current.iso.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256"
+				},
+				"ppc64le": {
+					"url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256"
+				},
+				"s390x": {
+					"url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-DVD-s390x-Current.iso.sha256"
+				},
+				"ppc64": {
+					"url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256"
+				}
+			},
+			"netinst": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256"
+				},
+				"i586": {
+					"url": "https://download.opensuse.org/ports/i586/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-LegacyX86-NET-i586-Current.iso.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256"
+				},
+				"ppc64le": {
+					"url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256"
+				},
+				"s390x": {
+					"url": "https://download.opensuse.org/ports/zsystems/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-NET-s390x-Current.iso.sha256"
+				},
+				"ppc64": {
+					"url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+					"iso_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso",
+					"sig_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256"
+				}
+			},
+			"kvm": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-kvm-and-xen.qcow2.sha256"
+				}
+			},
+			"hyperv": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
+				}
+			},
+			"vmware": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
+				}
+			},
+			"cloud": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-Cloud.qcow2.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2",
+					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256"
+				}
+			}
+		}
+	},
+	"parrotos" : {
+		"gpg_key": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
+		"url": "https://deb.parrot.sh/parrot/iso/current",
+		"sig_file": "signed-hashes.txt",
+		"sum_file": "signed-hashes.txt",
+		"sum_algo": "sha512sum",
+		"security": {
+			"iso": {"iso_file": "Parrot-security-5.3_amd64.iso"},
+			"virtualbox": {"iso_file": "Parrot-security-5.3_amd64.ova"},
+			"utm": {"iso_file": "Parrot-security-5.3_arm64.utm.zip"}
+		},
+		"home": {
+			"iso": {"iso_file": "Parrot-home-5.3_amd64.iso"},
+			"virtualbox": {"iso_file": "Parrot-home-5.3_amd64.ova"},
+			"utm": {"iso_file": "Parrot-home-5.3_arm64.utm.zip"}
+		},
+		"hack the box": {
+			"iso": {"iso_file": "Parrot-htb-5.3_amd64.iso"}
+		},
+		"architect": {
+			"arm64": {"iso_file": "Parrot-architect-5.3_arm64.iso"},
+			"amd64": {"iso_file": "Parrot-architect-5.3_amd64.iso"},
+			"i386": {"iso_file": "Parrot-architect-5.3_i386.iso"}
+		},
+		"raspberry pi": {
+			"core": {
+				"armhf": {"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz"},
+				"arm64": {"iso_file": "Parrot-core-rpi-5.3_arm64.img.xz"}
+			},
+			"home": {
+				"armhf": {"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz"},
+				"arm64": {"iso_file": "Parrot-home-rpi-5.3_arm64.img.xz"}
+			},
+			"security": {
+				"armhf": {"iso_file": "Parrot-security-rpi-5.3_armhf.img.xz"},
+				"arm64": {"iso_file": "Parrot-security-rpi-5.3_arm64.img.xz"}
+			}
+		}
+	},
+	"solus": {
+		"gpg_key": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
+		"url": "https://downloads.getsol.us/isos/4.4",
+		"sum_algo": "sha256sum",
+		"budgie": {
+			"iso_file": "Solus-4.4-Budgie.iso",
+			"sig_file": "Solus-4.4-Budgie.iso.sha256sum.sign",
+			"sum_file": "Solus-4.4-Budgie.iso.sha256sum"
+		},
+		"gnome": {
+			"iso_file": "Solus-4.4-GNOME.iso",
+			"sig_file": "Solus-4.4-GNOME.iso.sha256sum.sign",
+			"sum_file": "Solus-4.4-GNOME.iso.sha256sum"
+		},
+		"mate": {
+			"iso_file": "Solus-4.4-MATE.iso",
+			"sig_file": "Solus-4.4-MATE.iso.sha256sum.sign",
+			"sum_file": "Solus-4.4-MATE.iso.sha256sum"
+		},
+		"plasma": {
+			"iso_file": "Solus-4.4-Plasma.iso",
+			"sig_file": "Solus-4.4-Plasma.iso.sha256sum.sign",
+			"sum_file": "Solus-4.4-Plasma.iso.sha256sum"
+		}
+	},
+	"tails": {
+		"gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
+		"url": "https://download.tails.net/tails/stable/tails-amd64-5.19",
+		"usb": {
+			"iso_file": "tails-amd64-5.19.img",
+			"sig_file": "tails-amd64-5.19.img.sig"
+		},
+		"dvd/vm": {
+			"iso_file": "tails-amd64-5.19.iso",
+			"sig_file": "tails-amd64-5.19.iso.sig"
+		},
+		"sum_file": "",
+		"sum_algo": ""
+	},
+	"ubuntu": {
+		"gpg_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
+		"sig_file": "SHA256SUMS.gpg",
+		"sum_file": "SHA256SUMS",
+		"sum_algo": "sha256sum",
+		"current": {
+			"url": "https://releases.ubuntu.com/mantic",
+			"server": {"iso_file": "ubuntu-23.10-live-server-amd64.iso"},
+			"desktop": {"iso_file": "ubuntu-23.10.1-desktop-amd64.iso"}
+		},
+		"lts": {
+			"url": "https://releases.ubuntu.com/jammy",
+			"server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
+			"desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
+		}
+	},
+	"void": {
+		"gpg_key": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20230628.pub",
+		"url": "https://repo-default.voidlinux.org/live/current",
+		"sig_file": "sha256sum.sig",
+		"sum_file": "sha256sum.txt",
+		"sum_algo": "sha256sum",
+		"x86_64": {
+			"base": {
+				"live":{
+					"glibc": {"iso_file": "void-live-x86_64-20230628-base.iso"},
+					"musl": {"iso_file": "void-live-x86_64-musl-20230628-base.iso"}
+				},
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-x86_64-ROOTFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-x86_64-musl-ROOTFS-20230628.tar.xz"}
+				}
+			},
+			"xfce": {
+				"live": {
+					"glibc": {"iso_file": "void-live-x86_64-20230628-xfce.iso"},
+					"musl": {"iso_file": "void-live-x86_64-musl-20230628-xfce.iso"}
+				}
+			}
+		},
+		"i686": {
+			"base": {
+				"live": {
+					"glibc": {"iso_file": "void-live-i686-20230628-base.iso"}
+				},
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-i686-ROOTFS-20230628.tar.xz"}
+				}
+			},
+			"xfce": {
+				"live": {
+					"glibc": {"iso_file": "void-live-i686-20230628-xfce.iso"}
+				}
+			}
+		},
+		"arm": {
+			"armv6l": {
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-armv6l-ROOTFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-armv6l-musl-ROOTFS-20230628.tar.xz"}
+				}
+			},
+			"armv7l": {
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-armv7l-ROOTFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-armv7l-musl-ROOTFS-20230628.tar.xz"}
+				}
+			},
+			"aarch64": {
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-aarch64-ROOTFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-aarch64-musl-ROOTFS-20230628.tar.xz"}
+				}
+			}
+		},
+		"arm platforms": {
+			"rpi-armv6l": {
+				"live": {
+					"glibc": {"iso_file": "void-rpi-armv6l-20230628.img.xz"},
+					"musl": {"iso_file": "void-rpi-armv6l-musl-20230628.img.xz"}
+				},
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-rpi-armv6l-PLATFORMFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20230628.tar.xz"}
+				}
+			},
+			"rpi-armv7l": {
+				"live": {
+					"glibc": {"iso_file": "void-rpi-armv7l-20230628.img.xz"},
+					"musl": {"iso_file": "void-rpi-armv7l-musl-20230628.img.xz"}
+				},
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-rpi-armv7l-PLATFORMFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20230628.tar.xz"}
+				}
+			},
+			"rpi-aarch64": {
+				"live": {
+					"glibc": {"iso_file": "void-rpi-aarch64-20230628.img.xz"},
+					"musl": {"iso_file": "void-rpi-aarch64-musl-20230628.img.xz"}
+				},
+				"rootfs tarball": {
+					"glibc": {"iso_file": "void-rpi-aarch64-PLATFORMFS-20230628.tar.xz"},
+					"musl": {"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20230628.tar.xz"}
+				}
+			}
+		}
+	},
+	"whonix": {
+		"sum_algo": "sha512sum",
+		"qemu": {
+			"gpg_key": "04EF2F666D36C354058B9DD450C78B6F9FF2EC85",
+			"url": "https://download.whonix.org/libvirt/17.0.3.0",
+			"iso_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz",
+			"sig_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.asc",
+			"sum_file": "Whonix-Xfce-17.0.3.0.sha512sums"
+		},
+		"virtualbox": {
+			"gpg_key": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA",
+			"url": "https://download.whonix.org/ova/17.0.4.5",
+			"iso_file": "Whonix-Xfce-17.0.4.5.ova",
+			"sig_file": "Whonix-Xfce-17.0.4.5.ova.asc",
+			"sum_file": "Whonix-Xfce-17.0.4.5.sha512sums"
+		}
+	}
 }
