@@ -534,8 +534,11 @@ download_openbsd() {
 
     cd "$download_path" || exit 1
 
-    if grep "$iso_file" "$sum_file" | sha256sum -c - &> /dev/null; then
+    if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
         rm -f "$sig_file" "$sum_file"
+        base_name="${iso_file%.*}"
+        ext="${iso_file##*.}"
+        mv "$iso_file" "${base_name}-${architecture}.${ext}"
         print_message "$sum_algo verification: SUCCESS"
         print_message "Download and verification successful."
         exit 0
