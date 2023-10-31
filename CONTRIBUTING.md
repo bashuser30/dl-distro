@@ -21,11 +21,11 @@ Here are a few guidelines to keep in mind:
 
 ### Testing
 
-Using `wget_spider()`, the `-s, --spider` option, is great for testing as you don't need to download files. It helps check if the combinations lead to a successful download. Errors can still arise after downloading though. Please test **AT LEAST** `1` fully downloaded and verified ISO before submitting a pull request of a new distribution or addition. If you are certain the verification will succeed you may skip this test but please be 100%.
+Using `wget_spider()`, the `-s, --spider` option, is great for testing as you don't need to download files. It helps check if the combinations lead to a successful download. Errors can still arise after downloading though. Please test **AT LEAST** `1` fully downloaded and verified image before submitting a pull request of a new distribution or addition. If you are certain the verification will succeed you may skip this test but please be 100%.
 
 ### Expect Script
 
-This script has a lot of combinations, to test them all manually would be crazy. I have an `expect` script made for `dl-distro`. This Expect script will check every single combination possible with the `-s, --spider` option. This script helps a ton with potential filename changes due to intermediary patched ISOs that aren't announced or any other reason for a filename change.
+This script has a lot of combinations, to test them all manually would be crazy. I have an `expect` script made for `dl-distro`. This Expect script will check every single combination possible with the `-s, --spider` option. This script helps a ton with potential filename changes due to intermediary patched images that aren't announced or any other reason for a filename change.
 
 If you would like this script please ask me.
 

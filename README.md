@@ -93,7 +93,7 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -h, --help       Display this usage message
   -l, --list-keys  List the saved GPG keys
   -n, --no-verify  Skip key fetching and verification
-  -s, --spider     Check ISO availability without downloading
+  -s, --spider     Check image availability without downloading
 
 DISTROS
   alpine   kali      solus

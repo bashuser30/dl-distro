@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# dl-distro - Bash script to download and verify ISOs with GnuPG and shasums.
+# dl-distro - Bash script for downloading and verifying OS images.
 #
 # Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>
 #
@@ -750,7 +750,7 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -h, --help       Display this usage message
   -l, --list-keys  List the saved GPG keys
   -n, --no-verify  Skip key fetching and verification
-  -s, --spider     Check ISO availability without downloading
+  -s, --spider     Check image availability without downloading
 
 DISTROS
   alpine   kali      solus
