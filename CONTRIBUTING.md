@@ -6,12 +6,13 @@ Thank you for considering contributing to `dl-distro`. Below are some guidelines
 
 Here are a few guidelines to keep in mind:
 
-- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project.
+- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project. This includes using tabs for indentation and spaces for alignment to ensure consistency and maintainability across various editors.
 
-- **Simplicity**: When adding support for new distributions, additions or features, try to keep it simple. Ideally, additions should mainly involve:
+- **Simplicity**: When adding support for new distributions, additions, or features, try to keep it simple. Ideally, additions should mainly involve:
+
   - Adding data to `data.json`.
-  - Creating a download function for the distribution.
-  - Adding new options to download functions.
+  - Creating a download function for a distribution.
+  - Adding new options to existing download functions.
   - Adding a new entry to [Supported Distributions](README.md#supported-distributions).
   - Updating the usage in the script and [README.md](README.md#usage).
 
