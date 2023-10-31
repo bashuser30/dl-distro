@@ -1,20 +1,32 @@
 ## Contributing
 
-Thank you for considering contributing to `dl-distro`. Below are some guidelines you should read. The project isn't too complex so nothing strict.
+Thank you for considering contributing to `dl-distro`. Below are some guidelines. The project isn't too complex so nothing strict.
 
 ### Guidelines
 
-Here are a few guidelines to keep in mind:
+- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project. This includes using tabs for indentation and spaces for alignment to ensure consistency and maintainability across various editors. Below is an example of this:
 
-- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project. This includes using tabs for indentation and spaces for alignment to ensure consistency and maintainability across various editors.
+```bash
+# Tab size: 4
+download_distro() {                       
+--->choice="$(get_choice "0" "1" \
+--->....................."2" "3")"
+}
+
+# Tab size: 2
+download_distro() {
+->choice="$(get_choice "0" "1" \    # "0" and "2"
+->....................."2" "3")"    # remain aligned
+}
+```
 
 - **Simplicity**: When adding support for new distributions, additions, or features, try to keep it simple. Ideally, additions should mainly involve:
 
-  - Adding data to `data.json`.
+  - Adding data to or updating `data.json`.
   - Creating a download function for a distribution.
   - Adding new options to existing download functions.
-  - Adding a new entry to [Supported Distributions](README.md#supported-distributions).
-  - Updating the usage in the script and [README.md](README.md#usage).
+  - Adding a new entry to or updating [Supported Distributions](README.md#supported-distributions).
+  - Adding a new entry to the usage in the script and [README.md](README.md#usage).
 
 - **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
 
