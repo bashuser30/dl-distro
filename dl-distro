@@ -531,7 +531,18 @@ download_openbsd() {
     wget_file "$url"/{"$sig_file","$sum_file"}
     verify_signature
     wget_file "$url/$iso_file"
-    verify_checksum
+
+    cd "$download_path" || exit 1
+
+    if grep "$iso_file" "$sum_file" | sha256sum -c - &> /dev/null; then
+        rm -f "$sig_file" "$sum_file"
+        print_message "$sum_algo verification: SUCCESS"
+        print_message "Download and verification successful."
+        exit 0
+    else
+        rm -f "$iso_file" "$sig_file" "$sum_file"
+        print_error_and_exit "$sum_algo verification: FAILED"
+    fi
 }
 
 download_opensuse() {
