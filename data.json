@@ -217,9 +217,9 @@
 	},
 	"arch": {
 		"gpg_key": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
-		"url": "https://geo.mirror.pkgbuild.com/iso/2023.10.14",
-		"iso_file": "archlinux-2023.10.14-x86_64.iso",
-		"sig_file": "archlinux-2023.10.14-x86_64.iso.sig",
+		"url": "https://geo.mirror.pkgbuild.com/iso/2023.11.01",
+		"iso_file": "archlinux-2023.11.01-x86_64.iso",
+		"sig_file": "archlinux-2023.11.01-x86_64.iso.sig",
 		"sum_file": "b2sums.txt",
 		"sum_algo": "b2sum"
 	},

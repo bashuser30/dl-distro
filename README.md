@@ -130,10 +130,10 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | Distribution | Version   | Options |
 |--------------|-----------|---------|
 | [Alpine](https://alpinelinux.org) | 3.18.4 | Standard <br> Extended <br> Netboot <br> Raspberry Pi <br> Generic ARM <br> Mini Root Filesystems <br> Virtual <br> Xen |
-| [Arch](https://archlinux.org) | 2023.10.14 | - |
+| [Arch](https://archlinux.org) | 2023.11.01 | - |
 | [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
 | [Fedora](https://fedoraproject.org) | 38 | Workstation <br> Server <br> IoT <br> Cloud <br> Silverblue <br> Kinoite <br> Sericea <br> Spins <br> Labs <br> Everything |
-| [GParted Live](https://gparted.org) | 1.5.0-6 | amd64 <br> i686 <br> i686-pae |
+| [GParted Live](https://gparted.org) | 1.5.0-6 | amd64 <br> i686 <br> i686-PAE |
 | [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
 | [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
 | [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
