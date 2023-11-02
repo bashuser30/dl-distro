@@ -257,7 +257,7 @@ download_almalinux() {
 	wget_file "$url/$sig_file"
 	verify_signature
 	wget_file "$url/$iso_file"
-	verify_signature
+	verify_checksum
 }
 
 download_alpine() {
