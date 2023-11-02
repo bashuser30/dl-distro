@@ -6,7 +6,7 @@ Leveraging `jq` and a JSON file, the script fetches the necessary data. It downl
 
 The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **281** images from **15** distributions.
+Currently, `dl-distro` supports downloading **305** images from **16** distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -96,11 +96,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  alpine   kali      solus
-  arch     mint      tails
-  debian   openbsd   ubuntu
-  fedora   opensuse  void
-  gparted  parrotos  whonix
+  almalinux  gparted   parrotos  whonix
+  alpine     kali      solus
+  arch       mint      tails
+  debian     openbsd   ubuntu
+  fedora     opensuse  void
 
 EXAMPLES
   dl-distro arch
@@ -129,20 +129,21 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 
 | Distribution | Version   | Options |
 |--------------|-----------|---------|
-| [Alpine](https://alpinelinux.org) | 3.18.4 | Standard <br> Extended <br> Netboot <br> Raspberry Pi <br> Generic ARM <br> Mini Root Filesystems <br> Virtual <br> Xen |
-| [Arch](https://archlinux.org) | 2023.11.01 | - |
+| [AlmaLinux OS](https://almalinux.org)| 9.2, 8.8 | DVD <br> Boot <br> Minimal  |
+| [Alpine Linux](https://alpinelinux.org) | 3.18.4 | Standard <br> Extended <br> Netboot <br> Raspberry Pi <br> Generic ARM <br> Mini Root Filesystems <br> Virtual <br> Xen |
+| [Arch Linux](https://archlinux.org) | 2023.11.01 | - |
 | [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
-| [Fedora](https://fedoraproject.org) | 38 | Workstation <br> Server <br> IoT <br> Cloud <br> Silverblue <br> Kinoite <br> Sericea <br> Spins <br> Labs <br> Everything |
+| [Fedora Linux](https://fedoraproject.org) | 38 | Workstation <br> Server <br> IoT <br> Cloud <br> Silverblue <br> Kinoite <br> Sericea <br> Spins <br> Labs <br> Everything |
 | [GParted Live](https://gparted.org) | 1.5.0-6 | amd64 <br> i686 <br> i686-PAE |
-| [Kali](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
-| [Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
+| [Kali Linux](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
+| [Linux Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
 | [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
 | [Solus](https://getsol.us) | 4.4 | Budgie <br> GNOME <br> MATE <br> Plasma
 | [Tails](https://tails.net) | 5.19 | USB <br> DVD/VM |
 | [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
-| [Void](https://voidlinux.org) | 20230628 | x86\_64 <br> i686 <br> ARM <br> ARM platforms (RPi) |
+| [Void Linux](https://voidlinux.org) | 20230628 | x86\_64 <br> i686 <br> ARM <br> ARM platforms (RPi) |
 | [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
 
 ## Mirrors
