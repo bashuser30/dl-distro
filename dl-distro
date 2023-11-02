@@ -150,7 +150,7 @@ fetch_verification_key() {
 
 				print_message "Fetching gpg key."
 
-				if ! gpg --homedir "$gpg_dir" --keyserver keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
+				if ! gpg --homedir "$gpg_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
 					print_error_and_exit "Failed to fetch gpg key: $gpg_key"
 				fi
 			fi
@@ -238,6 +238,26 @@ verify_checksum() {
 		rm -f "$iso_file" "$sig_file" "$sum_file"
 		print_error_and_exit "$sum_algo verification: FAILED"
 	fi
+}
+
+download_almalinux() {
+	alma_version="$(get_choice "almalinux 9" "almalinux 8")"
+	architecture="$(get_choice "x86_64" "aarch64" "s390x" "ppc64le")"
+	image_type="$(get_choice "dvd" "boot" "minimal")"
+
+	fetch_and_assign_values "\"${alma_version}\".gpg_key" \
+	                        "\"${alma_version}\".${architecture}.isos.${image_type}.url" \
+	                        "\"${alma_version}\".${architecture}.isos.${image_type}.iso_file" \
+	                        "sig_file" \
+	                        "sum_file" \
+	                        "sum_algo"
+
+	wget_spider "$url"/{"$iso_file","$sig_file"}
+	fetch_verification_key
+	wget_file "$url/$sig_file"
+	verify_signature
+	wget_file "$url/$iso_file"
+	verify_signature
 }
 
 download_alpine() {
@@ -774,11 +794,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  alpine   kali      solus
-  arch     mint      tails
-  debian   openbsd   ubuntu
-  fedora   opensuse  void
-  gparted  parrotos  whonix
+  almalinux  gparted   parrotos  whonix
+  alpine     kali      solus
+  arch       mint      tails
+  debian     openbsd   ubuntu
+  fedora     opensuse  void
 
 EXAMPLES
   dl-distro arch
