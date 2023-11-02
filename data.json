@@ -3,6 +3,145 @@
 		"copyright": "Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>",
 		"url": "https://codeberg.org/bashuser30/dl-distro/src/branch/master/LICENSE"
 	},
+	"almalinux": {
+		"sig_file": "CHECKSUM",
+		"sum_file": "CHECKSUM",
+		"sum_algo": "sha256sum",
+		"almalinux 9": {
+			"gpg_key": "BF18AC2876178908D6E71267D36CB86CB86B3716",
+			"x86_64": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/x86_64",
+						"iso_file": "AlmaLinux-9.2-x86_64-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/x86_64",
+						"iso_file": "AlmaLinux-9.2-x86_64-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/x86_64",
+						"iso_file": "AlmaLinux-9.2-x86_64-minimal.iso"
+					}
+				}
+			},
+			"aarch64": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/aarch64",
+						"iso_file": "AlmaLinux-9.2-aarch64-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/aarch64",
+						"iso_file": "AlmaLinux-9.2-aarch64-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/aarch64",
+						"iso_file": "AlmaLinux-9.2-aarch64-minimal.iso"
+					}
+				}
+			},
+			"s390x": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/s390x",
+						"iso_file": "AlmaLinux-9.2-s390x-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/s390x",
+						"iso_file": "AlmaLinux-9.2-s390x-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/s390x",
+						"iso_file": "AlmaLinux-9.2-s390x-minimal.iso"
+					}
+				}
+			},
+			"ppc64le": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/ppc64le",
+						"iso_file": "AlmaLinux-9.2-ppc64le-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/ppc64le",
+						"iso_file": "AlmaLinux-9.2-ppc64le-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/9.2/isos/ppc64le",
+						"iso_file": "AlmaLinux-9.2-ppc64le-minimal.iso"
+					}
+				}
+			}
+		},
+		"almalinux 8": {
+			"gpg_key": "BC5EDDCADF502C077F1582882AE81E8ACED7258B",
+			"x86_64": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
+						"iso_file": "AlmaLinux-8.8-x86_64-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
+						"iso_file": "AlmaLinux-8.8-x86_64-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
+						"iso_file": "AlmaLinux-8.8-x86_64-minimal.iso"
+					}
+				}
+			},
+			"aarch64": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
+						"iso_file": "AlmaLinux-8.8-aarch64-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
+						"iso_file": "AlmaLinux-8.8-aarch64-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
+						"iso_file": "AlmaLinux-8.8-aarch64-minimal.iso"
+					}
+				}
+			},
+			"s390x": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
+						"iso_file": "AlmaLinux-8.8-s390x-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
+						"iso_file": "AlmaLinux-8.8-s390x-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
+						"iso_file": "AlmaLinux-8.8-s390x-minimal.iso"
+					}
+				}
+			},
+			"ppc64le": {
+				"isos": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
+						"iso_file": "AlmaLinux-8.8-ppc64le-dvd.iso"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
+						"iso_file": "AlmaLinux-8.8-ppc64le-boot.iso"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
+						"iso_file": "AlmaLinux-8.8-ppc64le-minimal.iso"
+					}
+				}
+			}
+		}
+	},
 	"alpine": {
 		"gpg_key": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
 		"sum_algo": "sha256sum",
