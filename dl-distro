@@ -710,13 +710,13 @@ download_tails() {
 }
 
 download_ubuntu() {
-	ubuntu_type="$(get_choice "mantic" "lunar" "jammy" "focal")"
+	ubuntu_type="$(get_choice "mantic" "lunar" "jammy" "focal" "bionic")"
 
 	case "$ubuntu_type" in
 		"mantic"|"lunar")
 			image_type="$(get_choice "desktop" "server" "netboot tarball")"
 			;;
-		"jammy"|"focal")
+		"jammy"|"focal"|"bionic")
 			image_type="$(get_choice "desktop" "server")"
 			;;
 	esac
