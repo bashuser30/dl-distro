@@ -4,21 +4,7 @@ Thank you for considering contributing to `dl-distro`. Below are some guidelines
 
 ### Guidelines
 
-- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project. This includes using tabs for indentation and spaces for alignment to ensure consistency and maintainability across various editors. Below is an example of this:
-
-```bash
-# Tab size: 4
-download_distro() {                       
---->choice="$(get_choice "0" "1" \
---->....................."2" "3")"
-}
-
-# Tab size: 2
-download_distro() {
-->choice="$(get_choice "0" "1" \    # "0" and "2"
-->....................."2" "3")"    # remain aligned
-}
-```
+- **Code Style/Flow**: Please ensure your code adheres to the existing style and flow of the project. This includes using [tabs for indentation and spaces for alignment](https://vim.fandom.com/wiki/Indent_with_tabs,_align_with_spaces) to ensure consistency and maintainability across various editors.
 
 - **Simplicity**: When adding support for new distributions, additions, or features, try to keep it simple. Ideally, additions should mainly involve:
 
