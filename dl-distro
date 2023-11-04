@@ -710,7 +710,7 @@ download_tails() {
 }
 
 download_ubuntu() {
-	ubuntu_type="$(get_choice "mantic" "lunar" "jammy" "focal" "bionic" "xenial")"
+	ubuntu_type="$(get_choice "mantic" "lunar" "jammy" "focal" "bionic" "xenial" "trusty")"
 
 	case "$ubuntu_type" in
 		"mantic"|"lunar")
@@ -721,7 +721,7 @@ download_ubuntu() {
 			image_type="$(get_choice "desktop" "server")"
 			prefix="${ubuntu_type}.${image_type}"
 			;;
-		"xenial")
+		"xenial"|"trusty")
 			architecture="$(get_choice "amd64" "i386")"
 			image_type="$(get_choice "desktop" "server")"
 			prefix="${ubuntu_type}.${architecture}.${image_type}"

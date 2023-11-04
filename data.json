@@ -1506,6 +1506,17 @@
 				"server": {"iso_file": "ubuntu-16.04.6-server-i386.iso"},
 				"desktop": {"iso_file": "ubuntu-16.04.6-desktop-i386.iso"}
 			}
+		},
+		"trusty": {
+			"url": "https://releases.ubuntu.com/trusty",
+			"amd64": {
+				"server": {"iso_file": "ubuntu-14.04.6-server-amd64.iso"},
+				"desktop": {"iso_file": "ubuntu-14.04.6-desktop-amd64.iso"}
+			},
+			"i386": {
+				"server": {"iso_file": "ubuntu-14.04.6-server-i386.iso"},
+				"desktop": {"iso_file": "ubuntu-14.04.6-desktop-i386.iso"}
+			}
 		}
 	},
 	"void": {

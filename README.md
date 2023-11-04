@@ -6,7 +6,7 @@ Leveraging `jq` and a JSON file, the script fetches the necessary data. It downl
 
 The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **306** images from **17** distributions.
+Currently, `dl-distro` supports downloading **322** images from **17** distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -147,7 +147,7 @@ If an image from these distributions is not supported, submitting an issue under
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
 | [Solus](https://getsol.us) | 4.4 |
 | [Tails](https://tails.net) | 5.19 |
-| [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial)|
+| [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial) <br> 14.04.6 LTS (trusty) |
 | [Void Linux](https://voidlinux.org) | 20230628 |
 | [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.0.4.5 (virtualbox) |
 
