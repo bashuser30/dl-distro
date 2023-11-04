@@ -446,7 +446,7 @@ download_gparted() {
 
 	sig_sum_url="https://gparted.org/gparted-live/stable"
 
-	wget_spider "$sig_sum_url"/{"$sig_file","$sum_file"} "$url/$iso_file"
+	wget_spider "$url/$iso_file" "$sig_sum_url"/{"$sig_file","$sum_file"}
 	fetch_gpg_key
 	wget_file "$sig_sum_url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
