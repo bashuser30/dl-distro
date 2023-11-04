@@ -154,12 +154,12 @@ fetch_gpg_key() {
 
 	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
-	if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
+	if ! gpg --homedir "$gpg_dir" --list-keys "$1" &> /dev/null; then
 
 		print_message "Fetching GPG key."
 
-		if ! gpg --homedir "$gpg_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
-			print_error_and_exit "Failed to fetch GPG key: $gpg_key"
+		if ! gpg --homedir "$gpg_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$1" &> /dev/null; then
+			print_error_and_exit "Failed to fetch GPG key: $1"
 		fi
 	fi
 }
@@ -270,7 +270,7 @@ download_almalinux() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
@@ -313,7 +313,7 @@ download_alpine() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
@@ -322,7 +322,7 @@ download_alpine() {
 download_arch() {
 	fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
@@ -348,7 +348,7 @@ download_debian() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -426,7 +426,7 @@ download_fedora() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
@@ -447,7 +447,7 @@ download_gparted() {
 	sig_sum_url="https://gparted.org/gparted-live/stable"
 
 	wget_spider "$url/$iso_file" "$sig_sum_url"/{"$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$sig_sum_url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -495,7 +495,7 @@ download_kali () {
 	fi
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -522,7 +522,7 @@ download_mint () {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -608,7 +608,7 @@ download_opensuse() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	read -r line < "$sum_file"
@@ -655,7 +655,7 @@ download_parrotos() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
@@ -665,7 +665,7 @@ download_parrotos() {
 download_qubes() {
 	fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url/$sum_file"
 	verify_gpg_signature "$sum_file"
 	wget_file "$url"/{"$sig_file","$iso_file"}
@@ -684,7 +684,7 @@ download_solus() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -702,7 +702,7 @@ download_tails() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	rm -f "$sig_file"
@@ -710,6 +710,7 @@ download_tails() {
 }
 
 download_ubuntu() {
+	trusty_old_gpg_key="C5986B4F1257FFA86632CBA746181433FBB75451"
 	ubuntu_type="$(get_choice "mantic" "lunar" "jammy" "focal" "bionic" "xenial" "trusty")"
 
 	case "$ubuntu_type" in
@@ -735,7 +736,8 @@ download_ubuntu() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
+	[[ "$ubuntu_type" == "trusty" ]] && fetch_gpg_key "$trusty_old_gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -806,7 +808,7 @@ download_whonix() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key
+	fetch_gpg_key "$gpg_key"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
