@@ -121,6 +121,16 @@ fetch_json() {
 	print_error_and_exit "Couldn't find or download data.json file."
 }
 
+wget_file() {
+	local url
+
+	for url in "$@"; do
+		if ! wget -P "$download_path" -qc --show-progress "$url"; then
+			print_error_and_exit "Failed to download: $url"
+		fi
+	done
+}
+
 wget_spider() {
 	[[ "$spider_mode_enabled" == "false" ]] && return 0
 
@@ -137,43 +147,38 @@ wget_spider() {
 	exit 0
 }
 
-fetch_verification_key() {
+fetch_gpg_key() {
 	[[ "$verification_enabled" == "false" ]] && return 0
 
-	case "$verification_tool" in
-		"gpg")
-			check_dependencies "gpg"
+	check_dependencies "gpg"
 
-			[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
+	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
-			if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
+	if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
 
-				print_message "Fetching gpg key."
+		print_message "Fetching GPG key."
 
-				if ! gpg --homedir "$gpg_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
-					print_error_and_exit "Failed to fetch gpg key: $gpg_key"
-				fi
-			fi
-			;;
-		"minisign"|"signify")
-			if [[ "$verification_tool" == "minisign" ]]; then
-				check_dependencies "minisign"
-			else
-				find_signify_name
-			fi
-
-			fetched_verification_key="$(mktemp)"
-
-			print_message "Fetching $verification_tool key."
-
-			if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
-				print_error_and_exit "Failed to fetch $verification_tool key from: $gpg_key"
-			fi
-			;;
-	esac
+		if ! gpg --homedir "$gpg_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
+			print_error_and_exit "Failed to fetch GPG key: $gpg_key"
+		fi
+	fi
 }
 
-find_signify_name() {
+fetch_minisign_key() {
+	[[ "$verification_enabled" == "false" ]] && return 0
+
+	check_dependencies "minisign"
+
+	fetched_verification_key="$(mktemp)"
+
+	print_message "Fetching Minisign key."
+
+	if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
+		print_error_and_exit "Failed to fetch Minisign key from: $gpg_key"
+	fi
+}
+
+fetch_signify_key() {
 	if [[ ! -f /etc/os-release ]]; then
 		print_error_and_exit "Cannot determine your distribution because /etc/os-release is missing."
 	fi
@@ -187,42 +192,50 @@ find_signify_name() {
 		signify_name="signify"
 	fi
 
-	verification_tool="$signify_name"
+	check_dependencies "$signify_name"
 
-	check_dependencies "$verification_tool"
+	fetched_verification_key="$(mktemp)"
+
+	print_message "Fetching Signify key."
+
+	if ! wget -qO- "$gpg_key" > "$fetched_verification_key"; then
+		print_error_and_exit "Failed to fetch Signify key from: $gpg_key"
+	fi	
 }
 
-wget_file() {
-	local url
-
-	for url in "$@"; do
-		if ! wget -P "$download_path" -qc --show-progress "$url"; then
-			print_error_and_exit "Failed to download: $url"
-		fi
-	done
-}
-
-verify_signature() {
+verify_gpg_signature() {
 	[[ "$verification_enabled" == "false" ]] && return 0
 
 	cd "$download_path" || exit 1
 
-	case "$verification_tool" in
-		"gpg")
-			cmd=("gpg" "--homedir" "$gpg_dir" "--verify" "$sig_file")
-
-			[[ -n "${1:-}" ]] && cmd+=("$1")
-			;;
-		"minisign"|"signify"|"signify-openbsd")
-			cmd=("$verification_tool" "-Vp" "$fetched_verification_key" "-x" "$sig_file" "-m" "$sum_file")
-			;;
-	esac
-
-	if "${cmd[@]}" &> /dev/null; then
-		print_message "$verification_tool verification: SUCCESS"
+	if gpg --homedir "$gpg_dir" --verify "$@" &> /dev/null; then
+		print_message "GPG verification: SUCCESS"
 	else
-		rm -f "$iso_file" "$sig_file" "$sum_file"
-		print_error_and_exit "$verification_tool verification: FAILED"
+		print_error_and_exit "GPG verification: FAILED"
+	fi
+}
+
+verify_minisign_signature() {
+	[[ "$verification_enabled" == "false" ]] && return 0
+
+	cd "$download_path" || exit 1
+
+	if minisign -Vp "$fetched_verification_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
+		print_message "Minisign verification: SUCCESS"
+	else
+		print_error_and_exit "Minisign verification: FAILED"
+	fi
+}
+
+verify_signify_signature() {
+	[[ "$verification_enabled" == "false" ]] && return 0
+
+	cd "$download_path" || exit 1
+
+	if "$signify_name" -Vp "$fetched_verification_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
+		print_message "Signify verification: SUCCESS"
+	else
+		print_error_and_exit "Signify verification: FAILED"
 	fi
 }
 
@@ -233,7 +246,6 @@ verify_checksum() {
 		rm -f "$sig_file" "$sum_file"
 		print_message "$sum_algo verification: SUCCESS"
 		print_message "Download and verification successful."
-		exit 0
 	else
 		rm -f "$iso_file" "$sig_file" "$sum_file"
 		print_error_and_exit "$sum_algo verification: FAILED"
@@ -253,9 +265,9 @@ download_almalinux() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url/$sig_file"
-	verify_signature
+	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -296,18 +308,18 @@ download_alpine() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
-	verify_signature "$iso_file"
+	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
 }
 
 download_arch() {
 	fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
-	verify_signature "$iso_file"
+	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
 }
 
@@ -331,9 +343,9 @@ download_debian() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -409,9 +421,9 @@ download_fedora() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url/$sig_file"
-	verify_signature
+	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -430,9 +442,9 @@ download_gparted() {
 	sig_sum_url="https://gparted.org/gparted-live/stable"
 
 	wget_spider "$sig_sum_url"/{"$sig_file","$sum_file"} "$url/$iso_file"
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$sig_sum_url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -478,9 +490,9 @@ download_kali () {
 	fi
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -505,15 +517,14 @@ download_mint () {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
 
 download_openbsd() {
-	verification_tool="signify"
 	openbsd_type="$(get_choice "img with file sets" "img without file sets" \
 	                           "iso with file sets" "iso without file sets" "floppy")"
 
@@ -554,25 +565,14 @@ download_openbsd() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_signify_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature
+	verify_signify_signature
 	wget_file "$url/$iso_file"
-
-	cd "$download_path" || exit 1
-
-	if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
-		rm -f "$sig_file" "$sum_file"
-		base_name="${iso_file%.*}"
-		ext="${iso_file##*.}"
-		mv "$iso_file" "${base_name}-${architecture}.${ext}"
-		print_message "$sum_algo verification: SUCCESS"
-		print_message "Download and verification successful."
-		exit 0
-	else
-		rm -f "$iso_file" "$sig_file" "$sum_file"
-		print_error_and_exit "$sum_algo verification: FAILED"
-	fi
+	verify_checksum
+	base_name="${iso_file%.*}"
+	ext="${iso_file##*.}"
+	mv "$iso_file" "${base_name}-${architecture}.${ext}"
 }
 
 download_opensuse() {
@@ -603,9 +603,9 @@ download_opensuse() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	read -r line < "$sum_file"
 	iso_file="${line##* }"
 	wget_file "$url/$iso_file"
@@ -650,10 +650,21 @@ download_parrotos() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url/$sig_file"
-	verify_signature
+	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
+	verify_checksum
+}
+
+download_qubes() {
+	fetch_and_assign_values "gpg_key" "url" "iso_file" "sig_file" "sum_file" "sum_algo"
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key
+	wget_file "$url/$sum_file"
+	verify_gpg_signature "$sum_file"
+	wget_file "$url"/{"$sig_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
 }
 
@@ -668,9 +679,9 @@ download_solus() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -686,12 +697,11 @@ download_tails() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$iso_file"}
-	verify_signature "$iso_file"
+	verify_gpg_signature "$sig_file" "$iso_file"
 	rm -f "$sig_file"
 	print_message "Download and GPG verification successful. Tails does not provide checksum files."
-	exit 0
 }
 
 download_ubuntu() {
@@ -706,15 +716,14 @@ download_ubuntu() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature "$sum_file"
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
 
 download_void() {
-	verification_tool="minisign"
 	architecture="$(get_choice "x86_64" "i686" "arm" "arm platforms")"
 
 	case "$architecture" in
@@ -760,9 +769,9 @@ download_void() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_minisign_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_signature
+	verify_minisign_signature
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -778,9 +787,9 @@ download_whonix() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_verification_key
+	fetch_gpg_key
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
-	verify_signature "$iso_file"
+	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
 }
 
@@ -794,11 +803,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  almalinux  gparted   parrotos  whonix
-  alpine     kali      solus
-  arch       mint      tails
-  debian     openbsd   ubuntu
-  fedora     opensuse  void
+  almalinux  gparted   parrotos  void
+  alpine     kali      qubes     whonix
+  arch       mint      solus
+  debian     openbsd   tails
+  fedora     opensuse  ubuntu
 
 EXAMPLES
   dl-distro arch
@@ -811,7 +820,6 @@ EOF
 main() {
 	gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 	verification_enabled="true"
-	verification_tool="gpg"
 	spider_mode_enabled="false"
 
 	while [[ "$#" -gt 0 ]]; do
