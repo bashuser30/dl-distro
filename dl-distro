@@ -213,6 +213,7 @@ verify_gpg_signature() {
 	if gpg --homedir "$gpg_dir" --verify "$@" &> /dev/null; then
 		print_message "GPG verification: SUCCESS"
 	else
+		rm -f "$iso_file" "$sig_file" "$sum_file"
 		print_error_and_exit "GPG verification: FAILED"
 	fi
 }
@@ -225,6 +226,7 @@ verify_minisign_signature() {
 	if minisign -Vp "$fetched_verification_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
 		print_message "Minisign verification: SUCCESS"
 	else
+		rm -f "$sig_file" "$sum_file"
 		print_error_and_exit "Minisign verification: FAILED"
 	fi
 }
@@ -237,6 +239,7 @@ verify_signify_signature() {
 	if "$signify_name" -Vp "$fetched_verification_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
 		print_message "Signify verification: SUCCESS"
 	else
+		rm -f "$sig_file" "$sum_file"
 		print_error_and_exit "Signify verification: FAILED"
 	fi
 }
