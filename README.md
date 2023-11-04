@@ -6,7 +6,7 @@ Leveraging `jq` and a JSON file, the script fetches the necessary data. It downl
 
 The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **305** images from **16** distributions.
+Currently, `dl-distro` supports downloading **306** images from **17** distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -96,11 +96,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  almalinux  gparted   parrotos  whonix
-  alpine     kali      solus
-  arch       mint      tails
-  debian     openbsd   ubuntu
-  fedora     opensuse  void
+  almalinux  gparted   parrotos  void
+  alpine     kali      qubes     whonix
+  arch       mint      solus
+  debian     openbsd   tails
+  fedora     opensuse  ubuntu
 
 EXAMPLES
   dl-distro arch
@@ -140,6 +140,7 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 | [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
 | [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
 | [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
+| [Qubes OS](https://qubes-os.org) | 4.1.2 | - |
 | [Solus](https://getsol.us) | 4.4 | Budgie <br> GNOME <br> MATE <br> Plasma
 | [Tails](https://tails.net) | 5.19 | USB <br> DVD/VM |
 | [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
