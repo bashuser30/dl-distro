@@ -1475,6 +1475,12 @@
 			"desktop": {"iso_file": "ubuntu-23.10.1-desktop-amd64.iso"},
 			"netboot tarball": {"iso_file": "ubuntu-23.10-netboot-amd64.tar.gz"}
 		},
+		"lunar": {
+			"url": "https://releases.ubuntu.com/lunar",
+			"server": {"iso_file": "ubuntu-23.04-live-server-amd64.iso"},
+			"desktop": {"iso_file": "ubuntu-23.04-desktop-amd64.iso"},
+			"netboot tarball": {"iso_file": "ubuntu-23.04-netboot-amd64.tar.gz"}
+		},
 		"jammy": {
 			"url": "https://releases.ubuntu.com/jammy",
 			"server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},

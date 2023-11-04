@@ -710,13 +710,16 @@ download_tails() {
 }
 
 download_ubuntu() {
-	ubuntu_type="$(get_choice "mantic" "jammy")"
+	ubuntu_type="$(get_choice "mantic" "lunar" "jammy")"
 
-	if [[ "$ubuntu_type" == "mantic" ]]; then
-		image_type="$(get_choice "desktop" "server" "netboot tarball")"
-	else
-		image_type="$(get_choice "desktop" "server")"
-	fi
+	case "$ubuntu_type" in
+		"mantic"|"lunar")
+			image_type="$(get_choice "desktop" "server" "netboot tarball")"
+			;;
+		"jammy")
+			image_type="$(get_choice "desktop" "server")"
+			;;
+	esac
 
 	fetch_and_assign_values "gpg_key" \
 	                        "${ubuntu_type}.url" \

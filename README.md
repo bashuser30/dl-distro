@@ -147,7 +147,7 @@ If an image from these distributions is not supported, submitting an issue under
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
 | [Solus](https://getsol.us) | 4.4 |
 | [Tails](https://tails.net) | 5.19 |
-| [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 22.04.3 LTS (jammy) |
+| [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) |
 | [Void Linux](https://voidlinux.org) | 20230628 |
 | [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.0.4.5 (virtualbox) |
 
