@@ -710,12 +710,17 @@ download_tails() {
 }
 
 download_ubuntu() {
-	ubuntu_type="$(get_choice "current" "lts")"
-	image_type="$(get_choice "desktop" "server")"
+	ubuntu_type="$(get_choice "mantic" "jammy")"
+
+	if [[ "$ubuntu_type" == "mantic" ]]; then
+		image_type="$(get_choice "desktop" "server" "netboot tarball")"
+	else
+		image_type="$(get_choice "desktop" "server")"
+	fi
 
 	fetch_and_assign_values "gpg_key" \
 	                        "${ubuntu_type}.url" \
-	                        "${ubuntu_type}.${image_type}.iso_file" \
+	                        "${ubuntu_type}.\"${image_type}\".iso_file" \
 	                        "sig_file" \
 	                        "sum_file" \
 	                        "sum_algo"
