@@ -1417,6 +1417,14 @@
 			}
 		}
 	},
+	"qubes" : {
+		"gpg_key": "5817A43B283DE5A9181A522E1848792F9E2795E9",
+		"url": "https://ftp.qubes-os.org/iso",
+		"iso_file": "Qubes-R4.1.2-x86_64.iso",
+		"sig_file": "Qubes-R4.1.2-x86_64.iso.asc",
+		"sum_file": "Qubes-R4.1.2-x86_64.iso.DIGESTS",
+		"sum_algo": "sha512sum"
+	},
 	"solus": {
 		"gpg_key": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
 		"url": "https://downloads.getsol.us/isos/4.4",
