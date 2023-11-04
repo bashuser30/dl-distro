@@ -16,7 +16,7 @@ Thank you for considering contributing to `dl-distro`. Below are some guidelines
 
 - **Open an Issue First**: Before you start writing code, it's a good idea to open an issue to discuss your intended changes. This way, we can avoid any unnecessary work or potential conflicts with planned features.
 
-- **Pull Requests**: Once you're ready to share your changes, please open a pull request. Ensure your PR has a descriptive title and explains the purpose and context of the change. For a typical example of what a pull request should include, please see this [commit comparison](https://codeberg.org/bashuser30/dl-distro/compare/34dbaa14e8...64e55c4b7d).
+- **Pull Requests**: Once you're ready to share your changes, please open a pull request. Ensure your PR has a descriptive title and explains the purpose and context of the change. For a typical example of what a pull request should include, please see this [commit](https://codeberg.org/bashuser30/dl-distro/commit/04d3a8e96c49dacc9dd2f2e9f42db15b80c02241).
 
 ### Testing
 
