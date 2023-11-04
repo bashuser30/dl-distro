@@ -1425,6 +1425,22 @@
 		"sum_file": "Qubes-R4.1.2-x86_64.iso.DIGESTS",
 		"sum_algo": "sha512sum"
 	},
+	"slackware": {
+		"gpg_key": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+		"sum_algo": "md5sum",
+		"64-bit": {
+			"url": "https://mirrors.slackware.com/slackware/slackware-iso/slackware64-15.0-iso",
+			"iso_file": "slackware64-15.0-install-dvd.iso",
+			"sig_file": "slackware64-15.0-install-dvd.iso.asc",
+			"sum_file": "slackware64-15.0-install-dvd.iso.md5"
+		},
+		"32-bit": {
+			"url": "https://mirrors.slackware.com/slackware/slackware-iso/slackware-15.0-iso",
+			"iso_file": "slackware-15.0-install-dvd.iso",
+			"sig_file": "slackware-15.0-install-dvd.iso.asc",
+			"sum_file": "slackware-15.0-install-dvd.iso.md5"
+		}
+	},
 	"solus": {
 		"gpg_key": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
 		"url": "https://downloads.getsol.us/isos/4.4",

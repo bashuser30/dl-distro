@@ -6,7 +6,7 @@ Leveraging `jq` and a JSON file, the script fetches the necessary data. It downl
 
 The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **322** images from **17** distributions.
+Currently, `dl-distro` supports downloading **324** images from **18** distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -96,11 +96,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  almalinux  gparted   parrotos  void
-  alpine     kali      qubes     whonix
-  arch       mint      solus
-  debian     openbsd   tails
-  fedora     opensuse  ubuntu
+  almalinux  gparted   parrotos   ubuntu
+  alpine     kali      qubes      void
+  arch       mint      slackware  whonix
+  debian     openbsd   solus
+  fedora     opensuse  tails
 
 EXAMPLES
   dl-distro arch
@@ -145,6 +145,7 @@ If an image from these distributions is not supported, submitting an issue under
 | [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed |
 | [Parrot OS](https://parrotlinux.org) | 5.3 |
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
+| [Slackware Linux](https://www.slackware.com) | 15.0 |
 | [Solus](https://getsol.us) | 4.4 |
 | [Tails](https://tails.net) | 5.19 |
 | [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial) <br> 14.04.6 LTS (trusty) |

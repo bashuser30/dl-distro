@@ -673,6 +673,23 @@ download_qubes() {
 	verify_checksum
 }
 
+download_slackware() {
+	slackware_type="$(get_choice "32-bit" "64-bit")"
+
+	fetch_and_assign_values "gpg_key" \
+	                        "\"${slackware_type}\".url" \
+	                        "\"${slackware_type}\".iso_file" \
+	                        "\"${slackware_type}\".sig_file" \
+	                        "\"${slackware_type}\".sum_file" \
+	                        "sum_algo"
+
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$gpg_key"
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
+	verify_checksum
+}
+
 download_solus() {
 	solus_type="$(get_choice "budgie" "gnome" "mate" "plasma")"
 
@@ -824,11 +841,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  almalinux  gparted   parrotos  void
-  alpine     kali      qubes     whonix
-  arch       mint      solus
-  debian     openbsd   tails
-  fedora     opensuse  ubuntu
+  almalinux  gparted   parrotos   ubuntu
+  alpine     kali      qubes      void
+  arch       mint      slackware  whonix
+  debian     openbsd   solus
+  fedora     opensuse  tails
 
 EXAMPLES
   dl-distro arch
