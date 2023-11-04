@@ -127,25 +127,29 @@ Encountered an issue or have feedback? Please open an issue on the [repository's
 
 ## Supported Distributions
 
-| Distribution | Version   | Options |
-|--------------|-----------|---------|
-| [AlmaLinux OS](https://almalinux.org)| 9.2, 8.8 | DVD <br> Boot <br> Minimal  |
-| [Alpine Linux](https://alpinelinux.org) | 3.18.4 | Standard <br> Extended <br> Netboot <br> Raspberry Pi <br> Generic ARM <br> Mini Root Filesystems <br> Virtual <br> Xen |
-| [Arch Linux](https://archlinux.org) | 2023.11.01 | - |
-| [Debian](https://debian.org)  | 12.2.0 | Netinst <br> Live |
-| [Fedora Linux](https://fedoraproject.org) | 38 | Workstation <br> Server <br> IoT <br> Cloud <br> Silverblue <br> Kinoite <br> Sericea <br> Spins <br> Labs <br> Everything |
-| [GParted Live](https://gparted.org) | 1.5.0-6 | amd64 <br> i686 <br> i686-PAE |
-| [Kali Linux](https://kali.org) | 2023.3, Weekly | Live <br> QEMU <br> VirtualBox <br> VMware <br> Hyper-V <br> Installer <br> Netinst <br> Purple |
-| [Linux Mint](https://linuxmint.com) | 21.2, Debian Edition 6 | Cinnamon <br> MATE <br> Xfce <br> Edge |
-| [OpenBSD](https://openbsd.org) | 7.4 | IMG with file sets <br> IMG without file sets <br> ISO with file sets <br> ISO without file sets <br> Floppy
-| [openSUSE](https://opensuse.org) | Leap 15.5, Tumbleweed | DVD <br> Netinst <br> KVM <br> Hyper-V <br> VMware <br> Cloud |
-| [Parrot OS](https://parrotlinux.org) | 5.3 | Security Edition <br> Home Edition <br> Hack The Box Edition <br> Architect Edition <br> Raspberry Pi Editions |
-| [Qubes OS](https://qubes-os.org) | 4.1.2 | - |
-| [Solus](https://getsol.us) | 4.4 | Budgie <br> GNOME <br> MATE <br> Plasma
-| [Tails](https://tails.net) | 5.19 | USB <br> DVD/VM |
-| [Ubuntu](https://ubuntu.com) | 23.10, 22.04.3 | Desktop <br> Server |
-| [Void Linux](https://voidlinux.org) | 20230628 | x86\_64 <br> i686 <br> ARM <br> ARM platforms (RPi) |
-| [Whonix](https://whonix.org) | 17.0.3.0, 17.0.4.5 | QEMU <br> VirtualBox |
+`dl-distro` aims to support all images provided by the respective distribution maintainers.
+
+If an image from these distributions is not supported, submitting an issue under the `distro addition` label is encouraged.
+
+| Distribution | Version(s) |
+|--------------|-----------|
+| [AlmaLinux OS](https://almalinux.org)| 9.2 <br> 8.8 |
+| [Alpine Linux](https://alpinelinux.org) | 3.18.4 |
+| [Arch Linux](https://archlinux.org) | 2023.11.01 |
+| [Debian](https://debian.org)  | 12.2.0 |
+| [Fedora Linux](https://fedoraproject.org) | 38 |
+| [GParted Live](https://gparted.org) | 1.5.0-6 |
+| [Kali Linux](https://kali.org) | 2023.3 <br> Weekly |
+| [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
+| [OpenBSD](https://openbsd.org) | 7.4 |
+| [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed |
+| [Parrot OS](https://parrotlinux.org) | 5.3 |
+| [Qubes OS](https://qubes-os.org) | 4.1.2 |
+| [Solus](https://getsol.us) | 4.4 |
+| [Tails](https://tails.net) | 5.19 |
+| [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 22.04.3 LTS (jammy) |
+| [Void Linux](https://voidlinux.org) | 20230628 |
+| [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.0.4.5 (virtualbox) |
 
 ## Mirrors
 
