@@ -179,6 +179,8 @@ fetch_minisign_key() {
 }
 
 fetch_signify_key() {
+	[[ "$verification_enabled" == "false" ]] && return 0
+
 	if [[ ! -f /etc/os-release ]]; then
 		print_error_and_exit "Cannot determine your distribution because /etc/os-release is missing."
 	fi
