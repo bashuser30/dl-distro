@@ -1495,6 +1495,17 @@
 			"url": "https://releases.ubuntu.com/bionic",
 			"server": {"iso_file": "ubuntu-18.04.6-live-server-amd64.iso"},
 			"desktop": {"iso_file": "ubuntu-18.04.6-desktop-amd64.iso"}
+		},
+		"xenial": {
+			"url": "https://releases.ubuntu.com/xenial",
+			"amd64": {
+				"server": {"iso_file": "ubuntu-16.04.7-server-amd64.iso"},
+				"desktop": {"iso_file": "ubuntu-16.04.7-desktop-amd64.iso"}
+			},
+			"i386": {
+				"server": {"iso_file": "ubuntu-16.04.6-server-i386.iso"},
+				"desktop": {"iso_file": "ubuntu-16.04.6-desktop-i386.iso"}
+			}
 		}
 	},
 	"void": {
