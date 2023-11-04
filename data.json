@@ -1485,6 +1485,11 @@
 			"url": "https://releases.ubuntu.com/jammy",
 			"server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
 			"desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
+		},
+		"focal": {
+			"url": "https://releases.ubuntu.com/focal",
+			"server": {"iso_file": "ubuntu-20.04.6-live-server-amd64.iso"},
+			"desktop": {"iso_file": "ubuntu-20.04.6-desktop-amd64.iso"}	
 		}
 	},
 	"void": {
