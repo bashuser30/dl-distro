@@ -86,16 +86,12 @@ fetch_and_assign_values() {
 }
 
 fetch_json() {
-	json_paths=(
-	    "$HOME/.config/dl-distro/data.json"
-	    "$(dirname "$0")/data.json"
-	)
+	json_paths=("$HOME/.config/dl-distro/data.json"
+	            "$(dirname "$0")/data.json")
 
-	json_urls=(
-	    "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
-	    "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
-	    "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
-	)
+	json_urls=("https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
+	           "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
+	           "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json")
 
 	for json_path in "${json_paths[@]}"; do
 		if [[ -f "$json_path" ]]; then
@@ -134,12 +130,24 @@ wget_file() {
 wget_spider() {
 	[[ "$spider_mode_enabled" == "false" ]] && return 0
 
+	expect_mode_enabled="${EXPECT_MODE_ENABLED:-false}"
+	spidered_urls_file="/tmp/dl-distro_spidered_urls.txt"
 	local url
 
 	for url in "$@"; do
+		if [[ "$expect_mode_enabled" == "true" ]]; then
+			if grep -qxF "$url" "$spidered_urls_file" 2> /dev/null; then
+				continue
+			fi
+		fi
+
 		sleep 1
 
-		if ! wget -nvc --spider "$url"; then
+		if wget -nvc --spider "$url"; then
+			if [[ "$expect_mode_enabled" == "true" ]]; then
+				printf "%s\n" "$url" >> "$spidered_urls_file"
+			fi
+		else
 			print_error_and_exit "Spider failed for: $url"
 		fi
 	done
