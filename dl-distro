@@ -132,6 +132,7 @@ wget_spider() {
 
 	expect_mode_enabled="${EXPECT_MODE_ENABLED:-false}"
 	spidered_urls_file="/tmp/dl-distro_spidered_urls.txt"
+
 	local url
 
 	for url in "$@"; do
@@ -370,7 +371,13 @@ download_fedora() {
 	case "$fedora_type" in
 		"workstation")
 			architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
-			prefix="${fedora_type}.${architecture}"
+
+			if [[ "$architecture" == "aarch64" ]]; then
+				image_type="$(get_choice "iso" "raw")"
+				prefix="${fedora_type}.${architecture}.${image_type}"
+			else
+				prefix="${fedora_type}.${architecture}"
+			fi
 			;;
 		"server")
 			architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"

@@ -6,7 +6,7 @@ Leveraging `jq` and a JSON file, the script fetches the necessary data. It downl
 
 The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **324** images from **18** distributions.
+Currently, `dl-distro` supports downloading **325** images from **18** distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
@@ -137,7 +137,7 @@ If an image from these distributions is not supported, submitting an issue under
 | [Alpine Linux](https://alpinelinux.org) | 3.18.4 |
 | [Arch Linux](https://archlinux.org) | 2023.11.01 |
 | [Debian](https://debian.org)  | 12.2.0 |
-| [Fedora Linux](https://fedoraproject.org) | 38 |
+| [Fedora Linux](https://fedoraproject.org) | 39 |
 | [GParted Live](https://gparted.org) | 1.5.0-6 |
 | [Kali Linux](https://kali.org) | 2023.3 <br> Weekly |
 | [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
