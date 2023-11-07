@@ -366,7 +366,7 @@ download_debian() {
 
 download_fedora() {
 	fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" \
-	                          "kinoite" "sericea" "spins" "labs" "everything")"
+	                          "kinoite" "sericea" "onyx" "spins" "labs" "everything")"
 
 	case "$fedora_type" in
 		"workstation")
@@ -399,7 +399,9 @@ download_fedora() {
 			architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
 
 			if [[ "$architecture" == "x86_64" ]]; then
-				image_type="$(get_choice "qemu" "raw" "compressed image" "vagrant libvirt" "vagrant virtualbox")"
+				image_type="$(get_choice "qemu" "raw" "azure" "compressed image" "vagrant libvirt" "vagrant virtualbox")"
+			elif [[ "$architecture" == "aarch64" ]]; then
+				image_type="$(get_choice "qemu" "raw" "azure")"
 			else
 				image_type="$(get_choice "qemu" "raw")"
 			fi
@@ -407,7 +409,7 @@ download_fedora() {
 			prefix="${fedora_type}.${architecture}.\"${image_type}\""
 			;;
 		"silverblue")
-			architecture="$(get_choice "x86_64" "ppc64le")"
+			architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
 			prefix="${fedora_type}.${architecture}"
 			;;
 		"kinoite")
@@ -415,6 +417,10 @@ download_fedora() {
 			prefix="${fedora_type}.${architecture}"
 			;;
 		"sericea")
+			architecture="x86_64"
+			prefix="${fedora_type}.${architecture}"
+			;;
+		"onyx")
 			architecture="x86_64"
 			prefix="${fedora_type}.${architecture}"
 			;;

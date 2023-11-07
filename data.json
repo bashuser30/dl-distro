@@ -603,6 +603,12 @@
 					"sig_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM"
 				},
+				"azure": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-Azure-39-1.5.x86_64.vhd",
+					"sig_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM"
+				},
 				"compressed image": {
 					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images",
 					"iso_file": "Fedora-Cloud-Base-GCP-39-1.5.x86_64.tar.gz",
@@ -632,6 +638,12 @@
 				"raw": {
 					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/aarch64/images",
 					"iso_file": "Fedora-Cloud-Base-39-1.5.aarch64.raw.xz",
+					"sig_file": "Fedora-Cloud-39-1.5-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-39-1.5-aarch64-CHECKSUM"
+				},
+				"azure": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-Azure-39-1.5.aarch64.vhd",
 					"sig_file": "Fedora-Cloud-39-1.5-aarch64-CHECKSUM",
 					"sum_file": "Fedora-Cloud-39-1.5-aarch64-CHECKSUM"
 				}
@@ -672,6 +684,12 @@
 				"sig_file": "Fedora-Silverblue-39-1.5-x86_64-CHECKSUM",
 				"sum_file": "Fedora-Silverblue-39-1.5-x86_64-CHECKSUM"
 			},
+			"aarch64": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Silverblue/aarch64",
+				"iso_file": "Fedora-Silverblue-ostree-aarch64-39-1.5-respin.iso",
+				"sig_file": "Fedora-Silverblue-ostree-39-respin-1.5-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Silverblue-ostree-39-respin-1.5-aarch64-CHECKSUM"
+			},
 			"ppc64le": {
 				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Silverblue/ppc64le/iso",
 				"iso_file": "Fedora-Silverblue-ostree-ppc64le-39-1.5.iso",
@@ -705,6 +723,14 @@
 				"iso_file": "Fedora-Sericea-ostree-x86_64-39-1.5-respin.iso",
 				"sig_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM",
 				"sum_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM"
+			}
+		},
+		"onyx": {
+			"x86_64": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Onyx/x86_64",
+				"iso_file": "Fedora-Onyx-ostree-x86_64-39-1.5-respin.iso",
+				"sig_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM"
 			}
 		},
 		"spins": {
