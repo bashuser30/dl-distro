@@ -75,7 +75,7 @@
 			}
 		},
 		"almalinux 8": {
-			"gpg_key": "BC5EDDCADF502C077F1582882AE81E8ACED7258B",
+			"gpg_key": "5E9B8F5617B5066CE92057C3488FCF7C3ABB34F8",
 			"x86_64": {
 				"isos": {
 					"dvd": {
