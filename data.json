@@ -3,7 +3,7 @@
 		"copyright": "Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>",
 		"url": "https://codeberg.org/bashuser30/dl-distro/src/branch/master/LICENSE"
 	},
-	"almalinux": {
+	"alma": {
 		"sig_file": "CHECKSUM",
 		"sum_file": "CHECKSUM",
 		"sum_algo": "sha256sum",
@@ -1540,7 +1540,7 @@
 			}
 		}
 	},
-	"parrotos" : {
+	"parrot" : {
 		"gpg_key": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
 		"url": "https://deb.parrot.sh/parrot/iso/current",
 		"sig_file": "signed-hashes.txt",

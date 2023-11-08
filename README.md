@@ -96,11 +96,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  almalinux  gparted   parrotos   ubuntu
-  alpine     kali      qubes      void
-  arch       mint      slackware  whonix
-  debian     openbsd   solus
-  fedora     opensuse  tails
+  alma    gparted   parrot     ubuntu
+  alpine  kali      qubes      void
+  arch    mint      slackware  whonix
+  debian  openbsd   solus
+  fedora  opensuse  tails
 
 EXAMPLES
   dl-distro arch

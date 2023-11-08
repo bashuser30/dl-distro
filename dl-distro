@@ -266,7 +266,7 @@ verify_checksum() {
 	fi
 }
 
-download_almalinux() {
+download_alma() {
 	alma_version="$(get_choice "almalinux 9" "almalinux 8")"
 	architecture="$(get_choice "x86_64" "aarch64" "s390x" "ppc64le")"
 	image_type="$(get_choice "dvd" "boot" "minimal")"
@@ -667,7 +667,7 @@ download_opensuse() {
 	verify_checksum
 }
 
-download_parrotos() {
+download_parrot() {
 	parrot_type="$(get_choice "security" "home" "hack the box" "architect" "raspberry pi")"
 
 	case "$parrot_type" in
@@ -897,11 +897,11 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
   -s, --spider     Check image availability without downloading
 
 DISTROS
-  almalinux  gparted   parrotos   ubuntu
-  alpine     kali      qubes      void
-  arch       mint      slackware  whonix
-  debian     openbsd   solus
-  fedora     opensuse  tails
+  alma    gparted   parrot     ubuntu
+  alpine  kali      qubes      void
+  arch    mint      slackware  whonix
+  debian  openbsd   solus
+  fedora  opensuse  tails
 
 EXAMPLES
   dl-distro arch
