@@ -441,7 +441,7 @@
 		}
 	},
 	"fedora": {
-		"gpg_key": "6A51BBABBA3D5467B6171221809A8D7CEB10B464",
+		"gpg_key": "E8F23996F23218640CB44CBE75CF5AC418B8E74C",
 		"sum_algo": "sha256sum",
 		"workstation": {
 			"x86_64": {
