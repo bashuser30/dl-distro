@@ -6,7 +6,7 @@ Leveraging `jq` and a JSON file, the script fetches the necessary data. It downl
 
 The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
 
-Currently, `dl-distro` supports downloading **329** images from **18** distributions.
+Currently, `dl-distro` supports downloading **347** images from **18** distributions.
 
 The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 

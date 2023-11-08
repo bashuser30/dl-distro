@@ -366,7 +366,8 @@ download_debian() {
 
 download_fedora() {
 	fedora_type="$(get_choice "workstation" "server" "iot" "cloud" "silverblue" \
-	                          "kinoite" "sericea" "onyx" "spins" "labs" "everything")"
+	                          "kinoite" "sericea" "onyx" "spins" "labs" "everything" \
+	                          "minimal aarch64" "container")"
 
 	case "$fedora_type" in
 		"workstation")
@@ -408,33 +409,53 @@ download_fedora() {
 
 			prefix="${fedora_type}.${architecture}.\"${image_type}\""
 			;;
-		"silverblue")
+		"silverblue"|"kinoite")
 			architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
 			prefix="${fedora_type}.${architecture}"
 			;;
-		"kinoite")
-			architecture="$(get_choice "x86_64" "aarch64" "ppc64le")"
-			prefix="${fedora_type}.${architecture}"
-			;;
-		"sericea")
-			architecture="x86_64"
-			prefix="${fedora_type}.${architecture}"
-			;;
-		"onyx")
+		"sericea"|"onyx")
 			architecture="x86_64"
 			prefix="${fedora_type}.${architecture}"
 			;;
 		"spins")
-			environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "sugar" "sway" "xfce" "i3")"
-			prefix="${fedora_type}.${environment}"
+			environment="$(get_choice "budgie" "cinnamon" "kde" "lxde" "lxqt" "mate" "phosh" "sugar" "sway" "xfce" "i3")"
+
+			if [[ "$environment" == "i3" || "$environment" == "xfce" || "$environment" == "sugar" ]]; then
+				architecture="$(get_choice "x86_64" "aarch64")"
+				prefix="${fedora_type}.${environment}.${architecture}"
+			elif [[ "$environment" == "lxqt" || "$environment" == "kde" ]]; then
+				architecture="$(get_choice "x86_64" "aarch64")"
+
+				if [[ "$architecture" == "aarch64" ]]; then
+					image_type="$(get_choice "raw" "iso")"
+					prefix="${fedora_type}.${environment}.${architecture}.${image_type}"
+				else
+					prefix="${fedora_type}.${environment}.${architecture}"
+				fi
+			else
+				prefix="${fedora_type}.${environment}"
+			fi
 			;;
 		"labs")
-			image_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" \
-			                         "python classroom" "robotics" "scientific" "security")"
-			prefix="${fedora_type}.\"${image_type}\""
+			lab_type="$(get_choice "astronomy" "comp neuro" "design suite" "games" "jam" \
+			                       "python classroom" "robotics" "scientific" "security")"
+
+			if [[ "$lab_type" == "scientific" || "$lab_type" == "python classroom" ]]; then
+				image_type="$(get_choice "iso" "vagrant libvirt" "vagrant virtualbox")"
+				prefix="${fedora_type}.\"${lab_type}\".\"${image_type}\""
+			else
+				prefix="${fedora_type}.\"${lab_type}\""
+			fi
 			;;
 		"everything")
-			architecture="$(get_choice "x86_64" "aarch64")"
+			architecture="$(get_choice "x86_64" "aarch64" "ppc64le" "s390x")"
+			prefix="${fedora_type}.${architecture}"
+			;;
+		"minimal aarch64")
+			prefix="\"${fedora_type}\""
+			;;
+		"container")
+			architecture="$(get_choice "aarch64" "ppc64le" "s390x")"
 			prefix="${fedora_type}.${architecture}"
 			;;
 	esac

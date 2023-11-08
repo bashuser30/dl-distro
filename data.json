@@ -747,10 +747,26 @@
 				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
 			},
 			"kde": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
-				"iso_file": "Fedora-KDE-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
+					"iso_file": "Fedora-KDE-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"raw": {
+						"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
+						"iso_file": "Fedora-KDE-39-1.5.aarch64.raw.xz",
+						"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+						"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+					},
+					"iso": {
+						"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Spins/aarch64",
+						"iso_file": "Fedora-KDE-Live-aarch64-39-1.5-respin.iso",
+						"sig_file": "Fedora-KDE-Live-39-respin-1.5-aarch64-CHECKSUM",
+						"sum_file": "Fedora-KDE-Live-39-respin-1.5-aarch64-CHECKSUM"
+					}
+				}
 			},
 			"lxde": {
 				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
@@ -759,10 +775,26 @@
 				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
 			},
 			"lxqt": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
-				"iso_file": "Fedora-LXQt-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
+					"iso_file": "Fedora-LXQt-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"raw": {
+						"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
+						"iso_file": "Fedora-LXQt-39-1.5.aarch64.raw.xz",
+						"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+						"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+					},
+					"iso": {
+						"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Spins/aarch64",
+						"iso_file": "Fedora-LXQt-Live-aarch64-39-1.5-respin.iso",
+						"sig_file": "Fedora-LXQt-Live-39-respin-1.5-aarch64-CHECKSUM",
+						"sum_file": "Fedora-LXQt-Live-39-respin-1.5-aarch64-CHECKSUM"
+					}
+				}
 			},
 			"mate": {
 				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
@@ -770,11 +802,25 @@
 				"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
 				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
 			},
+			"phosh": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
+				"iso_file": "Fedora-Phosh-39-1.5.aarch64.raw.xz",
+				"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+			},
 			"sugar": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
-				"iso_file": "Fedora-SoaS-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
+					"iso_file": "Fedora-SoaS-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
+					"iso_file": "Fedora-SoaS-39-1.5.aarch64.raw.xz",
+					"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+				}
 			},
 			"sway": {
 				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
@@ -783,16 +829,32 @@
 				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
 			},
 			"xfce": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
-				"iso_file": "Fedora-Xfce-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
+					"iso_file": "Fedora-Xfce-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
+					"iso_file": "Fedora-Xfce-39-1.5.aarch64.raw.xz",
+					"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+				}
 			},
 			"i3": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
-				"iso_file": "Fedora-i3-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso",
+					"iso_file": "Fedora-i3-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/iso",
+					"iso_file": "Fedora-i3-Live-aarch64-39-1.5.iso",
+					"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+				}
 			}
 		},
 		"labs": {
@@ -827,10 +889,24 @@
 				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 			},
 			"python classroom": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
-				"iso_file": "Fedora-Python-Classroom-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				"iso": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
+					"iso_file": "Fedora-Python-Classroom-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				},
+				"vagrant libvirt" : {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
+					"iso_file": "Fedora-Python-Classroom-Vagrant-39-1.5.x86_64.vagrant-libvirt.box",
+					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				},
+				"vagrant virtualbox": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
+					"iso_file": "Fedora-Python-Classroom-Vagrant-39-1.5.x86_64.vagrant-virtualbox.box",
+					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				}
 			},
 			"robotics": {
 				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
@@ -839,10 +915,24 @@
 				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 			},
 			"scientific": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
-				"iso_file": "Fedora-Scientific_KDE-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				"iso": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
+					"iso_file": "Fedora-Scientific_KDE-Live-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				},
+				"vagrant libvirt": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
+					"iso_file": "Fedora-Scientific-Vagrant-39-1.5.x86_64.vagrant-libvirt.box",
+					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				},
+				"vagrant virtualbox": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
+					"iso_file": "Fedora-Scientific-Vagrant-39-1.5.x86_64.vagrant-virtualbox.box",
+					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				}
 			},
 			"security": {
 				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
@@ -863,6 +953,44 @@
 				"iso_file": "Fedora-Everything-netinst-aarch64-39-1.5.iso",
 				"sig_file": "Fedora-Everything-39-1.5-aarch64-CHECKSUM",
 				"sum_file": "Fedora-Everything-39-1.5-aarch64-CHECKSUM"
+			},
+			"ppc64le": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Everything/ppc64le/iso",
+				"iso_file": "Fedora-Everything-netinst-ppc64le-39-1.5.iso",
+				"sig_file": "Fedora-Everything-39-1.5-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Everything-39-1.5-ppc64le-CHECKSUM"
+			},
+			"s390x": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Everything/s390x/iso",
+				"iso_file": "Fedora-Everything-netinst-s390x-39-1.5.iso",
+				"sig_file": "Fedora-Everything-39-1.5-s390x-CHECKSUM",
+				"sum_file": "Fedora-Everything-39-1.5-s390x-CHECKSUM"
+			}
+		},
+		"minimal aarch64": {
+			"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
+			"iso_file": "Fedora-Minimal-39-1.5.aarch64.raw.xz",
+			"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
+			"sum_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM"
+		},
+		"container": {
+			"aarch64": {
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Container/aarch64/images",
+				"iso_file": "Fedora-Container-Base-39-1.5.aarch64.tar.xz",
+				"sig_file": "Fedora-Container-39-1.5-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Container-39-1.5-aarch64-CHECKSUM"
+			},
+			"ppc64le": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Container/ppc64le/images",
+				"iso_file": "Fedora-Container-Base-39-1.5.ppc64le.tar.xz",
+				"sig_file": "Fedora-Container-39-1.5-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Container-39-1.5-ppc64le-CHECKSUM"
+			},
+			"s390x": {
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Container/s390x/images",
+				"iso_file": "Fedora-Container-Base-39-1.5.s390x.tar.xz",
+				"sig_file": "Fedora-Container-39-1.5-s390x-CHECKSUM",
+				"sum_file": "Fedora-Container-39-1.5-s390x-CHECKSUM"
 			}
 		}
 	},
