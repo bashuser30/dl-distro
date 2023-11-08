@@ -797,10 +797,10 @@
 		},
 		"labs": {
 			"astronomy": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
-				"iso_file": "Fedora-Astronomy_KDE-Live-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
+				"iso_file": "Fedora-Astronomy_KDE-Live-x86_64-38-1.6.iso",
+				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
 			},
 			"comp neuro": {
 				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
