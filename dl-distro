@@ -447,7 +447,15 @@ download_fedora() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-	fetch_gpg_key "$gpg_key"
+
+	fedora_38_gpg_key="6A51BBABBA3D5467B6171221809A8D7CEB10B464"
+
+	if [[ "${image_type:-}" == "astronomy" ]]; then
+		fetch_gpg_key "$fedora_38_gpg_key"
+	else
+		fetch_gpg_key "$gpg_key"
+	fi
+
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
@@ -748,7 +756,6 @@ download_tails() {
 }
 
 download_ubuntu() {
-	trusty_old_gpg_key="C5986B4F1257FFA86632CBA746181433FBB75451"
 	ubuntu_type="$(get_choice "mantic" "lunar" "jammy" "focal" "bionic" "xenial" "trusty")"
 
 	case "$ubuntu_type" in
@@ -774,8 +781,15 @@ download_ubuntu() {
 	                        "sum_algo"
 
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key "$gpg_key"
-	[[ "$ubuntu_type" == "trusty" ]] && fetch_gpg_key "$trusty_old_gpg_key"
+
+	trusty_old_gpg_key="C5986B4F1257FFA86632CBA746181433FBB75451"
+
+	if [[ "$ubuntu_type" == "trusty" ]]; then
+		fetch_gpg_key "$gpg_key" && fetch_gpg_key "$trusty_old_gpg_key"
+	else
+		fetch_gpg_key "$gpg_key"
+	fi
+
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
