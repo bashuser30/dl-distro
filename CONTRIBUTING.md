@@ -6,8 +6,9 @@ and information about how I routinely test the script to ensure all combinations
 ### Guidelines
 
 - **Code Style/Flow**:
-Please ensure your code adheres to the existing style and flow of the project.
-This includes using [tabs for indentation and spaces for alignment](https://vim.fandom.com/wiki/Indent_with_tabs,_align_with_spaces) to ensure consistency and maintainability across various editors.
+Please ensure your code adheres to the existing style and flow of the project. This includes using
+[tabs for indentation and spaces for alignment](https://vim.fandom.com/wiki/Indent_with_tabs,_align_with_spaces)
+to ensure consistency and maintainability across various editors.
 
 - **Simplicity**:
 When adding support for new distributions, additions, or features, try to keep it simple.
@@ -26,7 +27,8 @@ This way, we can avoid any unnecessary work or potential conflicts with planned 
 - **Pull Requests**:
 Once you're ready to share your changes, please open a pull request.
 Ensure your PR has a descriptive title and explains the purpose and context of the change.
-For a typical example of what a pull request should include, please see this [commit](https://codeberg.org/bashuser30/dl-distro/commit/04d3a8e96c49dacc9dd2f2e9f42db15b80c02241).
+For a typical example of what a pull request should include, please see this
+[commit](https://codeberg.org/bashuser30/dl-distro/commit/04d3a8e96c49dacc9dd2f2e9f42db15b80c02241).
 
 ## Testing
 
