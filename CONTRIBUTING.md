@@ -34,25 +34,23 @@ For a typical example of what a pull request should include, please see this
 
 ### The Spider Option
 
-For testing, the `-s, --spider` option is highly useful as it allows you to check URLs
-without needing to download files.
+For testing, the `-s, --spider` option is highly useful as it allows you to check URLs without needing to download files.
 This method is effective for verifying if the combinations lead to a successful download link.
 However, errors might still occur after the actual download process.
-Therefore, I strongly recommend testing **AT LEAST** one fully downloaded and verified image
-before submitting a pull request for a new distribution or addition.
-If you are absolutely certain that the verification will succeed, you may opt to skip this step,
-but please ensure you are 100% confident in its accuracy.
+
+Therefore, I strongly recommend testing **AT LEAST** one fully downloaded and verified image before submitting a
+pull request for a new distribution or addition. If you are absolutely certain that the verification will succeed,
+you may opt to skip this step, but please ensure you are 100% confident in its accuracy.
 
 ### Expect Script
 
-This script has many combinations, making manual testing impractical.
-I've developed an `expect` script for `dl-distro` that checks every possible combination
-using the `-s, --spider` option.
-This is incredibly helpful for maintaining the project, as it enables me to routinely ensure
-all URLs are valid, and to identify inconsistencies, particularly during significant updates
-to the JSON file when a new distribution version is released.
+This script has many combinations, making manual testing impractical. I've developed an `expect` script for `dl-distro`
+that checks every possible combination using the `-s, --spider` option. This is incredibly helpful for maintaining
+the project, as it enables me to routinely ensure all URLs are valid, and to identify inconsistencies,
+particularly during significant updates to the JSON file when a new distribution version is released.
+
 If you're interested in this script, please let me know.
 
-For standard version updates, I monitor various distributions through RSS feeds of their
-blogs and announcements using the [Newsboat RSS feed reader](https://newsboat.org).
-If you would like the list of URLs I use specifically for `dl-distro`, feel free to ask.
+For standard version updates, I monitor various distributions through RSS feeds of their blogs and announcements
+using the [Newsboat RSS feed reader](https://newsboat.org). If you would like the list of URLs I use specifically
+for `dl-distro`, feel free to ask.

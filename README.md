@@ -2,16 +2,22 @@
 
 `dl-distro` is a Bash script that simplifies the process of downloading and verifying operating system images.
 
-Leveraging `jq` and a JSON file, the script fetches the necessary data. It downloads the chosen image file, along with its corresponding signature and checksum files, using `wget`.
+Leveraging `jq` and a JSON file, the script fetches the necessary data.
+It downloads the chosen image file, along with its corresponding signature and checksum files, using `wget`.
 
-The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`, to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image, alerting the user with error messages if there's any indication of tampering or corruption.
+The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`,
+to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image,
+alerting the user with error messages if there's any indication of tampering or corruption.
 
 Currently, `dl-distro` supports downloading **347** images from **18** distributions.
 
-The list of [Supported Distributions](#supported-distributions) continues to expand as time permits. Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
+The list of [Supported Distributions](#supported-distributions) continues to expand as time permits.
+Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
 
 > **Note**<br>
-> By default, dl-distro imports GPG keys into a new keyring, leaving your user's keyring untouched. If you prefer to skip GPG key retrieval and verification, you have the option to disable this feature. See [Usage](#usage) for details.
+> By default, dl-distro imports GPG keys into a new keyring, leaving your user's keyring untouched.
+> If you prefer to skip GPG key retrieval and verification, you have the option to disable this feature.
+> See [Usage](#usage) for details.
 
 ## Dependencies
 
@@ -27,7 +33,8 @@ The list of [Supported Distributions](#supported-distributions) continues to exp
 
 ### AUR
 
-You can either use your preferred AUR helper or manually clone and build the package. Both `dl-distro` and `dl-distro-git` are available.
+You can either use your preferred AUR helper or manually clone and build the package.
+Both `dl-distro` and `dl-distro-git` are available.
 
 ```
 git clone https://aur.archlinux.org/dl-distro.git
@@ -59,7 +66,8 @@ sudo cp dl-distro /usr/bin/dl-distro
 sudo chmod +x /usr/bin/dl-distro
 ```
 
-You will only need to update `dl-distro` upon new additions being added to it. Changes to the [JSON file](#json-file), like a version bump, do not require an update.
+You will only need to update `dl-distro` upon new additions being added to it.
+Changes to the [JSON file](#json-file), like a version bump, do not require an update.
 
 #### Uninstall
 
@@ -81,9 +89,12 @@ rm -rf $HOME/.local/share/dl-distro
 - `$HOME/.config/dl-distro/data.json`
 - The directory `dl-distro` is located in
 
-This is for testing and if you wish to change some of the data, such as a URL to a faster mirror. Do note however, most distributions use a redirecting system, so you should get the closest mirror to your location.
+This is for testing and if you wish to change some of the data, such as a URL to a faster mirror.
+Do note however, most distributions use a redirecting system, so you should get the closest mirror to your location.
 
-If the JSON file isn't found in these locations, it fetches the latest file from the master branch. This is so users won't have to update every version change, filename change, etc. Only additions to `dl-distro` itself will require an update.
+If the JSON file isn't found in these locations, it fetches the latest file from the master branch.
+This is so users won't have to update every version change, filename change, etc.
+Only additions to `dl-distro` itself will require an update.
 
 ## Usage
 
@@ -110,7 +121,8 @@ EXAMPLES
 
 ## Error Importing Signing Key
 
-This script automatically imports GPG keys. If you encounter issues importing a distro's key, you will need to manually source it and import it, or skip fetching and verification.
+This script automatically imports GPG keys. If you encounter issues importing a distro's key,
+you will need to manually source it and import it, or skip fetching and verification.
 
 If you decide to find and import the key, you will need to import it to one of the expected keyring locations:
 
@@ -123,7 +135,9 @@ gpg --homedir /path/to/directory --import /path/to/key.asc
 
 ## Issues and Feedback
 
-Encountered an issue or have feedback? Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues) detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
+Encountered an issue or have feedback? Please open an issue on the
+[repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues)
+detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
 
 ## Supported Distributions
 
@@ -160,4 +174,5 @@ If an image from these distributions is not supported, submitting an issue under
 
 ## License
 
-All files in this repository are licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+All files in this repository are licensed under the GNU General Public License v3.0 - see the
+[LICENSE](LICENSE) file for details.
