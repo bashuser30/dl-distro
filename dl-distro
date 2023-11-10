@@ -95,7 +95,7 @@ fetch_json() {
 
 	for json_path in "${json_paths[@]}"; do
 		if [[ -f "$json_path" ]]; then
-			json_file="$(realpath "$json_path")"
+			json_file="$(realpath -m "$json_path")"
 			print_warning "Using local copy of data.json. Data could be outdated."
 			return 0
 		fi
@@ -946,7 +946,7 @@ main() {
 	done
 
 	distro="${1:-}"
-	download_path="$(realpath "${2:-$(pwd)}")"
+	download_path="$(realpath -m "${2:-$(pwd)}")"
 
 	[[ -z "$distro" ]] && print_error_and_exit "No distro provided."
 
