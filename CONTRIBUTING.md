@@ -28,9 +28,9 @@ Once you're ready to share your changes, please open a pull request.
 Ensure your PR has a descriptive title and explains the purpose and context of the change.
 For a typical example of what a pull request should include, please see this [commit](https://codeberg.org/bashuser30/dl-distro/commit/04d3a8e96c49dacc9dd2f2e9f42db15b80c02241).
 
-### Testing
+## Testing
 
-## The Spider Option
+### The Spider Option
 
 For testing, the `-s, --spider` option is highly useful as it allows you to check URLs
 without needing to download files.
@@ -41,7 +41,7 @@ before submitting a pull request for a new distribution or addition.
 If you are absolutely certain that the verification will succeed, you may opt to skip this step,
 but please ensure you are 100% confident in its accuracy.
 
-## Expect Script
+### Expect Script
 
 This script has many combinations, making manual testing impractical.
 I've developed an `expect` script for `dl-distro` that checks every possible combination
