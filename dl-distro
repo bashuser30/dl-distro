@@ -86,7 +86,7 @@ fetch_and_assign_values() {
 }
 
 fetch_json() {
-	json_paths=("$HOME/.config/dl-distro/data.json"
+	json_paths=("${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro/data.json"
 	            "$(dirname "$0")/data.json")
 
 	json_urls=("https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
@@ -95,7 +95,7 @@ fetch_json() {
 
 	for json_path in "${json_paths[@]}"; do
 		if [[ -f "$json_path" ]]; then
-			json_file="$(realpath -m "$json_path")"
+			json_file="$json_path"
 			print_warning "Using local copy of data.json. Data could be outdated."
 			return 0
 		fi
@@ -190,14 +190,16 @@ fetch_minisign_key() {
 fetch_signify_key() {
 	[[ "$verification_enabled" == "false" ]] && return 0
 
-	if [[ ! -f /etc/os-release ]]; then
-		print_error_and_exit "Cannot determine your distribution because /etc/os-release is missing."
+	if [[ -f /etc/os-release ]]; then
+		# shellcheck disable=SC1091
+		source /etc/os-release
+	else
+		print_warning "/etc/os-release is missing."
+		print_message "This is to determine the package name signify uses."
+		print_message "Defaulting to: signify"
 	fi
 
-	# shellcheck disable=SC1091
-	source /etc/os-release
-
-	if [[ "$ID" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
+	if [[ "${ID:-}" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
 		signify_name="signify-openbsd"
 	else
 		signify_name="signify"
