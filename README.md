@@ -44,18 +44,14 @@ makepkg -si
 
 ### Non AUR
 
-If you can't access the AUR, you should `git clone` the repository:
-
-```
-git clone https://codeberg.org/bashuser30/dl-distro.git
-cd dl-distro
-```
+If you can't access the AUR, you should `git clone` the repository.
 
 #### Install
 
 ```
+git clone https://codeberg.org/bashuser30/dl-distro.git
+cd dl-distro
 sudo cp dl-distro /usr/bin/dl-distro
-sudo chmod +x /usr/bin/dl-distro
 ```
 
 #### Update
@@ -63,11 +59,7 @@ sudo chmod +x /usr/bin/dl-distro
 ```
 git pull
 sudo cp dl-distro /usr/bin/dl-distro
-sudo chmod +x /usr/bin/dl-distro
 ```
-
-You will only need to update `dl-distro` upon new additions being added to it.
-Changes to the [JSON file](#json-file), like a version bump, do not require an update.
 
 #### Uninstall
 
@@ -86,15 +78,16 @@ rm -rf $HOME/.local/share/dl-distro
 
 `dl-distro` will look for the JSON file in these locations before fetching the latest file from the master branch:
 
+- `$XDG_CONFIG_HOME/dl-distro/data.json`
 - `$HOME/.config/dl-distro/data.json`
 - The directory `dl-distro` is located in
 
-This is for testing and if you wish to change some of the data, such as a URL to a faster mirror.
+This will allow you to override any data if you wish, such as a URL to a faster mirror.
 Do note however, most distributions use a redirecting system, so you should get the closest mirror to your location.
 
 If the JSON file isn't found in these locations, it fetches the latest file from the master branch.
-This is so users won't have to update every version change, filename change, etc.
-Only additions to `dl-distro` itself will require an update.
+This is so users won't have to update every time a distribution has a version change.
+Only additions to `dl-distro` itself or incompatibilities introduced into the JSON file will require an update.
 
 ## Usage
 
