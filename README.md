@@ -95,6 +95,7 @@ Only additions to `dl-distro` itself or incompatibilities introduced into the JS
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
   -h, --help       Display this usage message
+  -i, --import     Import a GPG key: dl-distro -i /path/to/key.asc
   -l, --list-keys  List the saved GPG keys
   -n, --no-verify  Skip key fetching and verification
   -s, --spider     Check image availability without downloading
@@ -114,16 +115,14 @@ EXAMPLES
 
 ## Error Importing Signing Key
 
-This script automatically imports GPG keys. If you encounter issues importing a distro's key,
-you will need to manually source it and import it, or skip fetching and verification.
+`dl-distro` will automatically import GPG keys. If you encounter issues importing a distro's key,
+usually related to keyserver connections, you will need to manually source it and import it,
+or skip fetching and verification with the `-n` option.
 
-If you decide to find and import the key, you will need to import it to one of the expected keyring locations:
-
-- `$XDG_DATA_HOME/dl-distro`
-- `$HOME/.local/share/dl-distro`
+If you decide to find and import the key, simply run:
 
 ```
-gpg --homedir /path/to/directory --import /path/to/key.asc
+dl-distro -i /path/to/key.asc
 ```
 
 ## Issues and Feedback

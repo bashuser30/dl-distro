@@ -894,6 +894,7 @@ usage() {
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
   -h, --help       Display this usage message
+  -i, --import     Import a GPG key: dl-distro -i /path/to/key.asc
   -l, --list-keys  List the saved GPG keys
   -n, --no-verify  Skip key fetching and verification
   -s, --spider     Check image availability without downloading
@@ -913,6 +914,27 @@ EOF
 	exit 0
 }
 
+list_gpg_keys() {
+	if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
+		exit 0
+	else
+		print_message "There are no GPG keys stored."
+		exit 0
+	fi
+}
+
+import_gpg_key() {
+	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
+
+	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
+		print_message "GPG key import: SUCCESS"
+		print_message "Use the -l option to list the key."
+		exit 0
+	else
+		print_error_and_exit "GPG key import: FAILED"
+	fi
+}
+
 main() {
 	gpg_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 	verification_enabled="true"
@@ -923,12 +945,12 @@ main() {
 			-h|--help)
 				usage
 				;;
+			-i|--import)
+				shift
+				import_gpg_key "$1"
+				;;
 			-l|--list-keys)
-				if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
-					exit 0
-				else
-					print_error_and_exit "GPG directory not found: $gpg_dir"
-				fi
+				list_gpg_keys
 				;;
 			-n|--no-verify)
 				verification_enabled="false"
