@@ -1,40 +1,31 @@
 # dl-distro
 
-`dl-distro` is a Bash script that simplifies the process of downloading and verifying operating system images.
+`dl-distro` is a Bash script that simplifies the downloading and verification
+of operating system images. It uses `jq` and a JSON file to retrieve data, and
+`wget` to download image files, their signatures, and checksums.
 
-Leveraging `jq` and a JSON file, the script fetches the necessary data.
-It downloads the chosen image file, along with its corresponding signature and checksum files, using `wget`.
+The script will use `gpg` for signature verification and will check the
+integrity of the images with relevant checksum algorithms. It alerts users to
+any tampering or corruption and removes files that fail these checks.
 
-The script then utilizes the appropriate verification tool, whether it's `gpg`, `minisign`, or `signify`,
-to verify the signature. It also employs the relevant checksum algorithm to verify the integrity of the image,
-alerting the user with error messages if there's any indication of tampering or corruption.
-
-Currently, `dl-distro` supports downloading **347** images from **18** distributions.
-
-The list of [Supported Distributions](#supported-distributions) continues to expand as time permits.
-Your contributions are always appreciated. Please see the [contributing file](CONTRIBUTING.md) for more information.
-
-> **Note**<br>
-> By default, dl-distro imports GPG keys into a new keyring, leaving your user's keyring untouched.
-> If you prefer to skip GPG key retrieval and verification, you have the option to disable this feature.
-> See [Usage](#usage) for details.
+Currently, `dl-distro` supports **347** images from **18** distributions.
 
 ## Dependencies
 
-- bash
-- coreutils
-- gnupg (optional)
-- jq
-- minisign (optional: Void Linux verification)
-- signify (optional: OpenBSD verification)
-- wget
+- `bash`
+- `coreutils`
+- `gnupg` (optional)
+- `jq`
+- `minisign` (optional: Void Linux verification)
+- `signify` (optional: OpenBSD verification)
+- `wget`
 
 ## Installation
 
 ### AUR
 
-You can either use your preferred AUR helper or manually clone and build the package.
-Both `dl-distro` and `dl-distro-git` are available.
+You can either use your preferred AUR helper or manually clone and build the
+package. Both `dl-distro` and `dl-distro-git` are available.
 
 ```
 git clone https://aur.archlinux.org/dl-distro.git
@@ -76,18 +67,21 @@ rm -rf $HOME/.local/share/dl-distro
 
 ## JSON File
 
-`dl-distro` will look for the JSON file in these locations before fetching the latest file from the master branch:
+`dl-distro` will look for the JSON file in these locations before fetching the
+latest file from the master branch:
 
 - `$XDG_CONFIG_HOME/dl-distro/data.json`
 - `$HOME/.config/dl-distro/data.json`
 - The directory `dl-distro` is located in
 
-This will allow you to override any data if you wish, such as a URL to a faster mirror.
-Do note however, most distributions use a redirecting system, so you should get the closest mirror to your location.
+This will allow you to override any data if you wish, such as a URL to a faster
+mirror. Do note however, most distributions use a redirecting system, so you
+should get the closest mirror to your location.
 
-If the JSON file isn't found in these locations, it fetches the latest file from the master branch.
-This is so users won't have to update every time a distribution has a version change.
-Only additions to `dl-distro` itself or incompatibilities introduced into the JSON file will require an update.
+If the JSON file isn't found in these locations, it fetches the latest file
+from the master branch. This is so users won't have to update every time a
+distribution has a version change. Only additions to `dl-distro` itself or
+incompatibilities introduced into the JSON file will require an update.
 
 ## Usage
 
@@ -115,9 +109,10 @@ EXAMPLES
 
 ## Error Importing Signing Key
 
-`dl-distro` will automatically import GPG keys. If you encounter issues importing a distro's key,
-usually related to keyserver connections, you will need to manually source it and import it,
-or skip fetching and verification with the `-n` option.
+`dl-distro` automatically imports GPG keys from the Ubuntu keyserver,
+`hkps://keyserver.ubuntu.com`. If you encounter issues importing a distro's
+key, usually related to keyserver connections, you will need to manually source
+it and import it, or skip fetching and verification with the `-n` option.
 
 If you decide to find and import the key, simply run:
 
@@ -129,13 +124,16 @@ dl-distro -i /path/to/key.asc
 
 Encountered an issue or have feedback? Please open an issue on the
 [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues)
-detailing any problems you encounter, or suggestions you might have. This will help continue to improve `dl-distro`.
+detailing any problems you encounter, or suggestions you might have. This will
+help continue to improve `dl-distro`.
 
 ## Supported Distributions
 
-`dl-distro` aims to support all images provided by the respective distribution maintainers.
+`dl-distro` aims to support all images provided by the respective distribution
+maintainers.
 
-If an image from these distributions is not supported, submitting an issue under the `distro addition` label is encouraged.
+If an image from these distributions is not supported, submitting an issue
+under the `distro addition` label is encouraged.
 
 | Distribution | Version(s) |
 |--------------|-----------|
@@ -166,5 +164,5 @@ If an image from these distributions is not supported, submitting an issue under
 
 ## License
 
-All files in this repository are licensed under the GNU General Public License v3.0 - see the
-[LICENSE](LICENSE) file for details.
+All files in this repository are licensed under the GNU General Public License
+v3.0 - see the [LICENSE](LICENSE) file for details.
