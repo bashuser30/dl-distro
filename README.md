@@ -1,12 +1,13 @@
 # dl-distro
 
 `dl-distro` is a Bash script that simplifies the downloading and verification
-of operating system images. It uses `jq` and a JSON file to retrieve data, and
-`wget` to download image files, their signatures, and checksums.
+of operating system images. It utilizes `jq` and a JSON file for data
+retrieval, and `wget` for downloading image files, along with their signature
+and checksum files.
 
-The script will use `gpg` for signature verification and will check the
-integrity of the images with relevant checksum algorithms. It alerts users to
-any tampering or corruption and removes files that fail these checks.
+The script uses `gpg` for signature verification and checks the integrity of
+the downloaded image file with the relevant checksum algorithm. It alerts users
+of any tampering or corruption, and removes files that fail these checks.
 
 Currently, `dl-distro` supports **347** images from **18** distributions.
 
