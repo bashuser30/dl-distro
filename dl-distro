@@ -538,7 +538,7 @@ download_kali () {
 		current_week_num="$(grep -o 'W[0-9]\+' <<< "$html_content" | sort -r | head -n 1 | cut -c2-)"
 		iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
-		if ! grep -q "$iso_file" <<< "$html_content"; then
+		if ! grep -qF "$iso_file" <<< "$html_content"; then
 			print_warning "No new ISO for week: $current_week_num"
 			print_message "Downloading previous week."
 			(( prev_week_num=current_week_num-1 ))
@@ -915,6 +915,8 @@ EOF
 }
 
 list_gpg_keys() {
+	check_dependencies "gpg"
+
 	if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
 		exit 0
 	else
@@ -924,6 +926,8 @@ list_gpg_keys() {
 }
 
 import_gpg_key() {
+	check_dependencies "gpg"
+
 	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
 	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
@@ -946,8 +950,7 @@ main() {
 				usage
 				;;
 			-i|--import)
-				shift
-				import_gpg_key "$1"
+				import_gpg_key "$2"
 				;;
 			-l|--list-keys)
 				list_gpg_keys

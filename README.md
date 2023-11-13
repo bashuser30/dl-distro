@@ -139,7 +139,7 @@ If an image from these distributions is not supported, submitting an issue under
 
 | Distribution | Version(s) |
 |--------------|-----------|
-| [AlmaLinux OS](https://almalinux.org)| 9.2 <br> 8.8 |
+| [AlmaLinux OS](https://almalinux.org)| 9.3 <br> 8.8 |
 | [Alpine Linux](https://alpinelinux.org) | 3.18.4 |
 | [Arch Linux](https://archlinux.org) | 2023.11.01 |
 | [Debian](https://debian.org)  | 12.2.0 |

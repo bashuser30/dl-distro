@@ -12,64 +12,64 @@
 			"x86_64": {
 				"isos": {
 					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/x86_64",
-						"iso_file": "AlmaLinux-9.2-x86_64-dvd.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
+						"iso_file": "AlmaLinux-9.3-x86_64-dvd.iso"
 					},
 					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/x86_64",
-						"iso_file": "AlmaLinux-9.2-x86_64-boot.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
+						"iso_file": "AlmaLinux-9.3-x86_64-boot.iso"
 					},
 					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/x86_64",
-						"iso_file": "AlmaLinux-9.2-x86_64-minimal.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
+						"iso_file": "AlmaLinux-9.3-x86_64-minimal.iso"
 					}
 				}
 			},
 			"aarch64": {
 				"isos": {
 					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/aarch64",
-						"iso_file": "AlmaLinux-9.2-aarch64-dvd.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
+						"iso_file": "AlmaLinux-9.3-aarch64-dvd.iso"
 					},
 					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/aarch64",
-						"iso_file": "AlmaLinux-9.2-aarch64-boot.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
+						"iso_file": "AlmaLinux-9.3-aarch64-boot.iso"
 					},
 					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/aarch64",
-						"iso_file": "AlmaLinux-9.2-aarch64-minimal.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
+						"iso_file": "AlmaLinux-9.3-aarch64-minimal.iso"
 					}
 				}
 			},
 			"s390x": {
 				"isos": {
 					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/s390x",
-						"iso_file": "AlmaLinux-9.2-s390x-dvd.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
+						"iso_file": "AlmaLinux-9.3-s390x-dvd.iso"
 					},
 					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/s390x",
-						"iso_file": "AlmaLinux-9.2-s390x-boot.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
+						"iso_file": "AlmaLinux-9.3-s390x-boot.iso"
 					},
 					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/s390x",
-						"iso_file": "AlmaLinux-9.2-s390x-minimal.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
+						"iso_file": "AlmaLinux-9.3-s390x-minimal.iso"
 					}
 				}
 			},
 			"ppc64le": {
 				"isos": {
 					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/ppc64le",
-						"iso_file": "AlmaLinux-9.2-ppc64le-dvd.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
+						"iso_file": "AlmaLinux-9.3-ppc64le-dvd.iso"
 					},
 					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/ppc64le",
-						"iso_file": "AlmaLinux-9.2-ppc64le-boot.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
+						"iso_file": "AlmaLinux-9.3-ppc64le-boot.iso"
 					},
 					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.2/isos/ppc64le",
-						"iso_file": "AlmaLinux-9.2-ppc64le-minimal.iso"
+						"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
+						"iso_file": "AlmaLinux-9.3-ppc64le-minimal.iso"
 					}
 				}
 			}
