@@ -893,11 +893,13 @@ usage() {
 	cat <<EOF
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-  -h, --help       Display this usage message
-  -i, --import     Import a GPG key: dl-distro -i /path/to/key.asc
-  -l, --list-keys  List the saved GPG keys
-  -n, --no-verify  Skip key fetching and verification
-  -s, --spider     Check image availability without downloading
+  -h, --help        Display this usage message
+  -d, --delete-key  Delete a GPG key: dl-distro -d [KEY_ID]
+  -i, --import-key  Import a GPG key: dl-distro -i /path/to/key.asc
+  -l, --list-keys   List the stored GPG keys
+  -n, --no-verify   Skip key fetching and verification
+  -p, --purge-keys  Delete ALL stored GPG keys
+  -s, --spider      Check image availability without downloading
 
 DISTROS
   alma    gparted   parrot     ubuntu
@@ -931,11 +933,34 @@ import_gpg_key() {
 	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir" && chmod 700 "$gpg_dir"
 
 	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
-		print_message "GPG key import: SUCCESS"
-		print_message "Use the -l option to list the key."
+		print_message "Successfully imported GPG key: $1"
 		exit 0
 	else
-		print_error_and_exit "GPG key import: FAILED"
+		print_error_and_exit "Failed to import GPG key: $1"
+	fi
+}
+
+delete_gpg_key() {
+	check_dependencies "gpg"
+
+	if gpg --homedir "$gpg_dir" --delete-keys "$1" &> /dev/null; then
+		print_message "Successfully deleted GPG key: $1"
+		exit 0
+	else
+		print_error_and_exit "Failed to delete GPG key: $1"
+	fi
+}
+
+purge_gpg_keys() {
+	read -rp "[dl-distro] WARNING: Really delete ALL stored GPG keys? (y/N): " user_choice >&2
+
+	if [[ "$user_choice" == "Y" || "$user_choice" == "y" ]]; then
+		rm -rf "$gpg_dir"
+		print_message "Successfully deleted all GPG keys."
+		exit 0
+	else
+		print_message "GPG key purge cancelled."
+		exit 0
 	fi
 }
 
@@ -949,7 +974,10 @@ main() {
 			-h|--help)
 				usage
 				;;
-			-i|--import)
+			-d|--delete-key)
+				delete_gpg_key "$2"
+				;;
+			-i|--import-key)
 				import_gpg_key "$2"
 				;;
 			-l|--list-keys)
@@ -958,6 +986,9 @@ main() {
 			-n|--no-verify)
 				verification_enabled="false"
 				shift
+				;;
+			-p|--purge-keys)
+				purge_gpg_keys
 				;;
 			-s|--spider)
 				spider_mode_enabled="true"

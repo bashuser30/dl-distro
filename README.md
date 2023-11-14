@@ -55,15 +55,12 @@ sudo cp dl-distro /usr/bin/dl-distro
 
 #### Uninstall
 
+Run `dl-distro` with the `-p` option to purge all stored GPG keys, then simply
+remove the script:
+
 ```
+dl-distro -p
 sudo rm /usr/bin/dl-distro
-```
-
-If you imported any GPG keys, they are located in two possible directories:
-
-```
-rm -rf $XDG_DATA_HOME/dl-distro
-rm -rf $HOME/.local/share/dl-distro
 ```
 
 ## JSON File
@@ -89,11 +86,13 @@ incompatibilities introduced into the JSON file will require an update.
 ```
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-  -h, --help       Display this usage message
-  -i, --import     Import a GPG key: dl-distro -i /path/to/key.asc
-  -l, --list-keys  List the saved GPG keys
-  -n, --no-verify  Skip key fetching and verification
-  -s, --spider     Check image availability without downloading
+  -h, --help        Display this usage message
+  -d, --delete-key  Delete a GPG key: dl-distro -d [KEY_ID]
+  -i, --import-key  Import a GPG key: dl-distro -i /path/to/key.asc
+  -l, --list-keys   List the stored GPG keys
+  -n, --no-verify   Skip key fetching and verification
+  -p, --purge-keys  Delete ALL stored GPG keys
+  -s, --spider      Check image availability without downloading
 
 DISTROS
   alma    gparted   parrot     ubuntu
