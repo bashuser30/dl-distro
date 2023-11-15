@@ -66,10 +66,12 @@ sudo rm /usr/bin/dl-distro
 ## JSON File
 
 `dl-distro` relies on there being a locally stored JSON file. You can use the
-`-u` option to install and update this file. Since `dl-distro` dynamically
-interprets the JSON file, additions to distributions already supported in the
-script will not necessitate updates to the script itself. Users will
-automatically see new entries in the JSON file.
+`-a` option to toggle on and off automatic fetching of this JSON file. Using
+the `-u` option will force update the local JSON file.
+
+`dl-distro` dynamically interprets the JSON file, additions to distributions
+already supported in the script will not necessitate updates to the script
+itself. Users will automatically see new entries in the JSON file.
 
 Updating the `dl-distro` script will only be required when new distributions
 are added or if there are incompatibilities introduced in the JSON file.
@@ -91,6 +93,7 @@ closest mirror to your location.
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
   -h, --help         Display this usage message
+  -a, --auto-fetch   Toggle on/off automatic JSON fetching
   -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
   -i, --import-key   Import a GPG key: dl-distro -i /path/to/key.asc
   -l, --list-keys    List the stored GPG keys
