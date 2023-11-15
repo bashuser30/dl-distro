@@ -55,7 +55,7 @@ sudo cp dl-distro /usr/bin/dl-distro
 
 #### Uninstall
 
-Run `dl-distro` with the `-p` option to purge all stored GPG keys, then simply
+Run `dl-distro` with the `-p` option to purge all stored data, then simply
 remove the script:
 
 ```
@@ -65,12 +65,14 @@ sudo rm /usr/bin/dl-distro
 
 ## JSON File
 
-`dl-distro` will always fetch the JSON file from the master branch, ensuring
-up-to-date data. Since `dl-distro` dynamically interprets the JSON file,
-additions to distributions will not necessitate updates to the script. Users
-will automatically see new entries in the JSON file. Updates will only be
-required when new distributions are added or if there are incompatibilities
-introduced in the JSON file.
+`dl-distro` relies on there being a locally stored JSON file. You can use the
+`-u` option to install and update this file. Since `dl-distro` dynamically
+interprets the JSON file, additions to distributions already supported in the
+script will not necessitate updates to the script itself. Users will
+automatically see new entries in the JSON file.
+
+Updating the `dl-distro` script will only be required when new distributions
+are added or if there are incompatibilities introduced in the JSON file.
 
 If you wish to override any data found in the JSON file, you
 can edit it and place the file in one of these locations:
@@ -88,13 +90,14 @@ closest mirror to your location.
 ```
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-  -h, --help        Display this usage message
-  -d, --delete-key  Delete a GPG key: dl-distro -d [KEY_ID]
-  -i, --import-key  Import a GPG key: dl-distro -i /path/to/key.asc
-  -l, --list-keys   List the stored GPG keys
-  -n, --no-verify   Skip key fetching and verification
-  -p, --purge-keys  Delete ALL stored GPG keys
-  -s, --spider      Check image availability without downloading
+  -h, --help         Display this usage message
+  -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
+  -i, --import-key   Import a GPG key: dl-distro -i /path/to/key.asc
+  -l, --list-keys    List the stored GPG keys
+  -n, --no-verify    Skip key fetching and verification
+  -p, --purge-data   Delete ALL stored data
+  -s, --spider       Check image availability without downloading
+  -u, --update-json  Update the locally stored JSON file
 
 DISTROS
   alma    gparted   parrot     ubuntu
