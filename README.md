@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **347** images from **18** distributions.
+Currently, `dl-distro` supports **345** images from **18** distributions.
 
 ## Dependencies
 
@@ -65,21 +65,23 @@ sudo rm /usr/bin/dl-distro
 
 ## JSON File
 
-`dl-distro` will look for the JSON file in these locations before fetching the
-latest file from the master branch:
+`dl-distro` will always fetch the JSON file from the master branch, ensuring
+up-to-date data. Since `dl-distro` dynamically interprets the JSON file,
+additions to distributions will not necessitate updates to the script. Users
+will automatically see new entries in the JSON file. Updates will only be
+required when new distributions are added or if there are incompatibilities
+introduced in the JSON file.
+
+If you wish to override any data found in the JSON file, you
+can edit it and place the file in one of these locations:
 
 - `$XDG_CONFIG_HOME/dl-distro/data.json`
 - `$HOME/.config/dl-distro/data.json`
 - The directory `dl-distro` is located in
 
-This will allow you to override any data if you wish, such as a URL to a faster
-mirror. Do note however, most distributions use a redirecting system, so you
-should get the closest mirror to your location.
-
-If the JSON file isn't found in these locations, it fetches the latest file
-from the master branch. This is so users won't have to update every time a
-distribution has a version change. Only additions to `dl-distro` itself or
-incompatibilities introduced into the JSON file will require an update.
+This is useful if you need to override the mirror to a faster one. Do note
+however, most distributions use a redirecting system, so you should get the
+closest mirror to your location.
 
 ## Usage
 
@@ -151,7 +153,7 @@ under the `distro addition` label is encouraged.
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
 | [Slackware Linux](https://www.slackware.com) | 15.0 |
 | [Solus](https://getsol.us) | 4.4 |
-| [Tails](https://tails.net) | 5.19 |
+| [Tails](https://tails.net) | 5.19.1 |
 | [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial) <br> 14.04.6 LTS (trusty) |
 | [Void Linux](https://voidlinux.org) | 20230628 |
 | [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.0.4.5 (virtualbox) |
