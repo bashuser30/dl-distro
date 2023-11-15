@@ -3,148 +3,224 @@
 		"copyright": "Copyright (C) 2023 bashuser30 <bashuser30 at mailbox dot org>",
 		"url": "https://codeberg.org/bashuser30/dl-distro/src/branch/master/LICENSE"
 	},
+	"gpg_keys": {
+		"alma_8": "5E9B8F5617B5066CE92057C3488FCF7C3ABB34F8",
+		"alma_9": "BF18AC2876178908D6E71267D36CB86CB86B3716",
+		"alpine": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
+		"arch": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
+		"debian": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
+		"fedora_38": "6A51BBABBA3D5467B6171221809A8D7CEB10B464",
+		"fedora_39": "E8F23996F23218640CB44CBE75CF5AC418B8E74C",
+		"gparted": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
+		"kali": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
+		"mint": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
+		"opensuse": "AD485664E901B867051AB15F35A2F86E29B700A4",
+		"parrot": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
+		"qubes": "5817A43B283DE5A9181A522E1848792F9E2795E9",
+		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+		"solus": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
+		"tails": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
+		"ubuntu": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
+		"ubuntu_trusty": "C5986B4F1257FFA86632CBA746181433FBB75451",
+		"whonix_qemu": "04EF2F666D36C354058B9DD450C78B6F9FF2EC85",
+		"whonix_vbox": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA"
+	},
+	"sum_algos": {
+		"alma": "sha256sum",
+		"alpine": "sha256sum",
+		"arch": "b2sum",
+		"debian": "sha512sum",
+		"fedora": "sha256sum",
+		"gparted": "sha256sum",
+		"kali": "sha256sum",
+		"mint": "sha256sum",
+		"openbsd": "sha256sum",
+		"opensuse": "sha256sum",
+		"parrot": "sha512sum",
+		"qubes": "sha512sum",
+		"slackware": "md5sum",
+		"solus": "sha256sum",
+		"tails": "null",
+		"ubuntu": "sha256sum",
+		"void": "sha256sum",
+		"whonix": "sha512sum"
+	},
+	"signify_keys": {
+		"openbsd": "https://cdn.openbsd.org/pub/OpenBSD/7.4/openbsd-74-base.pub"
+	},
+	"minisign_keys": {
+		"void": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20230628.pub"
+	},
+	"oddballs": {
+		"gparted": {"sig_sum_url": "https://gparted.org/gparted-live/stable"}
+	},
 	"alma": {
-		"sig_file": "CHECKSUM",
-		"sum_file": "CHECKSUM",
-		"sum_algo": "sha256sum",
-		"almalinux 9": {
-			"gpg_key": "BF18AC2876178908D6E71267D36CB86CB86B3716",
+		"alma_9": {
 			"x86_64": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
-						"iso_file": "AlmaLinux-9.3-x86_64-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
-						"iso_file": "AlmaLinux-9.3-x86_64-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
-						"iso_file": "AlmaLinux-9.3-x86_64-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
+					"iso_file": "AlmaLinux-9.3-x86_64-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
+					"iso_file": "AlmaLinux-9.3-x86_64-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/x86_64",
+					"iso_file": "AlmaLinux-9.3-x86_64-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"aarch64": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
-						"iso_file": "AlmaLinux-9.3-aarch64-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
-						"iso_file": "AlmaLinux-9.3-aarch64-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
-						"iso_file": "AlmaLinux-9.3-aarch64-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
+					"iso_file": "AlmaLinux-9.3-aarch64-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
+					"iso_file": "AlmaLinux-9.3-aarch64-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/aarch64",
+					"iso_file": "AlmaLinux-9.3-aarch64-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"s390x": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
-						"iso_file": "AlmaLinux-9.3-s390x-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
-						"iso_file": "AlmaLinux-9.3-s390x-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
-						"iso_file": "AlmaLinux-9.3-s390x-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
+					"iso_file": "AlmaLinux-9.3-s390x-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
+					"iso_file": "AlmaLinux-9.3-s390x-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/s390x",
+					"iso_file": "AlmaLinux-9.3-s390x-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"ppc64le": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
-						"iso_file": "AlmaLinux-9.3-ppc64le-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
-						"iso_file": "AlmaLinux-9.3-ppc64le-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
-						"iso_file": "AlmaLinux-9.3-ppc64le-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
+					"iso_file": "AlmaLinux-9.3-ppc64le-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
+					"iso_file": "AlmaLinux-9.3-ppc64le-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/9.3/isos/ppc64le",
+					"iso_file": "AlmaLinux-9.3-ppc64le-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			}
 		},
-		"almalinux 8": {
-			"gpg_key": "5E9B8F5617B5066CE92057C3488FCF7C3ABB34F8",
+		"alma_8": {
 			"x86_64": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
-						"iso_file": "AlmaLinux-8.8-x86_64-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
-						"iso_file": "AlmaLinux-8.8-x86_64-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
-						"iso_file": "AlmaLinux-8.8-x86_64-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
+					"iso_file": "AlmaLinux-8.8-x86_64-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
+					"iso_file": "AlmaLinux-8.8-x86_64-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
+					"iso_file": "AlmaLinux-8.8-x86_64-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"aarch64": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
-						"iso_file": "AlmaLinux-8.8-aarch64-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
-						"iso_file": "AlmaLinux-8.8-aarch64-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
-						"iso_file": "AlmaLinux-8.8-aarch64-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
+					"iso_file": "AlmaLinux-8.8-aarch64-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
+					"iso_file": "AlmaLinux-8.8-aarch64-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
+					"iso_file": "AlmaLinux-8.8-aarch64-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"s390x": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
-						"iso_file": "AlmaLinux-8.8-s390x-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
-						"iso_file": "AlmaLinux-8.8-s390x-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
-						"iso_file": "AlmaLinux-8.8-s390x-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
+					"iso_file": "AlmaLinux-8.8-s390x-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
+					"iso_file": "AlmaLinux-8.8-s390x-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
+					"iso_file": "AlmaLinux-8.8-s390x-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"ppc64le": {
-				"isos": {
-					"dvd": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
-						"iso_file": "AlmaLinux-8.8-ppc64le-dvd.iso"
-					},
-					"boot": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
-						"iso_file": "AlmaLinux-8.8-ppc64le-boot.iso"
-					},
-					"minimal": {
-						"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
-						"iso_file": "AlmaLinux-8.8-ppc64le-minimal.iso"
-					}
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
+					"iso_file": "AlmaLinux-8.8-ppc64le-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
+					"iso_file": "AlmaLinux-8.8-ppc64le-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
+					"iso_file": "AlmaLinux-8.8-ppc64le-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
 				}
 			}
 		}
 	},
 	"alpine": {
-		"gpg_key": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
-		"sum_algo": "sha256sum",
 		"standard": {
 			"aarch64": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
@@ -241,7 +317,7 @@
 				"sum_file": "alpine-netboot-3.18.4-x86_64.tar.gz.sha256"
 			}
 		},
-		"raspberry pi": {
+		"rpi": {
 			"aarch64": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
 				"iso_file": "alpine-rpi-3.18.4-aarch64.tar.gz",
@@ -261,7 +337,7 @@
 				"sum_file": "alpine-rpi-3.18.4-armv7.tar.gz.sha256"
 			}
 		},
-		"generic arm": {
+		"uboot": {
 			"aarch64": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
 				"iso_file": "alpine-uboot-3.18.4-aarch64.tar.gz",
@@ -275,7 +351,7 @@
 				"sum_file": "alpine-uboot-3.18.4-armv7.tar.gz.sha256"
 			}
 		},
-		"mini root filesystem": {
+		"minirootfs": {
 			"aarch64": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64",
 				"iso_file": "alpine-minirootfs-3.18.4-aarch64.tar.gz",
@@ -346,103 +422,127 @@
 			}
 		},
 		"xen": {
-			"x86_64": {
-				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
-				"iso_file": "alpine-xen-3.18.4-x86_64.iso",
-				"sig_file": "alpine-xen-3.18.4-x86_64.iso.asc",
-				"sum_file": "alpine-xen-3.18.4-x86_64.iso.sha256"
-			}
+			"url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64",
+			"iso_file": "alpine-xen-3.18.4-x86_64.iso",
+			"sig_file": "alpine-xen-3.18.4-x86_64.iso.asc",
+			"sum_file": "alpine-xen-3.18.4-x86_64.iso.sha256"
 		}
 	},
 	"arch": {
-		"gpg_key": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
 		"url": "https://geo.mirror.pkgbuild.com/iso/2023.11.01",
 		"iso_file": "archlinux-2023.11.01-x86_64.iso",
 		"sig_file": "archlinux-2023.11.01-x86_64.iso.sig",
-		"sum_file": "b2sums.txt",
-		"sum_algo": "b2sum"
+		"sum_file": "b2sums.txt"
 	},
 	"debian": {
-		"gpg_key": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
-		"sig_file": "SHA512SUMS.sign",
-		"sum_file": "SHA512SUMS",
-		"sum_algo": "sha512sum",
 		"netinst": {
 			"amd64": {
 				"url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd",
-				"iso_file": "debian-12.2.0-amd64-netinst.iso"
+				"iso_file": "debian-12.2.0-amd64-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"arm64": {
 				"url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd",
-				"iso_file": "debian-12.2.0-arm64-netinst.iso"
+				"iso_file": "debian-12.2.0-arm64-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"armel": {
 				"url": "https://cdimage.debian.org/debian-cd/current/armel/iso-cd",
-				"iso_file": "debian-12.2.0-armel-netinst.iso"
+				"iso_file": "debian-12.2.0-armel-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"armhf": {
 				"url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd",
-				"iso_file": "debian-12.2.0-armhf-netinst.iso"
+				"iso_file": "debian-12.2.0-armhf-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"i386": {
 				"url": "https://cdimage.debian.org/debian-cd/current/i386/iso-cd",
-				"iso_file": "debian-12.2.0-i386-netinst.iso"
+				"iso_file": "debian-12.2.0-i386-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"mips64el": {
 				"url": "https://cdimage.debian.org/debian-cd/current/mips64el/iso-cd",
-				"iso_file": "debian-12.2.0-mips64el-netinst.iso"
+				"iso_file": "debian-12.2.0-mips64el-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"mipsel": {
 				"url": "https://cdimage.debian.org/debian-cd/current/mipsel/iso-cd",
-				"iso_file": "debian-12.2.0-mipsel-netinst.iso"
+				"iso_file": "debian-12.2.0-mipsel-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"ppc64el": {
 				"url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd",
-				"iso_file": "debian-12.2.0-ppc64el-netinst.iso"
+				"iso_file": "debian-12.2.0-ppc64el-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"s390x": {
 				"url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd",
-				"iso_file": "debian-12.2.0-s390x-netinst.iso"
+				"iso_file": "debian-12.2.0-s390x-netinst.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			}
 		},
 		"live": {
 			"cinnamon": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-cinnamon.iso"
+				"iso_file": "debian-live-12.2.0-amd64-cinnamon.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"gnome": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-gnome.iso"
+				"iso_file": "debian-live-12.2.0-amd64-gnome.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"kde": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-kde.iso"
+				"iso_file": "debian-live-12.2.0-amd64-kde.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"lxde": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-lxde.iso"
+				"iso_file": "debian-live-12.2.0-amd64-lxde.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"lxqt": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-lxqt.iso"
+				"iso_file": "debian-live-12.2.0-amd64-lxqt.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"mate": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-mate.iso"
+				"iso_file": "debian-live-12.2.0-amd64-mate.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"standard": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-standard.iso"
+				"iso_file": "debian-live-12.2.0-amd64-standard.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			},
 			"xfce": {
 				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-12.2.0-amd64-xfce.iso"
+				"iso_file": "debian-live-12.2.0-amd64-xfce.iso",
+				"sig_file": "SHA512SUMS.sign",
+				"sum_file": "SHA512SUMS"
 			}
 		}
 	},
 	"fedora": {
-		"gpg_key": "E8F23996F23218640CB44CBE75CF5AC418B8E74C",
-		"sum_algo": "sha256sum",
 		"workstation": {
 			"x86_64": {
 				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Workstation/x86_64/iso",
@@ -609,19 +709,19 @@
 					"sig_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM"
 				},
-				"compressed image": {
+				"compressed_image": {
 					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images",
 					"iso_file": "Fedora-Cloud-Base-GCP-39-1.5.x86_64.tar.gz",
 					"sig_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM"
 				},
-				"vagrant libvirt": {
+				"vagrant_libvirt": {
 					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images",
-					"iso_file": "/Fedora-Cloud-Base-Vagrant-39-1.5.x86_64.vagrant-libvirt.box",
+					"iso_file": "Fedora-Cloud-Base-Vagrant-39-1.5.x86_64.vagrant-libvirt.box",
 					"sig_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM"
 				},
-				"vagrant virtualbox": {
+				"vagrant_virtualbox": {
 					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Cloud/x86_64/images",
 					"iso_file": "Fedora-Cloud-Base-Vagrant-39-1.5.x86_64.vagrant-virtualbox.box",
 					"sig_file": "Fedora-Cloud-39-1.5-x86_64-CHECKSUM",
@@ -718,20 +818,16 @@
 			}
 		},
 		"sericea": {
-			"x86_64": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Sericea/x86_64",
-				"iso_file": "Fedora-Sericea-ostree-x86_64-39-1.5-respin.iso",
-				"sig_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM"
-			}
+			"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Sericea/x86_64",
+			"iso_file": "Fedora-Sericea-ostree-x86_64-39-1.5-respin.iso",
+			"sig_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM",
+			"sum_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM"
 		},
 		"onyx": {
-			"x86_64": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Onyx/x86_64",
-				"iso_file": "Fedora-Onyx-ostree-x86_64-39-1.5-respin.iso",
-				"sig_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM"
-			}
+			"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Onyx/x86_64",
+			"iso_file": "Fedora-Onyx-ostree-x86_64-39-1.5-respin.iso",
+			"sig_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM",
+			"sum_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM"
 		},
 		"spins": {
 			"budgie": {
@@ -864,13 +960,13 @@
 				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
 				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
 			},
-			"comp neuro": {
+			"comp_neuro": {
 				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
 				"iso_file": "Fedora-Comp_Neuro-Live-x86_64-39-1.5.iso",
 				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 			},
-			"design suite": {
+			"design_suite": {
 				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
 				"iso_file": "Fedora-Design_suite-Live-x86_64-39-1.5.iso",
 				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
@@ -888,27 +984,27 @@
 				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 				"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 			},
-			"python classroom": {
+			"python_classroom": {
 				"iso": {
 					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
 					"iso_file": "Fedora-Python-Classroom-Live-x86_64-39-1.5.iso",
 					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 				},
-				"vagrant libvirt" : {
+				"vagrant_libvirt" : {
 					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
 					"iso_file": "Fedora-Python-Classroom-Vagrant-39-1.5.x86_64.vagrant-libvirt.box",
 					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 				},
-				"vagrant virtualbox": {
+				"vagrant_virtualbox": {
 					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
 					"iso_file": "Fedora-Python-Classroom-Vagrant-39-1.5.x86_64.vagrant-virtualbox.box",
 					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 				}
 			},
-			"robotics": {
+			"robotics_suite": {
 				"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/iso",
 				"iso_file": "Fedora-Robotics-Live-x86_64-39-1.5.iso",
 				"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
@@ -921,24 +1017,18 @@
 					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 				},
-				"vagrant libvirt": {
+				"vagrant_libvirt": {
 					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
 					"iso_file": "Fedora-Scientific-Vagrant-39-1.5.x86_64.vagrant-libvirt.box",
 					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 				},
-				"vagrant virtualbox": {
+				"vagrant_virtualbox": {
 					"url": "https://download.fedoraproject.org/pub/alt/releases/39/Labs/x86_64/images",
 					"iso_file": "Fedora-Scientific-Vagrant-39-1.5.x86_64.vagrant-virtualbox.box",
 					"sig_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM",
 					"sum_file": "Fedora-Labs-39-1.5-x86_64-CHECKSUM"
 				}
-			},
-			"security": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/38/Labs/x86_64/iso",
-				"iso_file": "Fedora-Security-Live-x86_64-38-1.6.iso",
-				"sig_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-38-1.6-x86_64-CHECKSUM"
 			}
 		},
 		"everything": {
@@ -967,7 +1057,7 @@
 				"sum_file": "Fedora-Everything-39-1.5-s390x-CHECKSUM"
 			}
 		},
-		"minimal aarch64": {
+		"minimal": {
 			"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Spins/aarch64/images",
 			"iso_file": "Fedora-Minimal-39-1.5.aarch64.raw.xz",
 			"sig_file": "Fedora-Spins-39-1.5-aarch64-CHECKSUM",
@@ -995,318 +1085,562 @@
 		}
 	},
 	"gparted": {
-		"gpg_key": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
-		"url": "https://downloads.sourceforge.net/gparted",
-		"sig_file": "CHECKSUMS.TXT.gpg",
-		"sum_file": "CHECKSUMS.TXT",
-		"sum_algo": "sha256sum",
 		"amd64": {
-			"iso": {"iso_file": "gparted-live-1.5.0-6-amd64.iso"},
-			"zip": {"iso_file": "gparted-live-1.5.0-6-amd64.zip"}
+			"iso": {
+				"url": "https://downloads.sourceforge.net/gparted",
+				"iso_file": "gparted-live-1.5.0-6-amd64.iso",
+				"sig_file": "CHECKSUMS.TXT.gpg",
+				"sum_file": "CHECKSUMS.TXT"
+			},
+			"zip": {
+				"url": "https://downloads.sourceforge.net/gparted",
+				"iso_file": "gparted-live-1.5.0-6-amd64.zip",
+				"sig_file": "CHECKSUMS.TXT.gpg",
+				"sum_file": "CHECKSUMS.TXT"
+			}
 		},
 		"i686": {
-			"iso": {"iso_file": "gparted-live-1.5.0-6-i686.iso"},
-			"zip": {"iso_file": "gparted-live-1.5.0-6-i686.zip"}
+			"iso": {
+				"url": "https://downloads.sourceforge.net/gparted",
+				"iso_file": "gparted-live-1.5.0-6-i686.iso",
+				"sig_file": "CHECKSUMS.TXT.gpg",
+				"sum_file": "CHECKSUMS.TXT"
+			},
+			"zip": {
+				"url": "https://downloads.sourceforge.net/gparted",
+				"iso_file": "gparted-live-1.5.0-6-i686.zip",
+				"sig_file": "CHECKSUMS.TXT.gpg",
+				"sum_file": "CHECKSUMS.TXT"
+			}
 		},
-		"i686-pae": {
-			"iso": {"iso_file": "gparted-live-1.5.0-6-i686-pae.iso"},
-			"zip": {"iso_file": "gparted-live-1.5.0-6-i686-pae.zip"}
+		"i686_pae": {
+			"iso": {
+				"url": "https://downloads.sourceforge.net/gparted",
+				"iso_file": "gparted-live-1.5.0-6-i686-pae.iso",
+				"sig_file": "CHECKSUMS.TXT.gpg",
+				"sum_file": "CHECKSUMS.TXT"
+			},
+			"zip": {
+				"url": "https://downloads.sourceforge.net/gparted",
+				"iso_file": "gparted-live-1.5.0-6-i686-pae.zip",
+				"sig_file": "CHECKSUMS.TXT.gpg",
+				"sum_file": "CHECKSUMS.TXT"
+			}
 		}
 	},
 	"kali": {
-		"gpg_key": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
-		"sig_file": "SHA256SUMS.gpg",
-		"sum_file": "SHA256SUMS",
-		"sum_algo": "sha256sum",
 		"current": {
-			"url": "https://cdimage.kali.org/current",
 			"live": {
-				"amd64": {"iso_file": "kali-linux-2023.3-live-amd64.iso"},
-				"arm64": {"iso_file": "kali-linux-2023.3-live-arm64.iso"},
-				"i386": {"iso_file": "kali-linux-2023.3-live-i386.iso"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-live-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-live-arm64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-live-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"qemu": {
-				"amd64": {"iso_file": "kali-linux-2023.3-qemu-amd64.7z"},
-				"i386": {"iso_file": "kali-linux-2023.3-qemu-i386.7z"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-qemu-amd64.7z",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-qemu-i386.7z",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"virtualbox": {
-				"amd64": {"iso_file": "kali-linux-2023.3-virtualbox-amd64.7z"},
-				"i386": {"iso_file": "kali-linux-2023.3-virtualbox-i386.7z"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-virtualbox-amd64.7z",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-virtualbox-i386.7z",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"vmware": {
-				"amd64": {"iso_file": "kali-linux-2023.3-vmware-amd64.7z"},
-				"i386": {"iso_file": "kali-linux-2023.3-vmware-i386.7z"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-vmware-amd64.7z",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-vmware-i386.7z",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"hyperv": {
-				"amd64": {"iso_file": "kali-linux-2023.3a-hyperv-amd64.7z"}
+				"url": "https://cdimage.kali.org/current",
+				"iso_file": "kali-linux-2023.3a-hyperv-amd64.7z",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			},
 			"installer": {
-				"amd64": {"iso_file": "kali-linux-2023.3-installer-amd64.iso"},
-				"arm64": {"iso_file": "kali-linux-2023.3-installer-arm64.iso"},
-				"i386": {"iso_file": "kali-linux-2023.3-installer-i386.iso"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-installer-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-installer-arm64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-installer-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"netinst": {
-				"amd64": {"iso_file": "kali-linux-2023.3-installer-netinst-amd64.iso"},
-				"arm64": {"iso_file": "kali-linux-2023.3-installer-netinst-arm64.iso"},
-				"i386": {"iso_file": "kali-linux-2023.3-installer-netinst-i386.iso"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-installer-netinst-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-installer-netinst-arm64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/current",
+					"iso_file": "kali-linux-2023.3-installer-netinst-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"purple": {
-				"amd64": {"iso_file": "kali-linux-2023.3-installer-purple-amd64.iso"}
+				"url": "https://cdimage.kali.org/current",
+				"iso_file": "kali-linux-2023.3-installer-purple-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			}
 		},
 		"weekly": {
-			"url": "https://cdimage.kali.org/kali-weekly",
 			"live": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-amd64.iso"},
-				"arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-live-arm64.iso"},
-				"i386": {"iso_file": "kali-linux-2023-W{current_week_num}-live-i386.iso"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-live-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-live-arm64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-live-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"qemu": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-qemu-amd64.7z"}
+				"url": "https://cdimage.kali.org/kali-weekly",
+				"iso_file": "kali-linux-2023-W{current_week_num}-qemu-amd64.7z",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			},
 			"virtualbox": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-virtualbox-amd64.7z"}
+				"url": "https://cdimage.kali.org/kali-weekly",
+				"iso_file": "kali-linux-2023-W{current_week_num}-virtualbox-amd64.7z",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			},
 			"vmware": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-vmware-amd64.7z"}
+				"url": "https://cdimage.kali.org/kali-weekly",
+				"iso_file": "kali-linux-2023-W{current_week_num}-vmware-amd64.7z",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			},
 			"hyperv": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-hyperv-amd64.7z"}
+				"url": "https://cdimage.kali.org/kali-weekly",
+				"iso_file": "kali-linux-2023-W{current_week_num}-hyperv-amd64.7z",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			},
 			"installer": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-amd64.iso"},
-				"arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-arm64.iso"},
-				"i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-i386.iso"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-installer-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-installer-arm64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-installer-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"netinst": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-amd64.iso"},
-				"arm64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-arm64.iso"},
-				"i386": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-i386.iso"}
+				"amd64": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-arm64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"i386": {
+					"url": "https://cdimage.kali.org/kali-weekly",
+					"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"purple": {
-				"amd64": {"iso_file": "kali-linux-2023-W{current_week_num}-installer-purple-amd64.iso"}
+				"url": "https://cdimage.kali.org/kali-weekly",
+				"iso_file": "kali-linux-2023-W{current_week_num}-installer-purple-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
 			}
 		}
 	},
 	"mint": {
-		"gpg_key": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
-		"sig_file": "sha256sum.txt.gpg",
-		"sum_file": "sha256sum.txt",
-		"sum_algo": "sha256sum",
 		"mint": {
 			"cinnamon": {
 				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-				"iso_file": "linuxmint-21.2-cinnamon-64bit.iso"
+				"iso_file": "linuxmint-21.2-cinnamon-64bit.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			},
 			"mate": {
 				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-				"iso_file": "linuxmint-21.2-mate-64bit.iso"
+				"iso_file": "linuxmint-21.2-mate-64bit.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			},
 			"xfce": {
 				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-				"iso_file": "linuxmint-21.2-xfce-64bit.iso"
+				"iso_file": "linuxmint-21.2-xfce-64bit.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			},
 			"edge": {
 				"url": "https://mirrors.layeronline.com/linuxmint/stable/21.2",
-				"iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso"
+				"iso_file": "linuxmint-21.2-cinnamon-64bit-edge.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			}
 		},
-		"debian edition": {
-			"64-bit": {
+		"lmde": {
+			"x86_64": {
 				"url": "https://mirrors.layeronline.com/linuxmint/debian",
-				"iso_file": "lmde-6-cinnamon-64bit.iso"
+				"iso_file": "lmde-6-cinnamon-64bit.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			},
-			"32-bit": {
+			"x86": {
 				"url": "https://mirrors.layeronline.com/linuxmint/debian",
-				"iso_file": "lmde-6-cinnamon-32bit.iso"
+				"iso_file": "lmde-6-cinnamon-32bit.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			}
 		}
 	},
 	"openbsd": {
-		"gpg_key": "https://cdn.openbsd.org/pub/OpenBSD/7.4/openbsd-74-base.pub",
-		"sum_algo": "sha256sum",
-		"sig_file": "SHA256.sig",
-		"sum_file": "SHA256",
-		"img with file sets": {
+		"img_with_file_sets": {
 			"amd64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"arm64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"i386": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"octeon": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"powerpc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"riscv64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"sparc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-				"iso_file": "install74.img"
+				"iso_file": "install74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			}
 		},
-		"img without file sets": {
+		"img_without_file_sets": {
 			"alpha": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"amd64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"arm64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/arm64",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"armv7": {
 				"am335x": {
 					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-					"iso_file": "miniroot-am335x-74.img"
+					"iso_file": "miniroot-am335x-74.img",
+					"sig_file": "SHA256.sig",
+					"sum_file": "SHA256"
 				},
 				"cubie": {
 					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-					"iso_file": "miniroot-cubie-74.img"
+					"iso_file": "miniroot-cubie-74.img",
+					"sig_file": "SHA256.sig",
+					"sum_file": "SHA256"
 				},
 				"cubox": {
 					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-					"iso_file": "miniroot-cubox-74.img"
+					"iso_file": "miniroot-cubox-74.img",
+					"sig_file": "SHA256.sig",
+					"sum_file": "SHA256"
 				},
 				"nitrogen": {
 					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-					"iso_file": "miniroot-nitrogen-74.img"
+					"iso_file": "miniroot-nitrogen-74.img",
+					"sig_file": "SHA256.sig",
+					"sum_file": "SHA256"
 				},
 				"panda": {
 					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-					"iso_file": "miniroot-panda-74.img"
+					"iso_file": "miniroot-panda-74.img",
+					"sig_file": "SHA256.sig",
+					"sum_file": "SHA256"
 				},
 				"wandboard": {
 					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/armv7",
-					"iso_file": "miniroot-wandboard-74.img"
+					"iso_file": "miniroot-wandboard-74.img",
+					"sig_file": "SHA256.sig",
+					"sum_file": "SHA256"
 				}
 			},
 			"i386": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"landisk": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/landisk",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"loongson": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"luna88k": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/luna88k",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"octeon": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/octeon",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"powerpc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"riscv64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/riscv64",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"sparc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-				"iso_file": "miniroot74.img"
+				"iso_file": "miniroot74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			}
 		},
-		"iso with file sets": {
+		"iso_with_file_sets": {
 			"alpha": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"amd64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"hppa": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"i386": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"macppc": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"powerpc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/powerpc64",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"sparc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-				"iso_file": "install74.iso"
+				"iso_file": "install74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			}
 		},
-		"iso without file sets": {
+		"iso_without_file_sets": {
 			"alpha": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/alpha",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"amd64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"hppa": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/hppa",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"i386": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"loongson": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"macppc": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"sparc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-				"iso_file": "cd74.iso"
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			}
 		},
 		"floppy": {
 			"amd64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/amd64",
-				"iso_file": "floppy74.img"
+				"iso_file": "floppy74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"i386": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-				"iso_file": "floppy74.img"
+				"iso_file": "floppy74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			},
 			"sparc64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/sparc64",
-				"iso_file": "floppy74.img"
+				"iso_file": "floppy74.img",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
 			}
 		}
 	},
 	"opensuse": {
-		"gpg_key": "AD485664E901B867051AB15F35A2F86E29B700A4",
-		"sum_algo": "sha256sum",
 		"leap": {
 			"dvd": {
 				"x86_64": {
@@ -1389,12 +1723,10 @@
 				}
 			},
 			"vmware": {
-				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-				}
+				"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
+				"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
+				"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+				"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
 			},
 			"cloud": {
 				"x86_64": {
@@ -1517,12 +1849,10 @@
 				}
 			},
 			"vmware": {
-				"x86_64": {
-					"url": "https://download.opensuse.org/tumbleweed/appliances",
-					"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
-					"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-				}
+				"url": "https://download.opensuse.org/tumbleweed/appliances",
+				"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
+				"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+				"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
 			},
 			"cloud": {
 				"x86_64": {
@@ -1541,62 +1871,123 @@
 		}
 	},
 	"parrot" : {
-		"gpg_key": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
-		"url": "https://deb.parrot.sh/parrot/iso/current",
-		"sig_file": "signed-hashes.txt",
-		"sum_file": "signed-hashes.txt",
-		"sum_algo": "sha512sum",
 		"security": {
-			"iso": {"iso_file": "Parrot-security-5.3_amd64.iso"},
-			"virtualbox": {"iso_file": "Parrot-security-5.3_amd64.ova"},
-			"utm": {"iso_file": "Parrot-security-5.3_arm64.utm.zip"}
+			"iso": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-security-5.3_amd64.iso",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			},
+			"virtualbox": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-security-5.3_amd64.ova",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			},
+			"utm": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-security-5.3_arm64.utm.zip",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			}
 		},
 		"home": {
-			"iso": {"iso_file": "Parrot-home-5.3_amd64.iso"},
-			"virtualbox": {"iso_file": "Parrot-home-5.3_amd64.ova"},
-			"utm": {"iso_file": "Parrot-home-5.3_arm64.utm.zip"}
+			"iso": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-home-5.3_amd64.iso",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			},
+			"virtualbox": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-home-5.3_amd64.ova",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			},
+			"utm": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-home-5.3_arm64.utm.zip",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			}
 		},
-		"hack the box": {
-			"iso": {"iso_file": "Parrot-htb-5.3_amd64.iso"}
+		"hack_the_box": {
+			"url": "https://deb.parrot.sh/parrot/iso/current",
+			"iso_file": "Parrot-htb-5.3_amd64.iso",
+			"sig_file": "signed-hashes.txt",
+			"sum_file": "signed-hashes.txt"
 		},
 		"architect": {
-			"arm64": {"iso_file": "Parrot-architect-5.3_arm64.iso"},
-			"amd64": {"iso_file": "Parrot-architect-5.3_amd64.iso"},
-			"i386": {"iso_file": "Parrot-architect-5.3_i386.iso"}
+			"arm64": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-architect-5.3_arm64.iso",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			},
+			"amd64": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-architect-5.3_amd64.iso",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			},
+			"i386": {
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-architect-5.3_i386.iso",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
+			}
 		},
-		"raspberry pi": {
+		"rpi": {
 			"core": {
-				"armhf": {"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz"},
-				"arm64": {"iso_file": "Parrot-core-rpi-5.3_arm64.img.xz"}
+				"armhf": {
+					"url": "https://deb.parrot.sh/parrot/iso/current",
+					"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz",
+					"sig_file": "signed-hashes.txt",
+					"sum_file": "signed-hashes.txt"
+				},
+				"arm64": {
+					"url": "https://deb.parrot.sh/parrot/iso/current",
+					"iso_file": "Parrot-core-rpi-5.3_arm64.img.xz",
+					"sig_file": "signed-hashes.txt",
+					"sum_file": "signed-hashes.txt"
+				}
 			},
 			"home": {
-				"armhf": {"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz"},
-				"arm64": {"iso_file": "Parrot-home-rpi-5.3_arm64.img.xz"}
+				"armhf": {
+					"url": "https://deb.parrot.sh/parrot/iso/current",
+					"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz",
+					"sig_file": "signed-hashes.txt",
+					"sum_file": "signed-hashes.txt"
+				},
+				"arm64": {
+					"url": "https://deb.parrot.sh/parrot/iso/current",
+					"iso_file": "Parrot-home-rpi-5.3_arm64.img.xz",
+					"sig_file": "signed-hashes.txt",
+					"sum_file": "signed-hashes.txt"
+				}
 			},
 			"security": {
-				"armhf": {"iso_file": "Parrot-security-rpi-5.3_armhf.img.xz"},
-				"arm64": {"iso_file": "Parrot-security-rpi-5.3_arm64.img.xz"}
+				"url": "https://deb.parrot.sh/parrot/iso/current",
+				"iso_file": "Parrot-security-rpi-5.3_arm64.img.xz",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
 			}
 		}
 	},
 	"qubes" : {
-		"gpg_key": "5817A43B283DE5A9181A522E1848792F9E2795E9",
 		"url": "https://ftp.qubes-os.org/iso",
 		"iso_file": "Qubes-R4.1.2-x86_64.iso",
 		"sig_file": "Qubes-R4.1.2-x86_64.iso.asc",
-		"sum_file": "Qubes-R4.1.2-x86_64.iso.DIGESTS",
-		"sum_algo": "sha512sum"
+		"sum_file": "Qubes-R4.1.2-x86_64.iso.DIGESTS"
 	},
 	"slackware": {
-		"gpg_key": "EC5649DA401E22ABFA6736EF6A4463C040102233",
-		"sum_algo": "md5sum",
-		"64-bit": {
+		"x86_64": {
 			"url": "https://mirrors.slackware.com/slackware/slackware-iso/slackware64-15.0-iso",
 			"iso_file": "slackware64-15.0-install-dvd.iso",
 			"sig_file": "slackware64-15.0-install-dvd.iso.asc",
 			"sum_file": "slackware64-15.0-install-dvd.iso.md5"
 		},
-		"32-bit": {
+		"x86": {
 			"url": "https://mirrors.slackware.com/slackware/slackware-iso/slackware-15.0-iso",
 			"iso_file": "slackware-15.0-install-dvd.iso",
 			"sig_file": "slackware-15.0-install-dvd.iso.asc",
@@ -1604,202 +1995,403 @@
 		}
 	},
 	"solus": {
-		"gpg_key": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
-		"url": "https://downloads.getsol.us/isos/4.4",
-		"sum_algo": "sha256sum",
 		"budgie": {
+			"url": "https://downloads.getsol.us/isos/4.4",
 			"iso_file": "Solus-4.4-Budgie.iso",
 			"sig_file": "Solus-4.4-Budgie.iso.sha256sum.sign",
 			"sum_file": "Solus-4.4-Budgie.iso.sha256sum"
 		},
 		"gnome": {
+			"url": "https://downloads.getsol.us/isos/4.4",
 			"iso_file": "Solus-4.4-GNOME.iso",
 			"sig_file": "Solus-4.4-GNOME.iso.sha256sum.sign",
 			"sum_file": "Solus-4.4-GNOME.iso.sha256sum"
 		},
 		"mate": {
+			"url": "https://downloads.getsol.us/isos/4.4",
 			"iso_file": "Solus-4.4-MATE.iso",
 			"sig_file": "Solus-4.4-MATE.iso.sha256sum.sign",
 			"sum_file": "Solus-4.4-MATE.iso.sha256sum"
 		},
 		"plasma": {
+			"url": "https://downloads.getsol.us/isos/4.4",
 			"iso_file": "Solus-4.4-Plasma.iso",
 			"sig_file": "Solus-4.4-Plasma.iso.sha256sum.sign",
 			"sum_file": "Solus-4.4-Plasma.iso.sha256sum"
 		}
 	},
 	"tails": {
-		"gpg_key": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
-		"url": "https://download.tails.net/tails/stable/tails-amd64-5.19.1",
 		"usb": {
+			"url": "https://download.tails.net/tails/stable/tails-amd64-5.19.1",
 			"iso_file": "tails-amd64-5.19.1.img",
-			"sig_file": "tails-amd64-5.19.1.img.sig"
+			"sig_file": "tails-amd64-5.19.1.img.sig",
+			"sum_file": "null"
 		},
-		"dvd/vm": {
+		"vm": {
+			"url": "https://download.tails.net/tails/stable/tails-amd64-5.19.1",
 			"iso_file": "tails-amd64-5.19.1.iso",
-			"sig_file": "tails-amd64-5.19.1.iso.sig"
-		},
-		"sum_file": "",
-		"sum_algo": ""
+			"sig_file": "tails-amd64-5.19.1.iso.sig",
+			"sum_file": "null"
+		}
 	},
 	"ubuntu": {
-		"gpg_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
-		"sig_file": "SHA256SUMS.gpg",
-		"sum_file": "SHA256SUMS",
-		"sum_algo": "sha256sum",
 		"mantic": {
-			"url": "https://releases.ubuntu.com/mantic",
-			"server": {"iso_file": "ubuntu-23.10-live-server-amd64.iso"},
-			"desktop": {"iso_file": "ubuntu-23.10.1-desktop-amd64.iso"},
-			"netboot tarball": {"iso_file": "ubuntu-23.10-netboot-amd64.tar.gz"}
+			"server": {
+				"url": "https://releases.ubuntu.com/mantic",
+				"iso_file": "ubuntu-23.10-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/mantic",
+				"iso_file": "ubuntu-23.10.1-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"netboot_tarball": {
+				"url": "https://releases.ubuntu.com/mantic",
+				"iso_file": "ubuntu-23.10-netboot-amd64.tar.gz",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		},
 		"lunar": {
-			"url": "https://releases.ubuntu.com/lunar",
-			"server": {"iso_file": "ubuntu-23.04-live-server-amd64.iso"},
-			"desktop": {"iso_file": "ubuntu-23.04-desktop-amd64.iso"},
-			"netboot tarball": {"iso_file": "ubuntu-23.04-netboot-amd64.tar.gz"}
+			"server": {
+				"url": "https://releases.ubuntu.com/lunar",
+				"iso_file": "ubuntu-23.04-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/lunar",
+				"iso_file": "ubuntu-23.04-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"netboot_tarball": {
+				"url": "https://releases.ubuntu.com/lunar",
+				"iso_file": "ubuntu-23.04-netboot-amd64.tar.gz",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		},
 		"jammy": {
-			"url": "https://releases.ubuntu.com/jammy",
-			"server": {"iso_file": "ubuntu-22.04.3-live-server-amd64.iso"},
-			"desktop": {"iso_file": "ubuntu-22.04.3-desktop-amd64.iso"}
+			"server": {
+				"url": "https://releases.ubuntu.com/jammy",
+				"iso_file": "ubuntu-22.04.3-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/jammy",
+				"iso_file": "ubuntu-22.04.3-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		},
 		"focal": {
-			"url": "https://releases.ubuntu.com/focal",
-			"server": {"iso_file": "ubuntu-20.04.6-live-server-amd64.iso"},
-			"desktop": {"iso_file": "ubuntu-20.04.6-desktop-amd64.iso"}	
+			"server": {
+				"url": "https://releases.ubuntu.com/focal",
+				"iso_file": "ubuntu-20.04.6-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/focal",
+				"iso_file": "ubuntu-20.04.6-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		},
 		"bionic": {
-			"url": "https://releases.ubuntu.com/bionic",
-			"server": {"iso_file": "ubuntu-18.04.6-live-server-amd64.iso"},
-			"desktop": {"iso_file": "ubuntu-18.04.6-desktop-amd64.iso"}
+			"server": {
+				"url": "https://releases.ubuntu.com/bionic",
+				"iso_file": "ubuntu-18.04.6-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/bionic",
+				"iso_file": "ubuntu-18.04.6-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		},
 		"xenial": {
-			"url": "https://releases.ubuntu.com/xenial",
 			"amd64": {
-				"server": {"iso_file": "ubuntu-16.04.7-server-amd64.iso"},
-				"desktop": {"iso_file": "ubuntu-16.04.7-desktop-amd64.iso"}
+				"server": {
+					"url": "https://releases.ubuntu.com/xenial",
+					"iso_file": "ubuntu-16.04.7-server-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"desktop": {
+					"url": "https://releases.ubuntu.com/xenial",
+					"iso_file": "ubuntu-16.04.7-desktop-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"i386": {
-				"server": {"iso_file": "ubuntu-16.04.6-server-i386.iso"},
-				"desktop": {"iso_file": "ubuntu-16.04.6-desktop-i386.iso"}
+				"server": {
+					"url": "https://releases.ubuntu.com/xenial",
+					"iso_file": "ubuntu-16.04.6-server-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"desktop": {
+					"url": "https://releases.ubuntu.com/xenial",
+					"iso_file": "ubuntu-16.04.6-desktop-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			}
 		},
 		"trusty": {
-			"url": "https://releases.ubuntu.com/trusty",
 			"amd64": {
-				"server": {"iso_file": "ubuntu-14.04.6-server-amd64.iso"},
-				"desktop": {"iso_file": "ubuntu-14.04.6-desktop-amd64.iso"}
+				"server": {
+					"url": "https://releases.ubuntu.com/trusty",
+					"iso_file": "ubuntu-14.04.6-server-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"desktop": {
+					"url": "https://releases.ubuntu.com/trusty",
+					"iso_file": "ubuntu-14.04.6-desktop-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			},
 			"i386": {
-				"server": {"iso_file": "ubuntu-14.04.6-server-i386.iso"},
-				"desktop": {"iso_file": "ubuntu-14.04.6-desktop-i386.iso"}
+				"server": {
+					"url": "https://releases.ubuntu.com/trusty",
+					"iso_file": "ubuntu-14.04.6-server-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				},
+				"desktop": {
+					"url": "https://releases.ubuntu.com/trusty",
+					"iso_file": "ubuntu-14.04.6-desktop-i386.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			}
 		}
 	},
 	"void": {
-		"gpg_key": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20230628.pub",
-		"url": "https://repo-default.voidlinux.org/live/current",
-		"sig_file": "sha256sum.sig",
-		"sum_file": "sha256sum.txt",
-		"sum_algo": "sha256sum",
 		"x86_64": {
 			"base": {
 				"live":{
-					"glibc": {"iso_file": "void-live-x86_64-20230628-base.iso"},
-					"musl": {"iso_file": "void-live-x86_64-musl-20230628-base.iso"}
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-live-x86_64-20230628-base.iso",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-live-x86_64-musl-20230628-base.iso",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				},
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-x86_64-ROOTFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-x86_64-musl-ROOTFS-20230628.tar.xz"}
+				"rootfs_tarball": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-x86_64-ROOTFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-x86_64-musl-ROOTFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				}
 			},
 			"xfce": {
-				"live": {
-					"glibc": {"iso_file": "void-live-x86_64-20230628-xfce.iso"},
-					"musl": {"iso_file": "void-live-x86_64-musl-20230628-xfce.iso"}
+				"glibc": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-live-x86_64-20230628-xfce.iso",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
+				},
+				"musl": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-live-x86_64-musl-20230628-xfce.iso",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
 				}
 			}
 		},
 		"i686": {
 			"base": {
 				"live": {
-					"glibc": {"iso_file": "void-live-i686-20230628-base.iso"}
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-live-i686-20230628-base.iso",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
 				},
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-i686-ROOTFS-20230628.tar.xz"}
+				"rootfs_tarball": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-i686-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
 				}
 			},
 			"xfce": {
-				"live": {
-					"glibc": {"iso_file": "void-live-i686-20230628-xfce.iso"}
-				}
+				"url": "https://repo-default.voidlinux.org/live/current",
+				"iso_file": "void-live-i686-20230628-xfce.iso",
+				"sig_file": "sha256sum.sig",
+				"sum_file": "sha256sum.txt"
 			}
 		},
 		"arm": {
 			"armv6l": {
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-armv6l-ROOTFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-armv6l-musl-ROOTFS-20230628.tar.xz"}
+				"glibc": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-armv6l-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
+				},
+				"musl": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-armv6l-musl-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
 				}
 			},
 			"armv7l": {
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-armv7l-ROOTFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-armv7l-musl-ROOTFS-20230628.tar.xz"}
+				"glibc": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-armv7l-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
+				},
+				"musl": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-armv7l-musl-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
 				}
 			},
 			"aarch64": {
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-aarch64-ROOTFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-aarch64-musl-ROOTFS-20230628.tar.xz"}
+				"glibc": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-aarch64-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
+				},
+				"musl": {
+					"url": "https://repo-default.voidlinux.org/live/current",
+					"iso_file": "void-aarch64-musl-ROOTFS-20230628.tar.xz",
+					"sig_file": "sha256sum.sig",
+					"sum_file": "sha256sum.txt"
 				}
 			}
 		},
-		"arm platforms": {
-			"rpi-armv6l": {
+		"arm_platforms": {
+			"rpi_armv6l": {
 				"live": {
-					"glibc": {"iso_file": "void-rpi-armv6l-20230628.img.xz"},
-					"musl": {"iso_file": "void-rpi-armv6l-musl-20230628.img.xz"}
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv6l-20230628.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv6l-musl-20230628.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				},
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-rpi-armv6l-PLATFORMFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20230628.tar.xz"}
+				"rootfs_tarball": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv6l-PLATFORMFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				}
 			},
-			"rpi-armv7l": {
+			"rpi_armv7l": {
 				"live": {
-					"glibc": {"iso_file": "void-rpi-armv7l-20230628.img.xz"},
-					"musl": {"iso_file": "void-rpi-armv7l-musl-20230628.img.xz"}
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv7l-20230628.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv7l-musl-20230628.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				},
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-rpi-armv7l-PLATFORMFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20230628.tar.xz"}
+				"rootfs_tarball": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv7l-PLATFORMFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				}
 			},
-			"rpi-aarch64": {
+			"rpi_aarch64": {
 				"live": {
-					"glibc": {"iso_file": "void-rpi-aarch64-20230628.img.xz"},
-					"musl": {"iso_file": "void-rpi-aarch64-musl-20230628.img.xz"}
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-aarch64-20230628.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-aarch64-musl-20230628.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				},
-				"rootfs tarball": {
-					"glibc": {"iso_file": "void-rpi-aarch64-PLATFORMFS-20230628.tar.xz"},
-					"musl": {"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20230628.tar.xz"}
+				"rootfs_tarball": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-aarch64-PLATFORMFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20230628.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
 				}
 			}
 		}
 	},
 	"whonix": {
-		"sum_algo": "sha512sum",
 		"qemu": {
-			"gpg_key": "04EF2F666D36C354058B9DD450C78B6F9FF2EC85",
 			"url": "https://download.whonix.org/libvirt/17.0.3.0",
 			"iso_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz",
 			"sig_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.asc",
 			"sum_file": "Whonix-Xfce-17.0.3.0.sha512sums"
 		},
 		"virtualbox": {
-			"gpg_key": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA",
 			"url": "https://download.whonix.org/ova/17.0.4.5",
 			"iso_file": "Whonix-Xfce-17.0.4.5.ova",
 			"sig_file": "Whonix-Xfce-17.0.4.5.ova.asc",
