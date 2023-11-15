@@ -12,14 +12,6 @@ This includes using [tabs for indentation and spaces for alignment](
 https://vim.fandom.com/wiki/Indent_with_tabs,_align_with_spaces)
 to ensure consistency and maintainability across various editors.
 
-- **Simplicity**:
-When adding support for new distributions, additions, or features, try to keep
-it simple. Ideally, additions should mainly involve:
-
-  - Adding or updating data in `data.json`.
-  - Creating a download function for a distribution.
-  - Adding new options to existing download functions.
-
 - **Open an Issue First**:
 Before you start writing code, it's a good idea to open an issue to discuss
 your intended changes. This way, we can avoid any unnecessary work or potential
@@ -28,12 +20,11 @@ conflicts with planned features.
 - **Pull Requests**:
 Once you're ready to share your changes, please open a pull request. Ensure
 your PR has a descriptive title and explains the purpose and context of the
-change. For a typical example of what a pull request should include, please see
-this [commit](https://codeberg.org/bashuser30/dl-distro/commit/04d3a8e96c).
+change.
 
-## Testing
+### Testing & Maintenance
 
-### The Spider Option
+#### The Spider Option
 
 For testing, the `-s, --spider` option is highly useful as it allows you to
 check URLs without needing to download files. This method is effective for
@@ -46,7 +37,7 @@ addition. If you are absolutely certain that the verification will succeed, you
 may opt to skip this step, but please ensure you are 100% confident in its
 accuracy.
 
-### Expect Script
+#### Expect Script
 
 This script has many combinations, making manual testing impractical. I've
 developed an `expect` script for `dl-distro` that checks every possible
@@ -56,6 +47,8 @@ valid, and to identify inconsistencies, particularly during significant updates
 to the JSON file when a new distribution version is released.
 
 If you're interested in this script, please let me know.
+
+#### RSS Feeds
 
 For standard version updates, I monitor various distributions through RSS feeds
 of their blogs and announcements using the [Newsboat](https://newsboat.org) RSS
