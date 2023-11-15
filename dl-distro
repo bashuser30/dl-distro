@@ -425,6 +425,7 @@ usage() {
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
   -h, --help         Display this usage message
+  -a, --auto-fetch   Toggle on/off automatic JSON fetching
   -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
   -i, --import-key   Import a GPG key: dl-distro -i /path/to/key.asc
   -l, --list-keys    List the stored GPG keys
@@ -537,6 +538,8 @@ traverse_json() {
 }
 
 fetch_json() {
+	[[ "$auto_fetch_enabled" == "true" ]] && update_json
+
 	json_paths=("${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro/data.json"
 	            "$(dirname "$0")/data.json"
 	            "$data_dir/json_data/data.json")
@@ -564,7 +567,7 @@ update_json() {
 	cd "$json_dir" || exit 1
 
 	for json_url in "${json_urls[@]}"; do
-		if wget -O "data.json" -q --show-progress "$json_url"; then
+		if wget -O "data.json" -q "$json_url"; then
 			print_message "Successfully downloaded latest JSON file."
 			return 0
 		else
@@ -576,15 +579,41 @@ update_json() {
 	print_error_and_exit "Failed to update the JSON file."
 }
 
+toggle_auto_fetch() {
+	config_dir="$(dirname "$config_file")"
+
+	[[ ! -d "$config_dir" ]] && mkdir -p "$config_dir"
+
+	if [[ "$auto_fetch_enabled" == "true" ]]; then
+		printf "auto_fetch_enabled=false\n" > "$config_file"
+		print_message "Disabled JSON auto-fetching."
+	else
+		printf "auto_fetch_enabled=true\n" > "$config_file"
+		print_message "Enabled JSON auto-fetching."
+	fi
+
+	exit 0
+}
+
 main() {
 	data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
+	config_file="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro/dl-distro.conf"
 	verification_enabled="true"
 	spider_mode_enabled="false"
+	auto_fetch_enabled="false"
+
+	if [[ -f "$config_file" ]]; then
+		# shellcheck disable=SC1090
+		source "$config_file"
+	fi
 
 	while [[ "$#" -gt 0 ]]; do
 		case "$1" in
 			-h|--help)
 				usage
+				;;
+			-a|--auto-fetch)
+				toggle_auto_fetch
 				;;
 			-d|--delete-key)
 				delete_gpg_key "$2"
