@@ -40,7 +40,7 @@
 		"qubes": "sha512sum",
 		"slackware": "md5sum",
 		"solus": "sha256sum",
-		"tails": "null",
+		"tails": null,
 		"ubuntu": "sha256sum",
 		"void": "sha256sum",
 		"whonix": "sha512sum"
@@ -2025,13 +2025,13 @@
 			"url": "https://download.tails.net/tails/stable/tails-amd64-5.19.1",
 			"iso_file": "tails-amd64-5.19.1.img",
 			"sig_file": "tails-amd64-5.19.1.img.sig",
-			"sum_file": "null"
+			"sum_file": null
 		},
 		"vm": {
 			"url": "https://download.tails.net/tails/stable/tails-amd64-5.19.1",
 			"iso_file": "tails-amd64-5.19.1.iso",
 			"sig_file": "tails-amd64-5.19.1.iso.sig",
-			"sum_file": "null"
+			"sum_file": null
 		}
 	},
 	"ubuntu": {
