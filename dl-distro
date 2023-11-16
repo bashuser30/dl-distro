@@ -637,7 +637,7 @@ main() {
 				;;
 			-u|--update-json)
 				update_json
-				exit 0
+				shift
 				;;
 			-*)
 				print_error_and_exit "Invalid option: $1"
