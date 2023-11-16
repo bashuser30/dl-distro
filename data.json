@@ -52,7 +52,9 @@
 		"void": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20230628.pub"
 	},
 	"oddballs": {
-		"gparted": {"sig_sum_url": "https://gparted.org/gparted-live/stable"}
+		"gparted": {
+			"sig_sum_url": "https://gparted.org/gparted-live/stable"
+		}
 	},
 	"alma": {
 		"alma_9": {
@@ -1596,12 +1598,6 @@
 			},
 			"i386": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/i386",
-				"iso_file": "cd74.iso",
-				"sig_file": "SHA256.sig",
-				"sum_file": "SHA256"
-			},
-			"loongson": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
 				"iso_file": "cd74.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
