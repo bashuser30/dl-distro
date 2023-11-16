@@ -1602,6 +1602,12 @@
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
+			"loongson": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/loongson",
+				"iso_file": "cd74.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
+			},
 			"macppc": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.4/macppc",
 				"iso_file": "cd74.iso",
