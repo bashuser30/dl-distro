@@ -616,10 +616,10 @@ main() {
 				toggle_auto_fetch
 				;;
 			-d|--delete-key)
-				delete_gpg_key "$2"
+				delete_gpg_key "${2:-}"
 				;;
 			-i|--import-key)
-				import_gpg_key "$2"
+				import_gpg_key "${2:-}"
 				;;
 			-l|--list-keys)
 				list_gpg_keys
