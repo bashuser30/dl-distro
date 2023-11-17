@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **378** images from **18** distributions.
+Currently, `dl-distro` supports **381** images from **18** distributions.
 
 ## Dependencies
 
@@ -153,7 +153,7 @@ under the `distro addition` label is encouraged.
 |--------------|-----------|
 | [AlmaLinux OS](https://almalinux.org)| 9.3 <br> 8.8 |
 | [Alpine Linux](https://alpinelinux.org) | 3.18.4 |
-| [Arch Linux](https://archlinux.org) | 2023.11.01 |
+| [Arch Linux](https://archlinux.org) | Latest <br> 2023.11.01 <br> 2023.10.14 <br> 2023.09.01 |
 | [Debian](https://debian.org)  | 12.2.0 |
 | [Fedora Linux](https://fedoraproject.org) | 39 |
 | [GParted Live](https://gparted.org) | 1.5.0-6 |
