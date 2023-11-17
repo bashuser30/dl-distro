@@ -59,25 +59,10 @@ wget_file() {
 wget_spider() {
 	[[ "$spider_mode_enabled" == "false" ]] && return 0
 
-	expect_mode_enabled="${EXPECT_MODE_ENABLED:-false}"
-	spidered_urls_file="/tmp/dl-distro_spidered_urls.txt"
-
 	local url
 
 	for url in "$@"; do
-		if [[ "$expect_mode_enabled" == "true" ]]; then
-			if grep -qxF "$url" "$spidered_urls_file" 2> /dev/null; then
-				continue
-			fi
-		fi
-
-		sleep 1
-
-		if wget -nvc --spider "$url"; then
-			if [[ "$expect_mode_enabled" == "true" ]]; then
-				printf "%s\n" "$url" >> "$spidered_urls_file"
-			fi
-		else
+		if ! wget -nvc --spider "$url"; then
 			print_error_and_exit "Spider failed for: $url"
 		fi
 	done
