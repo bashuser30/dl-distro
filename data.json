@@ -1941,23 +1941,11 @@
 					"sig_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz.sha256.asc",
 					"sum_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz.sha256"
 				},
-				"vmx": {
-					"url": "https://download.opensuse.org/tumbleweed/appliances",
-					"iso_file": "openSUSE-MicroOS.x86_64-VMware.vmx",
-					"sig_file": "openSUSE-MicroOS.x86_64-VMware.vmx.sha256.asc",
-					"sum_file": "openSUSE-MicroOS.x86_64-VMware.vmx.sha256"
-				},
 				"container_host": {
 					"url": "https://download.opensuse.org/tumbleweed/appliances",
 					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz",
 					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz.sha256.asc",
 					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz.sha256"
-				},
-				"vmx_container_host": {
-					"url": "https://download.opensuse.org/tumbleweed/appliances",
-					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmx",
-					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmx.sha256.asc",
-					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmx.sha256"
 				}
 			},
 			"vagrant": {
