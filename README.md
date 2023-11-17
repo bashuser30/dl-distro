@@ -154,7 +154,7 @@ under the `distro addition` label is encouraged.
 | [Kali Linux](https://kali.org) | 2023.3 <br> Weekly |
 | [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
 | [OpenBSD](https://openbsd.org) | 7.4 |
-| [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed |
+| [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> MicroOS |
 | [Parrot OS](https://parrotlinux.org) | 5.3 |
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
 | [Slackware Linux](https://www.slackware.com) | 15.0 |
