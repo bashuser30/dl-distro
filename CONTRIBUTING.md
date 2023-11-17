@@ -37,16 +37,16 @@ addition. If you are absolutely certain that the verification will succeed, you
 may opt to skip this step, but please ensure you are 100% confident in its
 accuracy.
 
-#### Expect Script
+#### URL Generator Script
 
-This script has many combinations, making manual testing impractical. I've
-developed an `expect` script for `dl-distro` that checks every possible
-combination using the `-s, --spider` option. This is incredibly helpful for
-maintaining the project, as it enables me to routinely ensure all URLs are
-valid, and to identify inconsistencies, particularly during significant updates
-to the JSON file when a new distribution version is released.
-
-If you're interested in this script, please let me know.
+Recognizing the impracticality of manually testing all the combinations in
+`dl-distro`, I've developed a Bash script tailored to optimize the maintenance
+workflow. This is particularly crucial during major updates to the JSON file,
+such as when new distribution versions are released. The script efficiently
+generates URLs from the JSON endpoints and employs `wget --spider` to verify
+their existence. This method is pivotal for validating URL integrity and
+quickly pinpointing any discrepancies. If you're interested in this script feel
+free to reach out.
 
 #### RSS Feeds
 
