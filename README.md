@@ -92,6 +92,12 @@ closest mirror to your location.
 ```
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
+  Provide dl-distro with a distro or a jq path:
+
+    dl-distro debian
+    dl-distro debian.netinst.amd64
+
+OPTIONS
   -h, --help         Display this usage message
   -a, --auto-fetch   Toggle on/off automatic JSON fetching
   -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
@@ -112,7 +118,7 @@ DISTROS
 EXAMPLES
   dl-distro arch
   dl-distro arch /run/media/$USER/Ventoy
-  dl-distro -n arch
+  dl-distro -s debian.netinst.amd64
 ```
 
 ## Error Importing Signing Key

@@ -409,6 +409,12 @@ usage() {
 	cat <<EOF
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
+  Provide dl-distro with a distro or a jq path:
+
+    dl-distro debian
+    dl-distro debian.netinst.amd64
+
+OPTIONS
   -h, --help         Display this usage message
   -a, --auto-fetch   Toggle on/off automatic JSON fetching
   -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
@@ -429,7 +435,7 @@ DISTROS
 EXAMPLES
   dl-distro arch
   dl-distro arch /run/media/$USER/Ventoy
-  dl-distro -n arch
+  dl-distro -s debian.netinst.amd64
 EOF
 	exit 0
 }
@@ -494,6 +500,8 @@ traverse_json() {
 	if jq -e "$traverse_path.url" "$json_file" &> /dev/null; then
 		read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | @tsv" "$json_file")"
 	else
+		[[ "$cli_mode" = "true" ]] && print_error_and_exit "Invalid jq path."
+
 		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$json_file")
 
 		[[ "${#choices[@]}" -eq 0 ]] && print_error_and_exit "JSON parsing error."
@@ -582,6 +590,7 @@ main() {
 	verification_enabled="true"
 	spider_mode_enabled="false"
 	auto_fetch_enabled="false"
+	cli_mode="false"
 
 	if [[ -f "$config_file" ]]; then
 		# shellcheck disable=SC1090
@@ -604,16 +613,23 @@ main() {
 		esac
 	done
 
-	distro="${1:-}"
-	download_path="$(realpath -m "${2:-$(pwd)}")"
+	[[ -z "${1:-}" && -n "${updated:-}" ]] && exit 0
+	[[ -z "${1:-}" ]] && print_error_and_exit "No distro provided."
 
-	[[ -z "$distro" && -n "${updated:-}" ]] && exit 0
-	[[ -z "$distro" ]] && print_error_and_exit "No distro provided."
+	if [[ "$1" == *.* ]];then
+		jq_path=".$1"
+		distro="${1%%.*}"
+		cli_mode="true"
+	else
+		distro="$1"
+	fi
+
+	download_path="$(realpath -m "${2:-$(pwd)}")"
 
 	if type download_"$distro" &> /dev/null; then
 		check_dependencies "jq" "wget"
 		fetch_json
-		traverse_json ".$distro"
+		traverse_json "${jq_path:-.$distro}"
 		download_"$distro"
 	else
 		print_error_and_exit "Invalid distro: $distro"
