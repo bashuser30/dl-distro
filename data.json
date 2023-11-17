@@ -1870,6 +1870,188 @@
 					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-Cloud.qcow2.sha256"
 				}
 			}
+		},
+		"micro_os": {
+			"dvd": {
+				"x86_64": {
+					"url": "https://download.opensuse.org/tumbleweed/iso",
+					"iso_file": "openSUSE-MicroOS-DVD-x86_64-Current.iso",
+					"sig_file": "openSUSE-MicroOS-DVD-x86_64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-MicroOS-DVD-x86_64-Current.iso.sha256"
+				},
+				"aarch64": {
+					"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/iso",
+					"iso_file": "openSUSE-MicroOS-DVD-aarch64-Current.iso",
+					"sig_file": "openSUSE-MicroOS-DVD-aarch64-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-MicroOS-DVD-aarch64-Current.iso.sha256"
+				},
+				"ppc64le": {
+					"url": "https://download.opensuse.org/ports/ppc/tumbleweed/iso",
+					"iso_file": "openSUSE-MicroOS-DVD-ppc64le-Current.iso",
+					"sig_file": "openSUSE-MicroOS-DVD-ppc64le-Current.iso.sha256.asc",
+					"sum_file": "openSUSE-MicroOS-DVD-ppc64le-Current.iso.sha256"
+				}
+			},
+			"container_host": {
+				"url": "https://download.opensuse.org/tumbleweed/appliances/iso",
+				"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-SelfInstall.iso",
+				"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-SelfInstall.iso.sha256.asc",
+				"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-SelfInstall.iso.sha256"
+			},
+			"kvm": {
+				"x86_64": {
+					"standard": {
+						"url": "https://download.opensuse.org/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.x86_64-kvm-and-xen.qcow2",
+						"sig_file": "openSUSE-MicroOS.x86_64-kvm-and-xen.qcow2.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.x86_64-kvm-and-xen.qcow2.sha256"
+					},
+					"container_host": {
+						"url": "https://download.opensuse.org/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-kvm-and-xen.qcow2",
+						"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-kvm-and-xen.qcow2.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-kvm-and-xen.qcow2.sha256"
+					}
+				},
+				"aarch64": {
+					"standard": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-kvm-and-xen.qcow2",
+						"sig_file": "openSUSE-MicroOS.aarch64-kvm-and-xen.qcow2.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-kvm-and-xen.qcow2.sha256"
+					},
+					"container_host": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-ContainerHost-kvm-and-xen.qcow2",
+						"sig_file": "openSUSE-MicroOS.aarch64-ContainerHost-kvm-and-xen.qcow2.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-ContainerHost-kvm-and-xen.qcow2.sha256"
+					}
+				}
+			},
+			"virtualbox": {
+				"url": "https://download.opensuse.org/tumbleweed/appliances",
+				"iso_file": "openSUSE-MicroOS.x86_64-VirtualBox.vdi.xz",
+				"sig_file": "openSUSE-MicroOS.x86_64-VirtualBox.vdi.xz.sha256.asc",
+				"sum_file": "openSUSE-MicroOS.x86_64-VirtualBox.vdi.xz.sha256"
+			},
+			"vmware": {
+				"standard": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz",
+					"sig_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz.sha256"
+				},
+				"vmx": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-VMware.vmx",
+					"sig_file": "openSUSE-MicroOS.x86_64-VMware.vmx.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-VMware.vmx.sha256"
+				},
+				"container_host": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz",
+					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz.sha256"
+				},
+				"vmx_container_host": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmx",
+					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmx.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmx.sha256"
+				}
+			},
+			"vagrant": {
+				"x86_64": {
+					"standard": {
+						"url": "https://download.opensuse.org/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.x86_64-Vagrant.box",
+						"sig_file": "openSUSE-MicroOS.x86_64-Vagrant.box.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.x86_64-Vagrant.box.sha256"
+					},
+					"container_host": {
+						"url": "https://download.opensuse.org/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-Vagrant.box",
+						"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-Vagrant.box.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-Vagrant.box.sha256"
+					}
+				},
+				"aarch64": {
+					"standard": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-Vagrant.box",
+						"sig_file": "openSUSE-MicroOS.aarch64-Vagrant.box.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-Vagrant.box.sha256"
+					},
+					"container_host": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-ContainerHost-Vagrant.box",
+						"sig_file": "openSUSE-MicroOS.aarch64-ContainerHost-Vagrant.box.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-ContainerHost-Vagrant.box.sha256"
+					}
+				}
+			},
+			"hyperv": {
+				"standard": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-MicroOS.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-MS-HyperV.vhdx.xz.sha256"
+				},
+				"container_host":{
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-MS-HyperV.vhdx.xz.sha256"
+				}
+			},
+			"openstack_cloud": {
+				"standard": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-OpenStack-Cloud.qcow2",
+					"sig_file": "openSUSE-MicroOS.x86_64-OpenStack-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-OpenStack-Cloud.qcow2.sha256"
+				},
+				"container_host": {
+					"url": "https://download.opensuse.org/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-OpenStack-Cloud.qcow2",
+					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-OpenStack-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-OpenStack-Cloud.qcow2.sha256"
+				}
+			},
+			"uefi_arm":{
+				"aarch64": {
+					"rpi": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-RaspberryPi.raw.xz",
+						"sig_file": "openSUSE-MicroOS.aarch64-RaspberryPi.raw.xz.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-RaspberryPi.raw.xz.sha256"
+					},
+					"rpi_container_host": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-ContainerHost-RaspberryPi.raw.xz",
+						"sig_file": "openSUSE-MicroOS.aarch64-ContainerHost-RaspberryPi.raw.xz.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-ContainerHost-RaspberryPi.raw.xz.sha256"
+					},
+					"pine64": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-Pine64.raw.xz",
+						"sig_file": "openSUSE-MicroOS.aarch64-Pine64.raw.xz.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-Pine64.raw.xz.sha256"
+					},
+					"pine64_container_host": {
+						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
+						"iso_file": "openSUSE-MicroOS.aarch64-ContainerHost-Pine64.raw.xz",
+						"sig_file": "openSUSE-MicroOS.aarch64-ContainerHost-Pine64.raw.xz.sha256.asc",
+						"sum_file": "openSUSE-MicroOS.aarch64-ContainerHost-Pine64.raw.xz.sha256"
+					}
+				},
+				"armv7l": {
+					"url": "https://download.opensuse.org/ports/armv7hl/tumbleweed/appliances",
+					"iso_file": "openSUSE-MicroOS.armv7l-RaspberryPi2.raw.xz",
+					"sig_file": "openSUSE-MicroOS.armv7l-RaspberryPi2.raw.xz.sha256.asc",
+					"sum_file": "openSUSE-MicroOS.armv7l-RaspberryPi2.raw.xz.sha256"
+				}
+			}
 		}
 	},
 	"parrot" : {
