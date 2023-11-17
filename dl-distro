@@ -549,6 +549,7 @@ update_json() {
 	for json_url in "${json_urls[@]}"; do
 		if wget -O "data.json" -q "$json_url"; then
 			print_message "Successfully downloaded latest JSON file."
+			updated=true
 			return 0
 		else
 			print_warning "Failed to download data.json from: $json_url"
@@ -589,48 +590,24 @@ main() {
 
 	while [[ "$#" -gt 0 ]]; do
 		case "$1" in
-			-h|--help)
-				usage
-				;;
-			-a|--auto-fetch)
-				toggle_auto_fetch
-				;;
-			-d|--delete-key)
-				delete_gpg_key "${2:-}"
-				;;
-			-i|--import-key)
-				import_gpg_key "${2:-}"
-				;;
-			-l|--list-keys)
-				list_gpg_keys
-				;;
-			-n|--no-verify)
-				verification_enabled="false"
-				shift
-				;;
-			-p|--purge-data)
-				purge_data
-				;;
-			-s|--spider)
-				spider_mode_enabled="true"
-				shift
-				;;
-			-u|--update-json)
-				update_json
-				shift
-				;;
-			-*)
-				print_error_and_exit "Invalid option: $1"
-				;;
-			*)
-				break
-				;;
+			-h|--help) usage ;;
+			-a|--auto-fetch) toggle_auto_fetch ;;
+			-d|--delete-key) delete_gpg_key "${2:-}" ;;
+			-i|--import-key) import_gpg_key "${2:-}" ;;
+			-l|--list-keys) list_gpg_keys ;;
+			-n|--no-verify) verification_enabled="false"; shift ;;
+			-p|--purge-data) purge_data ;;
+			-s|--spider) spider_mode_enabled="true"; shift ;;
+			-u|--update-json) update_json; shift ;;
+			-*) print_error_and_exit "Invalid option: $1" ;;
+			*) break ;;
 		esac
 	done
 
 	distro="${1:-}"
 	download_path="$(realpath -m "${2:-$(pwd)}")"
 
+	[[ -z "$distro" && -n "${updated:-}" ]] && exit 0
 	[[ -z "$distro" ]] && print_error_and_exit "No distro provided."
 
 	if type download_"$distro" &> /dev/null; then
