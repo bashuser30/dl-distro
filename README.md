@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **371** images from **18** distributions.
+Currently, `dl-distro` supports **378** images from **18** distributions.
 
 ## Dependencies
 
@@ -154,7 +154,7 @@ under the `distro addition` label is encouraged.
 | [Kali Linux](https://kali.org) | 2023.3 <br> Weekly |
 | [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
 | [OpenBSD](https://openbsd.org) | 7.4 |
-| [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> MicroOS |
+| [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> Leap Micro 5.5 <br> MicroOS |
 | [Parrot OS](https://parrotlinux.org) | 5.3 |
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
 | [Slackware Linux](https://www.slackware.com) | 15.0 |
