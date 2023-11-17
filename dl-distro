@@ -616,7 +616,7 @@ main() {
 	[[ -z "${1:-}" && -n "${updated:-}" ]] && exit 0
 	[[ -z "${1:-}" ]] && print_error_and_exit "No distro provided."
 
-	if [[ "$1" == *.* ]];then
+	if [[ "$1" == *.* ]]; then
 		jq_path=".$1"
 		distro="${1%%.*}"
 		cli_mode="true"
