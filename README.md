@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **344** images from **18** distributions.
+Currently, `dl-distro` supports **345** images from **18** distributions.
 
 ## Dependencies
 

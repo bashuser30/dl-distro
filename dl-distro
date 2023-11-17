@@ -509,29 +509,24 @@ traverse_json() {
 	if jq -e "$traverse_path.url" "$json_file" &> /dev/null; then
 		read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | @tsv" "$json_file")"
 	else
-		mapfile -t options < <(jq -r "$traverse_path | keys | .[]" "$json_file")
+		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$json_file")
 
-		if [[ "${#options[@]}" -eq 0 ]]; then
-			print_error_and_exit "No options available or JSON parsing error."
-		fi
-
-		num_options="${#options[@]}"
+		[[ "${#choices[@]}" -eq 0 ]] && print_error_and_exit "JSON parsing error."
 
 		while true; do
 			printf "\n"
-			for i in "${!options[@]}"; do
-				printf "   %d. %s\n" "$((i+1))" "${options[$i]}"
+			for i in "${!choices[@]}"; do
+				printf "   %d. %s\n" "$((i+1))" "${choices[$i]}"
 			done
 			printf "\n"
 
-			read -rp "Enter your choice (1-$num_options): " user_choice
+			read -rp "Enter your choice (1-${#choices[@]}): " choice
 
-			if [[ "$user_choice" =~ ^[0-9]+$ ]] && (( user_choice >= 1 && user_choice <= num_options )); then
-				chosen_option="${options[$user_choice-1]}"
-				traverse_json "$traverse_path.$chosen_option"
+			if [[ "$choice" =~ ^[0-9]+$ ]] && (( choice >= 1 && choice <= "${#choices[@]}" )); then
+				traverse_json "$traverse_path.${choices[choice-1]}"
 				return 0
 			else
-				printf "\nInvalid choice. Please choose a number 1 to %s.\n" "$num_options" >&2
+				printf "\nInvalid choice. Please choose a number 1 to %s.\n" "${#choices[@]}" >&2
 			fi
 		done
 	fi
