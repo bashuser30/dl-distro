@@ -92,10 +92,13 @@ closest mirror to your location.
 ```
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-  Provide dl-distro with a distro or a jq path:
+  Provide dl-distro with a distro name or
+  jq path. The jq path uses the same names
+  you see in interactive mode.
 
-    dl-distro debian
-    dl-distro debian.netinst.amd64
+      dl-distro arch
+      dl-distro arch.latest
+      dl-distro -n arch.latest ~/Downloads
 
 OPTIONS
   -h, --help         Display this usage message
@@ -114,11 +117,6 @@ DISTROS
   arch    mint      slackware  whonix
   debian  openbsd   solus
   fedora  opensuse  tails
-
-EXAMPLES
-  dl-distro arch
-  dl-distro arch /run/media/$USER/Ventoy
-  dl-distro -s debian.netinst.amd64
 ```
 
 ## Error Importing Signing Key
