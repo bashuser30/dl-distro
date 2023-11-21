@@ -149,7 +149,7 @@ under the `distro addition` label is encouraged.
 
 | Distribution | Version(s) |
 |--------------|-----------|
-| [AlmaLinux OS](https://almalinux.org)| 9.3 <br> 8.8 |
+| [AlmaLinux OS](https://almalinux.org)| 9.3 <br> 8.9 |
 | [Alpine Linux](https://alpinelinux.org) | 3.18.4 |
 | [Arch Linux](https://archlinux.org) | Latest <br> 2023.11.01 <br> 2023.10.14 <br> 2023.09.01 |
 | [Debian](https://debian.org)  | 12.2.0 |
