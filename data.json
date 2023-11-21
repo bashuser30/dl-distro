@@ -142,80 +142,80 @@
 		"alma_8": {
 			"x86_64": {
 				"dvd": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
-					"iso_file": "AlmaLinux-8.8-x86_64-dvd.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/x86_64",
+					"iso_file": "AlmaLinux-8.9-x86_64-dvd.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
-					"iso_file": "AlmaLinux-8.8-x86_64-boot.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/x86_64",
+					"iso_file": "AlmaLinux-8.9-x86_64-boot.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"minimal": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/x86_64",
-					"iso_file": "AlmaLinux-8.8-x86_64-minimal.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/x86_64",
+					"iso_file": "AlmaLinux-8.9-x86_64-minimal.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				}
 			},
 			"aarch64": {
 				"dvd": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
-					"iso_file": "AlmaLinux-8.8-aarch64-dvd.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/aarch64",
+					"iso_file": "AlmaLinux-8.9-aarch64-dvd.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
-					"iso_file": "AlmaLinux-8.8-aarch64-boot.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/aarch64",
+					"iso_file": "AlmaLinux-8.9-aarch64-boot.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"minimal": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/aarch64",
-					"iso_file": "AlmaLinux-8.8-aarch64-minimal.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/aarch64",
+					"iso_file": "AlmaLinux-8.9-aarch64-minimal.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				}
 			},
 			"s390x": {
 				"dvd": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
-					"iso_file": "AlmaLinux-8.8-s390x-dvd.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/s390x",
+					"iso_file": "AlmaLinux-8.9-s390x-dvd.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
-					"iso_file": "AlmaLinux-8.8-s390x-boot.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/s390x",
+					"iso_file": "AlmaLinux-8.9-s390x-boot.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"minimal": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/s390x",
-					"iso_file": "AlmaLinux-8.8-s390x-minimal.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/s390x",
+					"iso_file": "AlmaLinux-8.9-s390x-minimal.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				}
 			},
 			"ppc64le": {
 				"dvd": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
-					"iso_file": "AlmaLinux-8.8-ppc64le-dvd.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/ppc64le",
+					"iso_file": "AlmaLinux-8.9-ppc64le-dvd.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
-					"iso_file": "AlmaLinux-8.8-ppc64le-boot.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/ppc64le",
+					"iso_file": "AlmaLinux-8.9-ppc64le-boot.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				},
 				"minimal": {
-					"url": "https://repo.almalinux.org/almalinux/8.8/isos/ppc64le",
-					"iso_file": "AlmaLinux-8.8-ppc64le-minimal.iso",
+					"url": "https://repo.almalinux.org/almalinux/8.9/isos/ppc64le",
+					"iso_file": "AlmaLinux-8.9-ppc64le-minimal.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
 				}
