@@ -267,7 +267,7 @@ download_gparted() {
 
 download_kali () {
 	if [[ "$traverse_path" == *"weekly"* ]]; then
-		html_content="$(wget -qO- "$url")"
+		html_content="$(wget -qO- "$url/")"
 		current_week_num="$(grep -o 'W[0-9]\+' <<< "$html_content" | sort -r | head -n 1 | cut -c2-)"
 		iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
