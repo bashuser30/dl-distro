@@ -163,7 +163,7 @@ under the `distro addition` label is encouraged.
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
 | [Slackware Linux](https://www.slackware.com) | 15.0 |
 | [Solus](https://getsol.us) | 4.4 |
-| [Tails](https://tails.net) | 5.19.1 |
+| [Tails](https://tails.net) | 5.20 |
 | [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial) <br> 14.04.6 LTS (trusty) |
 | [Void Linux](https://voidlinux.org) | 20230628 |
 | [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.0.4.5 (virtualbox) |
