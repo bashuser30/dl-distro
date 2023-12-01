@@ -449,10 +449,10 @@
 			"sig_file": "archlinux-2023.10.14-x86_64.iso.sig",
 			"sum_file": "b2sums.txt"
 		},
-		"v2023_09_01": {
-			"url": "https://geo.mirror.pkgbuild.com/iso/2023.09.01",
-			"iso_file": "archlinux-2023.09.01-x86_64.iso",
-			"sig_file": "archlinux-2023.09.01-x86_64.iso.sig",
+		"v2023_12_01": {
+			"url": "https://geo.mirror.pkgbuild.com/iso/2023.12.01",
+			"iso_file": "archlinux-2023.12.01-x86_64.iso",
+			"sig_file": "archlinux-2023.12.01-x86_64.iso.sig",
 			"sum_file": "b2sums.txt"
 		}
 	},
