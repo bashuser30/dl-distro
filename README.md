@@ -155,7 +155,7 @@ under the `distro addition` label is encouraged.
 | [Debian](https://debian.org)  | 12.2.0 |
 | [Fedora Linux](https://fedoraproject.org) | 39 |
 | [GParted Live](https://gparted.org) | 1.5.0-6 |
-| [Kali Linux](https://kali.org) | 2023.3 <br> Weekly |
+| [Kali Linux](https://kali.org) | 2023.4 <br> Weekly |
 | [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
 | [OpenBSD](https://openbsd.org) | 7.4 |
 | [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> Leap Micro 5.5 <br> MicroOS |
