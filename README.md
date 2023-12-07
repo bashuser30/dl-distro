@@ -147,8 +147,8 @@ maintainers.
 If an image from these distributions is not supported, submitting an issue
 under the `distro addition` label is encouraged.
 
-| Distribution | Version(s) |
-|--------------|-----------|
+| Distributions | Versions |
+|:-------------:|:--------:|
 | [AlmaLinux OS](https://almalinux.org)| 9.3 <br> 8.9 |
 | [Alpine Linux](https://alpinelinux.org) | 3.19.0 |
 | [Arch Linux](https://archlinux.org) | Latest <br> 2023.12.01 <br> 2023.11.01 <br> 2023.10.14 |
