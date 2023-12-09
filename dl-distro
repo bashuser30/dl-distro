@@ -11,11 +11,11 @@
 #
 # dl-distro is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with dl-distro.  If not, see <http://www.gnu.org/licenses/>.
+# along with dl-distro. If not, see <http://www.gnu.org/licenses/>.
 
 set -euo pipefail
 
@@ -296,6 +296,19 @@ download_mint () {
 	verify_checksum
 }
 
+download_nixos() {
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	cd "$download_path" || exit 1
+	printf '\n' >> "$sum_file"
+	read -r line < "$sum_file"
+	new_iso_file="${line##* }"
+	mv "$iso_file" "$new_iso_file"
+	iso_file="$new_iso_file"
+	verify_checksum
+	print_message "Nix OS does not provide signatures."
+}
+
 download_openbsd() {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_signify_key
@@ -363,7 +376,8 @@ download_tails() {
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	rm -f "$sig_file"
-	print_message "Download and GPG verification successful. Tails does not provide checksum files."
+	print_message "Download and GPG verification successful."
+	print_message "Tails does not provide checksums."
 }
 
 download_ubuntu() {
@@ -429,11 +443,11 @@ OPTIONS
   -u, --update-json  Update the locally stored JSON file
 
 DISTROS
-  alma    gparted   parrot     ubuntu
-  alpine  kali      qubes      void
-  arch    mint      slackware  whonix
-  debian  openbsd   solus
-  fedora  opensuse  tails
+  alma    gparted  opensuse   tails
+  alpine  kali     parrot     ubuntu
+  arch    mint     qubes      void
+  debian  nixos    slackware  whonix
+  fedora  openbsd  solus
 EOF
 	exit 0
 }
@@ -496,7 +510,7 @@ traverse_json() {
 	trap "exit 130" INT
 
 	if jq -e "$traverse_path.url" "$json_file" &> /dev/null; then
-		read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | @tsv" "$json_file")"
+		IFS='|' read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | join(\"|\")" "$json_file")"
 	else
 		[[ "$cli_mode" = "true" ]] && print_error_and_exit "Invalid jq path."
 

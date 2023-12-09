@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **382** images from **18** distributions.
+Currently, `dl-distro` supports **390** images from **19** distributions.
 
 ## Dependencies
 
@@ -112,11 +112,11 @@ OPTIONS
   -u, --update-json  Update the locally stored JSON file
 
 DISTROS
-  alma    gparted   parrot     ubuntu
-  alpine  kali      qubes      void
-  arch    mint      slackware  whonix
-  debian  openbsd   solus
-  fedora  opensuse  tails
+  alma    gparted  opensuse   tails
+  alpine  kali     parrot     ubuntu
+  arch    mint     qubes      void
+  debian  nixos    slackware  whonix
+  fedora  openbsd  solus
 ```
 
 ## Error Importing Signing Key
@@ -157,6 +157,7 @@ under the `distro addition` label is encouraged.
 | [GParted Live](https://gparted.org) | 1.5.0-6 |
 | [Kali Linux](https://kali.org) | 2023.4 <br> Weekly |
 | [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
+| [Nix OS](https://nixos.org) | 23.11 |
 | [OpenBSD](https://openbsd.org) | 7.4 |
 | [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> Leap Micro 5.5 <br> MicroOS |
 | [Parrot OS](https://parrotlinux.org) | 5.3 |
