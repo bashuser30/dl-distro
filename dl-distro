@@ -306,7 +306,7 @@ download_nixos() {
 	mv "$iso_file" "$new_iso_file"
 	iso_file="$new_iso_file"
 	verify_checksum
-	print_message "Nix OS does not provide signatures."
+	print_message "NixOS does not provide signatures."
 }
 
 download_openbsd() {
