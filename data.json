@@ -39,6 +39,7 @@
 		"opensuse": "sha256sum",
 		"parrot": "sha512sum",
 		"qubes": "sha512sum",
+		"rocky": "sha256sum",
 		"slackware": "md5sum",
 		"solus": "sha256sum",
 		"ubuntu": "sha256sum",
