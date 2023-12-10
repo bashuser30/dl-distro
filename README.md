@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **390** images from **19** distributions.
+Currently, `dl-distro` supports **408** images from **20** distributions.
 
 ## Dependencies
 
@@ -26,7 +26,7 @@ Currently, `dl-distro` supports **390** images from **19** distributions.
 ### AUR
 
 You can either use your preferred AUR helper or manually clone and build the
-package. Both `dl-distro` and `dl-distro-git` are available.
+package:
 
 ```
 git clone https://aur.archlinux.org/dl-distro.git
@@ -66,15 +66,12 @@ sudo rm /usr/bin/dl-distro
 ## JSON File
 
 `dl-distro` relies on there being a locally stored JSON file. You can use the
-`-a` option to toggle on and off automatic fetching of this JSON file. Using
+`-a` option to toggle on and off automatic updating of this JSON file. Using
 the `-u` option will force update the local JSON file.
 
 `dl-distro` dynamically interprets the JSON file, additions to distributions
 already supported in the script will not necessitate updates to the script
 itself. Users will automatically see new entries in the JSON file.
-
-Updating the `dl-distro` script will only be required when new distributions
-are added or if there are incompatibilities introduced in the JSON file.
 
 If you wish to override any data found in the JSON file, you
 can edit it and place the file in one of these locations:
@@ -112,11 +109,11 @@ OPTIONS
   -u, --update-json  Update the locally stored JSON file
 
 DISTROS
-  alma    gparted  opensuse   tails
-  alpine  kali     parrot     ubuntu
-  arch    mint     qubes      void
-  debian  nixos    slackware  whonix
-  fedora  openbsd  solus
+  alma    gparted  opensuse   solus
+  alpine  kali     parrot     tails
+  arch    mint     qubes      ubuntu
+  debian  nixos    rocky      void
+  fedora  openbsd  slackware  whonix
 ```
 
 ## Error Importing Signing Key
@@ -141,18 +138,12 @@ help continue to improve `dl-distro`.
 
 ## Supported Distributions
 
-`dl-distro` aims to support all images provided by the respective distribution
-maintainers.
-
-If an image from these distributions is not supported, submitting an issue
-under the `distro addition` label is encouraged.
-
 | Distributions | Versions |
 |:-------------:|:--------:|
-| [AlmaLinux OS](https://almalinux.org)| 9.3 <br> 8.9 |
+| [AlmaLinux OS](https://almalinux.org) | 9.3 <br> 8.9 |
 | [Alpine Linux](https://alpinelinux.org) | 3.19.0 |
 | [Arch Linux](https://archlinux.org) | Latest <br> 2023.12.01 <br> 2023.11.01 <br> 2023.10.14 |
-| [Debian](https://debian.org)  | 12.2.0 |
+| [Debian](https://debian.org) | 12.2.0 |
 | [Fedora Linux](https://fedoraproject.org) | 39 |
 | [GParted Live](https://gparted.org) | 1.5.0-6 |
 | [Kali Linux](https://kali.org) | 2023.4 <br> Weekly |
@@ -162,6 +153,7 @@ under the `distro addition` label is encouraged.
 | [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> Leap Micro 5.5 <br> MicroOS |
 | [Parrot OS](https://parrotlinux.org) | 5.3 |
 | [Qubes OS](https://qubes-os.org) | 4.1.2 |
+| [Rocky Linux](https://rockylinux.org) | 9.3 <br> 8.9 |
 | [Slackware Linux](https://www.slackware.com) | 15.0 |
 | [Solus](https://getsol.us) | 4.4 |
 | [Tails](https://tails.net) | 5.20 |

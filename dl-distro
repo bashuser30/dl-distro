@@ -353,6 +353,13 @@ download_qubes() {
 	verify_checksum
 }
 
+download_rocky() {
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	verify_checksum
+	print_message "Rocky Linux does not provide signatures."
+}
+
 download_slackware() {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
@@ -443,11 +450,11 @@ OPTIONS
   -u, --update-json  Update the locally stored JSON file
 
 DISTROS
-  alma    gparted  opensuse   tails
-  alpine  kali     parrot     ubuntu
-  arch    mint     qubes      void
-  debian  nixos    slackware  whonix
-  fedora  openbsd  solus
+  alma    gparted  opensuse   solus
+  alpine  kali     parrot     tails
+  arch    mint     qubes      ubuntu
+  debian  nixos    rocky      void
+  fedora  openbsd  slackware  whonix
 EOF
 	exit 0
 }
