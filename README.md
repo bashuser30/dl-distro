@@ -99,7 +99,7 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS
   -h, --help         Display this usage message
-  -a, --auto-fetch   Toggle on/off automatic JSON fetching
+  -a, --auto-update  Toggle on/off automatic JSON updating
   -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
   -i, --import-key   Import a GPG key: dl-distro -i /path/to/key.asc
   -l, --list-keys    List the stored GPG keys

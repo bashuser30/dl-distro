@@ -440,7 +440,7 @@ USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
 OPTIONS
   -h, --help         Display this usage message
-  -a, --auto-fetch   Toggle on/off automatic JSON fetching
+  -a, --auto-update  Toggle on/off automatic JSON updating
   -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
   -i, --import-key   Import a GPG key: dl-distro -i /path/to/key.asc
   -l, --list-keys    List the stored GPG keys
@@ -587,17 +587,17 @@ update_json() {
 	print_error_and_exit "Failed to update the JSON file."
 }
 
-toggle_auto_fetch() {
+toggle_auto_update() {
 	config_dir="$(dirname "$config_file")"
 
 	[[ ! -d "$config_dir" ]] && mkdir -p "$config_dir"
 
 	if [[ "$auto_fetch_enabled" == "true" ]]; then
 		printf "auto_fetch_enabled=false\n" > "$config_file"
-		print_message "Disabled JSON auto-fetching."
+		print_message "Disabled JSON auto-updating."
 	else
 		printf "auto_fetch_enabled=true\n" > "$config_file"
-		print_message "Enabled JSON auto-fetching."
+		print_message "Enabled JSON auto-updating."
 	fi
 
 	exit 0
@@ -619,7 +619,7 @@ main() {
 	while [[ "$#" -gt 0 ]]; do
 		case "$1" in
 			-h|--help) usage ;;
-			-a|--auto-fetch) toggle_auto_fetch ;;
+			-a|--auto-update) toggle_auto_update ;;
 			-d|--delete-key) delete_gpg_key "${2:-}" ;;
 			-i|--import-key) import_gpg_key "${2:-}" ;;
 			-l|--list-keys) list_gpg_keys ;;
