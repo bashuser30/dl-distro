@@ -1,56 +1,33 @@
-## Contributing
+## Contributing to dl-distro
 
-Thank you for considering contributing to `dl-distro`. This document has some
-contributing guidelines and information about how I routinely test the script
-to ensure all combinations lead to valid URLs.
-
-### Guidelines
+- **Before Coding**:
+  Before starting code changes, please open an issue to discuss your proposed
+  changes. This helps avoid unnecessary work and potential conflicts with
+  planned features.
 
 - **Code Style/Flow**:
-Please ensure your code adheres to the existing style and flow of the project.
-This includes using [tabs for indentation and spaces for alignment](
-https://vim.fandom.com/wiki/Indent_with_tabs,_align_with_spaces)
-to ensure consistency and maintainability across various editors.
+  Adhere to the existing style and flow of the project. Use [tabs for
+  indentation and spaces for alignment](
+  https://vim.fandom.com/wiki/Indent_with_tabs,_align_with_spaces)
+  for consistency across various editors.
 
-- **Open an Issue First**:
-Before you start writing code, it's a good idea to open an issue to discuss
-your intended changes. This way, we can avoid any unnecessary work or potential
-conflicts with planned features.
+- **Testing**:
+  Use the `-s, --spider` option for testing URLs without downloading files.
+  Before submitting a PR for a new distribution or addition, test at least one
+  fully downloaded and verified image. A Bash script is available to generate
+  and verify URLs from JSON endpoints using `curl`. This script is not public
+  to prevent abuse, but if you're interested in using it for testing, please
+  reach out.
 
 - **Pull Requests**:
-Once you're ready to share your changes, please open a pull request. Ensure
-your PR has a descriptive title and explains the purpose and context of the
-change.
+  Ensure your PR has a descriptive title and a detailed description of the
+  changes.
 
-### Testing & Maintenance
+- **RSS Feeds**:
+  Distribution version updates are monitored through RSS feeds. For a list of
+  specific URLs used for `dl-distro`, feel free to reach out.
 
-#### The Spider Option
-
-For testing, the `-s, --spider` option is highly useful as it allows you to
-check URLs without needing to download files. This method is effective for
-verifying if the combinations lead to a successful download link. However,
-errors might still occur after the actual download process.
-
-Therefore, I strongly recommend testing **AT LEAST** one fully downloaded and
-verified image before submitting a pull request for a new distribution or
-addition. If you are absolutely certain that the verification will succeed, you
-may opt to skip this step, but please ensure you are 100% confident in its
-accuracy.
-
-#### URL Generator Script
-
-Recognizing the impracticality of manually testing all the combinations in
-`dl-distro`, I've developed a Bash script tailored to optimize the maintenance
-workflow. This is particularly crucial during major updates to the JSON file,
-such as when new distribution versions are released. The script efficiently
-generates URLs from the JSON endpoints and employs `wget --spider` to verify
-their existence. This method is pivotal for validating URL integrity and
-quickly pinpointing any discrepancies. If you're interested in this script feel
-free to reach out.
-
-#### RSS Feeds
-
-For standard version updates, I monitor various distributions through RSS feeds
-of their blogs and announcements using the [Newsboat](https://newsboat.org) RSS
-feed reader. If you would like the list of URLs I use specifically for
-`dl-distro`, feel free to ask.
+- **Contact**:
+  If you have any questions or need assistance, please feel free to open an
+  issue on the repository, or email at: [bashuser30@mailbox.org (GPG: C6312EC0)
+  ](mailto:bashuser30@mailbox.org)
