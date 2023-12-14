@@ -120,8 +120,8 @@ fetch_signify_key() {
 		source /etc/os-release
 	else
 		print_warning "/etc/os-release is missing."
-		print_message "This is to determine the package name signify uses."
-		print_message "Defaulting to: signify"
+		print_warning "This is to determine the package name signify uses."
+		print_warning "Defaulting to: signify"
 	fi
 
 	if [[ "${ID:-}" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
@@ -273,7 +273,7 @@ download_kali () {
 
 		if ! grep -qF "$iso_file" <<< "$html_content"; then
 			print_warning "No new ISO for week: $current_week_num"
-			print_message "Downloading previous week."
+			print_warning "Downloading previous week."
 			(( prev_week_num=current_week_num-1 ))
 			iso_file="${iso_file//$current_week_num/$prev_week_num}"
 		fi
@@ -580,7 +580,7 @@ update_json() {
 			return 0
 		else
 			print_warning "Failed to download data.json from: $json_url"
-			print_message "Trying next mirror..."
+			print_warning "Trying next mirror..."
 		fi
 	done
 
