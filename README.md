@@ -152,7 +152,7 @@ help continue to improve `dl-distro`.
 | [OpenBSD](https://openbsd.org) | 7.4 |
 | [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> Leap Micro 5.5 <br> MicroOS |
 | [Parrot OS](https://parrotlinux.org) | 5.3 |
-| [Qubes OS](https://qubes-os.org) | 4.1.2 |
+| [Qubes OS](https://qubes-os.org) | 4.2.0 |
 | [Rocky Linux](https://rockylinux.org) | 9.3 <br> 8.9 |
 | [Slackware Linux](https://www.slackware.com) | 15.0 |
 | [Solus](https://getsol.us) | 4.4 |
