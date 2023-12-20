@@ -533,14 +533,10 @@ update_json() {
 
 	json_dir="$data_dir/json_data"
 
-	[[ ! -d "$json_dir" ]] && mkdir -p "$json_dir"
-
-	cd "$json_dir" || exit 1
-
 	for json_url in "${json_urls[@]}"; do
-		if wget -O "data.json" -q "$json_url"; then
+		if wget -P "$json_dir" -q "$json_url"; then
 			print_message "Successfully downloaded latest JSON file."
-			updated=true
+			updated="true"
 			return 0
 		else
 			print_warning "Failed to download data.json from: $json_url"
