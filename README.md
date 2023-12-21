@@ -36,31 +36,27 @@ makepkg -si
 
 ### Non AUR
 
-If you can't access the AUR, you should `git clone` the repository.
+If you can't access the AUR, you should download the `dl-distro` script and
+place it in your `$PATH`.
 
 #### Install
 
 ```
-git clone https://codeberg.org/bashuser30/dl-distro.git
-cd dl-distro
-sudo cp dl-distro /usr/bin/dl-distro
+wget https://codeberg.org/bashuser30/dl-distro/raw/branch/master/dl-distro
+chmod +x dl-distro
+sudo mv dl-distro /usr/local/bin
 ```
 
-#### Update
-
-```
-git pull
-sudo cp dl-distro /usr/bin/dl-distro
-```
+To update the script, run the above commands again.
 
 #### Uninstall
 
-Run `dl-distro` with the `-p` option to purge all stored data, then simply
-remove the script:
+Run `dl-distro` with the `-p` option to purge all stored data, then remove the
+script:
 
 ```
 dl-distro -p
-sudo rm /usr/bin/dl-distro
+sudo rm /usr/local/bin/dl-distro
 ```
 
 ## JSON File
