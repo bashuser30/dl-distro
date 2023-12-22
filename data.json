@@ -2843,10 +2843,10 @@
 			"sum_file": "Whonix-Xfce-17.0.3.0.sha512sums"
 		},
 		"virtualbox": {
-			"url": "https://download.whonix.org/ova/17.0.4.5",
-			"iso_file": "Whonix-Xfce-17.0.4.5.ova",
-			"sig_file": "Whonix-Xfce-17.0.4.5.ova.asc",
-			"sum_file": "Whonix-Xfce-17.0.4.5.sha512sums"
+			"url": "https://download.whonix.org/ova/17.1.0.2",
+			"iso_file": "Whonix-Xfce-17.1.0.2.ova",
+			"sig_file": "Whonix-Xfce-17.1.0.2.ova.asc",
+			"sum_file": "Whonix-Xfce-17.1.0.2.sha512sums"
 		}
 	}
 }

@@ -155,7 +155,7 @@ help continue to improve `dl-distro`.
 | [Tails](https://tails.net) | 5.21 |
 | [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial) <br> 14.04.6 LTS (trusty) |
 | [Void Linux](https://voidlinux.org) | 20230628 |
-| [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.0.4.5 (virtualbox) |
+| [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.1.0.2 (virtualbox) |
 
 ## Mirrors
 
