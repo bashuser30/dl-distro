@@ -400,13 +400,11 @@ usage() {
 	cat <<EOF
 USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
 
-  Provide dl-distro with a distro name or
-  jq path. The jq path uses the same names
-  you see in interactive mode.
+  Provide dl-distro with a distro name or jq path:
 
-      dl-distro arch
-      dl-distro arch.latest
-      dl-distro -n arch.latest ~/Downloads
+      dl-distro debian
+      dl-distro debian.netinst.amd64
+      dl-distro debian.netinst.amd64 ~/Downloads
 
 OPTIONS
   -h, --help         Display this usage message
