@@ -9,7 +9,7 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **408** images from **20** [distributions.](
+Currently, `dl-distro` supports **408** images from **20** [distributions](
 #supported-distributions).
 
 ## Dependencies
@@ -121,14 +121,3 @@ align with the latest releases on the same day they become available.
 - [**Ubuntu**](https://ubuntu.com)
 - [**Void Linux**](https://voidlinux.org)
 - [**Whonix**](https://whonix.org)
-
-## Mirrors
-
-- [Codeberg (main)](https://codeberg.org/bashuser30/dl-distro)
-- [GitLab](https://gitlab.com/bashuser30/dl-distro)
-- [GitHub](https://github.com/bashuser30/dl-distro)
-
-## License
-
-All files in this repository are licensed under the GNU General Public License
-v3.0 - see the [LICENSE](LICENSE) file for details.
