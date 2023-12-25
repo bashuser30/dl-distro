@@ -9,7 +9,8 @@ The script uses `gpg` for signature verification and checks the integrity of
 the downloaded image file with the relevant checksum algorithm. It alerts users
 of any tampering or corruption, and removes files that fail these checks.
 
-Currently, `dl-distro` supports **408** images from **20** distributions.
+Currently, `dl-distro` supports **408** images from **20** [distributions.](
+#supported-distributions).
 
 ## Dependencies
 
@@ -96,28 +97,30 @@ encounter, or suggestions you might have.
 
 ## Supported Distributions
 
-| Distributions | Versions |
-|:-------------:|:--------:|
-| [AlmaLinux OS](https://almalinux.org) | 9.3 <br> 8.9 |
-| [Alpine Linux](https://alpinelinux.org) | 3.19.0 |
-| [Arch Linux](https://archlinux.org) | Latest <br> 2023.12.01 <br> 2023.11.01 <br> 2023.10.14 |
-| [Debian](https://debian.org) | 12.4.0 |
-| [Fedora Linux](https://fedoraproject.org) | 39 |
-| [GParted Live](https://gparted.org) | 1.5.0-6 |
-| [Kali Linux](https://kali.org) | 2023.4 <br> Weekly |
-| [Linux Mint](https://linuxmint.com) | 21.2 <br> Debian Edition 6 |
-| [NixOS](https://nixos.org) | 23.11 |
-| [OpenBSD](https://openbsd.org) | 7.4 |
-| [openSUSE](https://opensuse.org) | Leap 15.5 <br> Tumbleweed <br> Leap Micro 5.5 <br> MicroOS |
-| [Parrot OS](https://parrotlinux.org) | 5.3 |
-| [Qubes OS](https://qubes-os.org) | 4.2.0 |
-| [Rocky Linux](https://rockylinux.org) | 9.3 <br> 8.9 |
-| [Slackware Linux](https://www.slackware.com) | 15.0 |
-| [Solus](https://getsol.us) | 4.4 |
-| [Tails](https://tails.net) | 5.21 |
-| [Ubuntu](https://ubuntu.com) | 23.10.1 (mantic) <br> 23.04 (lunar) <br> 22.04.3 LTS (jammy) <br> 20.04.6 LTS (focal) <br> 18.04.6 LTS (bionic) <br> 16.04.7 LTS (xenial) <br> 14.04.6 LTS (trusty) |
-| [Void Linux](https://voidlinux.org) | 20230628 |
-| [Whonix](https://whonix.org) | 17.0.3.0 (qemu) <br> 17.1.0.2 (virtualbox) |
+`dl-distro` aims to consistently provide support for the latest versions
+officially supported by distribution maintainers. It is continuously updated to
+align with the latest releases on the same day they become available.
+
+- [**AlmaLinux OS**](https://almalinux.org)
+- [**Alpine Linux**](https://alpinelinux.org)
+- [**Arch Linux**](https://archlinux.org)
+- [**Debian**](https://debian.org)
+- [**Fedora Linux**](https://fedoraproject.org)
+- [**GParted Live**](https://gparted.org)
+- [**Kali Linux**](https://kali.org)
+- [**Linux Mint**](https://linuxmint.com)
+- [**NixOS**](https://nixos.org)
+- [**OpenBSD**](https://openbsd.org)
+- [**openSUSE**](https://opensuse.org)
+- [**Parrot OS**](https://parrotlinux.org)
+- [**Qubes OS**](https://qubes-os.org)
+- [**Rocky Linux**](https://rockylinux.org)
+- [**Slackware Linux**](https://www.slackware.com)
+- [**Solus**](https://getsol.us)
+- [**Tails**](https://tails.net)
+- [**Ubuntu**](https://ubuntu.com)
+- [**Void Linux**](https://voidlinux.org)
+- [**Whonix**](https://whonix.org)
 
 ## Mirrors
 
