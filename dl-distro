@@ -20,16 +20,16 @@
 set -euo pipefail
 
 print_error_and_exit() {
-	printf "[dl-distro] ERROR: %s\n" "$1" >&2
+	printf "${red_start}[dl-distro] ERROR: %s${color_end}\n" "$1" >&2
 	exit 1
 }
 
 print_warning() {
-	printf "[dl-distro] WARNING: %s\n" "$1" >&2
+	printf "${yellow_start}[dl-distro] WARNING: %s${color_end}\n" "$1" >&2
 }
 
 print_message() {
-	printf "[dl-distro] %s\n" "$1"
+	printf "${green_start}[dl-distro] %s${color_end}\n" "$1"
 }
 
 wget_file() {
@@ -56,8 +56,24 @@ wget_spider() {
 	exit 0
 }
 
+dependency_check() {
+	missing_deps=()
+
+	for cmd in "$@"; do
+		command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
+	done
+
+	if [[ "${#missing_deps[@]}" -eq 0 ]]; then
+		return 0
+	else
+		print_error_and_exit "Please install: ${missing_deps[*]}"
+	fi
+}
+
 fetch_gpg_key() {
 	[[ "$verification_enabled" == "false" ]] && return 0
+
+	dependency_check "gpg"
 
 	[[ ! -d "$data_dir" ]] && mkdir -p "$data_dir"
 
@@ -77,6 +93,8 @@ fetch_gpg_key() {
 
 fetch_minisign_key() {
 	[[ "$verification_enabled" == "false" ]] && return 0
+
+	dependency_check "minisign"
 
 	minisign_key_url="$(jq -r ".minisign_keys.$distro" "$json_file")"
 	minisign_key="$(basename "$minisign_key_url")"
@@ -108,6 +126,8 @@ fetch_signify_key() {
 	else
 		signify_name="signify"
 	fi
+
+	dependency_check "$signify_name"
 
 	signify_key_url="$(jq -r ".signify_keys.$distro" "$json_file")"
 	signify_key="$(basename "$signify_key_url")"
@@ -428,6 +448,8 @@ EOF
 }
 
 list_gpg_keys() {
+	dependency_check "gpg"
+
 	if gpg --homedir "$data_dir" --list-keys 2> /dev/null; then
 		exit 0
 	else
@@ -437,6 +459,8 @@ list_gpg_keys() {
 }
 
 import_gpg_key() {
+	dependency_check "gpg"
+
 	[[ ! -d "$data_dir" ]] && mkdir -p "$data_dir"
 
 	gpg_dir_perms="$(stat -c "%a" "$data_dir")"
@@ -452,6 +476,8 @@ import_gpg_key() {
 }
 
 delete_gpg_key() {
+	dependency_check "gpg"
+
 	if gpg --homedir "$data_dir" --delete-keys "$1" &> /dev/null; then
 		print_message "Successfully deleted GPG key: $1"
 		exit 0
@@ -500,7 +526,7 @@ traverse_json() {
 				traverse_json "$traverse_path.${choices[choice-1]}"
 				return 0
 			else
-				printf "\nInvalid choice. Please choose a number 1 to %s.\n" "${#choices[@]}" >&2
+				printf "\n${red_start}Invalid choice. Please choose a number 1 to %s.${color_end}\n" "${#choices[@]}" >&2
 			fi
 		done
 	fi
@@ -568,6 +594,12 @@ main() {
 	spider_mode_enabled="false"
 	auto_fetch_enabled="false"
 	cli_mode="false"
+	green_start="\033[0;32m"
+	red_start="\033[0;31m"
+	yellow_start="\033[0;33m"
+	color_end="\033[0m"
+
+	dependency_check "jq" "wget"
 
 	if [[ -f "$config_file" ]]; then
 		# shellcheck disable=SC1090
