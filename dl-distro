@@ -418,24 +418,25 @@ download_whonix() {
 
 usage() {
 	cat <<EOF
-USAGE: dl-distro [OPTIONS] [DISTRO] [PATH]
+USAGE
+  dl-distro [options] <distro> [path]
 
-  Provide dl-distro with a distro name or jq path:
-
-      dl-distro debian
-      dl-distro debian.netinst.amd64
-      dl-distro debian.netinst.amd64 ~/Downloads
+  dl-distro [options] <jq.path> [path]
 
 OPTIONS
-  -h, --help         Display this usage message
-  -a, --auto-update  Toggle on/off automatic JSON updating
-  -d, --delete-key   Delete a GPG key: dl-distro -d [KEY_ID]
-  -i, --import-key   Import a GPG key: dl-distro -i /path/to/key.asc
-  -l, --list-keys    List the stored GPG keys
-  -n, --no-verify    Skip key fetching and verification
-  -p, --purge-data   Delete ALL stored data
-  -s, --spider       Check image availability without downloading
-  -u, --update-json  Update the locally stored JSON file
+  -a, --auto-update               Toggle on or off automatic updating of the
+                                  local JSON file.
+  -d, --delete-key <gpg_key_id>   Delete a stored GPG key using its GPG key id.
+  -h, --help                      Display this help message.
+  -i, --import-key <path_to_key>  Import a GPG key from a keyfile.
+  -l, --list-keys                 List the stored GPG keys.
+  -n, --no-verify                 Skip GPG, Minisign, or Signify key fetching
+                                  and verification.
+  -p, --purge-data                Purge ALL the stored data. Includes GPG,
+                                  Minisign, Signify keys and the JSON file.
+  -s, --spider                    Check if the URLs for the chosen image return
+                                  a 200 status, indicating they are valid URLs.
+  -u, --update-json               Update the locally stored JSON file.
 
 DISTROS
   alma    gparted  opensuse   solus
@@ -443,6 +444,11 @@ DISTROS
   arch    mint     qubes      ubuntu
   debian  nixos    rocky      void
   fedora  openbsd  slackware  whonix
+
+EXAMPLES
+  dl-distro arch
+  dl-distro arch.latest
+  dl-distro -n arch.latest ~/Downloads
 EOF
 	exit 0
 }
