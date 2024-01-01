@@ -1,6 +1,6 @@
 # dl-distro
 
-Bash script for downloading and verifying OS images
+Bash script for downloading and verifying OS images.
 
 ## Description
 
@@ -30,6 +30,8 @@ Use your preferred AUR helper to install `dl-distro` or `dl-distro-git`.
 [![dl-distro](https://img.shields.io/aur/version/dl-distro?color=1793d1&label=dl-distro&logo=arch-linux&style=for-the-badge)](https://aur.archlinux.org/packages/dl-distro)
 [![dl-distro-git](https://img.shields.io/aur/version/dl-distro-git?color=1793d1&label=dl-distro-git&logo=arch-linux&style=for-the-badge)](https://aur.archlinux.org/packages/dl-distro-git)
 
+Or clone and build:
+
 ```
 git clone https://aur.archlinux.org/dl-distro.git
 cd dl-distro
@@ -38,10 +40,10 @@ makepkg -si
 
 ### Non-AUR
 
-`git clone` the repository and run the `installer.sh` script inside the cloned
-repository:
-
 #### Install
+
+`git clone` the repository and use the installer script inside the cloned
+repository:
 
 ```
 git clone https://codeberg.org/bashuser30/dl-distro.git
@@ -69,7 +71,7 @@ See `man dl-distro` and `dl-distro --help` for more information about usage.
 ### Downloading an OS Image
 
 Provide a distribution name to download an OS image. This will prompt you with
-additional choice menus, if necessary.
+additional choice menus, if necessary:
 
 ```
 dl-distro arch
