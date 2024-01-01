@@ -550,12 +550,13 @@ find_json() {
 	for json_path in "${json_paths[@]}"; do
 		if [[ -f "$json_path" ]]; then
 			json_file="$(realpath -m "$json_path")"
+			print_message "Using JSON file at: $json_file"
 			return 0
 		fi
 	done
 
 	update_json
-	fetch_json
+	find_json
 }
 
 update_json() {
