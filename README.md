@@ -26,8 +26,8 @@ Currently, `dl-distro` supports **408** images from **20** [distributions](
 
 ### AUR
 
-You can either use your preferred AUR helper or manually clone and build the
-package:
+Use your preferred AUR helper to install `dl-distro` or manually clone and
+build the package:
 
 ```
 git clone https://aur.archlinux.org/dl-distro.git
@@ -37,59 +37,65 @@ makepkg -si
 
 ### Non-AUR
 
-If you can't access the AUR, you should download the `dl-distro` script and
-place it in your `$PATH`.
+If you can't access the AUR, you should `git clone` the repository and run the
+`installer.sh` script inside the cloned repository:
 
 #### Install
 
 ```
-wget https://codeberg.org/bashuser30/dl-distro/raw/branch/master/dl-distro
-chmod +x dl-distro
-sudo mv dl-distro /usr/local/bin
+git clone https://codeberg.org/bashuser30/dl-distro.git
+cd dl-distro
+sudo ./installer.sh install
 ```
 
-To update the script, run the above commands again.
+#### Update
+
+```
+git pull
+sudo ./installer.sh install
+```
 
 #### Uninstall
 
-Run `dl-distro` with the `-p` option to purge all stored data, then remove the
-script:
-
 ```
-dl-distro -p
-sudo rm /usr/local/bin/dl-distro
+sudo ./installer.sh uninstall
 ```
 
 ## Usage
 
-`dl-distro` relies on there being a locally stored JSON file. Use the `-a`
-option to toggle on and off automatic updating of the file. The `-u` option
-will force update the JSON file:
+See `man dl-distro` and `dl-distro --help` for more information about usage.
+
+### Downloading an OS Image
+
+To download an OS image, you need to provide a distribution name. This will
+prompt you with menus for further choices if need be:
+
+```
+dl-distro arch
+```
+
+You can skip the menus and start a download directly if you provide a jq path.
+The names used in the jq path correspond directly to those in the menus:
+
+```
+dl-distro arch.latest
+```
+
+### Updating the JSON file
+
+`dl-distro` relies on there being a locally stored JSON file.
+
+Use the `-a` option to toggle on and off automatic updating of the file:
 
 ```
 dl-distro -a
+```
+
+The `-u` option will force update the JSON file:
+
+```
 dl-distro -u
 ```
-
-To download an OS image, you need to provide a distribution name or a jq path:
-
-```
-dl-distro debian
-dl-distro debian.netinst.amd64
-dl-distro debian.netinst.amd64 ~/Downloads
-```
-
-Use `-h` or `--help` for the list of distribution names and options available.
-
-If you wish to override any data found in the JSON file, you can edit it and
-place the file in one of these locations:
-
-- `$XDG_CONFIG_HOME/dl-distro/data.json`
-- The directory `dl-distro` is located in
-
-This is useful if you need to override the mirror to a faster one. Do note
-however, most distributions use a redirecting system, so you should get the
-closest mirror to your location.
 
 Please open an issue on the [repository's issue tracker](
 https://codeberg.org/bashuser30/dl-distro/issues) detailing any problems you
@@ -97,27 +103,37 @@ encounter, or suggestions you might have.
 
 ## Supported Distributions
 
-`dl-distro` aims to consistently provide support for the latest versions
-officially supported by distribution maintainers. It is continuously updated to
-align with the latest releases on the same day they become available.
+`dl-distro` aims to consistently support the latest versions officially
+maintained, updating with new releases on their release day.
 
-- [**AlmaLinux OS**](https://almalinux.org)
-- [**Alpine Linux**](https://alpinelinux.org)
-- [**Arch Linux**](https://archlinux.org)
-- [**Debian**](https://debian.org)
-- [**Fedora Linux**](https://fedoraproject.org)
-- [**GParted Live**](https://gparted.org)
-- [**Kali Linux**](https://kali.org)
-- [**Linux Mint**](https://linuxmint.com)
-- [**NixOS**](https://nixos.org)
-- [**OpenBSD**](https://openbsd.org)
-- [**openSUSE**](https://opensuse.org)
-- [**ParrotOS**](https://parrotsec.org)
-- [**Qubes OS**](https://qubes-os.org)
-- [**Rocky Linux**](https://rockylinux.org)
-- [**Slackware Linux**](http://slackware.com)
-- [**Solus**](https://getsol.us)
-- [**Tails**](https://tails.net)
-- [**Ubuntu**](https://ubuntu.com)
-- [**Void Linux**](https://voidlinux.org)
-- [**Whonix**](https://whonix.org)
+- [AlmaLinux OS](https://almalinux.org)
+- [Alpine Linux](https://alpinelinux.org)
+- [Arch Linux](https://archlinux.org)
+- [Debian](https://debian.org)
+- [Fedora Linux](https://fedoraproject.org)
+- [GParted Live](https://gparted.org)
+- [Kali Linux](https://kali.org)
+- [Linux Mint](https://linuxmint.com)
+- [NixOS](https://nixos.org)
+- [OpenBSD](https://openbsd.org)
+- [openSUSE](https://opensuse.org)
+- [ParrotOS](https://parrotsec.org)
+- [Qubes OS](https://qubes-os.org)
+- [Rocky Linux](https://rockylinux.org)
+- [Slackware Linux](http://slackware.com)
+- [Solus](https://getsol.us)
+- [Tails](https://tails.net)
+- [Ubuntu](https://ubuntu.com)
+- [Void Linux](https://voidlinux.org)
+- [Whonix](https://whonix.org)
+
+## Repository Links
+
+- [Codeberg](https://codeberg.org/bashuser30/dl-distro)
+- [GitLab (read-only)](https://gitlab.com/bashuser30/dl-distro)
+- [GitHub (read-only)](https://github.com/bashuser30/dl-distro)
+
+## License
+
+All files in this repository are licensed under the GNU General Public License
+v3.0 - see the [LICENSE](LICENSE) file for details.
