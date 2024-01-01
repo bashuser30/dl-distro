@@ -84,7 +84,7 @@ dl-distro arch.latest
 
 ### Updating the JSON file
 
-`dl-distro` relies on there being a locally stored JSON file.
+dl-distro relies on there being a locally stored JSON file.
 
 Use the `-a` option to toggle on and off automatic updating of the file:
 
@@ -103,7 +103,7 @@ detailing any problems you encounter, or suggestions you might have.
 
 ## Supported Distributions
 
-`dl-distro` aims to consistently support the latest versions officially
+dl-distro aims to consistently support the latest versions officially
 maintained, updating with new releases on their release day.
 
 - [AlmaLinux OS](https://almalinux.org)
