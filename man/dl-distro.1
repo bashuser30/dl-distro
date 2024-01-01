@@ -59,45 +59,65 @@ Update the locally stored JSON file.
 
 .SH DISTRIBUTIONS
 .TP
-.B alma
+\fBalma\fR - AlmaLinux OS
+https://almalinux.org
 .TP
-.B alpine
+\fBalpine\fR - Alpine Linux
+https://alpinelinux.org
 .TP
-.B arch
+\fBarch\fR - Arch Linux
+https://archlinux.org
 .TP
-.B debian
+\fBdebian\fR - Debian
+https://debian.org
 .TP
-.B fedora
+\fBfedora\fR - Fedora Linux
+https://fedoraproject.org
 .TP
-.B gparted
+\fBgparted\fR - GParted Live
+https://gparted.org
 .TP
-.B kali
+\fBkali\fR - Kali Linux
+https://kali.org
 .TP
-.B mint
+\fBmint\fR - Linux Mint
+https://linuxmint.com
 .TP
-.B nixos
+\fBnixos\fR - NixOS
+https://nixos.org
 .TP
-.B openbsd
+\fBopenbsd\fR - OpenBSD
+https://openbsd.org
 .TP
-.B opensuse
+\fBopensuse\fR - openSUSE
+https://opensuse.org
 .TP
-.B parrot
+\fBparrot\fR - ParrotOS
+https://parrotsec.org
 .TP
-.B qubes
+\fBqubes\fR - Qubes OS
+https://qubes-os.org
 .TP
-.B rocky
+\fBrocky\fR - Rocky Linux
+https://rockylinux.org
 .TP
-.B slackware
+\fBslackware\fR - Slackware Linux
+http://slackware.com
 .TP
-.B solus
+\fBsolus\fR - Solus
+https://getsol.us
 .TP
-.B tails
+\fBtails\fR - Tails
+https://tails.net
 .TP
-.B ubuntu
+\fBubuntu\fR - Ubuntu
+https://ubuntu.com
 .TP
-.B void
+\fBvoid\fR - Void Linux
+https://voidlinux.org
 .TP
-.B whonix
+\fBwhonix\fR - Whonix
+https://whonix.org
 
 .SH EXAMPLES
 .TP
@@ -120,8 +140,32 @@ The config directory is \fI$XDG_CONFIG_HOME/dl-distro\fR. If
 \fB$XDG_CONFIG_HOME\fR is unset, the directory will be
 \fI$HOME/.config/dl-distro\fR.
 
-\fIdl-distro.conf\fR is used to store dl-distro's config. Currently only storing
-the state of auto-updating for the JSON file.
+\fIdl-distro.conf\fR is used to store dl-distro's config. Below are the
+variables you can set. Values shown are default values used in the script,
+please use quotes:
+
+.RS
+.TP
+\fB default_download_dir\fR="$PWD"
+By default, if no download path is provided, dl-distro will use the \fB$PWD\fR
+variable. To instead always download to a specific path, change this variable.
+.TP
+\fB auto_fetch_enabled\fR="false"
+Changing to "true" will download the JSON file from the master branch before
+each run, ensuring always up-to-date data.
+.TP
+\fB verification_enabled\fR="true"
+Changing to "false" is like using -n, --no-verify always.
+.TP
+\fB spider_mode_enabled\fR="false"
+Changing to "true" is like using -s, --spider always.
+.RE
+
+.RS
+You can also override data in the JSON file by downloading it and placing it in
+the config directory. dl-distro will use this file over the one stored in the
+data directory.
+.RE
 
 .TP
 .B DATA DIRECTORY
