@@ -17,6 +17,11 @@
 # You should have received a copy of the GNU General Public License
 # along with dl-distro. If not, see <http://www.gnu.org/licenses/>.
 
+if [[ "$(id -u)" -eq 0 ]]; then
+	printf "\033[1;31mERROR: Do not run as root.\033[0m\n"
+	exit 1
+fi
+
 set -euo pipefail
 
 print_error_and_exit() {
