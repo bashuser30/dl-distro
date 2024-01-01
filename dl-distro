@@ -579,10 +579,10 @@ update_json() {
 
 toggle_auto_update() {
 	if [[ "$auto_fetch_enabled" == "true" ]]; then
-		sed -i 's/auto_fetch_enabled="true"/auto_fetch_enabled="false"/' "$conf_file"
+		sed -i 's/auto_fetch_enabled=\(\"true\"\|true\)/auto_fetch_enabled="false"/' "$conf_file"
 		print_message "Disabled JSON auto-updating."
 	else
-		sed -i 's/auto_fetch_enabled="false"/auto_fetch_enabled="true"/' "$conf_file"
+		sed -i 's/auto_fetch_enabled=\(\"false\"\|false\)/auto_fetch_enabled="true"/' "$conf_file"
 		print_message "Enabled JSON auto-updating."
 	fi
 
