@@ -10,13 +10,10 @@ dl-distro - Bash script for downloading and verifying OS images
 \fIdl-distro\fR [options] <jq.path> [path]
 
 .SH DESCRIPTION
-dl-distro is a Bash script that simplifies the downloading and verification of
-operating system images. It utilizes jq and a JSON file for data retrieval, and
-wget for downloading image files, along with their signature and checksum files.
+dl-distro aims to make downloading and verifying OS images quick and easy.
 
-The script uses gpg for signature verification and checks the integrity of the
-downloaded image file with the relevant checksum algorithm. It alerts users of
-any tampering or corruption, and removes files that fail these checks.
+It uses \fBjq\fR for data retrieval, \fBwget\fR for downloading, \fBgpg\fR for
+signature verification, and validates checksums with the relevant algorithm.
 
 .SH OPTIONS
 .TP
