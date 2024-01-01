@@ -67,8 +67,8 @@ See `man dl-distro` and `dl-distro --help` for more information about usage.
 
 ### Downloading an OS Image
 
-To download an OS image, you need to provide a distribution name. This will
-prompt you with menus for further choices if need be:
+Provide a distribution name to download an OS image. This will prompt you with
+additional choice menus, if necessary.
 
 ```
 dl-distro arch
@@ -91,7 +91,7 @@ Use the `-a` option to toggle on and off automatic updating of the file:
 dl-distro -a
 ```
 
-The `-u` option will force update the JSON file:
+The `-u` option will force update the file:
 
 ```
 dl-distro -u
