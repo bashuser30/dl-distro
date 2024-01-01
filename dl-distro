@@ -20,16 +20,16 @@
 set -euo pipefail
 
 print_error_and_exit() {
-	printf "${red_start}[dl-distro] ERROR: %s${color_end}\n" "$1" >&2
+	printf "${red_start}ERROR: %s${color_end}\n" "$1" >&2
 	exit 1
 }
 
 print_warning() {
-	printf "${yellow_start}[dl-distro] WARNING: %s${color_end}\n" "$1" >&2
+	printf "${yellow_start}WARNING: %s${color_end}\n" "$1" >&2
 }
 
 print_message() {
-	printf "${green_start}[dl-distro] %s${color_end}\n" "$1"
+	printf "${green_start}%s${color_end}\n" "$1"
 }
 
 wget_file() {
@@ -426,7 +426,7 @@ OPTIONS
                                   local JSON file.
   -d, --delete-key <gpg_key_id>   Delete a stored GPG key using its GPG key id.
   -h, --help                      Display this help message.
-  -i, --import-key <path_to_key>  Import a GPG key from a keyfile.
+  -i, --import-key <path_to_key>  Import a GPG key from a key file.
   -l, --list-keys                 List the stored GPG keys.
   -n, --no-verify                 Skip GPG, Minisign, or Signify key fetching
                                   and verification.
@@ -435,6 +435,7 @@ OPTIONS
   -s, --spider                    Check if the URLs for the chosen image return
                                   a 200 status, indicating they are valid URLs.
   -u, --update-json               Update the locally stored JSON file.
+  -v, --version                   Print dl-distro's current version.
 
 DISTROS
   alma    gparted  opensuse   solus
@@ -491,7 +492,8 @@ delete_gpg_key() {
 }
 
 purge_data() {
-	read -rp "[dl-distro] WARNING: Really delete ALL stored data? (y/N): " user_choice >&2
+	printf "%bWARNING: Really delete ALL stored data? (y/N): %b" "$yellow_start" "$color_end" >&2
+	read -r user_choice
 
 	if [[ "$user_choice" == "Y" || "$user_choice" == "y" ]]; then
 		rm -rf "$data_dir"
@@ -536,12 +538,14 @@ traverse_json() {
 	fi
 }
 
-fetch_json() {
+find_json() {
 	[[ "$auto_fetch_enabled" == "true" ]] && update_json
 
 	json_paths=("$conf_dir/data.json"
 	            "$(dirname "$0")/data.json"
-	            "$json_dir/data.json")
+	            "$json_dir/data.json"
+	            "/usr/share/dl-distro/data.json"
+	            "/usr/local/share/dl-distro/data.json")
 
 	for json_path in "${json_paths[@]}"; do
 		if [[ -f "$json_path" ]]; then
@@ -574,20 +578,36 @@ update_json() {
 }
 
 toggle_auto_update() {
-	[[ ! -d "$conf_dir" ]] && mkdir -p "$conf_dir"
-
 	if [[ "$auto_fetch_enabled" == "true" ]]; then
-		printf "auto_fetch_enabled=false\n" > "$conf_file"
+		sed -i 's/auto_fetch_enabled="true"/auto_fetch_enabled="false"/' "$conf_file"
 		print_message "Disabled JSON auto-updating."
 	else
-		printf "auto_fetch_enabled=true\n" > "$conf_file"
+		sed -i 's/auto_fetch_enabled="false"/auto_fetch_enabled="true"/' "$conf_file"
 		print_message "Enabled JSON auto-updating."
 	fi
 
 	exit 0
 }
 
+print_version() {
+	print_message "$version"
+	exit 0
+}
+
+create_conf_file() {
+	[[ ! -d "$conf_dir" ]] && mkdir -p "$conf_dir"
+
+	{
+		# shellcheck disable=SC2016
+		printf 'default_download_dir="$PWD"\n'
+		printf 'auto_fetch_enabled="false"\n'
+		printf 'verification_enabled="true"\n'
+		printf 'spider_mode_enabled="false"\n'
+	} >> "$conf_file"
+}
+
 main() {
+	version="v2.0.0"
 	data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 	conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro"
 	json_dir="$data_dir/json"
@@ -600,9 +620,9 @@ main() {
 	verification_enabled="true"
 	spider_mode_enabled="false"
 	jq_path_mode="false"
-	green_start="\033[0;32m"
-	red_start="\033[0;31m"
-	yellow_start="\033[0;33m"
+	green_start="\033[1;32m"
+	red_start="\033[1;31m"
+	yellow_start="\033[1;33m"
 	color_end="\033[0m"
 
 	dependency_check "jq" "wget"
@@ -610,19 +630,22 @@ main() {
 	if [[ -f "$conf_file" ]]; then
 		# shellcheck disable=SC1090
 		source "$conf_file"
+	else
+		create_conf_file
 	fi
 
 	while [[ "$#" -gt 0 ]]; do
 		case "$1" in
-			-h|--help) usage ;;
 			-a|--auto-update) toggle_auto_update ;;
 			-d|--delete-key) delete_gpg_key "${2:-}" ;;
+			-h|--help) usage ;;
 			-i|--import-key) import_gpg_key "${2:-}" ;;
 			-l|--list-keys) list_gpg_keys ;;
 			-n|--no-verify) verification_enabled="false"; shift ;;
 			-p|--purge-data) purge_data ;;
 			-s|--spider) spider_mode_enabled="true"; shift ;;
 			-u|--update-json) update_json; shift ;;
+			-v|--version) print_version ;;
 			-*) print_error_and_exit "Invalid option: $1" ;;
 			*) break ;;
 		esac
@@ -642,7 +665,7 @@ main() {
 	download_path="$(realpath -m "${2:-$default_download_dir}")"
 
 	if type download_"$distro" &> /dev/null; then
-		fetch_json
+		find_json
 		traverse_json "${jq_path:-.$distro}"
 		download_"$distro"
 	else
