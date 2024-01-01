@@ -75,17 +75,17 @@ fetch_gpg_key() {
 
 	dependency_check "gpg"
 
-	[[ ! -d "$data_dir" ]] && mkdir -p "$data_dir"
+	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir"
 
 	gpg_key="$(jq -r ".gpg_keys.$1" "$json_file")"
-	gpg_dir_perms="$(stat -c "%a" "$data_dir")"
+	gpg_dir_perms="$(stat -c "%a" "$gpg_dir")"
 
-	[[ "$gpg_dir_perms" != "700" ]] && chmod 700 "$data_dir"
+	[[ "$gpg_dir_perms" != "700" ]] && chmod 700 "$gpg_dir"
 
-	if ! gpg --homedir "$data_dir" --list-keys "$gpg_key" &> /dev/null; then
+	if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
 		print_message "Fetching GPG key."
 
-		if ! gpg --homedir "$data_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
+		if ! gpg --homedir "$gpg_dir" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
 			print_error_and_exit "Failed to fetch GPG key: $gpg_key"
 		fi
 	fi
@@ -98,7 +98,6 @@ fetch_minisign_key() {
 
 	minisign_key_url="$(jq -r ".minisign_keys.$distro" "$json_file")"
 	minisign_key="$(basename "$minisign_key_url")"
-	minisign_dir="$data_dir/minisign_keys"
 
 	if [[ ! -f "$minisign_dir/$minisign_key" ]]; then
 		print_message "Fetching Minisign key."
@@ -131,7 +130,6 @@ fetch_signify_key() {
 
 	signify_key_url="$(jq -r ".signify_keys.$distro" "$json_file")"
 	signify_key="$(basename "$signify_key_url")"
-	signify_dir="$data_dir/signify_keys"
 
 	if [[ ! -f "$signify_dir/$signify_key" ]]; then
 		print_message "Fetching Signify key."
@@ -147,7 +145,7 @@ verify_gpg_signature() {
 
 	cd "$download_path" || exit 1
 
-	if gpg --homedir "$data_dir" --verify "$@" &> /dev/null; then
+	if gpg --homedir "$gpg_dir" --verify "$@" &> /dev/null; then
 		print_message "GPG verification: SUCCESS"
 	else
 		rm -f "$iso_file" "$sig_file" "$sum_file"
@@ -456,7 +454,7 @@ EOF
 list_gpg_keys() {
 	dependency_check "gpg"
 
-	if gpg --homedir "$data_dir" --list-keys 2> /dev/null; then
+	if gpg --homedir "$gpg_dir" --list-keys 2> /dev/null; then
 		exit 0
 	else
 		print_message "There are no GPG keys stored."
@@ -467,13 +465,13 @@ list_gpg_keys() {
 import_gpg_key() {
 	dependency_check "gpg"
 
-	[[ ! -d "$data_dir" ]] && mkdir -p "$data_dir"
+	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir"
 
-	gpg_dir_perms="$(stat -c "%a" "$data_dir")"
+	gpg_dir_perms="$(stat -c "%a" "$gpg_dir")"
 
-	[[ "$gpg_dir_perms" != "700" ]] && chmod 700 "$data_dir"
+	[[ "$gpg_dir_perms" != "700" ]] && chmod 700 "$gpg_dir"
 
-	if gpg --homedir "$data_dir" --import "$1" &> /dev/null; then
+	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
 		print_message "Successfully imported GPG key: $1"
 		exit 0
 	else
@@ -484,7 +482,7 @@ import_gpg_key() {
 delete_gpg_key() {
 	dependency_check "gpg"
 
-	if gpg --homedir "$data_dir" --delete-keys "$1" &> /dev/null; then
+	if gpg --homedir "$gpg_dir" --delete-keys "$1" &> /dev/null; then
 		print_message "Successfully deleted GPG key: $1"
 		exit 0
 	else
@@ -513,7 +511,7 @@ traverse_json() {
 	if jq -e "$traverse_path.url" "$json_file" &> /dev/null; then
 		IFS='|' read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | join(\"|\")" "$json_file")"
 	else
-		[[ "$cli_mode" = "true" ]] && print_error_and_exit "Invalid jq path."
+		[[ "$jq_path_mode" == "true" ]] && print_error_and_exit "Invalid jq path."
 
 		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$json_file")
 
@@ -541,9 +539,9 @@ traverse_json() {
 fetch_json() {
 	[[ "$auto_fetch_enabled" == "true" ]] && update_json
 
-	json_paths=("${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro/data.json"
+	json_paths=("$conf_dir/data.json"
 	            "$(dirname "$0")/data.json"
-	            "$data_dir/json_data/data.json")
+	            "$json_dir/data.json")
 
 	for json_path in "${json_paths[@]}"; do
 		if [[ -f "$json_path" ]]; then
@@ -561,8 +559,6 @@ update_json() {
 	           "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
 	           "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json")
 
-	json_dir="$data_dir/json_data"
-
 	for json_url in "${json_urls[@]}"; do
 		if wget -P "$json_dir" -q "$json_url"; then
 			print_message "Successfully downloaded latest JSON file."
@@ -578,15 +574,13 @@ update_json() {
 }
 
 toggle_auto_update() {
-	config_dir="$(dirname "$config_file")"
-
-	[[ ! -d "$config_dir" ]] && mkdir -p "$config_dir"
+	[[ ! -d "$conf_dir" ]] && mkdir -p "$conf_dir"
 
 	if [[ "$auto_fetch_enabled" == "true" ]]; then
-		printf "auto_fetch_enabled=false\n" > "$config_file"
+		printf "auto_fetch_enabled=false\n" > "$conf_file"
 		print_message "Disabled JSON auto-updating."
 	else
-		printf "auto_fetch_enabled=true\n" > "$config_file"
+		printf "auto_fetch_enabled=true\n" > "$conf_file"
 		print_message "Enabled JSON auto-updating."
 	fi
 
@@ -595,11 +589,17 @@ toggle_auto_update() {
 
 main() {
 	data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
-	config_file="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro/dl-distro.conf"
+	conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro"
+	json_dir="$data_dir/json"
+	gpg_dir="$data_dir/gpg"
+	minisign_dir="$data_dir/minisign"
+	signify_dir="$data_dir/signify"
+	conf_file="$conf_dir/dl-distro.conf"
+	default_download_dir="$PWD"
+	auto_fetch_enabled="false"
 	verification_enabled="true"
 	spider_mode_enabled="false"
-	auto_fetch_enabled="false"
-	cli_mode="false"
+	jq_path_mode="false"
 	green_start="\033[0;32m"
 	red_start="\033[0;31m"
 	yellow_start="\033[0;33m"
@@ -607,9 +607,9 @@ main() {
 
 	dependency_check "jq" "wget"
 
-	if [[ -f "$config_file" ]]; then
+	if [[ -f "$conf_file" ]]; then
 		# shellcheck disable=SC1090
-		source "$config_file"
+		source "$conf_file"
 	fi
 
 	while [[ "$#" -gt 0 ]]; do
@@ -633,13 +633,13 @@ main() {
 
 	if [[ "$1" == *.* ]]; then
 		jq_path=".$1"
+		jq_path_mode="true"
 		distro="${1%%.*}"
-		cli_mode="true"
 	else
 		distro="$1"
 	fi
 
-	download_path="$(realpath -m "${2:-$(pwd)}")"
+	download_path="$(realpath -m "${2:-$default_download_dir}")"
 
 	if type download_"$distro" &> /dev/null; then
 		fetch_json
