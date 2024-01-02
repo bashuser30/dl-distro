@@ -192,7 +192,6 @@ verify_checksum() {
 	if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
 		rm -f "$sig_file" "$sum_file"
 		print_message "$sum_algo verification: SUCCESS"
-		print_message "Download and verification successful."
 	else
 		rm -f "$iso_file" "$sig_file" "$sum_file"
 		print_error_and_exit "$sum_algo verification: FAILED"
@@ -382,7 +381,6 @@ download_tails() {
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	rm -f "$sig_file"
-	print_message "Download and GPG verification successful."
 	print_message "Tails does not provide checksums."
 }
 
