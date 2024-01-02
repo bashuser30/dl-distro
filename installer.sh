@@ -3,7 +3,7 @@
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
-	printf "This script must be run as root. Please use sudo.\n"
+	printf "\033[1;31mERROR: Must be run as root.\033[0m\n"
 	exit 1
 fi
 
