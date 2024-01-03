@@ -66,22 +66,29 @@ sudo ./installer.sh uninstall
 
 ## Usage
 
-See `man dl-distro` and `dl-distro --help` for more information about usage.
+See `man dl-distro` and `dl-distro -h` for more information about usage.
 
 ### Downloading an OS Image
 
-Provide a distribution name to download an OS image. This will prompt you with
+Main menu with all distributions:
+
+```
+dl-distro
+```
+
+Provide a distribution name to skip the main menu. This will prompt you with
 additional choice menus, if necessary:
 
 ```
-dl-distro arch
+dl-distro -d arch
 ```
 
-You can skip the menus and start a download directly if you provide a jq path.
-The names used in the jq path correspond directly to those in the menus:
+You can skip the menus and start a download directly if you provide a JSON path
+query. The names used in the JSON path correspond directly to those in the
+menus:
 
 ```
-dl-distro arch.latest
+dl-distro -d arch.latest
 ```
 
 ### Updating the JSON file
