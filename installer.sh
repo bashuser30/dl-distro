@@ -12,9 +12,6 @@ _LICENSEDIR="$_PREFIX/share/licenses/dl-distro"
 _MANDIR="$_PREFIX/share/man/man1"
 _BINDIR="$_PREFIX/bin"
 _DATADIR="$_PREFIX/share/dl-distro"
-_BASHCOMPLETIONSDIR="$_PREFIX/share/bash-completion/completions"
-_FISHCOMPLETIONSDIR="$_PREFIX/share/fish/completions"
-_ZSHCOMPLETIONSDIR="$_PREFIX/share/zsh/site-functions"
 
 _install()
 {
@@ -22,9 +19,6 @@ _install()
 	install -Dm644 man/dl-distro.1 "$_MANDIR/dl-distro.1"
 	install -Dm755 dl-distro "$_BINDIR/dl-distro"
 	install -Dm644 data.json "$_DATADIR/data.json"
-	install -Dm644 completions/bash "$_BASHCOMPLETIONSDIR/dl-distro"
-	install -Dm644 completions/fish "$_FISHCOMPLETIONSDIR/dl-distro.fish"
-	install -Dm644 completions/zsh "$_ZSHCOMPLETIONSDIR/_dl-distro"
 }
 
 _uninstall()
@@ -33,9 +27,6 @@ _uninstall()
 	rm -f "$_MANDIR/dl-distro.1"
 	rm -f "$_BINDIR/dl-distro"
 	rm -f "$_DATADIR/data.json"
-	rm -f "$_BASHCOMPLETIONSDIR/dl-distro"
-	rm -f "$_FISHCOMPLETIONSDIR/dl-distro.fish"
-	rm -f "$_ZSHCOMPLETIONSDIR/_dl-distro"
 }
 
 case "$1" in
