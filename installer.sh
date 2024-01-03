@@ -3,7 +3,7 @@
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
-	printf "\033[1;31mERROR: Must be run as root.\033[0m\n"
+	printf "ERROR: Must be run as root.\n"
 	exit 1
 fi
 
@@ -16,7 +16,8 @@ _BASHCOMPLETIONSDIR="$_PREFIX/share/bash-completion/completions"
 _FISHCOMPLETIONSDIR="$_PREFIX/share/fish/completions"
 _ZSHCOMPLETIONSDIR="$_PREFIX/share/zsh/site-functions"
 
-_install() {
+_install()
+{
 	install -Dm644 LICENSE "$_LICENSEDIR/LICENSE"
 	install -Dm644 man/dl-distro.1 "$_MANDIR/dl-distro.1"
 	install -Dm755 dl-distro "$_BINDIR/dl-distro"
@@ -26,7 +27,8 @@ _install() {
 	install -Dm644 completions/zsh "$_ZSHCOMPLETIONSDIR/_dl-distro"
 }
 
-_uninstall() {
+_uninstall()
+{
 	rm -f "$_LICENSEDIR/LICENSE"
 	rm -f "$_MANDIR/dl-distro.1"
 	rm -f "$_BINDIR/dl-distro"
