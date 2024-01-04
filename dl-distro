@@ -607,6 +607,22 @@ update_json_file()
 	exit 1
 }
 
+auto_update_json_file()
+{
+	for json_url in "${JSON_URLS[@]}"; do
+		if wget -P "$JSON_DIR" -q "$json_url"; then
+			print_message "JSON file update: ${GREEN}SUCCESS"
+			return 0
+		else
+			print_warning "JSON file update: ${YELLOW}FAILED"
+			print_warning "Trying next mirror..."
+		fi
+	done
+
+	print_error "JSON file update: ${RED}FAILED"
+	kill "$main_pid"
+}
+
 usage()
 {
 	cat <<EOF
@@ -703,7 +719,7 @@ main_menu()
 			"Quit") exit 0 ;;
 			*)
 				distro="${DISTROS["$choice"]}"
-				wait
+				wait "$auto_update_pid"
 				traverse_json ".$distro"
 				download_"$distro"
 				exit 0
@@ -723,7 +739,7 @@ cli_mode()
 	fi
 
 	if type download_"$distro" &> /dev/null; then
-		wait
+		wait "$auto_update_pid"
 		traverse_json ".$DISTRO_OR_JQPATH"
 		download_"$distro"
 		exit 0
@@ -768,10 +784,15 @@ parse_opts()
 
 main()
 {
+	main_pid="$$"
+
 	dependency_check "jq" "wget"
 	parse_opts "$@"
 
-	[[ "$AUTO_UPDATE_ENABLED" == "true" ]] && update_json_file &> /dev/null &
+	if [[ "$AUTO_UPDATE_ENABLED" == "true" ]]; then
+		auto_update_json_file > /dev/null &
+		auto_update_pid="$!"
+	fi
 
 	for json_path in "${JSON_PATHS[@]}"; do
 		if [[ -f "$json_path" ]]; then
