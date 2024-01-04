@@ -37,6 +37,7 @@ DEFAULT_DOWNLOAD_DIR="$PWD"
 AUTO_UPDATE_ENABLED="false"
 VERIFICATION_ENABLED="true"
 SPIDER_MODE_ENABLED="false"
+GPG_KEYSERVER="hkps://keyserver.ubuntu.com"
 GREEN=$'\033[1;32m'
 RED=$'\033[1;31m'
 YELLOW=$'\033[1;33m'
@@ -121,7 +122,6 @@ wget_spider()
 	for url in "$@"; do
 		if ! wget -nvc --spider "$url"; then
 			print_error "Spider failed for: ${RED}$url"
-			exit 1
 		fi
 	done
 	exit 0
@@ -143,7 +143,7 @@ fetch_gpg_key()
 	if ! gpg --homedir "$GPG_DIR" --list-keys "$gpg_key" &> /dev/null; then
 		print_message "Fetching GPG key..."
 
-		if ! gpg --homedir "$GPG_DIR" --keyserver hkps://keyserver.ubuntu.com --recv-keys "$gpg_key" &> /dev/null; then
+		if ! gpg --homedir "$GPG_DIR" --keyserver "$GPG_KEYSERVER" --recv-keys "$gpg_key" &> /dev/null; then
 			print_error "Failed to fetch GPG key: ${RED}$gpg_key"
 			exit 1
 		fi
@@ -537,6 +537,7 @@ generate_conf_file()
 		printf 'AUTO_UPDATE_ENABLED="false"\n'
 		printf 'VERIFICATION_ENABLED="true"\n'
 		printf 'SPIDER_MODE_ENABLED="false"\n'
+		printf 'GPG_KEYSERVER="hkps://keyserver.ubuntu.com"\n'
 	} > "$CONF_FILE"
 
 	print_message "Made config file at: ${GREEN}$CONF_FILE"
