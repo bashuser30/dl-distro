@@ -593,6 +593,8 @@ purge_all_data()
 
 update_json_file()
 {
+	json_update_mode="$1"
+
 	for json_url in "${JSON_URLS[@]}"; do
 		if wget -P "$JSON_DIR" -q "$json_url"; then
 			print_message "JSON file update: ${GREEN}SUCCESS"
@@ -604,23 +606,12 @@ update_json_file()
 	done
 
 	print_error "JSON file update: ${RED}FAILED"
-	exit 1
-}
 
-auto_update_json_file()
-{
-	for json_url in "${JSON_URLS[@]}"; do
-		if wget -P "$JSON_DIR" -q "$json_url"; then
-			print_message "JSON file update: ${GREEN}SUCCESS"
-			return 0
-		else
-			print_warning "JSON file update: ${YELLOW}FAILED"
-			print_warning "Trying next mirror..."
-		fi
-	done
-
-	print_error "JSON file update: ${RED}FAILED"
-	kill "$main_pid"
+	if [[ "$json_update_mode" == "auto" ]]; then
+		kill "$main_pid"
+	else
+		exit 1
+	fi
 }
 
 usage()
@@ -751,7 +742,7 @@ parse_opts()
 			p) DEFAULT_DOWNLOAD_DIR="$OPTARG" ;;
 			P) purge_all_data; exit 0 ;;
 			s) SPIDER_MODE_ENABLED="true" ;;
-			u) update_json_file; exit 0 ;;
+			u) update_json_file "normal"; exit 0 ;;
 			V) print_version; exit 0 ;;
 			\?) print_error "Invalid option: ${RED}-$OPTARG"; exit 1 ;;
 			:)
@@ -775,8 +766,7 @@ main()
 	parse_opts "$@"
 
 	if [[ "$AUTO_UPDATE_ENABLED" == "true" ]]; then
-		auto_update_json_file > /dev/null &
-		auto_update_pid="$!"
+		update_json_file "auto" > /dev/null &
 	fi
 
 	for json_path in "${JSON_PATHS[@]}"; do
@@ -801,7 +791,7 @@ main()
 	fi
 
 	if type download_"$distro" &> /dev/null; then
-		wait "$auto_update_pid"
+		wait
 		traverse_json ".${json_query:-$distro}"
 		download_"$distro"
 	else
