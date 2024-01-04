@@ -40,42 +40,36 @@ auto_update_enabled="false"
 verification_enabled="true"
 spider_mode_enabled="false"
 gpg_keyserver="hkps://keyserver.ubuntu.com"
-supported_distros=(
-    ["AlmaLinux OS"]="alma"
-    ["Alpine Linux"]="alpine"
-    ["Arch Linux"]="arch"
-    ["Debian"]="debian"
-    ["Fedora Linux"]="fedora"
-    ["GParted Live"]="gparted"
-    ["Kali Linux"]="kali"
-    ["Linux Mint"]="mint"
-    ["NixOS"]="nixos"
-    ["OpenBSD"]="openbsd"
-    ["openSUSE"]="opensuse"
-    ["ParrotOS"]="parrot"
-    ["Qubes OS"]="qubes"
-    ["Rocky Linux"]="rocky"
-    ["Slackware Linux"]="slackware"
-    ["Solus"]="solus"
-    ["Tails"]="tails"
-    ["Ubuntu"]="ubuntu"
-    ["Void Linux"]="void"
-    ["Whonix"]="whonix"
-)
+supported_distros=(["AlmaLinux OS"]="alma"
+                   ["Alpine Linux"]="alpine"
+                   ["Arch Linux"]="arch"
+                   ["Debian"]="debian"
+                   ["Fedora Linux"]="fedora"
+                   ["GParted Live"]="gparted"
+                   ["Kali Linux"]="kali"
+                   ["Linux Mint"]="mint"
+                   ["NixOS"]="nixos"
+                   ["OpenBSD"]="openbsd"
+                   ["openSUSE"]="opensuse"
+                   ["ParrotOS"]="parrot"
+                   ["Qubes OS"]="qubes"
+                   ["Rocky Linux"]="rocky"
+                   ["Slackware Linux"]="slackware"
+                   ["Solus"]="solus"
+                   ["Tails"]="tails"
+                   ["Ubuntu"]="ubuntu"
+                   ["Void Linux"]="void"
+                   ["Whonix"]="whonix")
 
-json_urls=(
-    "https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
-    "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
-    "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json"
-)
+json_urls=("https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
+           "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
+           "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json")
 
-json_paths=(
-    "$conf_dir/data.json"
-    "$(dirname "$0")/data.json"
-    "$json_dir/data.json"
-    "/usr/share/dl-distro/data.json"
-    "/usr/local/share/dl-distro/data.json"
-)
+json_paths=("$conf_dir/data.json"
+            "$(dirname "$0")/data.json"
+            "$json_dir/data.json"
+            "/usr/share/dl-distro/data.json"
+            "/usr/local/share/dl-distro/data.json")
 
 green=$'\033[1;32m'
 red=$'\033[1;31m'
