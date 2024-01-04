@@ -7,30 +7,30 @@ if [ "$(id -u)" -ne 0 ]; then
 	exit 1
 fi
 
-_PREFIX="/usr/local"
-_LICENSEDIR="$_PREFIX/share/licenses/dl-distro"
-_MANDIR="$_PREFIX/share/man/man1"
-_BINDIR="$_PREFIX/bin"
-_DATADIR="$_PREFIX/share/dl-distro"
+prefix="/usr/local"
+license_dir="$prefix/share/licenses/dl-distro"
+man_dir="$prefix/share/man/man1"
+bin_dir="$prefix/bin"
+data_dir="$prefix/share/dl-distro"
 
-_install()
+install_files()
 {
-	install -Dm644 LICENSE "$_LICENSEDIR/LICENSE"
-	install -Dm644 man/dl-distro.1 "$_MANDIR/dl-distro.1"
-	install -Dm755 dl-distro "$_BINDIR/dl-distro"
-	install -Dm644 data.json "$_DATADIR/data.json"
+	install -Dm644 LICENSE "$license_dir/LICENSE"
+	install -Dm644 man/dl-distro.1 "$man_dir/dl-distro.1"
+	install -Dm755 dl-distro "$bin_dir/dl-distro"
+	install -Dm644 data.json "$data_dir/data.json"
 }
 
-_uninstall()
+uninstall_files()
 {
-	rm -f "$_LICENSEDIR/LICENSE"
-	rm -f "$_MANDIR/dl-distro.1"
-	rm -f "$_BINDIR/dl-distro"
-	rm -f "$_DATADIR/data.json"
+	rm -f "$license_dir/LICENSE"
+	rm -f "$man_dir/dl-distro.1"
+	rm -f "$bin_dir/dl-distro"
+	rm -f "$data_dir/data.json"
 }
 
 case "$1" in
-	install) _install ;;
-	uninstall) _uninstall ;;
+	install) install_files ;;
+	uninstall) uninstall_files ;;
 	*) printf "Usage: %s <install|uninstall>\n" "$0"; exit 1 ;;
 esac
