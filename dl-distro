@@ -611,9 +611,9 @@ usage()
 {
 	cat <<EOF
 USAGE
-  dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
-
   dl-distro
+  dl-distro [OPTIONS]
+  dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
 
 OPTIONS
   -a                      : Toggle on or off automatic updating of the local
