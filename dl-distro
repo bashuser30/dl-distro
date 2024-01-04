@@ -609,27 +609,30 @@ usage()
 {
 	cat <<EOF
 USAGE
-  dl-distro [OPTIONS]
+  dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
+
+  dl-distro
 
 OPTIONS
-  -a                    : Toggle on or off automatic updating of the local JSON
-                          file.
-  -c                    : Generate a config file with default values.
-  -d DISTRO|JSON_QUERY  : Specify distribution by its short name (e.g., 'arch')
-                          or a JSON path query (e.g., 'arch.latest').
-  -D KEY_ID             : Delete a stored GPG key using its GPG key id.
-  -h                    : Display this help message.
-  -i KEY_FILE           : Import a GPG key from a key file.
-  -l                    : List the stored GPG keys.
-  -n                    : Skip GPG, Minisign, or Signify key fetching and
-                          verification.
-  -p PATH               : Download image to specified directory.
-  -P                    : Purge ALL the stored data. Includes GPG, Minisign,
-                          Signify keys and the JSON file.
-  -s                    : Check if the URLs for the chosen image return a 200
-                          status, indicating they are valid URLs.
-  -u                    : Update the locally stored JSON file.
-  -V                    : Print dl-distro's current version.
+  -a                      : Toggle on or off automatic updating of the local
+                            JSON file.
+  -c                      : Generate a config file with default values.
+  -d <DISTRO|JSON_QUERY>  : Specify distribution by its short name
+                            (e.g., 'arch') or a JSON path query
+                            (e.g., 'arch.latest').
+  -D <KEY_ID>             : Delete a stored GPG key using its GPG key id.
+  -h                      : Display this help message.
+  -i <KEY_FILE>           : Import a GPG key from a key file.
+  -l                      : List the stored GPG keys.
+  -n                      : Skip GPG, Minisign, or Signify key fetching and
+                            verification.
+  -p <PATH>               : Download image to specified directory.
+  -P                      : Purge ALL the stored data. Includes GPG, Minisign,
+                            Signify keys and the JSON file.
+  -s                      : Check if the URLs for the chosen image return a 200
+                            status, indicating they are valid URLs.
+  -u                      : Update the locally stored JSON file.
+  -V                      : Print dl-distro's current version.
 
 DISTROS
   alma    gparted  opensuse   solus
