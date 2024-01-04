@@ -703,6 +703,7 @@ main_menu()
 			"Quit") exit 0 ;;
 			*)
 				distro="${DISTROS["$choice"]}"
+				wait
 				traverse_json ".$distro"
 				download_"$distro"
 				exit 0
@@ -722,6 +723,7 @@ cli_mode()
 	fi
 
 	if type download_"$distro" &> /dev/null; then
+		wait
 		traverse_json ".$DISTRO_OR_JQPATH"
 		download_"$distro"
 		exit 0
@@ -769,7 +771,7 @@ main()
 	dependency_check "jq" "wget"
 	parse_opts "$@"
 
-	[[ "$AUTO_UPDATE_ENABLED" == "true" ]] && update_json_file
+	[[ "$AUTO_UPDATE_ENABLED" == "true" ]] && update_json_file &> /dev/null &
 
 	for json_path in "${JSON_PATHS[@]}"; do
 		if [[ -f "$json_path" ]]; then
