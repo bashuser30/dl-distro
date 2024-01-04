@@ -673,7 +673,7 @@ traverse_json()
 	if jq -e "${traverse_path}.url" "$JSON_FILE" &> /dev/null; then
 		IFS='|' read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | join(\"|\")" "$JSON_FILE")"
 	else
-		[[ "${jq_path_used:-}" = 1 ]] && print_error "Invalid JSON path query." && exit 1
+		[[ "${json_query_used:-}" = 1 ]] && print_error "Invalid JSON path query." && exit 1
 
 		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$JSON_FILE")
 
@@ -717,35 +717,20 @@ main_menu()
 		case "$choice" in
 			"Settings") settings ;;
 			"Quit") exit 0 ;;
-			*)
-				distro="${DISTROS["$choice"]}"
-				wait "$auto_update_pid"
-				traverse_json ".$distro"
-				download_"$distro"
-				exit 0
-				;;
+			*) distro="${DISTROS["$choice"]}"; return 0 ;;
 		esac
 	done
 }
 
 cli_mode()
 {
-	if [[ "$DISTRO_OR_JQPATH" == *.* ]]; then
-		distro="${DISTRO_OR_JQPATH%%.*}"
-		jq_path_used=1
+	if [[ "$DISTRO_OR_JSON_QUERY" == *.* ]]; then
+		json_query_used=1
+		json_query="$DISTRO_OR_JSON_QUERY"
+		distro="${DISTRO_OR_JSON_QUERY%%.*}"
 	else
-		distro="$DISTRO_OR_JQPATH"
-		jq_path_used=0
-	fi
-
-	if type download_"$distro" &> /dev/null; then
-		wait "$auto_update_pid"
-		traverse_json ".$DISTRO_OR_JQPATH"
-		download_"$distro"
-		exit 0
-	else
-		print_error "Invalid distro: ${RED}$distro"
-		exit 1
+		json_query_used=0
+		distro="$DISTRO_OR_JSON_QUERY"
 	fi
 }
 
@@ -757,7 +742,7 @@ parse_opts()
 		case "$opt" in
 			a) toggle_auto_update; exit 0 ;;
 			c) generate_conf_file; exit 0 ;;
-			d) DISTRO_OR_JQPATH="$OPTARG"; cli_mode=1 ;;
+			d) DISTRO_OR_JSON_QUERY="$OPTARG"; cli_mode=1 ;;
 			D) delete_gpg_key "$OPTARG"; exit 0 ;;
 			h) usage; exit 0 ;;
 			i) import_gpg_key "$OPTARG"; exit 0 ;;
@@ -813,6 +798,15 @@ main()
 		main_menu
 	else
 		cli_mode
+	fi
+
+	if type download_"$distro" &> /dev/null; then
+		wait "$auto_update_pid"
+		traverse_json ".${json_query:-$distro}"
+		download_"$distro"
+	else
+		print_error "Invalid distro: ${RED}$distro"
+		exit 1
 	fi
 }
 
