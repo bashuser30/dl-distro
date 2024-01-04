@@ -724,6 +724,7 @@ cli_mode()
 	if type download_"$distro" &> /dev/null; then
 		traverse_json ".$DISTRO_OR_JQPATH"
 		download_"$distro"
+		exit 0
 	else
 		print_error "Invalid distro: ${RED}$distro"
 		exit 1
