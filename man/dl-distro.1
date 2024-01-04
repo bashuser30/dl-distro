@@ -5,7 +5,7 @@
 dl-distro - Bash script for downloading and verifying OS images.
 
 .SH SYNOPSIS
-\fIdl-distro\fR -d <DISTRO|JQ_QUERY> [OPTIONS]
+\fIdl-distro\fR -d <DISTRO|JSON_QUERY> [OPTIONS]
 
 \fIdl-distro\fR
 
@@ -29,7 +29,7 @@ Generate a config file with default values.
 .RE
 
 .TP
-.B -d <DISTRO|JQ_QUERY>
+.B -d <DISTRO|JSON_QUERY>
 .RS
 Specify distribution by its short name (e.g., 'arch')
 or a JSON path query (e.g., 'arch.latest').
