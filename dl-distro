@@ -657,7 +657,25 @@ EXAMPLES
 EOF
 }
 
-traverse_json()
+find_json_file()
+{
+	for json_path in "${JSON_PATHS[@]}"; do
+		if [[ -f "$json_path" ]]; then
+			JSON_FILE="$(realpath -m "$json_path")"
+			break
+		fi
+	done
+
+	if [[ -z "${JSON_FILE:-}" ]]; then
+		print_error "Couldn't find a JSON file. Please use -u"
+		exit 1
+	fi
+
+	print_message "Using JSON file: ${GREEN}$JSON_FILE"
+	print_message "Downloading at: ${GREEN}$DEFAULT_DOWNLOAD_DIR"
+}
+
+traverse_json_file()
 {
 	traverse_path="$1"
 
@@ -678,7 +696,7 @@ traverse_json()
 				continue
 			fi
 
-			traverse_json "$traverse_path.$choice"
+			traverse_json_file "$traverse_path.$choice"
 			return 0
 		done
 	fi
@@ -769,21 +787,6 @@ main()
 		update_json_file "auto" > /dev/null &
 	fi
 
-	for json_path in "${JSON_PATHS[@]}"; do
-		if [[ -f "$json_path" ]]; then
-			JSON_FILE="$(realpath -m "$json_path")"
-			break
-		fi
-	done
-
-	if [[ -z "${JSON_FILE:-}" ]]; then
-		print_error "Couldn't find a JSON file. Please use -u"
-		exit 1
-	fi
-
-	print_message "Using JSON file: ${GREEN}$JSON_FILE"
-	print_message "Downloading at: ${GREEN}$DEFAULT_DOWNLOAD_DIR"
-
 	if [[ "$cli_mode" = 0 ]]; then
 		main_menu
 	else
@@ -792,7 +795,8 @@ main()
 
 	if type download_"$distro" &> /dev/null; then
 		wait
-		traverse_json ".${json_query:-$distro}"
+		find_json_file
+		traverse_json_file ".${json_query:-$distro}"
 		download_"$distro"
 	else
 		print_error "Invalid distro: ${RED}$distro"
