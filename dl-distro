@@ -76,8 +76,8 @@ JSON_PATHS=("$CONF_DIR/data.json"
             "/usr/share/dl-distro/data.json"
             "/usr/local/share/dl-distro/data.json")
 
-# shellcheck disable=SC1090
-[ -f "$CONF_FILE" ] && source "$CONF_FILE"
+# shellcheck source=/dev/null
+[[ -f "$CONF_FILE" ]] && source "$CONF_FILE"
 
 print_message() { printf "%b%s%b\n" "$BOLD" "$1" "$NC"; }
 print_warning() { printf "%bWARNING: %b%s%b\n" "$YELLOW" "$BOLD" "$1" "$NC" >&2; }
@@ -204,7 +204,7 @@ fetch_signify_key()
 	[[ "$VERIFICATION_ENABLED" == "false" ]] && return 0
 
 	if [[ -f /etc/os-release ]]; then
-		# shellcheck disable=SC1091
+		# shellcheck source=/dev/null
 		source /etc/os-release
 	else
 		print_warning "/etc/os-release is missing."
