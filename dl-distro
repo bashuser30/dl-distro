@@ -209,7 +209,7 @@ fetch_signify_key()
 	else
 		print_warning "/etc/os-release is missing."
 		print_warning "This is to determine the package name signify uses."
-		print_warning "Defaulting to: signify"
+		print_warning "Defaulting to: ${YELLOW}signify"
 	fi
 
 	if [[ "${ID:-}" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
@@ -525,6 +525,7 @@ generate_conf_file()
 	read -rp "${BOLD}Proceed? (y/N): $NC" choice
 
 	if [[ "$choice" != "Y" && "$choice" != "y" ]]; then
+		print_message "Canceled config file generation."
 		return 0
 	fi
 
@@ -583,9 +584,9 @@ purge_all_data()
 
 	if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
 		rm -rf "$DATA_DIR"
-		print_message "Data deleted successfully."
+		print_message "Data deletion: ${GREEN}SUCCESS"
 	else
-		print_warning "Data purge canceled."
+		print_warning "Data deletion: ${YELLOW}CANCELED"
 		exit 1
 	fi
 }
@@ -594,15 +595,15 @@ update_json_file()
 {
 	for json_url in "${JSON_URLS[@]}"; do
 		if wget -P "$JSON_DIR" -q "$json_url"; then
-			print_message "Successfully updated the JSON file."
+			print_message "JSON file update: ${GREEN}SUCCESS"
 			return 0
 		else
-			print_warning "Failed to update the JSON file from: ${YELLOW}$json_url"
+			print_warning "JSON file update: ${YELLOW}FAILED"
 			print_warning "Trying next mirror..."
 		fi
 	done
 
-	print_error "Failed to update the JSON file."
+	print_error "JSON file update: ${RED}FAILED"
 	exit 1
 }
 
@@ -698,9 +699,7 @@ main_menu()
 		fi
 
 		case "$choice" in
-			"Settings")
-				settings
-				;;
+			"Settings") settings ;;
 			"Quit") exit 0 ;;
 			*)
 				distro="${DISTROS["$choice"]}"
@@ -726,7 +725,7 @@ cli_mode()
 		traverse_json ".$DISTRO_OR_JQPATH"
 		download_"$distro"
 	else
-		print_error "Invalid distro: $distro"
+		print_error "Invalid distro: ${RED}$distro"
 		exit 1
 	fi
 }
@@ -750,7 +749,7 @@ parse_opts()
 			s) SPIDER_MODE_ENABLED="true" ;;
 			u) update_json_file; exit 0 ;;
 			V) print_version; exit 0 ;;
-			\?) print_error "Invalid option -$OPTARG. See dl-distro -h"; exit 1 ;;
+			\?) print_error "Invalid option: ${RED}-$OPTARG"; exit 1 ;;
 			:)
 				case "$OPTARG" in
 					d) print_error "Option -$OPTARG requires a distro name or JSON path query."; exit 1 ;;
@@ -774,8 +773,7 @@ main()
 	for json_path in "${JSON_PATHS[@]}"; do
 		if [[ -f "$json_path" ]]; then
 			JSON_FILE="$(realpath -m "$json_path")"
-			print_message "Using JSON file: $JSON_FILE"
-			print_message "Downloading at: $DEFAULT_DOWNLOAD_DIR"
+			break
 		fi
 	done
 
@@ -783,6 +781,9 @@ main()
 		print_error "Couldn't find a JSON file. Please use -u"
 		exit 1
 	fi
+
+	print_message "Using JSON file: ${GREEN}$JSON_FILE"
+	print_message "Downloading at: ${GREEN}$DEFAULT_DOWNLOAD_DIR"
 
 	if [[ "$cli_mode" = 0 ]]; then
 		main_menu
