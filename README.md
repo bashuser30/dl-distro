@@ -113,9 +113,6 @@ dl-distro relies on there being a locally stored JSON file.
 Use the `-a` option to toggle on and off automatic updating of the file.
 The `-u` option will force update the file.
 
-Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues)
-detailing any problems you encounter, or suggestions you might have.
-
 ## Supported Distributions
 
 dl-distro aims to consistently support the latest versions officially
