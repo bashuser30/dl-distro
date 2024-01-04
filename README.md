@@ -91,8 +91,8 @@ additional choice menus, if necessary:
 dl-distro -d arch
 ```
 
-You can skip the menus and start a download directly if you provide a JSON path
-query. The names used in the JSON path correspond directly to those in the
+You can skip the menus and start a download directly if you provide a JSON
+query. The names used in the JSON query correspond directly to those in the
 menus:
 
 ```
