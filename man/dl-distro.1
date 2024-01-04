@@ -158,21 +158,21 @@ please use quotes:
 
 .RS
 .TP
-\fB   DEFAULT_DOWNLOAD_DIR\fR="$PWD"
+\fB    default_download_dir\fR="$PWD"
 By default, dl-distro will use the \fB$PWD\fR variable if no download path is
 provided with \fB-p\fR. To always download to a specific path, change this variable.
 .TP
-\fB   AUTO_UPDATE_ENABLED\fR="false"
+\fB    auto_update_enabled\fR="false"
 Changing to \fBtrue\fR will download the JSON file from the master branch before
 each run, ensuring always up-to-date data.
 .TP
-\fB   VERIFICATION_ENABLED\fR="true"
+\fB    verification_enabled\fR="true"
 Changing to \fBfalse\fR is like using \fB-n\fR always.
 .TP
-\fB   SPIDER_MODE_ENABLED\fR="false"
+\fB    spider_mode_enabled\fR="false"
 Changing to \fBtrue\fR is like using \fB-s\fR always.
 .TP
-\fB   GPG_KEYSERVER\fR="hkps://keyserver.ubuntu.com"
+\fB    gpg_keyserver\fR="hkps://keyserver.ubuntu.com"
 Change the keyserver used to fetch GPG keys during runtime.
 .RE
 
