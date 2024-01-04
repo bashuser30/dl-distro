@@ -1,13 +1,13 @@
-.TH "DL-DISTRO" "1" "January 1, 2024" "dl-distro v2.0.0" "dl-distro Manual"
+.TH "DL-DISTRO" "1" "January 3, 2024" "dl-distro v2.0.0" "dl-distro Manual"
 .nh
 .ad l
 .SH NAME
-dl-distro - Bash script for downloading and verifying OS images
+dl-distro - Bash script for downloading and verifying OS images.
 
 .SH SYNOPSIS
-\fIdl-distro\fR [options] <distro> [path]
+\fIdl-distro\fR -d <DISTRO|JQ_QUERY> [OPTIONS]
 
-\fIdl-distro\fR [options] <jq.path> [path]
+\fIdl-distro\fR
 
 .SH DESCRIPTION
 dl-distro aims to make downloading and verifying OS images quick and easy.
@@ -17,122 +17,132 @@ signature verification, and validates checksums with the relevant algorithm.
 
 .SH OPTIONS
 .TP
-.B -a, --auto-update
+.B -a
+.RS
 Toggle on or off automatic updating of the local JSON file.
+.RE
 
 .TP
-.B -d, --delete-key <gpg_key_id>
+.B -c
+.RS
+Generate a config file with default values.
+.RE
+
+.TP
+.B -d <DISTRO|JQ_QUERY>
+.RS
+Specify distribution by its short name (e.g., 'arch')
+or a JSON path query (e.g., 'arch.latest').
+.RE
+
+.TP
+.B -D <KEY_ID>
+.RS
 Delete a stored GPG key using its GPG key id.
+.RE
 
 .TP
-.B -h, --help
+.B -h
+.RS
 Display help message containing options and distributions available.
+.RE
 
 .TP
-.B -i, --import-key <path_to_key>
+.B -i <KEY_FILE>
+.RS
 Import a GPG key from a key file.
+.RE
 
 .TP
-.B -l, --list-keys
+.B -l
+.RS
 List the stored GPG keys.
+.RE
 
 .TP
-.B -n, --no-verify
+.B -n
+.RS
 Skip GPG, Minisign, or Signify key fetching and verification.
+.RE
 
 .TP
-.B -p, --purge-data
+.B -p <PATH>
+.RS
+Download image to specified directory.
+.RE
+
+.TP
+.B -P
+.RS
 Purge ALL the stored data. Includes GPG, Minisign, Signify keys and the JSON
 file.
+.RE
 
 .TP
-.B -s, --spider
+.B -s
+.RS
 Check if the URLs for the chosen image return a 200 status, indicating they are
 valid URLs.
+.RE
 
 .TP
-.B -u, --update-json
+.B -u
+.RS
 Update the locally stored JSON file.
+.RE
 
 .TP
-.B -v, --version
+.B -V
+.RS
 Print dl-distro's current version.
+.RE
 
 .SH DISTRIBUTIONS
-.TP
-\fBalma\fR - AlmaLinux OS
-https://almalinux.org
-.TP
-\fBalpine\fR - Alpine Linux
-https://alpinelinux.org
-.TP
-\fBarch\fR - Arch Linux
-https://archlinux.org
-.TP
-\fBdebian\fR - Debian
-https://debian.org
-.TP
-\fBfedora\fR - Fedora Linux
-https://fedoraproject.org
-.TP
-\fBgparted\fR - GParted Live
-https://gparted.org
-.TP
-\fBkali\fR - Kali Linux
-https://kali.org
-.TP
-\fBmint\fR - Linux Mint
-https://linuxmint.com
-.TP
-\fBnixos\fR - NixOS
-https://nixos.org
-.TP
-\fBopenbsd\fR - OpenBSD
-https://openbsd.org
-.TP
-\fBopensuse\fR - openSUSE
-https://opensuse.org
-.TP
-\fBparrot\fR - ParrotOS
-https://parrotsec.org
-.TP
-\fBqubes\fR - Qubes OS
-https://qubes-os.org
-.TP
-\fBrocky\fR - Rocky Linux
-https://rockylinux.org
-.TP
-\fBslackware\fR - Slackware Linux
-http://slackware.com
-.TP
-\fBsolus\fR - Solus
-https://getsol.us
-.TP
-\fBtails\fR - Tails
-https://tails.net
-.TP
-\fBubuntu\fR - Ubuntu
-https://ubuntu.com
-.TP
-\fBvoid\fR - Void Linux
-https://voidlinux.org
-.TP
-\fBwhonix\fR - Whonix
-https://whonix.org
+.TS
+tab(|);
+l l l.
+\fBalma\fR | AlmaLinux OS | https://almalinux.org
+\fBalpine\fR | Alpine Linux | https://alpinelinux.org
+\fBarch\fR | Arch Linux | https://archlinux.org
+\fBdebian\fR | Debian | https://debian.org
+\fBfedora\fR | Fedora Linux | https://fedoraproject.org
+\fBgparted\fR | GParted Live | https://gparted.org
+\fBkali\fR | Kali Linux | https://kali.org
+\fBmint\fR | Linux Mint | https://linuxmint.com
+\fBnixos\fR | NixOS | https://nixos.org
+\fBopenbsd\fR | OpenBSD | https://openbsd.org
+\fBopensuse\fR | openSUSE | https://opensuse.org
+\fBparrot\fR | ParrotOS | https://parrotsec.org
+\fBqubes\fR | Qubes OS | https://qubes-os.org
+\fBrocky\fR | Rocky Linux | https://rockylinux.org
+\fBslackware\fR | Slackware Linux | http://slackware.com
+\fBsolus\fR | Solus | https://getsol.us
+\fBtails\fR | Tails | https://tails.net
+\fBubuntu\fR | Ubuntu | https://ubuntu.com
+\fBvoid\fR | Void Linux | https://voidlinux.org
+\fBwhonix\fR | Whonix | https://whonix.org
+.TE
 
 .SH EXAMPLES
 .TP
-dl-distro arch
-Download and verify an Arch Linux image after choosing one from a menu.
+dl-distro
+Main menu with all distributions. Pick one and choose an image to download.
 
 .TP
-dl-distro arch.latest
-Use a jq path to skip the menu and start downloading the chosen image. The names
-for the jq path are the same ones in the menus.
+dl-distro -d arch
+Provide a distribution name to skip the main menu. This will prompt you with
+additional choice menus, if necessary.
 
 .TP
-dl-distro -n arch.latest ~/Downloads
-Skip GPG key fetching and verification, downloads to the ~/Downloads directory.
+dl-distro -d arch.latest
+You can skip the menus and start a download directly if you provide a JSON path
+query. The names used in the JSON path correspond directly to those in the
+menus.
+
+.TP
+dl-distro -d arch.latest -p ~/Downloads
+Download and verify the latest Arch Linux image, saving to the ~/Downloads
+directory.
 
 .SH FILES
 .TP
@@ -147,25 +157,25 @@ please use quotes:
 
 .RS
 .TP
-\fB   default_download_dir\fR="$PWD"
+\fB   DEFAULT_DOWNLOAD_DIR\fR="$PWD"
 By default, dl-distro will use the \fB$PWD\fR variable if no download path is
-provided. To always download to a specific path, change this variable.
+provided with \fB-p\fR. To always download to a specific path, change this variable.
 .TP
-\fB   auto_fetch_enabled\fR="false"
+\fB   AUTO_UPDATE_ENABLED\fR="false"
 Changing to \fBtrue\fR will download the JSON file from the master branch before
 each run, ensuring always up-to-date data.
 .TP
-\fB   verification_enabled\fR="true"
-Changing to \fBfalse\fR is like using -n, --no-verify always.
+\fB   VERIFICATION_ENABLED\fR="true"
+Changing to \fBfalse\fR is like using \fB-n\fR always.
 .TP
-\fB   spider_mode_enabled\fR="false"
-Changing to \fBtrue\fR is like using -s, --spider always.
+\fB   SPIDER_MODE_ENABLED\fR="false"
+Changing to \fBtrue\fR is like using \fB-s\fR always.
 .RE
 
 .RS
-You can also override data in the JSON file by downloading it and placing it in
-the config directory. dl-distro will use this file over the one stored in the
-data directory.
+You can also override data in the JSON file by placing it in the config
+directory. dl-distro will use this file over the one stored in the data
+directory.
 .RE
 
 .TP
@@ -175,7 +185,9 @@ The data directory is \fI$XDG_DATA_HOME/dl-distro\fR. If
 \fI$HOME/.local/share/dl-distro\fR.
 
 This directory is used to store the GPG keys, Minisign keys, Signify keys and
-the JSON file.
+the JSON file. dl-distro relies on there being a locally stored JSON file.
+Use the \fB-a\fR option to toggle on and off automatic updating of the file.
+The \fB-u\fR option will force update the file.
 
 .SH BUGS
 Please report bugs on Codeberg https://codeberg.org/bashuser30/dl-distro/issues.
