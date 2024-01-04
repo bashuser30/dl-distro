@@ -664,11 +664,11 @@ traverse_json()
 	if jq -e "${traverse_path}.url" "$JSON_FILE" &> /dev/null; then
 		IFS='|' read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | join(\"|\")" "$JSON_FILE")"
 	else
-		[[ "${json_query_used:-}" = 1 ]] && print_error "Invalid JSON path query." && exit 1
+		[[ "${json_query_used:-}" = 1 ]] && print_error "Invalid JSON query: ${RED}${traverse_path#.}" && exit 1
 
 		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$JSON_FILE")
 
-		[[ "${#choices[@]}" -eq 0 ]] && print_error "JSON parsing error." && exit 1
+		[[ "${#choices[@]}" -eq 0 ]] && print_error "JSON parsing error. Please report on Codeberg." && exit 1
 
 		PS3="${BOLD}Enter your choice (1-${#choices[@]}): $NC"
 
