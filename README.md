@@ -66,11 +66,19 @@ sudo ./installer.sh uninstall
 
 ## Usage
 
-See `man dl-distro` and `dl-distro -h` for more information about usage.
+It is recommended to generate a default config file using the `-c` option. This
+config file has several values you can change, including a default download
+directory:
 
-### Downloading an OS Image
+```
+dl-distro -c
+```
 
-Main menu with all distributions:
+See `man dl-distro` for more information about usage.
+
+### Examples
+
+Main menu with all distributions. Pick one and choose an image to download:
 
 ```
 dl-distro
@@ -91,21 +99,19 @@ menus:
 dl-distro -d arch.latest
 ```
 
+Download and verify the latest Arch Linux image, saving to the ~/Downloads
+directory:
+
+```
+dl-distro -d arch.latest -p ~/Downloads
+```
+
 ### Updating the JSON file
 
 dl-distro relies on there being a locally stored JSON file.
 
-Use the `-a` option to toggle on and off automatic updating of the file:
-
-```
-dl-distro -a
-```
-
-The `-u` option will force update the file:
-
-```
-dl-distro -u
-```
+Use the `-a` option to toggle on and off automatic updating of the file.
+The `-u` option will force update the file.
 
 Please open an issue on the [repository's issue tracker](https://codeberg.org/bashuser30/dl-distro/issues)
 detailing any problems you encounter, or suggestions you might have.
