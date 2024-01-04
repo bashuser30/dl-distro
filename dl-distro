@@ -506,7 +506,8 @@ download_whonix()
 toggle_auto_update()
 {
 	if [[ ! -f "$CONF_FILE" ]]; then
-		print_error_exit "Config file not found. Generate with -c"
+		print_error "Config file not found. Generate with -c"
+		exit 1
 	fi
 
 	if [[ "$AUTO_UPDATE_ENABLED" == "true" ]]; then
