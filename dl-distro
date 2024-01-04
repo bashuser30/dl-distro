@@ -626,9 +626,8 @@ OPTIONS
   -a                      : Toggle on or off automatic updating of the local
                             JSON file.
   -c                      : Generate a config file with default values.
-  -d <DISTRO|JSON_QUERY>  : Specify distribution by its short name
-                            (e.g., 'arch') or a JSON path query
-                            (e.g., 'arch.latest').
+  -d <DISTRO|JSON_QUERY>  : Specify distribution by its short name or a JSON
+                            query.
   -D <KEY_ID>             : Delete a stored GPG key using its GPG key id.
   -h                      : Display this help message.
   -i <KEY_FILE>           : Import a GPG key from a key file.
@@ -747,7 +746,7 @@ parse_opts()
 			\?) print_error "Invalid option: ${RED}-$OPTARG"; exit 1 ;;
 			:)
 				case "$OPTARG" in
-					d) print_error "Option -$OPTARG requires a distro name or JSON path query."; exit 1 ;;
+					d) print_error "Option -$OPTARG requires a distro name or JSON query."; exit 1 ;;
 					D) print_error "Option -$OPTARG requires a GPG key id."; exit 1 ;;
 					i) print_error "Option -$OPTARG requires a GPG key file path."; exit 1 ;;
 					p) print_error "Option -$OPTARG requires a directory path."; exit 1 ;;
