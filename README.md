@@ -108,10 +108,11 @@ dl-distro -d arch.latest -p ~/Downloads
 
 ### Updating the JSON file
 
-dl-distro relies on there being a locally stored JSON file.
+dl-distro relies on there being a locally stored JSON file. By default, this
+file will be automatically updated upon runtime.
 
-Use the `-a` option to toggle on and off automatic updating of the file.
-The `-u` option will force update the file.
+Use the `-a` option to toggle automatic updating of the file. The `-u` option
+will force update the file.
 
 ## Supported Distributions
 
