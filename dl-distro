@@ -20,12 +20,10 @@
 
 set -euo pipefail
 
-if [ "$(id -u)" -eq 0 ]; then
-	printf "ERROR: Do not run as root.\n" >&2
+if [[ "$UID" -eq 0 ]]; then
+	printf "Do not run as root.\n" >&2
 	exit 1
 fi
-
-declare -A supported_distros
 
 version="v2.0.0"
 data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
@@ -34,12 +32,27 @@ json_dir="$data_dir/json"
 gpg_dir="$data_dir/gpg"
 minisign_dir="$data_dir/minisign"
 signify_dir="$data_dir/signify"
+json_file="$json_dir/data.json"
+user_json_file="$conf_dir/data.json"
 conf_file="$conf_dir/dl-distro.conf"
 default_download_dir="$PWD"
-auto_update_enabled="false"
+auto_update_enabled="true"
 verification_enabled="true"
 spider_mode_enabled="false"
 gpg_keyserver="hkps://keyserver.ubuntu.com"
+json_url="https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
+green=$'\033[1;32m'
+red=$'\033[1;31m'
+yellow=$'\033[1;33m'
+bold=$'\033[1;37m'
+nc=$'\033[0m'
+
+# shellcheck source=/dev/null
+[[ -f "$conf_file" ]] && source "$conf_file"
+[[ -f "$user_json_file" ]] && json_file="$user_json_file"
+
+declare -A supported_distros
+
 supported_distros=(["AlmaLinux OS"]="alma"
                    ["Alpine Linux"]="alpine"
                    ["Arch Linux"]="arch"
@@ -61,29 +74,15 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Void Linux"]="void"
                    ["Whonix"]="whonix")
 
-json_urls=("https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
-           "https://gitlab.com/bashuser30/dl-distro/-/raw/master/data.json"
-           "https://raw.githubusercontent.com/bashuser30/dl-distro/master/data.json")
-
-json_paths=("$conf_dir/data.json"
-            "$(dirname "$0")/data.json"
-            "$json_dir/data.json"
-            "/usr/share/dl-distro/data.json"
-            "/usr/local/share/dl-distro/data.json")
-
-green=$'\033[1;32m'
-red=$'\033[1;31m'
-yellow=$'\033[1;33m'
-bold=$'\033[1;37m'
-nc=$'\033[0m'
-
-# shellcheck source=/dev/null
-[[ -f "$conf_file" ]] && source "$conf_file"
-
-print_message() { printf "%b%s%b\n" "$bold" "$1" "$nc"; }
-print_warning() { printf "%bWARNING: %b%s%b\n" "$yellow" "$bold" "$1" "$nc" >&2; }
+print_msg() { printf "%b%s%b\n" "$bold" "$1" "$nc"; }
+print_warn() { printf "%bWARNING: %b%s%b\n" "$yellow" "$bold" "$1" "$nc" >&2; }
 print_error() { printf "%bERROR: %b%s%b\n" "$red" "$bold" "$1" "$nc" >&2; }
-print_version() { printf "dl-distro %s\nCopyright (C) 2023-2024 bashuser30 <bashuser30@mailbox.org>\n" "$version"; }
+
+print_version()
+{
+	print_msg "dl-distro ${green}$version"
+	print_msg "Copyright (C) 2023-2024 bashuser30 <bashuser30@mailbox.org>"
+}
 
 dependency_check()
 {
@@ -93,9 +92,7 @@ dependency_check()
 		command -v "$cmd" &> /dev/null || missing_deps+=("$cmd")
 	done
 
-	if [ "${#missing_deps[@]}" -eq 0 ]; then
-		return 0
-	else
+	if [[ "${#missing_deps[@]}" -gt 0 ]]; then
 		print_error "Please install: ${red}${missing_deps[*]}"
 		exit 1
 	fi
@@ -106,7 +103,7 @@ wget_file()
 	local url
 
 	for url in "$@"; do
-		if ! wget -P "$default_download_dir" -qc --show-progress "$url"; then
+		if ! wget -qc --show-progress "$url"; then
 			print_error "Failed to download: ${red}$url"
 			exit 1
 		fi
@@ -133,15 +130,10 @@ fetch_gpg_key()
 
 	dependency_check "gpg"
 
-	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir"
-
 	gpg_key="$(jq -r ".gpg_keys.$1" "$json_file")"
-	gpg_dir_perms="$(stat -c "%a" "$gpg_dir")"
-
-	[[ "$gpg_dir_perms" != "700" ]] && chmod 700 "$gpg_dir"
 
 	if ! gpg --homedir "$gpg_dir" --list-keys "$gpg_key" &> /dev/null; then
-		print_message "Fetching GPG key..."
+		print_msg "Fetching GPG key..."
 
 		if ! gpg --homedir "$gpg_dir" --keyserver "$gpg_keyserver" --recv-keys "$gpg_key" &> /dev/null; then
 			print_error "Failed to fetch GPG key: ${red}$gpg_key"
@@ -154,12 +146,10 @@ verify_gpg_signature()
 {
 	[[ "$verification_enabled" == "false" ]] && return 0
 
-	cd "$default_download_dir" || exit 1
-
 	if gpg --homedir "$gpg_dir" --verify "$@" &> /dev/null; then
-		print_message "GPG verification: ${green}SUCCESS"
+		print_msg "GPG verification: ${green}SUCCESS"
 	else
-		rm -f "$iso_file" "$sig_file" "$sum_file"
+		rm -f "$iso_file"
 		print_error "GPG verification: ${red}FAILED"
 		exit 1
 	fi
@@ -175,7 +165,7 @@ fetch_minisign_key()
 	minisign_key="$(basename "$minisign_key_url")"
 
 	if [[ ! -f "$minisign_dir/$minisign_key" ]]; then
-		print_message "Fetching Minisign key..."
+		print_msg "Fetching Minisign key..."
 
 		if ! wget -P "$minisign_dir" -q "$minisign_key_url"; then
 			print_error "Failed to fetch Minisign key: ${red}$minisign_key_url"
@@ -188,12 +178,9 @@ verify_minisign_signature()
 {
 	[[ "$verification_enabled" == "false" ]] && return 0
 
-	cd "$default_download_dir" || exit 1
-
 	if minisign -Vp "$minisign_dir/$minisign_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
-		print_message "Minisign verification: ${green}SUCCESS"
+		print_msg "Minisign verification: ${green}SUCCESS"
 	else
-		rm -f "$sig_file" "$sum_file"
 		print_error "Minisign verification: ${red}FAILED"
 		exit 1
 	fi
@@ -207,9 +194,9 @@ fetch_signify_key()
 		# shellcheck source=/dev/null
 		source /etc/os-release
 	else
-		print_warning "/etc/os-release is missing."
-		print_warning "This is to determine the package name signify uses."
-		print_warning "Defaulting to: ${yellow}signify"
+		print_warn "/etc/os-release is missing."
+		print_warn "This is to determine the package name signify uses."
+		print_warn "Defaulting to: ${yellow}signify"
 	fi
 
 	if [[ "${ID:-}" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
@@ -224,7 +211,7 @@ fetch_signify_key()
 	signify_key="$(basename "$signify_key_url")"
 
 	if [[ ! -f "$signify_dir/$signify_key" ]]; then
-		print_message "Fetching Signify key..."
+		print_msg "Fetching Signify key..."
 
 		if ! wget -P "$signify_dir" -q "$signify_key_url"; then
 			print_error "Failed to fetch Signify key: ${red}$signify_key_url"
@@ -237,12 +224,9 @@ verify_signify_signature()
 {
 	[[ "$verification_enabled" == "false" ]] && return 0
 
-	cd "$default_download_dir" || exit 1
-
 	if "$signify_name" -Vp "$signify_dir/$signify_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
-		print_message "Signify verification: ${green}SUCCESS"
+		print_msg "Signify verification: ${green}SUCCESS"
 	else
-		rm -f "$sig_file" "$sum_file"
 		print_error "Signify verification: ${red}FAILED"
 		exit 1
 	fi
@@ -250,15 +234,12 @@ verify_signify_signature()
 
 verify_checksum()
 {
-	cd "$default_download_dir" || exit 1
-
 	sum_algo="$(jq -r ".sum_algos.$distro" "$json_file")"
 
 	if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
-		rm -f "$sig_file" "$sum_file"
-		print_message "$sum_algo verification: ${green}SUCCESS"
+		print_msg "$sum_algo verification: ${green}SUCCESS"
 	else
-		rm -f "$iso_file" "$sig_file" "$sum_file"
+		rm -f "$iso_file"
 		print_error "$sum_algo verification: ${red}FAILED"
 		exit 1
 	fi
@@ -343,8 +324,8 @@ download_kali ()
 		iso_file="${iso_file//\{current_week_num\}/$current_week_num}"
 
 		if ! grep -qF "$iso_file" <<< "$html_content"; then
-			print_warning "No new ISO for week: ${yellow}$current_week_num"
-			print_warning "Downloading previous week."
+			print_warn "No new ISO for week: ${yellow}$current_week_num"
+			print_warn "Downloading previous week."
 			(( prev_week_num=current_week_num-1 ))
 			iso_file="${iso_file//$current_week_num/$prev_week_num}"
 		fi
@@ -372,14 +353,13 @@ download_nixos()
 {
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
-	cd "$default_download_dir" || exit 1
 	printf '\n' >> "$sum_file"
 	read -r line < "$sum_file"
 	new_iso_file="${line##* }"
 	mv "$iso_file" "$new_iso_file"
 	iso_file="$new_iso_file"
 	verify_checksum
-	print_message "NixOS does not provide signatures."
+	print_msg "NixOS does not provide signatures."
 }
 
 download_openbsd()
@@ -435,7 +415,7 @@ download_rocky()
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
-	print_message "Rocky Linux does not provide signatures."
+	print_msg "Rocky Linux does not provide signatures."
 }
 
 download_slackware()
@@ -463,8 +443,7 @@ download_tails()
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
-	rm -f "$sig_file"
-	print_message "Tails does not provide checksums."
+	print_msg "Tails does not provide checksums."
 }
 
 download_ubuntu()
@@ -506,41 +485,42 @@ download_whonix()
 toggle_auto_update()
 {
 	if [[ ! -f "$conf_file" ]]; then
-		print_error "Config file not found. Generate with -c"
-		exit 1
+		print_error "Config file not found."
+		print_msg "Generating a new one..."
+		generate_conf_file
 	fi
 
 	if [[ "$auto_update_enabled" == "true" ]]; then
 		sed -i 's/auto_update_enabled=\(\"true\"\|true\)/auto_update_enabled="false"/' "$conf_file"
-		print_message "JSON auto-updating: ${red}DISABLED"
+		print_msg "JSON auto-updating: ${red}DISABLED"
 	else
 		sed -i 's/auto_update_enabled=\(\"false\"\|false\)/auto_update_enabled="true"/' "$conf_file"
-		print_message "JSON auto-updating: ${green}ENABLED"
+		print_msg "JSON auto-updating: ${green}ENABLED"
 	fi
 }
 
 generate_conf_file()
 {
-	print_warning "This will overwrite the config file with default values."
-	read -rp "${bold}Proceed? (y/N): $nc" choice
+	if [[ -f "$conf_file" ]]; then
+		print_warn "This will overwrite the config file with default values."
 
-	if [[ "$choice" != "Y" && "$choice" != "y" ]]; then
-		print_message "Canceled config file generation."
-		return 0
+		read -rp "${bold}Proceed? (y/N): $nc" choice
+
+		if [[ "$choice" != "Y" && "$choice" != "y" ]]; then
+			print_msg "Canceled config file generation."
+			exit 1
+		fi
 	fi
-
-	[[ ! -d "$conf_dir" ]] && mkdir -p "$conf_dir"
 
 	{
 		# shellcheck disable=SC2016
 		printf 'default_download_dir="$PWD"\n'
-		printf 'auto_update_enabled="false"\n'
+		printf 'auto_update_enabled="true"\n'
 		printf 'verification_enabled="true"\n'
-		printf 'spider_mode_enabled="false"\n'
 		printf 'gpg_keyserver="hkps://keyserver.ubuntu.com"\n'
 	} > "$conf_file"
 
-	print_message "Made config file at: ${green}$conf_file"
+	print_msg "Made config file at: ${green}$conf_file"
 }
 
 delete_gpg_key()
@@ -548,9 +528,9 @@ delete_gpg_key()
 	dependency_check "gpg"
 
 	if gpg --homedir "$gpg_dir" --delete-keys "$1" &> /dev/null; then
-		print_message "GPG key deletion: ${green}SUCCESS"
+		print_msg "GPG key deletion: ${green}SUCCESS"
 	else
-		print_message "GPG key deletion: ${red}FAILED"
+		print_msg "GPG key deletion: ${red}FAILED"
 	fi
 }
 
@@ -558,14 +538,8 @@ import_gpg_key()
 {
 	dependency_check "gpg"
 
-	[[ ! -d "$gpg_dir" ]] && mkdir -p "$gpg_dir"
-
-	gpg_dir_perms="$(stat -c "%a" "$gpg_dir")"
-
-	[[ "$gpg_dir_perms" != "700" ]] && chmod 700 "$gpg_dir"
-
 	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
-		print_message "GPG key import: ${green}SUCCESS"
+		print_msg "GPG key import: ${green}SUCCESS"
 	else
 		print_error "GPG key import: ${red}FAILED"
 		exit 1
@@ -575,42 +549,35 @@ import_gpg_key()
 list_gpg_keys()
 {
 	dependency_check "gpg"
+
 	gpg --homedir "$gpg_dir" --list-keys 2> /dev/null
 }
 
 purge_all_data()
 {
-	print_warning "This will remove ALL stored data at: $data_dir"
+	print_warn "This will remove ALL stored data at: $data_dir"
+
 	read -rp "${bold}Proceed? (y/N): $nc" choice
 
 	if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
 		rm -rf "$data_dir"
-		print_message "Data deletion: ${green}SUCCESS"
+		print_msg "Data deletion: ${green}SUCCESS"
 	else
-		print_warning "Data deletion: ${yellow}CANCELED"
+		print_msg "Canceled data deletion."
 		exit 1
 	fi
 }
 
 update_json_file()
 {
-	json_update_mode="$1"
+	temp_json_file="$json_dir/.temp_data.json"
 
-	for json_url in "${json_urls[@]}"; do
-		if wget -P "$json_dir" -q "$json_url"; then
-			print_message "JSON file update: ${green}SUCCESS"
-			return 0
-		else
-			print_warning "JSON file update: ${yellow}FAILED"
-			print_warning "Trying next mirror..."
-		fi
-	done
-
-	print_error "JSON file update: ${red}FAILED"
-
-	if [[ "$json_update_mode" == "auto" ]]; then
-		kill "$main_pid"
+	if wget -O "$temp_json_file" -q "$json_url"; then
+		mv "$temp_json_file" "$json_dir/data.json"
+		print_msg "JSON file update: ${green}SUCCESS"
 	else
+		rm "$temp_json_file"
+		print_error "JSON file update: ${red}FAILED"
 		exit 1
 	fi
 }
@@ -624,8 +591,7 @@ USAGE
   dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
 
 OPTIONS
-  -a                      : Toggle on or off automatic updating of the local
-                            JSON file.
+  -a                      : Toggle automatic updating of the local JSON file.
   -c                      : Generate a config file with default values.
   -d <DISTRO|JSON_QUERY>  : Specify distribution by its short name or a JSON
                             query.
@@ -657,47 +623,60 @@ EXAMPLES
 EOF
 }
 
-find_json_file()
-{
-	for file_path in "${json_paths[@]}"; do
-		if [[ -f "$file_path" ]]; then
-			json_file="$(realpath -m "$file_path")"
-			break
-		fi
-	done
-
-	if [[ -z "${json_file:-}" ]]; then
-		print_error "Couldn't find a JSON file. Please use -u"
-		exit 1
-	fi
-
-	print_message "Using JSON file: ${green}$json_file"
-	print_message "Downloading at: ${green}$default_download_dir"
-}
-
 traverse_json_file()
 {
 	traverse_path="$1"
 
-	if jq -e "${traverse_path}.url" "$json_file" &> /dev/null; then
-		IFS='|' read -r url iso_file sig_file sum_file <<< "$(jq -r "[$traverse_path | .url, .iso_file, .sig_file, .sum_file] | join(\"|\")" "$json_file")"
+	if jq -e "$traverse_path.url" "$json_file" &> /dev/null; then
+		mapfile -t json_values < <(jq -r "$traverse_path | .url, .iso_file, .sig_file, .sum_file" "$json_file")
+
+		url="${json_values[0]}"
+		iso_file="${json_values[1]}"
+		sig_file="${json_values[2]}"
+		sum_file="${json_values[3]}"
+
+		trap 'rm -f "$sig_file" "$sum_file"' EXIT INT TERM
+
+		download_"$distro"
+
+		exit 0
 	else
-		[[ -n "${json_query:-}" ]] && print_error "Invalid JSON query: ${red}${traverse_path#.}" && exit 1
+		if [[ -n "${json_query:-}" ]]; then
+			print_error "Invalid JSON query: ${red}${traverse_path#.}"
+			exit 1
+		fi
 
 		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$json_file")
 
-		[[ "${#choices[@]}" -eq 0 ]] && print_error "JSON parsing error. Please report on Codeberg." && exit 1
+		choices=("${choices[@]}" "back")
+
+		if [[ "${#choices[@]}" -le 1 ]]; then
+			print_error "JSON parsing error."
+			print_msg "Try udating the JSON file, else report on Codeberg."
+			exit 1
+		fi
 
 		PS3="${bold}Enter your choice (1-${#choices[@]}): $nc"
 
 		select choice in "${choices[@]}"; do
-			if [[ -z "$choice" ]]; then
-				print_error "Invalid option: ${red}$REPLY"
-				continue
-			fi
+			case "$choice" in
+				"back")
+					if [[ "$traverse_path" == ".$distro" ]]; then
+						main_menu
+					else
+						traverse_json_file "${traverse_path%.*}"
+					fi
+					;;
+				*)
+					if [[ -z "$choice" ]]; then
+						print_error "Invalid option: ${red}$REPLY"
+						continue
+					else
+						traverse_json_file "$traverse_path.$choice"
+					fi
+					;;
 
-			traverse_json_file "$traverse_path.$choice"
-			return 0
+			esac
 		done
 	fi
 }
@@ -706,7 +685,7 @@ traverse_json_file()
 settings()
 {
 	print_error "Settings still WIP..."
-	exit 1
+	main_menu
 }
 
 main_menu()
@@ -726,7 +705,11 @@ main_menu()
 		case "$choice" in
 			"Settings") settings ;;
 			"Quit") exit 0 ;;
-			*) distro="${supported_distros["$choice"]}"; return 0 ;;
+			*)
+				distro="${supported_distros["$choice"]}"
+				wait
+				traverse_json_file ".$distro"
+				;;
 		esac
 	done
 }
@@ -738,6 +721,14 @@ cli_mode()
 		distro="${d_option_arg%%.*}"
 	else
 		distro="$d_option_arg"
+	fi
+
+	if type download_"$distro" &> /dev/null; then
+		wait
+		traverse_json_file ".${json_query:-$distro}"
+	else
+		print_error "Invalid distro: ${red}$distro"
+		exit 1
 	fi
 }
 
@@ -758,16 +749,16 @@ parse_opts()
 			p) default_download_dir="$OPTARG" ;;
 			P) purge_all_data; exit 0 ;;
 			s) spider_mode_enabled="true" ;;
-			u) update_json_file "normal"; exit 0 ;;
+			u) update_json_file; exit 0 ;;
 			V) print_version; exit 0 ;;
 			\?) print_error "Invalid option: ${red}-$OPTARG"; exit 1 ;;
 			:)
 				case "$OPTARG" in
-					d) print_error "Option -$OPTARG requires a distro name or JSON query."; exit 1 ;;
-					D) print_error "Option -$OPTARG requires a GPG key id."; exit 1 ;;
-					i) print_error "Option -$OPTARG requires a GPG key file path."; exit 1 ;;
-					p) print_error "Option -$OPTARG requires a directory path."; exit 1 ;;
-					*) print_error "Option -$OPTARG requires an argument."; exit 1 ;;
+					d) print_error "Enter a distro name or JSON query."; exit 1 ;;
+					D) print_error "Enter a GPG key id."; exit 1 ;;
+					i) print_error "Enter a GPG key file path."; exit 1 ;;
+					p) print_error "Enter a directory path."; exit 1 ;;
+					*) print_error "Enter an argument."; exit 1 ;;
 				esac
 				;;
 		esac
@@ -776,29 +767,26 @@ parse_opts()
 
 main()
 {
-	main_pid="$$"
-
 	dependency_check "jq" "wget"
+
+	mkdir -p "$conf_dir" "$json_dir" "$gpg_dir" "$minisign_dir" "$signify_dir"
+	chmod 700 "$gpg_dir"
+
 	parse_opts "$@"
 
-	if [[ "$auto_update_enabled" == "true" ]]; then
-		update_json_file "auto" > /dev/null &
+	if [[ ! -f "$json_file" || "$auto_update_enabled" == "true" ]]; then
+		update_json_file > /dev/null &
 	fi
+
+	print_msg "Downloading at: ${green}$default_download_dir"
+
+	mkdir -p "$default_download_dir"
+	cd "$default_download_dir"
 
 	if [[ "$cli_mode" = 0 ]]; then
 		main_menu
 	else
 		cli_mode
-	fi
-
-	if type download_"$distro" &> /dev/null; then
-		wait
-		find_json_file
-		traverse_json_file ".${json_query:-$distro}"
-		download_"$distro"
-	else
-		print_error "Invalid distro: ${red}$distro"
-		exit 1
 	fi
 }
 
