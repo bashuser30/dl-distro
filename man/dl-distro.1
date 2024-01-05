@@ -169,7 +169,7 @@ each run, ensuring always up-to-date data.
 .TP
 \fB    verification_enabled\fR="true"
 Changing to \fBfalse\fR will disable signature key fetching and verification at
-script runtime. Equivalent to always using \fB-n\fR.
+script runtime.
 .TP
 \fB    gpg_keyserver\fR="hkps://keyserver.ubuntu.com"
 Change the keyserver used to fetch GPG keys during runtime.
@@ -189,12 +189,6 @@ The data directory is \fI$XDG_DATA_HOME/dl-distro\fR. If
 
 This directory is used to store the GPG keys, Minisign keys, Signify keys and
 the JSON file.
-
-dl-distro relies on there being a locally stored JSON file. By default, this
-file will be automatically updated upon runtime.
-
-Use the \fB-a\fR option to toggle automatic updating of the file. The \fB-u\fR
-option will force update the file.
 
 .SH BUGS
 Please report bugs on Codeberg https://codeberg.org/bashuser30/dl-distro/issues.
