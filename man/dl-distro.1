@@ -1,4 +1,4 @@
-.TH "DL-DISTRO" "1" "January 3, 2024" "dl-distro v2.0.0" "dl-distro Manual"
+.TH "DL-DISTRO" "1" "January 5, 2024" "dl-distro v2.0.0" "dl-distro Manual"
 .nh
 .ad l
 .SH NAME
@@ -21,7 +21,7 @@ signature verification, and validates checksums with the relevant algorithm.
 .TP
 .B -a
 .RS
-Toggle on or off automatic updating of the local JSON file.
+Toggle automatic updating of the local JSON file.
 .RE
 
 .TP
@@ -160,17 +160,16 @@ please use quotes:
 .TP
 \fB    default_download_dir\fR="$PWD"
 By default, dl-distro will use the \fB$PWD\fR variable if no download path is
-provided with \fB-p\fR. To always download to a specific path, change this variable.
+provided with \fB-p\fR. To always download to a specific path, change this
+variable.
 .TP
-\fB    auto_update_enabled\fR="false"
-Changing to \fBtrue\fR will download the JSON file from the master branch before
+\fB    auto_update_enabled\fR="true"
+By default, dl-distro will download the JSON file from the master branch before
 each run, ensuring always up-to-date data.
 .TP
 \fB    verification_enabled\fR="true"
-Changing to \fBfalse\fR is like using \fB-n\fR always.
-.TP
-\fB    spider_mode_enabled\fR="false"
-Changing to \fBtrue\fR is like using \fB-s\fR always.
+Changing to \fBfalse\fR will disable signature key fetching and verification at
+script runtime. Equivalent to always using \fB-n\fR.
 .TP
 \fB    gpg_keyserver\fR="hkps://keyserver.ubuntu.com"
 Change the keyserver used to fetch GPG keys during runtime.
@@ -179,7 +178,7 @@ Change the keyserver used to fetch GPG keys during runtime.
 .RS
 You can also override data in the JSON file by placing it in the config
 directory. dl-distro will use this file over the one stored in the data
-directory.
+directory. \fBNOTE:\fR dl-distro can not update your modified file.
 .RE
 
 .TP
@@ -189,9 +188,13 @@ The data directory is \fI$XDG_DATA_HOME/dl-distro\fR. If
 \fI$HOME/.local/share/dl-distro\fR.
 
 This directory is used to store the GPG keys, Minisign keys, Signify keys and
-the JSON file. dl-distro relies on there being a locally stored JSON file.
-Use the \fB-a\fR option to toggle on and off automatic updating of the file.
-The \fB-u\fR option will force update the file.
+the JSON file.
+
+dl-distro relies on there being a locally stored JSON file. By default, this
+file will be automatically updated upon runtime.
+
+Use the \fB-a\fR option to toggle automatic updating of the file. The \fB-u\fR
+option will force update the file.
 
 .SH BUGS
 Please report bugs on Codeberg https://codeberg.org/bashuser30/dl-distro/issues.
