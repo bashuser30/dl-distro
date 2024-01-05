@@ -18,7 +18,7 @@ It currently supports **408** images from **20** [distributions](#supported-dist
 - `gnupg` (optional)
 - `jq`
 - `minisign` (optional: Void Linux verification)
-- `signify` (optional: OpenBSD verification)
+- `signify`/`signify-openbsd (deb)` (optional: OpenBSD verification)
 - `wget`
 
 ## Installation
