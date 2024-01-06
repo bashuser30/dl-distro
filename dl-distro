@@ -46,6 +46,7 @@ red=$'\033[1;31m'
 yellow=$'\033[1;33m'
 bold=$'\033[1;37m'
 nc=$'\033[0m'
+PS3="${green}>${nc} "
 
 # shellcheck source=/dev/null
 [[ -f "$conf_file" ]] && source "$conf_file"
@@ -121,6 +122,7 @@ wget_spider()
 			print_error "Spider failed for: ${red}$url"
 		fi
 	done
+
 	exit 0
 }
 
@@ -504,12 +506,13 @@ generate_conf_file()
 	if [[ -f "$conf_file" ]]; then
 		print_warn "This will overwrite the config file with default values."
 
-		read -rp "${bold}Proceed? (y/N): $nc" choice
-
-		if [[ "$choice" != "Y" && "$choice" != "y" ]]; then
-			print_msg "Canceled config file generation."
-			exit 1
-		fi
+		select gen_conf_choice in "Yes" "No"; do
+			case "$gen_conf_choice" in
+				"Yes") break ;;
+				"No") print_msg "Canceled."; return 0 ;;
+				*) print_error "Invalid option: ${red}$REPLY" ;;
+			esac
+		done
 	fi
 
 	{
@@ -527,10 +530,12 @@ delete_gpg_key()
 {
 	dependency_check "gpg"
 
-	if gpg --homedir "$gpg_dir" --delete-keys "$1" &> /dev/null; then
+	gpg_key_id="$1"
+
+	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$gpg_key_id" &> /dev/null; then
 		print_msg "GPG key deletion: ${green}SUCCESS"
 	else
-		print_msg "GPG key deletion: ${red}FAILED"
+		print_error "GPG key deletion: ${red}FAILED"
 	fi
 }
 
@@ -538,11 +543,12 @@ import_gpg_key()
 {
 	dependency_check "gpg"
 
-	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
+	gpg_key_id="$1"
+
+	if gpg --homedir "$gpg_dir" --import "$gpg_key_id" &> /dev/null; then
 		print_msg "GPG key import: ${green}SUCCESS"
 	else
 		print_error "GPG key import: ${red}FAILED"
-		exit 1
 	fi
 }
 
@@ -550,22 +556,35 @@ list_gpg_keys()
 {
 	dependency_check "gpg"
 
-	gpg --homedir "$gpg_dir" --list-keys 2> /dev/null
+	list_keys_output="$(gpg --homedir "$gpg_dir" --list-keys 2> /dev/null)"
+
+	if [[ -z "$list_keys_output" ]]; then
+		print_msg "No GPG keys saved."
+	else
+		printf "%s\n" "$list_keys_output"
+	fi
 }
 
 purge_all_data()
 {
-	print_warn "This will remove ALL stored data at: $data_dir"
+	print_warn "This will remove ALL stored data at: ${yellow}$data_dir"
 
-	read -rp "${bold}Proceed? (y/N): $nc" choice
-
-	if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
-		rm -rf "$data_dir"
-		print_msg "Data deletion: ${green}SUCCESS"
-	else
-		print_msg "Canceled data deletion."
-		exit 1
-	fi
+	select purge_choice in "Yes" "No"; do
+		case "$purge_choice" in
+			"Yes")
+				rm -rf "$data_dir"
+				print_msg "Data purge: ${green}SUCCESS"
+				break
+				;;
+			"No")
+				print_msg "Canceled."
+				break
+				;;
+			*)
+				print_error "Invalid option: ${red}$REPLY"
+				;;
+		esac
+	done
 }
 
 update_json_file()
@@ -578,7 +597,6 @@ update_json_file()
 	else
 		rm "$temp_json_file"
 		print_error "JSON file update: ${red}FAILED"
-		exit 1
 	fi
 }
 
@@ -595,7 +613,7 @@ OPTIONS
   -c                      : Generate a config file with default values.
   -d <DISTRO|JSON_QUERY>  : Specify distribution by its short name or a JSON
                             query.
-  -D <KEY_ID>             : Delete a stored GPG key using its GPG key id.
+  -D <KEY_ID>             : Delete a stored GPG key using its GPG key ID.
   -h                      : Display this help message.
   -i <KEY_FILE>           : Import a GPG key from a key file.
   -l                      : List the stored GPG keys.
@@ -623,6 +641,13 @@ EXAMPLES
 EOF
 }
 
+cleanup()
+{
+	[[ "$spider_mode_enabled" == "true" ]] && return 0
+	[[ "$sig_file" != "null" ]] && rm -f "$sig_file"
+	[[ "$sum_file" != "null" ]] && rm -f "$sum_file"
+}
+
 traverse_json_file()
 {
 	traverse_path="$1"
@@ -635,7 +660,7 @@ traverse_json_file()
 		sig_file="${json_values[2]}"
 		sum_file="${json_values[3]}"
 
-		trap 'rm -f "$sig_file" "$sum_file"' EXIT INT TERM
+		trap cleanup EXIT INT TERM
 
 		download_"$distro"
 
@@ -646,20 +671,18 @@ traverse_json_file()
 			exit 1
 		fi
 
-		mapfile -t choices < <(jq -r "$traverse_path | keys | .[]" "$json_file")
+		mapfile -t json_keys < <(jq -r "$traverse_path | keys | .[]" "$json_file")
 
-		choices=("${choices[@]}" "back")
+		json_options=("${json_keys[@]}" "back")
 
-		if [[ "${#choices[@]}" -le 1 ]]; then
+		if [[ "${#json_options[@]}" -le 1 ]]; then
 			print_error "JSON parsing error."
 			print_msg "Try udating the JSON file, else report on Codeberg."
 			exit 1
 		fi
 
-		PS3="${bold}Enter your choice (1-${#choices[@]}): $nc"
-
-		select choice in "${choices[@]}"; do
-			case "$choice" in
+		select json_choice in "${json_options[@]}"; do
+			case "$json_choice" in
 				"back")
 					if [[ "$traverse_path" == ".$distro" ]]; then
 						main_menu
@@ -668,11 +691,11 @@ traverse_json_file()
 					fi
 					;;
 				*)
-					if [[ -z "$choice" ]]; then
+					if [[ -z "$json_choice" ]]; then
 						print_error "Invalid option: ${red}$REPLY"
 						continue
 					else
-						traverse_json_file "$traverse_path.$choice"
+						traverse_json_file "$traverse_path.$json_choice"
 					fi
 					;;
 
@@ -681,36 +704,19 @@ traverse_json_file()
 	fi
 }
 
-# TODO: settings
-settings()
-{
-	print_error "Settings still WIP..."
-	main_menu
-}
-
 main_menu()
 {
 	mapfile -t sorted_distros < <(printf "%s\n" "${!supported_distros[@]}" | sort)
 
-	options=("${sorted_distros[@]}" "Settings" "Quit")
-
-	PS3="${bold}Enter your choice (1-${#options[@]}): $nc"
-
-	select choice in "${options[@]}"; do
-		if [[ -z "$choice" ]]; then
+	select main_menu_choice in "${sorted_distros[@]}"; do
+		if [[ -z "$main_menu_choice" ]]; then
 			print_error "Invalid option: ${red}$REPLY"
 			continue
 		fi
 
-		case "$choice" in
-			"Settings") settings ;;
-			"Quit") exit 0 ;;
-			*)
-				distro="${supported_distros["$choice"]}"
-				wait
-				traverse_json_file ".$distro"
-				;;
-		esac
+		distro="${supported_distros["$main_menu_choice"]}"
+		wait
+		traverse_json_file ".$distro"
 	done
 }
 
@@ -755,7 +761,7 @@ parse_opts()
 			:)
 				case "$OPTARG" in
 					d) print_error "Enter a distro name or JSON query."; exit 1 ;;
-					D) print_error "Enter a GPG key id."; exit 1 ;;
+					D) print_error "Enter a GPG key ID."; exit 1 ;;
 					i) print_error "Enter a GPG key file path."; exit 1 ;;
 					p) print_error "Enter a directory path."; exit 1 ;;
 					*) print_error "Enter an argument."; exit 1 ;;
