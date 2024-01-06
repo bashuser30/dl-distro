@@ -11,12 +11,14 @@ prefix="/usr/local"
 license_dir="$prefix/share/licenses/dl-distro"
 man_dir="$prefix/share/man/man1"
 bin_dir="$prefix/bin"
+bash_completions_dir="$prefix/share/bash-completion/completions"
 
 install_files()
 {
 	install -Dm644 LICENSE "$license_dir/LICENSE"
 	install -Dm644 man/dl-distro.1 "$man_dir/dl-distro.1"
 	install -Dm755 dl-distro "$bin_dir/dl-distro"
+	install -Dm644 completions/bash "$bash_completions_dir/dl-distro"
 }
 
 uninstall_files()
@@ -24,6 +26,7 @@ uninstall_files()
 	rm -f "$license_dir/LICENSE"
 	rm -f "$man_dir/dl-distro.1"
 	rm -f "$bin_dir/dl-distro"
+	rm -f "$bash_completions_dir/dl-distro"
 }
 
 case "$1" in
