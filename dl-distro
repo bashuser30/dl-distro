@@ -355,7 +355,7 @@ download_nixos()
 {
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
-	printf '\n' >> "$sum_file"
+	printf "\n" >> "$sum_file"
 	read -r line < "$sum_file"
 	new_iso_file="${line##* }"
 	mv "$iso_file" "$new_iso_file"
@@ -372,7 +372,7 @@ download_openbsd()
 	verify_signify_signature
 	wget_file "$url/$iso_file"
 	verify_checksum
-	IFS='.' read -ra path_parts <<< "$traverse_path"
+	IFS="." read -ra path_parts <<< "$traverse_path"
 	architecture="${path_parts[3]}"
 	base_name="${iso_file%.*}"
 	ext="${iso_file##*.}"
