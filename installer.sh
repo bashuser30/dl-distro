@@ -7,11 +7,10 @@ if [ "$(id -u)" -ne 0 ]; then
 	exit 1
 fi
 
-prefix="/usr/local"
-license_dir="$prefix/share/licenses/dl-distro"
-man_dir="$prefix/share/man/man1"
-bin_dir="$prefix/bin"
-bash_completions_dir="$prefix/share/bash-completion/completions"
+license_dir="/usr/local/share/licenses/dl-distro"
+man_dir="/usr/local/share/man/man1"
+bin_dir="/usr/local/bin"
+bash_completions_dir="/usr/local/share/bash-completion/completions"
 
 install_files()
 {
