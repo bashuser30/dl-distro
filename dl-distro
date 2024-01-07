@@ -658,6 +658,7 @@ traverse_json_file()
 
 		trap cleanup EXIT INT TERM
 
+		print_msg "Download directory: ${green}$default_download_dir"
 		download_"$distro"
 
 		exit 0
@@ -677,6 +678,13 @@ traverse_json_file()
 			exit 1
 		fi
 
+		for key in "${!supported_distros[@]}"; do
+			if [[ "${supported_distros[$key]}" == "$distro" ]]; then
+				print_msg "${green}$key"
+				break
+			fi
+		done
+
 		select json_choice in "${json_options[@]}"; do
 			case "$json_choice" in
 				"back")
@@ -694,7 +702,6 @@ traverse_json_file()
 						traverse_json_file "$traverse_path.$json_choice"
 					fi
 					;;
-
 			esac
 		done
 	fi
@@ -703,6 +710,8 @@ traverse_json_file()
 main_menu()
 {
 	mapfile -t sorted_distros < <(printf "%s\n" "${!supported_distros[@]}" | sort)
+
+	print_msg "${green}Choose a distribution:"
 
 	select main_menu_choice in "${sorted_distros[@]}"; do
 		if [[ -z "$main_menu_choice" ]]; then
@@ -779,8 +788,6 @@ main()
 	if [[ ! -f "$json_file" || "$auto_update_enabled" == "true" ]]; then
 		update_json_file > /dev/null &
 	fi
-
-	print_msg "Downloading at: ${green}$default_download_dir"
 
 	mkdir -p "$default_download_dir"
 	cd "$default_download_dir"
