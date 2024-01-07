@@ -530,9 +530,7 @@ delete_gpg_key()
 {
 	dependency_check "gpg"
 
-	gpg_key_id="$1"
-
-	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$gpg_key_id" &> /dev/null; then
+	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$1" &> /dev/null; then
 		print_msg "GPG key deletion: ${green}SUCCESS"
 	else
 		print_error "GPG key deletion: ${red}FAILED"
@@ -543,9 +541,7 @@ import_gpg_key()
 {
 	dependency_check "gpg"
 
-	gpg_key_id="$1"
-
-	if gpg --homedir "$gpg_dir" --import "$gpg_key_id" &> /dev/null; then
+	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
 		print_msg "GPG key import: ${green}SUCCESS"
 	else
 		print_error "GPG key import: ${red}FAILED"
