@@ -45,8 +45,9 @@ green=$'\033[1;32m'
 red=$'\033[1;31m'
 yellow=$'\033[1;33m'
 bold=$'\033[1;37m'
+und=$'\033[1;4m'
 nc=$'\033[0m'
-PS3="${green}>${nc} "
+PS3="${bold}>${nc} "
 
 # shellcheck source=/dev/null
 [[ -f "$conf_file" ]] && source "$conf_file"
@@ -658,7 +659,7 @@ traverse_json_file()
 
 		trap cleanup EXIT INT TERM
 
-		print_msg "Download directory: ${green}$default_download_dir"
+		print_msg "Downloading at: ${green}$default_download_dir"
 		download_"$distro"
 
 		exit 0
@@ -678,9 +679,11 @@ traverse_json_file()
 			exit 1
 		fi
 
+		clear -x
+
 		for key in "${!supported_distros[@]}"; do
 			if [[ "${supported_distros[$key]}" == "$distro" ]]; then
-				print_msg "${green}$key"
+				print_msg "${bold}${und}$key"
 				break
 			fi
 		done
@@ -711,7 +714,9 @@ main_menu()
 {
 	mapfile -t sorted_distros < <(printf "%s\n" "${!supported_distros[@]}" | sort)
 
-	print_msg "${green}Choose a distribution:"
+	clear -x
+
+	print_msg "${bold}${und}Main Menu"
 
 	select main_menu_choice in "${sorted_distros[@]}"; do
 		if [[ -z "$main_menu_choice" ]]; then
