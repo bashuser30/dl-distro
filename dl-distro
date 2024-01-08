@@ -521,6 +521,7 @@ generate_conf_file()
 		printf 'default_download_dir="$PWD"\n'
 		printf 'auto_update_enabled="true"\n'
 		printf 'verification_enabled="true"\n'
+		printf 'spider_mode_enabled="false"\n'
 		printf 'gpg_keyserver="hkps://keyserver.ubuntu.com"\n'
 	} > "$conf_file"
 
@@ -530,6 +531,13 @@ generate_conf_file()
 delete_gpg_key()
 {
 	dependency_check "gpg"
+
+	gpg_key_id="${1:-}"
+
+	if [[ -z "$gpg_key_id" ]]; then
+		print_error "A GPG key ID is required."
+		exit 1
+	fi
 
 	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$1" &> /dev/null; then
 		print_msg "GPG key deletion: ${green}SUCCESS"
@@ -542,7 +550,14 @@ import_gpg_key()
 {
 	dependency_check "gpg"
 
-	if gpg --homedir "$gpg_dir" --import "$1" &> /dev/null; then
+	gpg_key_file="${1:-}"
+
+	if [[ -z "$gpg_key_file" ]]; then
+		print_error "A path to a GPG key file is required."
+		exit 1
+	fi
+
+	if gpg --homedir "$gpg_dir" --import "$gpg_key_file" &> /dev/null; then
 		print_msg "GPG key import: ${green}SUCCESS"
 	else
 		print_error "GPG key import: ${red}FAILED"
@@ -606,23 +621,19 @@ USAGE
   dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
 
 OPTIONS
-  -a                      : Toggle automatic updating of the local JSON file.
-  -c                      : Generate a config file with default values.
-  -d <DISTRO|JSON_QUERY>  : Specify distribution by its short name or a JSON
-                            query.
-  -D <KEY_ID>             : Delete a stored GPG key using its GPG key ID.
-  -h                      : Display this help message.
-  -i <KEY_FILE>           : Import a GPG key from a key file.
-  -l                      : List the stored GPG keys.
-  -n                      : Skip GPG, Minisign, or Signify key fetching and
-                            verification.
-  -p <PATH>               : Download image to specified directory.
-  -P                      : Purge ALL the stored data. Includes GPG, Minisign,
-                            Signify keys and the JSON file.
-  -s                      : Check if the URLs for the chosen image return a 200
-                            status, indicating they are valid URLs.
-  -u                      : Update the locally stored JSON file.
-  -V                      : Print dl-distro's current version.
+  -a, --auto-update                 Toggle auto-updating of the local JSON file.
+  -c, --conf-file                   Generate a config file with default values.
+  -d, --distro <DISTRO|JSON_QUERY>  Specify a distro by name or a JSON query.
+  -D, --delete-key <KEY_ID>         Delete a stored GPG key using its key ID.
+  -h, --help                        Display this help message.
+  -i, --import-key <KEY_FILE>       Import a GPG key from a key file.
+  -l, --list-keys                   List the stored GPG keys.
+  -n, --no-verify                   Skip key fetching and verification.
+  -p, --path <PATH>                 Download image to specified directory.
+  -P, --purge-data                  Purge ALL the stored data.
+  -s, --spider                      Return HTTP status code for image's URLs.
+  -u, --update-json                 Update the locally stored JSON file.
+  -V, --version                     Print dl-distro's current version.
 
 DISTROS
   alma    gparted  opensuse   solus
@@ -752,31 +763,39 @@ parse_opts()
 {
 	cli_mode=0
 
-	while getopts ":acd:D:hi:lnp:PsuV" opt; do
-		case "$opt" in
-			a) toggle_auto_update; exit 0 ;;
-			c) generate_conf_file; exit 0 ;;
-			d) d_option_arg="$OPTARG"; cli_mode=1 ;;
-			D) delete_gpg_key "$OPTARG"; exit 0 ;;
-			h) usage; exit 0 ;;
-			i) import_gpg_key "$OPTARG"; exit 0 ;;
-			l) list_gpg_keys; exit 0 ;;
-			n) verification_enabled="false" ;;
-			p) default_download_dir="$OPTARG" ;;
-			P) purge_all_data; exit 0 ;;
-			s) spider_mode_enabled="true" ;;
-			u) update_json_file; exit 0 ;;
-			V) print_version; exit 0 ;;
-			\?) print_error "Invalid option: ${red}-$OPTARG"; exit 1 ;;
-			:)
-				case "$OPTARG" in
-					d) print_error "Enter a distro name or JSON query."; exit 1 ;;
-					D) print_error "Enter a GPG key ID."; exit 1 ;;
-					i) print_error "Enter a GPG key file path."; exit 1 ;;
-					p) print_error "Enter a directory path."; exit 1 ;;
-					*) print_error "Enter an argument."; exit 1 ;;
-				esac
+	while [[ "$#" -gt 0 ]]; do
+		case "$1" in
+			-a|--auto-update) toggle_auto_update; exit 0 ;;
+			-c|--conf-file) generate_conf_file; exit 0 ;;
+			-d|--distro)
+				if [[ -n "${2:-}" ]]; then
+					d_option_arg="$2"
+					cli_mode=1
+					shift 2
+				else
+					print_error "$1 requires a distro name or JSON query."
+					exit 1
+				fi
 				;;
+			-D|--delete-key) delete_gpg_key "${2:-}"; exit 0 ;;
+			-h|--help) usage; exit 0 ;;
+			-i|--import-key) import_gpg_key "${2:-}"; exit 0 ;;
+			-l|--list-keys) list_gpg_keys; exit 0 ;;
+			-n|--no-verify) verification_enabled="false"; shift 1 ;;
+			-p|--path)
+				if [[ -n "${2:-}" ]]; then
+					default_download_dir="$2"
+					shift 2
+				else
+					print_error "$1 requires a directory path."
+					exit 1
+				fi
+				;;
+			-P|--purge-data) purge_all_data; exit 0 ;;
+			-s|--spider) spider_mode_enabled="true"; shift 1 ;;
+			-u|--update-json) update_json_file; exit 0 ;;
+			-V|--version) print_version; exit 0 ;;
+			*) print_error "Invalid option: ${red}$1"; exit 1 ;;
 		esac
 	done
 }
@@ -795,7 +814,7 @@ main()
 	fi
 
 	mkdir -p "$default_download_dir"
-	cd "$default_download_dir"
+	cd "$default_download_dir" || exit 1
 
 	if [[ "$cli_mode" = 0 ]]; then
 		main_menu
