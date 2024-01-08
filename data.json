@@ -1278,63 +1278,63 @@
 			"live": {
 				"amd64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-live-amd64.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-live-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-live-arm64.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-live-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"i386": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-live-i386.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-live-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"qemu": {
 				"url": "https://cdimage.kali.org/kali-weekly",
-				"iso_file": "kali-linux-2023-W{current_week_num}-qemu-amd64.7z",
+				"iso_file": "kali-linux-2024-W{current_week_num}-qemu-amd64.7z",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"virtualbox": {
 				"url": "https://cdimage.kali.org/kali-weekly",
-				"iso_file": "kali-linux-2023-W{current_week_num}-virtualbox-amd64.7z",
+				"iso_file": "kali-linux-2024-W{current_week_num}-virtualbox-amd64.7z",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"vmware": {
 				"url": "https://cdimage.kali.org/kali-weekly",
-				"iso_file": "kali-linux-2023-W{current_week_num}-vmware-amd64.7z",
+				"iso_file": "kali-linux-2024-W{current_week_num}-vmware-amd64.7z",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"hyperv": {
 				"url": "https://cdimage.kali.org/kali-weekly",
-				"iso_file": "kali-linux-2023-W{current_week_num}-hyperv-amd64.7z",
+				"iso_file": "kali-linux-2024-W{current_week_num}-hyperv-amd64.7z",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"installer": {
 				"amd64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-installer-amd64.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-installer-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-installer-arm64.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-installer-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"i386": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-installer-i386.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-installer-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
@@ -1342,26 +1342,26 @@
 			"netinst": {
 				"amd64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-amd64.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-installer-netinst-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-arm64.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-installer-netinst-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"i386": {
 					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2023-W{current_week_num}-installer-netinst-i386.iso",
+					"iso_file": "kali-linux-2024-W{current_week_num}-installer-netinst-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"purple": {
 				"url": "https://cdimage.kali.org/kali-weekly",
-				"iso_file": "kali-linux-2023-W{current_week_num}-installer-purple-amd64.iso",
+				"iso_file": "kali-linux-2024-W{current_week_num}-installer-purple-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
