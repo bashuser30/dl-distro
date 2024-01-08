@@ -2447,28 +2447,28 @@
 	},
 	"solus": {
 		"budgie": {
-			"url": "https://downloads.getsol.us/isos/4.4",
-			"iso_file": "Solus-4.4-Budgie.iso",
-			"sig_file": "Solus-4.4-Budgie.iso.sha256sum.sign",
-			"sum_file": "Solus-4.4-Budgie.iso.sha256sum"
+			"url": "https://downloads.getsol.us/isos/4.5",
+			"iso_file": "Solus-4.5-Budgie.iso",
+			"sig_file": "Solus-4.5-Budgie.iso.sha256sum.sign",
+			"sum_file": "Solus-4.5-Budgie.iso.sha256sum"
 		},
 		"gnome": {
-			"url": "https://downloads.getsol.us/isos/4.4",
-			"iso_file": "Solus-4.4-GNOME.iso",
-			"sig_file": "Solus-4.4-GNOME.iso.sha256sum.sign",
-			"sum_file": "Solus-4.4-GNOME.iso.sha256sum"
+			"url": "https://downloads.getsol.us/isos/4.5",
+			"iso_file": "Solus-4.5-GNOME.iso",
+			"sig_file": "Solus-4.5-GNOME.iso.sha256sum.sign",
+			"sum_file": "Solus-4.5-GNOME.iso.sha256sum"
 		},
-		"mate": {
-			"url": "https://downloads.getsol.us/isos/4.4",
-			"iso_file": "Solus-4.4-MATE.iso",
-			"sig_file": "Solus-4.4-MATE.iso.sha256sum.sign",
-			"sum_file": "Solus-4.4-MATE.iso.sha256sum"
+		"xfce_beta": {
+			"url": "https://downloads.getsol.us/isos/4.5",
+			"iso_file": "Solus-4.5-XFCE-Beta.iso",
+			"sig_file": "Solus-4.5-XFCE-Beta.iso.sha256sum.sign",
+			"sum_file": "Solus-4.5-XFCE-Beta.iso.sha256sum"
 		},
 		"plasma": {
-			"url": "https://downloads.getsol.us/isos/4.4",
-			"iso_file": "Solus-4.4-Plasma.iso",
-			"sig_file": "Solus-4.4-Plasma.iso.sha256sum.sign",
-			"sum_file": "Solus-4.4-Plasma.iso.sha256sum"
+			"url": "https://downloads.getsol.us/isos/4.5",
+			"iso_file": "Solus-4.5-Plasma.iso",
+			"sig_file": "Solus-4.5-Plasma.iso.sha256sum.sign",
+			"sum_file": "Solus-4.5-Plasma.iso.sha256sum"
 		}
 	},
 	"tails": {
