@@ -1,4 +1,4 @@
-.TH "DL-DISTRO" "1" "January 6, 2024" "dl-distro v2.0.0" "dl-distro Manual"
+.TH "DL-DISTRO" "1" "January 8, 2024" "dl-distro v2.0.0" "dl-distro Manual"
 .nh
 .ad l
 .SH NAME
@@ -19,81 +19,80 @@ signature verification, and validates checksums with the relevant algorithm.
 
 .SH OPTIONS
 .TP
-.B -a
+.B -a, --auto-update
 .RS
 Toggle automatic updating of the local JSON file.
 .RE
 
 .TP
-.B -c
+.B -c, --conf-file
 .RS
 Generate a config file with default values.
 .RE
 
 .TP
-.B -d <DISTRO|JSON_QUERY>
+.B -d, --distro <DISTRO|JSON_QUERY>
 .RS
-Specify distribution by its short name or a JSON query.
+Specify a distribution by its short name or a JSON query.
 .RE
 
 .TP
-.B -D <KEY_ID>
+.B -D, --delete-key <KEY_ID>
 .RS
 Delete a stored GPG key using its GPG key ID.
 .RE
 
 .TP
-.B -h
+.B -h, --help
 .RS
 Display help message containing options and distributions available.
 .RE
 
 .TP
-.B -i <KEY_FILE>
+.B -i, --import-key <KEY_FILE>
 .RS
 Import a GPG key from a key file.
 .RE
 
 .TP
-.B -l
+.B -l, --list-keys
 .RS
 List the stored GPG keys.
 .RE
 
 .TP
-.B -n
+.B -n, --no-verify
 .RS
 Skip GPG, Minisign, or Signify key fetching and verification.
 .RE
 
 .TP
-.B -p <PATH>
+.B -p, --path <PATH>
 .RS
 Download image to specified directory.
 .RE
 
 .TP
-.B -P
+.B -P, --purge-data
 .RS
 Purge ALL the stored data. Includes GPG, Minisign, Signify keys and the JSON
 file.
 .RE
 
 .TP
-.B -s
+.B -s, --spider
 .RS
-Check if the URLs for the chosen image return a 200 status, indicating they are
-valid URLs.
+Instead of downloading, return an HTTP status for URLs.
 .RE
 
 .TP
-.B -u
+.B -u, --update-json
 .RS
 Update the locally stored JSON file.
 .RE
 
 .TP
-.B -V
+.B -V, --version
 .RS
 Print dl-distro's current version.
 .RE
@@ -170,6 +169,10 @@ each run, ensuring always up-to-date data.
 \fB    verification_enabled\fR="true"
 Changing to \fBfalse\fR will disable signature key fetching and verification at
 script runtime.
+.TP
+\fB    spider_mode_enabled\fR="false"
+Changing to \fBtrue\fR will enable spider mode at runtime, returning an HTTP
+status for URL's instead of downloading.
 .TP
 \fB    gpg_keyserver\fR="hkps://keyserver.ubuntu.com"
 Change the keyserver used to fetch GPG keys during runtime.
