@@ -1,8 +1,11 @@
 # dl-distro Bash completions
 
-_arch_compgen() {
+_dl_compgen()
+{
 	local i r
+
 	COMPREPLY=($(compgen -W '$*' -- "$cur"))
+
 	for ((i = 1; i < ${#COMP_WORDS[@]} - 1; i++)); do
 		for r in ${!COMPREPLY[@]}; do
 			if [[ ${COMP_WORDS[i]} == ${COMPREPLY[r]} ]]; then
@@ -13,43 +16,36 @@ _arch_compgen() {
 	done
 }
 
-_arch_ptr2comp() {
-	local list= x
-	for x; do
-		eval 'set -- ${'$x'[@]}'
-		list+=" ${@/#/-}"
-	done
-	_arch_compgen $list
-}
-
-_arch_incomp() {
-	local r="[[:space:]]-(-${1#* }[[:space:]]|[[:alnum:]_]*${1% *})"
-	[[ $COMP_LINE =~ $r ]]
-}
-
-_dl_distro() {
-	local opts distros
+_dl_distro()
+{
+	local short_opts long_opts distros
 	local cur prev words cword
 
 	_init_completion || return
 
-	opts=('a c d D h i l n p P s u V')
+	short_opts=('-a -c -d -D -h -i -l -n -p -P -s -u -V')
+	long_opts=('--auto-update --conf-file --distro --delete-key --help
+	            --import-key --list-keys --no-verify --path --purge-data
+	            --spider --update-json --version')
 	distros=('alma alpine arch debian fedora gparted kali mint nixos openbsd
 	          opensuse parrot qubes rocky slackware solus tails ubuntu void
 	          whonix')
 
 	case "$prev" in
-		-d)
-			_arch_compgen "${distros[*]}"
-			return 0
+		-d|--distro)
+			_dl_compgen "$distros"
 			;;
-		-i|-p)
+		-i|--import-key)
 			_filedir
-			return 0
+			;;
+		-p|--path)
+			_filedir -d
 			;;
 		*)
-			if [[ "$cur" == -* ]] && ! _arch_incomp "-$cur"; then
-				_arch_ptr2comp opts
+			if [[ "$cur" == --* ]]; then
+				_dl_compgen "$long_opts"
+			elif [[ "$cur" == -* ]]; then
+				_dl_compgen "$short_opts"
 			fi
 			;;
 	esac
