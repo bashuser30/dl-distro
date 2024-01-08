@@ -14,7 +14,7 @@ for consistency across various editors.
 
 ### Testing
 
-Use the `-s` option for testing URLs without downloading files.
+Use the `-s, --spider` option for testing URLs without downloading files.
 Before submitting a PR for a new distribution or addition, test at least one
 fully downloaded and verified image. A Bash script is available to generate and
 verify URLs from JSON endpoints using `curl`. This script is not public to
