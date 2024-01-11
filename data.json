@@ -2840,13 +2840,13 @@
 			"url": "https://download.whonix.org/libvirt/17.0.3.0",
 			"iso_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz",
 			"sig_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.asc",
-			"sum_file": "Whonix-Xfce-17.0.3.0.sha512sums"
+			"sum_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.sha512sums"
 		},
 		"virtualbox": {
-			"url": "https://download.whonix.org/ova/17.1.0.2",
-			"iso_file": "Whonix-Xfce-17.1.0.2.ova",
-			"sig_file": "Whonix-Xfce-17.1.0.2.ova.asc",
-			"sum_file": "Whonix-Xfce-17.1.0.2.sha512sums"
+			"url": "https://download.whonix.org/ova/17.1.1.5",
+			"iso_file": "Whonix-Xfce-17.1.1.5.ova",
+			"sig_file": "Whonix-Xfce-17.1.1.5.ova.asc",
+			"sum_file": "Whonix-Xfce-17.1.1.5.ova.sha512sums"
 		}
 	}
 }
