@@ -238,8 +238,6 @@ verify_signify_signature()
 
 verify_checksum()
 {
-	sum_algo="$(jq -r ".sum_algos.$distro" "$json_file")"
-
 	if "$sum_algo" -c --ignore-missing "$sum_file" &> /dev/null; then
 		print_msg "$sum_algo verification: ${green}SUCCESS"
 	else
@@ -544,6 +542,7 @@ delete_gpg_key()
 		print_msg "GPG key deletion: ${green}SUCCESS"
 	else
 		print_error "GPG key deletion: ${red}FAILED"
+		exit 1
 	fi
 }
 
@@ -562,6 +561,7 @@ import_gpg_key()
 		print_msg "GPG key import: ${green}SUCCESS"
 	else
 		print_error "GPG key import: ${red}FAILED"
+		exit 1
 	fi
 }
 
@@ -610,6 +610,7 @@ update_json_file()
 	else
 		rm "$temp_json_file"
 		print_error "JSON file update: ${red}FAILED"
+		exit 1
 	fi
 }
 
@@ -657,69 +658,70 @@ cleanup()
 	[[ "$sum_file" != "null" ]] && rm -f "$sum_file"
 }
 
+start_download()
+{
+	mapfile -t json_values < <(jq -r "$traverse_path | .url, .iso_file, .sig_file, .sum_file" "$json_file")
+
+	url="${json_values[0]}"
+	iso_file="${json_values[1]}"
+	sig_file="${json_values[2]}"
+	sum_file="${json_values[3]}"
+	sum_algo="$(jq -r ".sum_algos.$distro" "$json_file")"
+
+	trap cleanup EXIT INT TERM
+
+	print_msg "Downloading at: ${green}$default_download_dir"
+	download_"$distro"
+
+	exit 0
+}
+
 traverse_json_file()
 {
 	traverse_path="$1"
 
 	if jq -e "$traverse_path.url" "$json_file" &> /dev/null; then
-		mapfile -t json_values < <(jq -r "$traverse_path | .url, .iso_file, .sig_file, .sum_file" "$json_file")
-
-		url="${json_values[0]}"
-		iso_file="${json_values[1]}"
-		sig_file="${json_values[2]}"
-		sum_file="${json_values[3]}"
-
-		trap cleanup EXIT INT TERM
-
-		print_msg "Downloading at: ${green}$default_download_dir"
-		download_"$distro"
-
-		exit 0
-	else
-		if [[ -n "${json_query:-}" ]]; then
-			print_error "Invalid JSON query: ${red}${traverse_path#.}"
-			exit 1
-		fi
-
-		mapfile -t json_keys < <(jq -r "$traverse_path | keys | .[]" "$json_file")
-
-		json_options=("${json_keys[@]}" "back")
-
-		if [[ "${#json_options[@]}" -le 1 ]]; then
-			print_error "JSON parsing error."
-			print_msg "Try udating the JSON file, else report on Codeberg."
-			exit 1
-		fi
-
-		clear -x
-
-		for key in "${!supported_distros[@]}"; do
-			if [[ "${supported_distros[$key]}" == "$distro" ]]; then
-				print_msg "${und}$key"
-				break
-			fi
-		done
-
-		select json_choice in "${json_options[@]}"; do
-			case "$json_choice" in
-				"back")
-					if [[ "$traverse_path" == ".$distro" ]]; then
-						main_menu
-					else
-						traverse_json_file "${traverse_path%.*}"
-					fi
-					;;
-				*)
-					if [[ -z "$json_choice" ]]; then
-						print_error "Invalid option: ${red}$REPLY"
-						continue
-					else
-						traverse_json_file "$traverse_path.$json_choice"
-					fi
-					;;
-			esac
-		done
+		start_download
 	fi
+
+	if [[ -n "${json_query:-}" ]]; then
+		print_error "Invalid JSON query: ${red}${traverse_path#.}"
+		exit 1
+	fi
+
+	mapfile -t json_keys < <(jq -r "$traverse_path | keys | .[]" "$json_file")
+
+	json_options=("${json_keys[@]}" "back")
+
+	if [[ "${#json_options[@]}" -le 1 ]]; then
+		print_error "JSON parsing error."
+		print_msg "Try udating the JSON file, else report on Codeberg."
+		exit 1
+	fi
+
+	clear -x
+
+	print_msg "${und}$distro_pretty_name"
+
+	select json_choice in "${json_options[@]}"; do
+		case "$json_choice" in
+			"back")
+				if [[ "$traverse_path" == ".$distro" ]]; then
+					main_menu
+				else
+					traverse_json_file "${traverse_path%.*}"
+				fi
+				;;
+			*)
+				if [[ -z "$json_choice" ]]; then
+					print_error "Invalid option: ${red}$REPLY"
+					continue
+				else
+					traverse_json_file "$traverse_path.$json_choice"
+				fi
+				;;
+		esac
+	done
 }
 
 main_menu()
@@ -737,7 +739,10 @@ main_menu()
 		fi
 
 		distro="${supported_distros["$main_menu_choice"]}"
+		distro_pretty_name="$main_menu_choice"
+
 		wait
+
 		traverse_json_file ".$distro"
 	done
 }
@@ -751,8 +756,16 @@ cli_mode()
 		distro="$d_option_arg"
 	fi
 
+	for key in "${!supported_distros[@]}"; do
+		if [[ "${supported_distros[$key]}" == "$distro" ]]; then
+			distro_pretty_name="$key"
+			break
+		fi
+	done
+
 	if type download_"$distro" &> /dev/null; then
 		wait
+
 		traverse_json_file ".${json_query:-$distro}"
 	else
 		print_error "Invalid distro: ${red}$distro"
