@@ -2198,19 +2198,19 @@
 	"parrot" : {
 		"security": {
 			"iso": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
-				"iso_file": "Parrot-security-5.3_amd64.iso",
+				"url": "https://deb.parrot.sh/parrot/iso/6.0",
+				"iso_file": "Parrot-security-6.0_amd64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"virtualbox": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
-				"iso_file": "Parrot-security-5.3_amd64.ova",
+				"url": "https://deb.parrot.sh/parrot/iso/6.0",
+				"iso_file": "Parrot-security-6.0_amd64.ova",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"utm": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+				"url": "https://deb.parrot.sh/parrot/iso/5.3",
 				"iso_file": "Parrot-security-5.3_arm64.utm.zip",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
@@ -2218,45 +2218,45 @@
 		},
 		"home": {
 			"iso": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
-				"iso_file": "Parrot-home-5.3_amd64.iso",
+				"url": "https://deb.parrot.sh/parrot/iso/6.0",
+				"iso_file": "Parrot-home-6.0_amd64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"virtualbox": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
-				"iso_file": "Parrot-home-5.3_amd64.ova",
+				"url": "https://deb.parrot.sh/parrot/iso/6.0",
+				"iso_file": "Parrot-home-6.0_amd64.ova",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"utm": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+				"url": "https://deb.parrot.sh/parrot/iso/5.3",
 				"iso_file": "Parrot-home-5.3_arm64.utm.zip",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			}
 		},
 		"hack_the_box": {
-			"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
-			"iso_file": "Parrot-htb-5.3_amd64.iso",
+			"url": "https://deb.parrot.sh/parrot/iso/6.0",
+			"iso_file": "Parrot-htb-6.0_amd64.iso",
 			"sig_file": "signed-hashes.txt",
 			"sum_file": "signed-hashes.txt"
 		},
 		"architect": {
 			"arm64": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+				"url": "https://deb.parrot.sh/parrot/iso/5.3",
 				"iso_file": "Parrot-architect-5.3_arm64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"amd64": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+				"url": "https://deb.parrot.sh/parrot/iso/5.3",
 				"iso_file": "Parrot-architect-5.3_amd64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"i386": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+				"url": "https://deb.parrot.sh/parrot/iso/5.3",
 				"iso_file": "Parrot-architect-5.3_i386.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
@@ -2265,13 +2265,13 @@
 		"rpi": {
 			"core": {
 				"armhf": {
-					"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+					"url": "https://deb.parrot.sh/parrot/iso/5.3",
 					"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"arm64": {
-					"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+					"url": "https://deb.parrot.sh/parrot/iso/5.3",
 					"iso_file": "Parrot-core-rpi-5.3_arm64.img.xz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
@@ -2279,20 +2279,20 @@
 			},
 			"home": {
 				"armhf": {
-					"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+					"url": "https://deb.parrot.sh/parrot/iso/5.3",
 					"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"arm64": {
-					"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+					"url": "https://deb.parrot.sh/parrot/iso/5.3",
 					"iso_file": "Parrot-home-rpi-5.3_arm64.img.xz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
 			},
 			"security": {
-				"url": "https://deb.parrot.sh/direct/parrot/iso/5.3",
+				"url": "https://deb.parrot.sh/parrot/iso/5.3",
 				"iso_file": "Parrot-security-rpi-5.3_arm64.img.xz",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
