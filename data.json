@@ -2208,12 +2208,6 @@
 				"iso_file": "Parrot-security-6.0_amd64.ova",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
-			},
-			"utm": {
-				"url": "https://deb.parrot.sh/parrot/iso/5.3",
-				"iso_file": "Parrot-security-5.3_arm64.utm.zip",
-				"sig_file": "signed-hashes.txt",
-				"sum_file": "signed-hashes.txt"
 			}
 		},
 		"home": {
@@ -2226,12 +2220,6 @@
 			"virtualbox": {
 				"url": "https://deb.parrot.sh/parrot/iso/6.0",
 				"iso_file": "Parrot-home-6.0_amd64.ova",
-				"sig_file": "signed-hashes.txt",
-				"sum_file": "signed-hashes.txt"
-			},
-			"utm": {
-				"url": "https://deb.parrot.sh/parrot/iso/5.3",
-				"iso_file": "Parrot-home-5.3_arm64.utm.zip",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			}
@@ -2264,32 +2252,16 @@
 		},
 		"rpi": {
 			"core": {
-				"armhf": {
-					"url": "https://deb.parrot.sh/parrot/iso/5.3",
-					"iso_file": "Parrot-core-rpi-5.3_armhf.img.xz",
-					"sig_file": "signed-hashes.txt",
-					"sum_file": "signed-hashes.txt"
-				},
-				"arm64": {
-					"url": "https://deb.parrot.sh/parrot/iso/6.0",
-					"iso_file": "Parrot-core-6.0_rpi.img.xz",
-					"sig_file": "signed-hashes.txt",
-					"sum_file": "signed-hashes.txt"
-				}
+				"url": "https://deb.parrot.sh/parrot/iso/6.0",
+				"iso_file": "Parrot-core-6.0_rpi.img.xz",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
 			},
 			"home": {
-				"armhf": {
-					"url": "https://deb.parrot.sh/parrot/iso/5.3",
-					"iso_file": "Parrot-home-rpi-5.3_armhf.img.xz",
-					"sig_file": "signed-hashes.txt",
-					"sum_file": "signed-hashes.txt"
-				},
-				"arm64": {
-					"url": "https://deb.parrot.sh/parrot/iso/6.0",
-					"iso_file": "Parrot-home-6.0_rpi.img.xz",
-					"sig_file": "signed-hashes.txt",
-					"sum_file": "signed-hashes.txt"
-				}
+				"url": "https://deb.parrot.sh/parrot/iso/6.0",
+				"iso_file": "Parrot-home-6.0_rpi.img.xz",
+				"sig_file": "signed-hashes.txt",
+				"sum_file": "signed-hashes.txt"
 			},
 			"security": {
 				"url": "https://deb.parrot.sh/parrot/iso/6.0",
