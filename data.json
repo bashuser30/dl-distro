@@ -800,57 +800,59 @@
 				}
 			}
 		},
-		"silverblue": {
-			"x86_64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Silverblue/x86_64/iso",
-				"iso_file": "Fedora-Silverblue-ostree-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Silverblue-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Silverblue-39-1.5-x86_64-CHECKSUM"
+		"atomic_desktops": {
+			"silverblue": {
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Silverblue/x86_64/iso",
+					"iso_file": "Fedora-Silverblue-ostree-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Silverblue-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Silverblue-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Silverblue/aarch64",
+					"iso_file": "Fedora-Silverblue-ostree-aarch64-39-1.5-respin.iso",
+					"sig_file": "Fedora-Silverblue-ostree-39-respin-1.5-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Silverblue-ostree-39-respin-1.5-aarch64-CHECKSUM"
+				},
+				"ppc64le": {
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Silverblue/ppc64le/iso",
+					"iso_file": "Fedora-Silverblue-ostree-ppc64le-39-1.5.iso",
+					"sig_file": "Fedora-Silverblue-39-1.5-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Silverblue-39-1.5-ppc64le-CHECKSUM"
+				}
 			},
-			"aarch64": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Silverblue/aarch64",
-				"iso_file": "Fedora-Silverblue-ostree-aarch64-39-1.5-respin.iso",
-				"sig_file": "Fedora-Silverblue-ostree-39-respin-1.5-aarch64-CHECKSUM",
-				"sum_file": "Fedora-Silverblue-ostree-39-respin-1.5-aarch64-CHECKSUM"
+			"kinoite": {
+				"x86_64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Kinoite/x86_64/iso",
+					"iso_file": "Fedora-Kinoite-ostree-x86_64-39-1.5.iso",
+					"sig_file": "Fedora-Kinoite-39-1.5-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Kinoite-39-1.5-x86_64-CHECKSUM"
+				},
+				"aarch64": {
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Kinoite/aarch64/iso",
+					"iso_file": "Fedora-Kinoite-ostree-aarch64-39-1.5.iso",
+					"sig_file": "Fedora-Kinoite-39-1.5-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Kinoite-39-1.5-aarch64-CHECKSUM"
+				},
+				"ppc64le": {
+					"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Kinoite/ppc64le",
+					"iso_file": "Fedora-Kinoite-ostree-ppc64le-39-1.5-respin.iso",
+					"sig_file": "Fedora-Kinoite-ostree-39-respin-1.5-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Kinoite-ostree-39-respin-1.5-ppc64le-CHECKSUM"
+				}
 			},
-			"ppc64le": {
-				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/39/Silverblue/ppc64le/iso",
-				"iso_file": "Fedora-Silverblue-ostree-ppc64le-39-1.5.iso",
-				"sig_file": "Fedora-Silverblue-39-1.5-ppc64le-CHECKSUM",
-				"sum_file": "Fedora-Silverblue-39-1.5-ppc64le-CHECKSUM"
+			"sway": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Sericea/x86_64",
+				"iso_file": "Fedora-Sericea-ostree-x86_64-39-1.5-respin2.iso",
+				"sig_file": "Fedora-Sericea-ostree-39-respin2-1.5-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Sericea-ostree-39-respin2-1.5-x86_64-CHECKSUM"
+			},
+			"budgie": {
+				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Onyx/x86_64",
+				"iso_file": "Fedora-Onyx-ostree-x86_64-39-1.5-respin.iso",
+				"sig_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM"
 			}
-		},
-		"kinoite": {
-			"x86_64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Kinoite/x86_64/iso",
-				"iso_file": "Fedora-Kinoite-ostree-x86_64-39-1.5.iso",
-				"sig_file": "Fedora-Kinoite-39-1.5-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Kinoite-39-1.5-x86_64-CHECKSUM"
-			},
-			"aarch64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Kinoite/aarch64/iso",
-				"iso_file": "Fedora-Kinoite-ostree-aarch64-39-1.5.iso",
-				"sig_file": "Fedora-Kinoite-39-1.5-aarch64-CHECKSUM",
-				"sum_file": "Fedora-Kinoite-39-1.5-aarch64-CHECKSUM"
-			},
-			"ppc64le": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Kinoite/ppc64le",
-				"iso_file": "Fedora-Kinoite-ostree-ppc64le-39-1.5-respin.iso",
-				"sig_file": "Fedora-Kinoite-ostree-39-respin-1.5-ppc64le-CHECKSUM",
-				"sum_file": "Fedora-Kinoite-ostree-39-respin-1.5-ppc64le-CHECKSUM"
-			}
-		},
-		"sericea": {
-			"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Sericea/x86_64",
-			"iso_file": "Fedora-Sericea-ostree-x86_64-39-1.5-respin.iso",
-			"sig_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM",
-			"sum_file": "Fedora-Sericea-ostree-39-respin-1.5-x86_64-CHECKSUM"
-		},
-		"onyx": {
-			"url": "https://download.fedoraproject.org/pub/alt/releases/39/respins/Onyx/x86_64",
-			"iso_file": "Fedora-Onyx-ostree-x86_64-39-1.5-respin.iso",
-			"sig_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM",
-			"sum_file": "Fedora-Onyx-ostree-39-respin-1.5-x86_64-CHECKSUM"
 		},
 		"spins": {
 			"budgie": {
