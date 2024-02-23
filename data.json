@@ -2480,26 +2480,6 @@
 				"sum_file": "SHA256SUMS"
 			}
 		},
-		"lunar": {
-			"server": {
-				"url": "https://releases.ubuntu.com/lunar",
-				"iso_file": "ubuntu-23.04-live-server-amd64.iso",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			},
-			"desktop": {
-				"url": "https://releases.ubuntu.com/lunar",
-				"iso_file": "ubuntu-23.04-desktop-amd64.iso",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			},
-			"netboot_tarball": {
-				"url": "https://releases.ubuntu.com/lunar",
-				"iso_file": "ubuntu-23.04-netboot-amd64.tar.gz",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			}
-		},
 		"jammy": {
 			"server": {
 				"url": "https://releases.ubuntu.com/jammy",
