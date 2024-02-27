@@ -695,7 +695,7 @@ traverse_json_file()
 
 	if [[ "${#json_options[@]}" -le 1 ]]; then
 		print_error "JSON parsing error."
-		print_msg "Try udating the JSON file, else report on Codeberg."
+		print_msg "Try updating the JSON file, else report on Codeberg."
 		exit 1
 	fi
 
