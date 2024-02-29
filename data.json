@@ -1119,13 +1119,13 @@
 		"amd64": {
 			"iso": {
 				"url": "https://downloads.sourceforge.net/gparted",
-				"iso_file": "gparted-live-1.5.0-6-amd64.iso",
+				"iso_file": "gparted-live-1.6.0-1-amd64.iso",
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			},
 			"zip": {
 				"url": "https://downloads.sourceforge.net/gparted",
-				"iso_file": "gparted-live-1.5.0-6-amd64.zip",
+				"iso_file": "gparted-live-1.6.0-1-amd64.zip",
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			}
@@ -1133,13 +1133,13 @@
 		"i686": {
 			"iso": {
 				"url": "https://downloads.sourceforge.net/gparted",
-				"iso_file": "gparted-live-1.5.0-6-i686.iso",
+				"iso_file": "gparted-live-1.6.0-1-i686.iso",
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			},
 			"zip": {
 				"url": "https://downloads.sourceforge.net/gparted",
-				"iso_file": "gparted-live-1.5.0-6-i686.zip",
+				"iso_file": "gparted-live-1.6.0-1-i686.zip",
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			}
@@ -1147,13 +1147,13 @@
 		"i686_pae": {
 			"iso": {
 				"url": "https://downloads.sourceforge.net/gparted",
-				"iso_file": "gparted-live-1.5.0-6-i686-pae.iso",
+				"iso_file": "gparted-live-1.6.0-1-i686-pae.iso",
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			},
 			"zip": {
 				"url": "https://downloads.sourceforge.net/gparted",
-				"iso_file": "gparted-live-1.5.0-6-i686-pae.zip",
+				"iso_file": "gparted-live-1.6.0-1-i686-pae.zip",
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			}
