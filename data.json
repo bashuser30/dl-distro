@@ -438,6 +438,12 @@
 			"sig_file": "archlinux-x86_64.iso.sig",
 			"sum_file": "b2sums.txt"
 		},
+		"v2024_03_01": {
+			"url": "https://geo.mirror.pkgbuild.com/iso/2024.03.01",
+			"iso_file": "archlinux-2024.03.01-x86_64.iso",
+			"sig_file": "archlinux-2024.03.01-x86_64.iso.sig",
+			"sum_file": "b2sums.txt"
+		},
 		"v2024_02_01": {
 			"url": "https://geo.mirror.pkgbuild.com/iso/2024.02.01",
 			"iso_file": "archlinux-2024.02.01-x86_64.iso",
@@ -448,12 +454,6 @@
 			"url": "https://geo.mirror.pkgbuild.com/iso/2024.01.01",
 			"iso_file": "archlinux-2024.01.01-x86_64.iso",
 			"sig_file": "archlinux-2024.01.01-x86_64.iso.sig",
-			"sum_file": "b2sums.txt"
-		},
-		"v2023_12_01": {
-			"url": "https://geo.mirror.pkgbuild.com/iso/2023.12.01",
-			"iso_file": "archlinux-2023.12.01-x86_64.iso",
-			"sig_file": "archlinux-2023.12.01-x86_64.iso.sig",
 			"sum_file": "b2sums.txt"
 		}
 	},
