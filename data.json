@@ -2797,10 +2797,10 @@
 			"sum_file": "Whonix-Xfce-17.0.3.0.Intel_AMD64.qcow2.libvirt.xz.sha512sums"
 		},
 		"virtualbox": {
-			"url": "https://download.whonix.org/ova/17.1.1.5",
-			"iso_file": "Whonix-Xfce-17.1.1.5.ova",
-			"sig_file": "Whonix-Xfce-17.1.1.5.ova.asc",
-			"sum_file": "Whonix-Xfce-17.1.1.5.ova.sha512sums"
+			"url": "https://download.whonix.org/ova/17.1.3.1",
+			"iso_file": "Whonix-Xfce-17.1.3.1.ova",
+			"sig_file": "Whonix-Xfce-17.1.3.1.ova.asc",
+			"sum_file": "Whonix-Xfce-17.1.3.1.ova.sha512sums"
 		}
 	}
 }
