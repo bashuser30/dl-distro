@@ -452,7 +452,7 @@ download_ubuntu()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
-	[[ "$traverse_path" == *"trusty"* ]] && fetch_gpg_key "${distro}_trusty"
+	[[ "$traverse_path" == *"v14_04"* ]] && fetch_gpg_key "${distro}_v14_04"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
@@ -538,7 +538,7 @@ delete_gpg_key()
 		exit 1
 	fi
 
-	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$1" &> /dev/null; then
+	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$gpg_key_id" &> /dev/null; then
 		print_msg "GPG key deletion: ${green}SUCCESS"
 	else
 		print_error "GPG key deletion: ${red}FAILED"
