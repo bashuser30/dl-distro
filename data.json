@@ -438,10 +438,10 @@
 			"sig_file": "archlinux-x86_64.iso.sig",
 			"sum_file": "b2sums.txt"
 		},
-		"v2024_03_01": {
-			"url": "https://geo.mirror.pkgbuild.com/iso/2024.03.01",
-			"iso_file": "archlinux-2024.03.01-x86_64.iso",
-			"sig_file": "archlinux-2024.03.01-x86_64.iso.sig",
+		"v2024_03_29": {
+			"url": "https://geo.mirror.pkgbuild.com/iso/2024.03.29",
+			"iso_file": "archlinux-2024.03.29-x86_64.iso",
+			"sig_file": "archlinux-2024.03.29-x86_64.iso.sig",
 			"sum_file": "b2sums.txt"
 		},
 		"v2024_02_01": {
