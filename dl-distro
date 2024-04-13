@@ -81,12 +81,6 @@ print_msg() { printf "%b%s%b\n" "$bold" "$1" "$reset"; }
 print_warn() { printf "%b%bWARNING:%b %s%b\n" "$bold" "$yellow" "$nc" "$1" "$reset" >&2; }
 print_error() { printf "%b%bERROR:%b %s%b\n" "$bold" "$red" "$nc" "$1" "$reset" >&2; }
 
-print_version()
-{
-	print_msg "dl-distro ${green}$version"
-	print_msg "Copyright (C) 2023-2024 bashuser30 <bashuser30@mailbox.org>"
-}
-
 dependency_check()
 {
 	missing_deps=()
@@ -808,7 +802,7 @@ parse_opts()
 			-P|--purge-data) purge_all_data; exit 0 ;;
 			-s|--spider) spider_mode_enabled="true"; shift 1 ;;
 			-u|--update-json) update_json_file; exit 0 ;;
-			-V|--version) print_version; exit 0 ;;
+			-V|--version) printf "%s\n" "$version"; exit 0 ;;
 			*) print_error "Invalid option: ${red}$1"; exit 1 ;;
 		esac
 	done
