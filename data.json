@@ -5,6 +5,7 @@
 	},
 	"gpg_keys": {
 		"alma_8": "5E9B8F5617B5066CE92057C3488FCF7C3ABB34F8",
+		"alma_8_beta": "BC5EDDCADF502C077F1582882AE81E8ACED7258B",
 		"alma_9": "BF18AC2876178908D6E71267D36CB86CB86B3716",
 		"alpine": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
 		"arch": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
@@ -301,6 +302,88 @@
 					"iso_file": "AlmaLinux-8.9-ppc64le-minimal.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
+				}
+			},
+			"v8_10_beta" : {
+				"x86_64": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/x86_64",
+						"iso_file": "AlmaLinux-8.10-beta-1-x86_64-dvd.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/x86_64",
+						"iso_file": "AlmaLinux-8.10-beta-1-x86_64-boot.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/x86_64",
+						"iso_file": "AlmaLinux-8.10-beta-1-x86_64-minimal.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					}
+				},
+				"aarch64": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/aarch64",
+						"iso_file": "AlmaLinux-8.10-beta-1-aarch64-dvd.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/aarch64",
+						"iso_file": "AlmaLinux-8.10-beta-1-aarch64-boot.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/aarch64",
+						"iso_file": "AlmaLinux-8.10-beta-1-aarch64-minimal.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					}
+				},
+				"s390x": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/s390x",
+						"iso_file": "AlmaLinux-8.10-beta-1-s390x-dvd.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/s390x",
+						"iso_file": "AlmaLinux-8.10-beta-1-s390x-boot.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/s390x",
+						"iso_file": "AlmaLinux-8.10-beta-1-s390x-minimal.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					}
+				},
+				"ppc64le": {
+					"dvd": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/ppc64le",
+						"iso_file": "AlmaLinux-8.10-beta-1-ppc64le-dvd.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"boot": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/ppc64le",
+						"iso_file": "AlmaLinux-8.10-beta-1-ppc64le-boot.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					},
+					"minimal": {
+						"url": "https://repo.almalinux.org/almalinux/8.10-beta/isos/ppc64le",
+						"iso_file": "AlmaLinux-8.10-beta-1-ppc64le-minimal.iso",
+						"sig_file": "CHECKSUM",
+						"sum_file": "CHECKSUM"
+					}
 				}
 			}
 		}
