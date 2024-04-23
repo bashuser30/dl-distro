@@ -25,7 +25,7 @@ if [[ "$UID" -eq 0 ]]; then
 	exit 1
 fi
 
-version="v2.0.1"
+version="v2.0.2"
 data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro"
 json_dir="$data_dir/json"
