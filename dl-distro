@@ -292,13 +292,7 @@ download_debian()
 download_fedora()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file"}
-
-	if [[ "$traverse_path" == *"astronomy"* ]]; then
-		fetch_gpg_key "${distro}_38"
-	else
-		fetch_gpg_key "${distro}_39"
-	fi
-
+	fetch_gpg_key "$distro"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
@@ -654,6 +648,7 @@ cleanup()
 	[[ "$spider_mode_enabled" == "true" ]] && return 0
 	[[ "$sig_file" != "null" ]] && rm -f "$sig_file"
 	[[ "$sum_file" != "null" ]] && rm -f "$sum_file"
+	return 0
 }
 
 start_download()
