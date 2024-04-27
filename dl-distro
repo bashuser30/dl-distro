@@ -20,11 +20,6 @@
 
 set -euo pipefail
 
-if [[ "$UID" -eq 0 ]]; then
-	printf "Do not run as root.\n" >&2
-	exit 1
-fi
-
 version="v2.0.2"
 data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro"
@@ -80,6 +75,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
 print_msg() { printf "%b%s%b\n" "$bold" "$1" "$reset"; }
 print_warn() { printf "%b%bWARNING:%b %s%b\n" "$bold" "$yellow" "$nc" "$1" "$reset" >&2; }
 print_error() { printf "%b%bERROR:%b %s%b\n" "$bold" "$red" "$nc" "$1" "$reset" >&2; }
+die() { print_error "$1"; exit 1; }
 
 dependency_check()
 {
@@ -90,8 +86,7 @@ dependency_check()
 	done
 
 	if [[ "${#missing_deps[@]}" -gt 0 ]]; then
-		print_error "Please install: ${red}${missing_deps[*]}"
-		exit 1
+		die "Please install: ${red}${missing_deps[*]}"
 	fi
 }
 
@@ -101,8 +96,7 @@ wget_file()
 
 	for url in "$@"; do
 		if ! wget -qc --show-progress "$url"; then
-			print_error "Failed to download: ${red}$url"
-			exit 1
+			die "Failed to download: ${red}$url"
 		fi
 	done
 }
@@ -134,8 +128,7 @@ fetch_gpg_key()
 		print_msg "Fetching GPG key..."
 
 		if ! gpg --homedir "$gpg_dir" --keyserver "$gpg_keyserver" --recv-keys "$gpg_key" &> /dev/null; then
-			print_error "Failed to fetch GPG key: ${red}$gpg_key"
-			exit 1
+			die "Failed to fetch GPG key: ${red}$gpg_key"
 		fi
 	fi
 }
@@ -148,8 +141,7 @@ verify_gpg_signature()
 		print_msg "GPG verification: ${green}SUCCESS"
 	else
 		rm -f "$iso_file"
-		print_error "GPG verification: ${red}FAILED"
-		exit 1
+		die "GPG verification: ${red}FAILED"
 	fi
 }
 
@@ -166,8 +158,7 @@ fetch_minisign_key()
 		print_msg "Fetching Minisign key..."
 
 		if ! wget -P "$minisign_dir" -q "$minisign_key_url"; then
-			print_error "Failed to fetch Minisign key: ${red}$minisign_key_url"
-			exit 1
+			die "Failed to fetch Minisign key: ${red}$minisign_key_url"
 		fi
 	fi
 }
@@ -179,8 +170,7 @@ verify_minisign_signature()
 	if minisign -Vp "$minisign_dir/$minisign_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
 		print_msg "Minisign verification: ${green}SUCCESS"
 	else
-		print_error "Minisign verification: ${red}FAILED"
-		exit 1
+		die "Minisign verification: ${red}FAILED"
 	fi
 }
 
@@ -212,8 +202,7 @@ fetch_signify_key()
 		print_msg "Fetching Signify key..."
 
 		if ! wget -P "$signify_dir" -q "$signify_key_url"; then
-			print_error "Failed to fetch Signify key: ${red}$signify_key_url"
-			exit 1
+			die "Failed to fetch Signify key: ${red}$signify_key_url"
 		fi
 	fi
 }
@@ -225,8 +214,7 @@ verify_signify_signature()
 	if "$signify_name" -Vp "$signify_dir/$signify_key" -x "$sig_file" -m "$sum_file" &> /dev/null; then
 		print_msg "Signify verification: ${green}SUCCESS"
 	else
-		print_error "Signify verification: ${red}FAILED"
-		exit 1
+		die "Signify verification: ${red}FAILED"
 	fi
 }
 
@@ -236,8 +224,7 @@ verify_checksum()
 		print_msg "$sum_algo verification: ${green}SUCCESS"
 	else
 		rm -f "$iso_file"
-		print_error "$sum_algo verification: ${red}FAILED"
-		exit 1
+		die "$sum_algo verification: ${red}FAILED"
 	fi
 }
 
@@ -526,15 +513,13 @@ delete_gpg_key()
 	gpg_key_id="${1:-}"
 
 	if [[ -z "$gpg_key_id" ]]; then
-		print_error "A GPG key ID is required."
-		exit 1
+		die "A GPG key ID is required."
 	fi
 
 	if gpg --homedir "$gpg_dir" --yes --batch --delete-keys "$gpg_key_id" &> /dev/null; then
 		print_msg "GPG key deletion: ${green}SUCCESS"
 	else
-		print_error "GPG key deletion: ${red}FAILED"
-		exit 1
+		die "GPG key deletion: ${red}FAILED"
 	fi
 }
 
@@ -545,15 +530,13 @@ import_gpg_key()
 	gpg_key_file="${1:-}"
 
 	if [[ -z "$gpg_key_file" ]]; then
-		print_error "A path to a GPG key file is required."
-		exit 1
+		die "A path to a GPG key file is required."
 	fi
 
 	if gpg --homedir "$gpg_dir" --import "$gpg_key_file" &> /dev/null; then
 		print_msg "GPG key import: ${green}SUCCESS"
 	else
-		print_error "GPG key import: ${red}FAILED"
-		exit 1
+		die "GPG key import: ${red}FAILED"
 	fi
 }
 
@@ -600,9 +583,8 @@ update_json_file()
 		mv "$temp_json_file" "$json_dir/data.json"
 		print_msg "JSON file update: ${green}SUCCESS"
 	else
-		rm "$temp_json_file"
-		print_error "JSON file update: ${red}FAILED"
-		exit 1
+		rm -f "$temp_json_file"
+		die "JSON file update: ${red}FAILED"
 	fi
 }
 
@@ -678,8 +660,7 @@ traverse_json_file()
 	fi
 
 	if [[ -n "${json_query:-}" ]]; then
-		print_error "Invalid JSON query: ${red}${traverse_path#.}"
-		exit 1
+		die "Invalid JSON query: ${red}${traverse_path#.}"
 	fi
 
 	mapfile -t json_keys < <(jq -r "$traverse_path | keys | .[]" "$json_file")
@@ -688,8 +669,7 @@ traverse_json_file()
 
 	if [[ "${#json_options[@]}" -le 1 ]]; then
 		print_error "JSON parsing error."
-		print_msg "Try updating the JSON file, else report on Codeberg."
-		exit 1
+		die "Try updating the JSON file, else report on Codeberg."
 	fi
 
 	clear -x
@@ -761,8 +741,7 @@ cli_mode()
 
 		traverse_json_file ".${json_query:-$distro}"
 	else
-		print_error "Invalid distro: ${red}$distro"
-		exit 1
+		die "Invalid distro: ${red}$distro"
 	fi
 }
 
@@ -780,8 +759,7 @@ parse_opts()
 					cli_mode=1
 					shift 2
 				else
-					print_error "$1 requires a distro name or JSON query."
-					exit 1
+					die "$1 requires a distro name or JSON query."
 				fi
 				;;
 			-D|--delete-key) delete_gpg_key "${2:-}"; exit 0 ;;
@@ -794,21 +772,22 @@ parse_opts()
 					default_download_dir="$2"
 					shift 2
 				else
-					print_error "$1 requires a directory path."
-					exit 1
+					die "$1 requires a directory path."
 				fi
 				;;
 			-P|--purge-data) purge_all_data; exit 0 ;;
 			-s|--spider) spider_mode_enabled="true"; shift 1 ;;
 			-u|--update-json) update_json_file; exit 0 ;;
 			-V|--version) printf "%s\n" "$version"; exit 0 ;;
-			*) print_error "Invalid option: ${red}$1"; exit 1 ;;
+			*) die "Invalid option: ${red}$1" ;;
 		esac
 	done
 }
 
 main()
 {
+	[[ "$UID" -eq 0 ]] && die "Do not run as root."
+
 	dependency_check "jq" "wget"
 
 	mkdir -p "$conf_dir" "$json_dir" "$gpg_dir" "$minisign_dir" "$signify_dir"
@@ -821,7 +800,7 @@ main()
 	fi
 
 	mkdir -p "$default_download_dir"
-	cd "$default_download_dir" || exit 1
+	cd "$default_download_dir"
 
 	if [[ "$cli_mode" = 0 ]]; then
 		main_menu
