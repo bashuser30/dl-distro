@@ -2258,19 +2258,19 @@
 			"x86_64": {
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64",
-					"iso_file": "Rocky-9.3-x86_64-minimal.iso",
+					"iso_file": "Rocky-9.4-x86_64-minimal.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64",
-					"iso_file": "Rocky-9.3-x86_64-dvd.iso",
+					"iso_file": "Rocky-9.4-x86_64-dvd.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64",
-					"iso_file": "Rocky-9.3-x86_64-boot.iso",
+					"iso_file": "Rocky-9.4-x86_64-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				}
@@ -2278,19 +2278,19 @@
 			"aarch64": {
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64",
-					"iso_file": "Rocky-9.3-aarch64-minimal.iso",
+					"iso_file": "Rocky-9.4-aarch64-minimal.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64",
-					"iso_file": "Rocky-9.3-aarch64-dvd.iso",
+					"iso_file": "Rocky-9.4-aarch64-dvd.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64",
-					"iso_file": "Rocky-9.3-aarch64-boot.iso",
+					"iso_file": "Rocky-9.4-aarch64-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				}
@@ -2298,19 +2298,19 @@
 			"ppc64le": {
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le",
-					"iso_file": "Rocky-9.3-ppc64le-minimal.iso",
+					"iso_file": "Rocky-9.4-ppc64le-minimal.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le",
-					"iso_file": "Rocky-9.3-ppc64le-dvd.iso",
+					"iso_file": "Rocky-9.4-ppc64le-dvd.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le",
-					"iso_file": "Rocky-9.3-ppc64le-boot.iso",
+					"iso_file": "Rocky-9.4-ppc64le-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				}
@@ -2318,19 +2318,19 @@
 			"s390x": {
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/s390x",
-					"iso_file": "Rocky-9.3-s390x-minimal.iso",
+					"iso_file": "Rocky-9.4-s390x-minimal.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/s390x",
-					"iso_file": "Rocky-9.3-s390x-dvd.iso",
+					"iso_file": "Rocky-9.4-s390x-dvd.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/s390x",
-					"iso_file": "Rocky-9.3-s390x-boot.iso",
+					"iso_file": "Rocky-9.4-s390x-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				}
