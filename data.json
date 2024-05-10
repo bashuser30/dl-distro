@@ -2273,6 +2273,44 @@
 					"iso_file": "Rocky-9.4-x86_64-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
+				},
+				"generic_cloud": {
+					"url": "https://dl.rockylinux.org/pub/rocky/9/images/x86_64",
+					"iso_file": "Rocky-9-GenericCloud-Base.latest.x86_64.qcow2",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
+				},
+				"live_images": {
+					"gnome": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64",
+						"iso_file": "Rocky-9-Workstation-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-Workstation-x86_64-latest.iso.CHECKSUM"
+					},
+					"gnome_lite": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64",
+						"iso_file": "Rocky-9-Workstation-Lite-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-Workstation-Lite-x86_64-latest.iso.CHECKSUM"
+					},
+					"kde": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64",
+						"iso_file": "Rocky-9-KDE-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-KDE-x86_64-latest.iso.CHECKSUM"
+					},
+					"xfce": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64",
+						"iso_file": "Rocky-9-XFCE-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-XFCE-x86_64-latest.iso.CHECKSUM"
+					},
+					"cinnamon": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64",
+						"iso_file": "Rocky-9-Cinnamon-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-Cinnamon-x86_64-latest.iso.CHECKSUM"
+					}
 				}
 			},
 			"aarch64": {
@@ -2293,6 +2331,50 @@
 					"iso_file": "Rocky-9.4-aarch64-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
+				},
+				"generic_cloud": {
+					"url": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64",
+					"iso_file": "Rocky-9-GenericCloud-Base.latest.aarch64.qcow2",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
+				},
+				"live_images": {
+					"gnome": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64",
+						"iso_file": "Rocky-9-Workstation-aarch64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-Workstation-aarch64-latest.iso.CHECKSUM"
+					},
+					"gnome_lite": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64",
+						"iso_file": "Rocky-9-Workstation-Lite-aarch64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-Workstation-Lite-aarch64-latest.iso.CHECKSUM"
+					},
+					"kde": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64",
+						"iso_file": "Rocky-9-KDE-aarch64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-KDE-aarch64-latest.iso.CHECKSUM"
+					},
+					"xfce": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64",
+						"iso_file": "Rocky-9-XFCE-aarch64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-XFCE-aarch64-latest.iso.CHECKSUM"
+					},
+					"cinnamon": {
+						"url": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64",
+						"iso_file": "Rocky-9-Cinnamon-aarch64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-9-Cinnamon-aarch64-latest.iso.CHECKSUM"
+					}
+				},
+				"raspberry_pi": {
+					"url": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images",
+					"iso_file": "RockyLinuxRpi_9-latest.img.xz",
+					"sig_file": null,
+					"sum_file": "RockyLinuxRpi_9-latest.img.xz.sha256sum"
 				}
 			},
 			"ppc64le": {
@@ -2311,6 +2393,12 @@
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le",
 					"iso_file": "Rocky-9.4-ppc64le-boot.iso",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
+				},
+				"generic_cloud": {
+					"url": "https://dl.rockylinux.org/pub/rocky/9/images/ppc64le",
+					"iso_file": "Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
 				}
@@ -2355,6 +2443,38 @@
 					"iso_file": "Rocky-8.9-x86_64-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
+				},
+				"generic_cloud": {
+					"url": "https://dl.rockylinux.org/pub/rocky/8/images/x86_64",
+					"iso_file": "Rocky-8-GenericCloud-Base.latest.x86_64.qcow2",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
+				},
+				"live_images": {
+					"gnome": {
+						"url": "https://dl.rockylinux.org/pub/rocky/8/live/x86_64",
+						"iso_file": "Rocky-8-Workstation-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-8-Workstation-x86_64-latest.iso.CHECKSUM"
+					},
+					"gnome_lite": {
+						"url": "https://dl.rockylinux.org/pub/rocky/8/live/x86_64",
+						"iso_file": "Rocky-8-Workstation-Lite-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-8-Workstation-Lite-x86_64-latest.iso.CHECKSUM"
+					},
+					"xfce": {
+						"url": "https://dl.rockylinux.org/pub/rocky/8/live/x86_64",
+						"iso_file": "Rocky-8-XFCE-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-8-XFCE-x86_64-latest.iso.CHECKSUM"
+					},
+					"mate": {
+						"url": "https://dl.rockylinux.org/pub/rocky/8/live/x86_64",
+						"iso_file": "Rocky-8-MATE-x86_64-latest.iso",
+						"sig_file": null,
+						"sum_file": "Rocky-8-MATE-x86_64-latest.iso.CHECKSUM"
+					}
 				}
 			},
 			"aarch64": {
@@ -2375,6 +2495,18 @@
 					"iso_file": "Rocky-8.9-aarch64-boot.iso",
 					"sig_file": null,
 					"sum_file": "CHECKSUM"
+				},
+				"generic_cloud": {
+					"url": "https://dl.rockylinux.org/pub/rocky/8/images/aarch64",
+					"iso_file": "Rocky-8-GenericCloud-Base.latest.aarch64.qcow2",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
+				},
+				"raspberry_pi": {
+					"url": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images",
+					"iso_file": "RockyLinuxRpi_8-latest.img.xz",
+					"sig_file": null,
+					"sum_file": "RockyLinuxRpi_8-latest.img.xz.sha256sum"
 				}
 			}
 		}
