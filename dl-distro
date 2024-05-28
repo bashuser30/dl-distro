@@ -233,11 +233,7 @@ download_alma()
 	wget_spider "$url"/{"$iso_file","$sig_file"}
 
 	if [[ "$traverse_path" == *"${distro}_8"* ]]; then
-		if [[ "$traverse_path" == *"beta"* ]]; then
-			fetch_gpg_key "${distro}_8_beta"
-		else
-			fetch_gpg_key "${distro}_8"
-		fi
+		fetch_gpg_key "${distro}_8"
 	else
 		fetch_gpg_key "${distro}_9"
 	fi
