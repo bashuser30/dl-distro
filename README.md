@@ -9,7 +9,7 @@ dl-distro aims to make downloading and verifying OS images quick and easy.
 It uses `jq` for data retrieval, `wget` for downloading, `gpg` for signature
 verification, and validates checksums with the relevant algorithm.
 
-It currently supports **410** images from **20** [distributions](#supported-distributions).
+It currently supports **407** images from **20** [distributions](#supported-distributions).
 
 ## Dependencies
 
@@ -88,7 +88,7 @@ Provide a distribution name to skip the main menu. This will prompt you with
 additional choice menus, if necessary:
 
 ```
-dl-distro -d arch
+dl-distro -d debian
 ```
 
 You can skip the menus and start a download directly if you provide a JSON
@@ -96,14 +96,14 @@ query. The names used in the JSON query correspond directly to those in the
 menus:
 
 ```
-dl-distro -d arch.latest
+dl-distro -d debian.netinst.amd64
 ```
 
-Download and verify the latest Arch Linux image, saving to the ~/Downloads
-directory:
+Download and verify the latest Debian network installer amd64 image, saving to
+the ~/Downloads directory:
 
 ```
-dl-distro -d arch.latest -p ~/Downloads
+dl-distro -d debian.netinst.amd64 -p ~/Downloads
 ```
 
 ### Updating the JSON file

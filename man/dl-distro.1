@@ -129,20 +129,20 @@ dl-distro
 Main menu with all distributions. Pick one and choose an image to download.
 
 .TP
-dl-distro -d arch
+dl-distro -d debian
 Provide a distribution name to skip the main menu. This will prompt you with
 additional choice menus, if necessary.
 
 .TP
-dl-distro -d arch.latest
+dl-distro -d debian.netinst.amd64
 You can skip the menus and start a download directly if you provide a JSON
 query. The names used in the JSON query correspond directly to those in the
 menus.
 
 .TP
-dl-distro -d arch.latest -p ~/Downloads
-Download and verify the latest Arch Linux image, saving to the ~/Downloads
-directory.
+dl-distro -d debian.netinst.amd64 -p ~/Downloads
+Download and verify the latest Debian network installer amd64 image, saving to
+the ~/Downloads directory.
 
 .SH FILES
 .TP
