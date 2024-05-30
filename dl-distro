@@ -616,8 +616,8 @@ DISTROS
 
 EXAMPLES
   dl-distro
-  dl-distro -d arch
-  dl-distro -d arch.latest -p ~/Downloads
+  dl-distro -d debian
+  dl-distro -d debian.netinst.amd64 -p ~/Downloads
 EOF
 }
 
