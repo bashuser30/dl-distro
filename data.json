@@ -1322,13 +1322,13 @@
 		"live": {
 			"gnome": {
 				"x86_64": {
-					"url": "https://channels.nixos.org/nixos-23.11",
+					"url": "https://channels.nixos.org/nixos-24.05",
 					"iso_file": "latest-nixos-gnome-x86_64-linux.iso",
 					"sig_file": null,
 					"sum_file": "latest-nixos-gnome-x86_64-linux.iso.sha256"
 				},
 				"aarch64": {
-					"url": "https://channels.nixos.org/nixos-23.11",
+					"url": "https://channels.nixos.org/nixos-24.05",
 					"iso_file": "latest-nixos-gnome-aarch64-linux.iso",
 					"sig_file": null,
 					"sum_file": "latest-nixos-gnome-aarch64-linux.iso.sha256"
@@ -1336,41 +1336,35 @@
 			},
 			"plasma": {
 				"x86_64": {
-					"url": "https://channels.nixos.org/nixos-23.11",
-					"iso_file": "latest-nixos-plasma5-x86_64-linux.iso",
+					"url": "https://channels.nixos.org/nixos-24.05",
+					"iso_file": "latest-nixos-plasma6-x86_64-linux.iso",
 					"sig_file": null,
-					"sum_file": "latest-nixos-plasma5-x86_64-linux.iso.sha256"
+					"sum_file": "latest-nixos-plasma6-x86_64-linux.iso.sha256"
 				},
 				"aarch64": {
-					"url": "https://channels.nixos.org/nixos-23.11",
-					"iso_file": "latest-nixos-plasma5-aarch64-linux.iso",
+					"url": "https://channels.nixos.org/nixos-24.05",
+					"iso_file": "latest-nixos-plasma6-aarch64-linux.iso",
 					"sig_file": null,
-					"sum_file": "latest-nixos-plasma5-aarch64-linux.iso.sha256"
+					"sum_file": "latest-nixos-plasma6-aarch64-linux.iso.sha256"
 				}
 			}
 		},
 		"minimal": {
 			"x86_64": {
-				"url": "https://channels.nixos.org/nixos-23.11",
+				"url": "https://channels.nixos.org/nixos-24.05",
 				"iso_file": "latest-nixos-minimal-x86_64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-x86_64-linux.iso.sha256"
 			},
-			"i686": {
-				"url": "https://channels.nixos.org/nixos-23.11",
-				"iso_file": "latest-nixos-minimal-i686-linux.iso",
-				"sig_file": null,
-				"sum_file": "latest-nixos-minimal-i686-linux.iso.sha256"
-			},
 			"aarch64": {
-				"url": "https://channels.nixos.org/nixos-23.11",
+				"url": "https://channels.nixos.org/nixos-24.05",
 				"iso_file": "latest-nixos-minimal-aarch64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-aarch64-linux.iso.sha256"
 			}
 		},
 		"virtualbox": {
-			"url": "https://channels.nixos.org/nixos-23.11",
+			"url": "https://channels.nixos.org/nixos-24.05",
 			"iso_file": "latest-nixos-x86_64-linux.ova",
 			"sig_file": null,
 			"sum_file": "latest-nixos-x86_64-linux.ova.sha256"
