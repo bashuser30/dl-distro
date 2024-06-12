@@ -1634,102 +1634,102 @@
 		"leap": {
 			"dvd": {
 				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-DVD-x86_64-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-DVD-x86_64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-DVD-x86_64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-DVD-x86_64-Media.iso.sha256"
 				},
 				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-DVD-aarch64-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-DVD-aarch64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-DVD-aarch64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-DVD-aarch64-Media.iso.sha256"
 				},
 				"ppc64le": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-DVD-ppc64le-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-DVD-ppc64le-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-DVD-ppc64le-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-DVD-ppc64le-Media.iso.sha256"
 				},
 				"s390x": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-DVD-s390x-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-DVD-s390x-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-DVD-s390x-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-DVD-s390x-Media.iso.sha256"
 				}
 			},
 			"netinst": {
 				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-NET-x86_64-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-NET-x86_64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-NET-x86_64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-NET-x86_64-Media.iso.sha256"
 				},
 				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-NET-aarch64-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-NET-aarch64-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-NET-aarch64-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-NET-aarch64-Media.iso.sha256"
 				},
 				"ppc64le": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-NET-ppc64le-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-NET-ppc64le-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-NET-ppc64le-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-NET-ppc64le-Media.iso.sha256"
 				},
 				"s390x": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/iso",
-					"iso_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso",
-					"sig_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-NET-s390x-Media.iso.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/iso",
+					"iso_file": "openSUSE-Leap-15.6-NET-s390x-Media.iso",
+					"sig_file": "openSUSE-Leap-15.6-NET-s390x-Media.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-NET-s390x-Media.iso.sha256"
 				}
 			},
 			"kvm": {
 				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+					"iso_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-kvm-and-xen.qcow2",
+					"sig_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
 				},
 				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-kvm.qcow2.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+					"iso_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-kvm.qcow2",
+					"sig_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-kvm.qcow2.sha256"
 				}
 			},
 			"hyperv": {
 				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+					"iso_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
 				},
 				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+					"iso_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
+					"sig_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
 				}
 			},
 			"vmware": {
-				"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-				"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz",
-				"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-				"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
+				"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+				"iso_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-VMware.vmdk.xz",
+				"sig_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
+				"sum_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
 			},
 			"cloud": {
 				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.x86_64-Cloud.qcow2.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+					"iso_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-Cloud.qcow2",
+					"sig_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-Minimal-VM.x86_64-Cloud.qcow2.sha256"
 				},
 				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap/15.5/appliances",
-					"iso_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2",
-					"sig_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
-					"sum_file": "openSUSE-Leap-15.5-Minimal-VM.aarch64-Cloud.qcow2.sha256"
+					"url": "https://download.opensuse.org/distribution/leap/15.6/appliances",
+					"iso_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-Cloud.qcow2",
+					"sig_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-Cloud.qcow2.sha256.asc",
+					"sum_file": "openSUSE-Leap-15.6-Minimal-VM.aarch64-Cloud.qcow2.sha256"
 				}
 			}
 		},
