@@ -1838,12 +1838,6 @@
 					"sum_file": "openSUSE-Tumbleweed-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
 				}
 			},
-			"vmware": {
-				"url": "https://download.opensuse.org/tumbleweed/appliances",
-				"iso_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz",
-				"sig_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256.asc",
-				"sum_file": "openSUSE-Tumbleweed-Minimal-VM.x86_64-VMware.vmdk.xz.sha256"
-			},
 			"cloud": {
 				"x86_64": {
 					"url": "https://download.opensuse.org/tumbleweed/appliances",
@@ -1921,20 +1915,6 @@
 				"iso_file": "openSUSE-MicroOS.x86_64-VirtualBox.vdi.xz",
 				"sig_file": "openSUSE-MicroOS.x86_64-VirtualBox.vdi.xz.sha256.asc",
 				"sum_file": "openSUSE-MicroOS.x86_64-VirtualBox.vdi.xz.sha256"
-			},
-			"vmware": {
-				"standard": {
-					"url": "https://download.opensuse.org/tumbleweed/appliances",
-					"iso_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz",
-					"sig_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz.sha256.asc",
-					"sum_file": "openSUSE-MicroOS.x86_64-VMware.vmdk.xz.sha256"
-				},
-				"container_host": {
-					"url": "https://download.opensuse.org/tumbleweed/appliances",
-					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz",
-					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz.sha256.asc",
-					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-VMware.vmdk.xz.sha256"
-				}
 			},
 			"vagrant": {
 				"x86_64": {
