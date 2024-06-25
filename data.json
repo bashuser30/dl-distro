@@ -2010,70 +2010,72 @@
 			}
 		},
 		"leap_micro": {
-			"dvd": {
-				"x86_64": {
-					"url": "https://download.opensuse.org/distribution/leap-micro/5.5/product/iso",
-					"iso_file": "openSUSE-Leap-Micro-5.5-DVD-x86_64-Media.iso",
-					"sig_file": "openSUSE-Leap-Micro-5.5-DVD-x86_64-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-Micro-5.5-DVD-x86_64-Media.iso.sha256"
+			"x86_64": {
+				"self_install": {
+					"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances/iso",
+					"iso_file": "openSUSE-Leap-Micro.x86_64-Default-SelfInstall.iso",
+					"sig_file": "openSUSE-Leap-Micro.x86_64-Default-SelfInstall.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-Micro.x86_64-Default-SelfInstall.iso.sha256"
 				},
-				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap-micro/5.5/product/iso",
-					"iso_file": "openSUSE-Leap-Micro-5.5-DVD-aarch64-Media.iso",
-					"sig_file": "openSUSE-Leap-Micro-5.5-DVD-aarch64-Media.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-Micro-5.5-DVD-aarch64-Media.iso.sha256"
-				}
-			},
-			"self_install": {
-				"x86_64": {
-					"standard": {
-						"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances/iso",
-						"iso_file": "openSUSE-Leap-Micro.x86_64-Default-SelfInstall.iso",
-						"sig_file": "openSUSE-Leap-Micro.x86_64-Default-SelfInstall.iso.sha256.asc",
-						"sum_file": "openSUSE-Leap-Micro.x86_64-Default-SelfInstall.iso.sha256"
-					},
-					"realtime": {
-						"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances/iso",
-						"iso_file": "openSUSE-Leap-Micro.x86_64-Default-RT-SelfInstall.iso",
-						"sig_file": "openSUSE-Leap-Micro.x86_64-Default-RT-SelfInstall.iso.sha256.asc",
-						"sum_file": "openSUSE-Leap-Micro.x86_64-Default-RT-SelfInstall.iso.sha256"
-					}
-				},
-				"aarch64": {
-					"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances/iso",
-					"iso_file": "openSUSE-Leap-Micro.aarch64-Default-SelfInstall.iso",
-					"sig_file": "openSUSE-Leap-Micro.aarch64-Default-SelfInstall.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-Micro.aarch64-Default-SelfInstall.iso.sha256"
-				}
-			},
-			"preconfigured": {
-				"x86_64": {
+				"preconfigured": {
 					"raw": {
-						"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances",
+						"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances",
 						"iso_file": "openSUSE-Leap-Micro.x86_64-Default.raw.xz",
 						"sig_file": "openSUSE-Leap-Micro.x86_64-Default.raw.xz.sha256.asc",
 						"sum_file": "openSUSE-Leap-Micro.x86_64-Default.raw.xz.sha256"
 					},
 					"qcow": {
-						"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances",
+						"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances",
 						"iso_file": "openSUSE-Leap-Micro.x86_64-Default-qcow.qcow2",
 						"sig_file": "openSUSE-Leap-Micro.x86_64-Default-qcow.qcow2.sha256.asc",
 						"sum_file": "openSUSE-Leap-Micro.x86_64-Default-qcow.qcow2.sha256"
 					}
 				},
-				"aarch64": {
+				"encrypted": {
+					"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances",
+					"iso_file": "openSUSE-Leap-Micro.x86_64-Default-encrypted.raw",
+					"sig_file": "openSUSE-Leap-Micro.x86_64-Default-encrypted.raw.sha256.asc",
+					"sum_file": "openSUSE-Leap-Micro.x86_64-Default-encrypted.raw.sha256"
+				},
+				"vmware": {
+					"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances",
+					"iso_file": "openSUSE-Leap-Micro.x86_64-Default-VMware.vmdk",
+					"sig_file": "openSUSE-Leap-Micro.x86_64-Default-VMware.vmdk.sha256.asc",
+					"sum_file": "openSUSE-Leap-Micro.x86_64-Default-VMware.vmdk.sha256"
+				},
+				"packages": {
+					"url": "https://download.opensuse.org/distribution/leap-micro/6.0/product/iso",
+					"iso_file": "openSUSE-Leap-Micro-6.0-x86_64.iso",
+					"sig_file": "openSUSE-Leap-Micro-6.0-x86_64.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-Micro-6.0-x86_64.iso.sha256"
+				}
+			},
+			"aarch64": {
+				"self_install": {
+					"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances/iso",
+					"iso_file": "openSUSE-Leap-Micro.aarch64-Default-SelfInstall.iso",
+					"sig_file": "openSUSE-Leap-Micro.aarch64-Default-SelfInstall.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-Micro.aarch64-Default-SelfInstall.iso.sha256"
+				},
+				"preconfigured": {
 					"raw": {
-						"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances",
+						"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances",
 						"iso_file": "openSUSE-Leap-Micro.aarch64-Default.raw.xz",
 						"sig_file": "openSUSE-Leap-Micro.aarch64-Default.raw.xz.sha256.asc",
 						"sum_file": "openSUSE-Leap-Micro.aarch64-Default.raw.xz.sha256"
 					},
 					"qcow": {
-						"url": "https://download.opensuse.org/distribution/leap-micro/5.5/appliances",
+						"url": "https://download.opensuse.org/distribution/leap-micro/6.0/appliances",
 						"iso_file": "openSUSE-Leap-Micro.aarch64-Default-qcow.qcow2",
 						"sig_file": "openSUSE-Leap-Micro.aarch64-Default-qcow.qcow2.sha256.asc",
 						"sum_file": "openSUSE-Leap-Micro.aarch64-Default-qcow.qcow2.sha256"
 					}
+				},
+				"packages": {
+					"url": "https://download.opensuse.org/distribution/leap-micro/6.0/product/iso",
+					"iso_file": "openSUSE-Leap-Micro-6.0-aarch64.iso",
+					"sig_file": "openSUSE-Leap-Micro-6.0-aarch64.iso.sha256.asc",
+					"sum_file": "openSUSE-Leap-Micro-6.0-aarch64.iso.sha256"
 				}
 			}
 		}
