@@ -2210,9 +2210,9 @@
 	},
 	"qubes" : {
 		"url": "https://ftp.qubes-os.org/iso",
-		"iso_file": "Qubes-R4.2.1-x86_64.iso",
-		"sig_file": "Qubes-R4.2.1-x86_64.iso.asc",
-		"sum_file": "Qubes-R4.2.1-x86_64.iso.DIGESTS"
+		"iso_file": "Qubes-R4.2.2-x86_64.iso",
+		"sig_file": "Qubes-R4.2.2-x86_64.iso.asc",
+		"sum_file": "Qubes-R4.2.2-x86_64.iso.DIGESTS"
 	},
 	"rocky": {
 		"rocky_9": {
