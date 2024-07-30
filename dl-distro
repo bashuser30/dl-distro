@@ -62,7 +62,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["NixOS"]="nixos"
                    ["OpenBSD"]="openbsd"
                    ["openSUSE"]="opensuse"
-                   ["ParrotOS"]="parrot"
+                   ["Parrot OS"]="parrot"
                    ["Qubes OS"]="qubes"
                    ["Rocky Linux"]="rocky"
                    ["Slackware Linux"]="slackware"
@@ -621,18 +621,6 @@ EXAMPLES
 EOF
 }
 
-clear_term()
-{
-	local term_lines
-
-	if term_lines="$(tput lines 2> /dev/null)"; then
-		# Print enough newlines to scroll content off the screen
-		printf "%$((term_lines - 1))s" | tr " " "\n"
-		# Move the cursor to the top-left corner
-		printf "\033[H"
-	fi
-}
-
 cleanup()
 {
 	[[ "$spider_mode_enabled" == "true" ]] && return 0
@@ -680,7 +668,7 @@ traverse_json_file()
 		die "Try updating the JSON file, else report on Codeberg."
 	fi
 
-	clear_term
+	printf "\e[2J\e[H"
 
 	msg "${und}$distro_pretty_name"
 
@@ -709,7 +697,7 @@ main_menu()
 {
 	mapfile -t sorted_distros < <(printf "%s\n" "${!supported_distros[@]}" | sort)
 
-	clear_term
+	printf "\e[2J\e[H"
 
 	msg "${und}Main Menu"
 
