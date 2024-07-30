@@ -447,13 +447,7 @@ download_void()
 download_whonix()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-
-	if [[ "$traverse_path" == *"qemu"* ]]; then
-		fetch_gpg_key "${distro}_qemu"
-	else
-		fetch_gpg_key "${distro}_vbox"
-	fi
-
+	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
