@@ -9,7 +9,7 @@ dl-distro aims to make downloading and verifying OS images quick and easy.
 It uses `jq` for data retrieval, `wget` for downloading, `gpg` for signature
 verification, and validates checksums with the relevant algorithm.
 
-It currently supports **415** images from **20** [distributions](#supported-distributions).
+It currently supports **412** images from **20** [distributions](#supported-distributions).
 
 ## Dependencies
 

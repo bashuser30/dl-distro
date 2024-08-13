@@ -2540,26 +2540,6 @@
 				"sum_file": "SHA256SUMS"
 			}
 		},
-		"v23_10": {
-			"server": {
-				"url": "https://releases.ubuntu.com/mantic",
-				"iso_file": "ubuntu-23.10-live-server-amd64.iso",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			},
-			"desktop": {
-				"url": "https://releases.ubuntu.com/mantic",
-				"iso_file": "ubuntu-23.10.1-desktop-amd64.iso",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			},
-			"netboot_tarball": {
-				"url": "https://releases.ubuntu.com/mantic",
-				"iso_file": "ubuntu-23.10-netboot-amd64.tar.gz",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			}
-		},
 		"v22_04": {
 			"server": {
 				"url": "https://releases.ubuntu.com/jammy",
