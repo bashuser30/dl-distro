@@ -2523,19 +2523,19 @@
 		"v24_04" : {
 			"server": {
 				"url": "https://releases.ubuntu.com/noble",
-				"iso_file": "ubuntu-24.04-live-server-amd64.iso",
+				"iso_file": "ubuntu-24.04.1-live-server-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"desktop": {
 				"url": "https://releases.ubuntu.com/noble",
-				"iso_file": "ubuntu-24.04-desktop-amd64.iso",
+				"iso_file": "ubuntu-24.04.1-desktop-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"netboot_tarball": {
 				"url": "https://releases.ubuntu.com/noble",
-				"iso_file": "ubuntu-24.04-netboot-amd64.tar.gz",
+				"iso_file": "ubuntu-24.04.1-netboot-amd64.tar.gz",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
