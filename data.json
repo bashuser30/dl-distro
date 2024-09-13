@@ -2543,13 +2543,13 @@
 		"v22_04": {
 			"server": {
 				"url": "https://releases.ubuntu.com/jammy",
-				"iso_file": "ubuntu-22.04.4-live-server-amd64.iso",
+				"iso_file": "ubuntu-22.04.5-live-server-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"desktop": {
 				"url": "https://releases.ubuntu.com/jammy",
-				"iso_file": "ubuntu-22.04.4-desktop-amd64.iso",
+				"iso_file": "ubuntu-22.04.5-desktop-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
