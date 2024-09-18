@@ -11,6 +11,7 @@
 		"debian": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
 		"fedora": "115DF9AEF857853EE8445D0A0727707EA15B79CC",
 		"gparted": "EB1DD5BF6F88820BBCF5356C8E94C9CD163E3FB0",
+		"guix": "3CE464558A84FDC69DB40CFB090B11993D9AEBB5",
 		"kali": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
 		"mint": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
 		"opensuse": "AD485664E901B867051AB15F35A2F86E29B700A4",
@@ -1065,6 +1066,66 @@
 				"sig_file": "CHECKSUMS.TXT.gpg",
 				"sum_file": "CHECKSUMS.TXT"
 			}
+		}
+	},
+	"guix": {
+		"iso": {
+			"x86_64": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-system-install-1.4.0.x86_64-linux.iso",
+				"sig_file": "guix-system-install-1.4.0.x86_64-linux.iso.sig",
+				"sum_file": null
+			},
+			"i686": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-system-install-1.4.0.i686-linux.iso",
+				"sig_file": "guix-system-install-1.4.0.i686-linux.iso.sig",
+				"sum_file": null
+			}
+		},
+		"qemu": {
+			"url": "https://ftpmirror.gnu.org/gnu/guix",
+			"iso_file": "guix-system-vm-image-1.4.0.x86_64-linux.qcow2",
+			"sig_file": "guix-system-vm-image-1.4.0.x86_64-linux.qcow2.sig",
+			"sum_file": null
+		},
+		"binary": {
+			"x86_64": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-binary-1.4.0.x86_64-linux.tar.xz",
+				"sig_file": "guix-binary-1.4.0.x86_64-linux.tar.xz.sig",
+				"sum_file": null
+			},
+			"i686": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-binary-1.4.0.i686-linux.tar.xz",
+				"sig_file": "guix-binary-1.4.0.i686-linux.tar.xz.sig",
+				"sum_file": null
+			},
+			"armhf": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-binary-1.4.0.armhf-linux.tar.xz",
+				"sig_file": "guix-binary-1.4.0.armhf-linux.tar.xz.sig",
+				"sum_file": null
+			},
+			"aarch64": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-binary-1.4.0.aarch64-linux.tar.xz",
+				"sig_file": "guix-binary-1.4.0.aarch64-linux.tar.xz.sig",
+				"sum_file": null
+			},
+			"powerpc64le": {
+				"url": "https://ftpmirror.gnu.org/gnu/guix",
+				"iso_file": "guix-binary-1.4.0.powerpc64le-linux.tar.xz",
+				"sig_file": "guix-binary-1.4.0.powerpc64le-linux.tar.xz.sig",
+				"sum_file": null
+			}
+		},
+		"source" : {
+			"url": "https://ftpmirror.gnu.org/gnu/guix",
+			"iso_file": "guix-1.4.0.tar.gz",
+			"sig_file": "guix-1.4.0.tar.gz.sig",
+			"sum_file": null
 		}
 	},
 	"kali": {

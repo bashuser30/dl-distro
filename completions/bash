@@ -27,9 +27,9 @@ _dl_distro()
 	long_opts=('--auto-update --conf-file --distro --delete-key --help
 	            --import-key --list-keys --no-verify --path --purge-data
 	            --spider --update-json --version')
-	distros=('alma alpine arch debian fedora gparted kali mint nixos openbsd
-	          opensuse parrot qubes rocky slackware solus tails trisquel ubuntu
-	          void whonix')
+	distros=('alma alpine arch debian fedora gparted guix kali mint nixos
+	          openbsd opensuse parrot qubes rocky slackware solus tails trisquel
+	          ubuntu void whonix')
 
 	case "$prev" in
 		-d|--distro)
