@@ -68,6 +68,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Slackware Linux"]="slackware"
                    ["Solus"]="solus"
                    ["Tails"]="tails"
+                   ["Trisquel GNU/Linux"]="trisquel"
                    ["Ubuntu"]="ubuntu"
                    ["Void Linux"]="void"
                    ["Whonix"]="whonix")
@@ -423,6 +424,14 @@ download_tails()
 	msg "Tails does not provide checksums."
 }
 
+download_trisquel() {
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
+	verify_checksum
+}
+
 download_ubuntu()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
@@ -602,11 +611,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma    gparted  opensuse   solus
+  alma    gparted  opensuse   solus     whonix
   alpine  kali     parrot     tails
-  arch    mint     qubes      ubuntu
-  debian  nixos    rocky      void
-  fedora  openbsd  slackware  whonix
+  arch    mint     qubes      trisquel
+  debian  nixos    rocky      ubuntu
+  fedora  openbsd  slackware  void
 
 EXAMPLES
   dl-distro

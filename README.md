@@ -9,7 +9,7 @@ dl-distro aims to make downloading and verifying OS images quick and easy.
 It uses `jq` for data retrieval, `wget` for downloading, `gpg` for signature
 verification, and validates checksums with the relevant algorithm.
 
-It currently supports **412** images from **20** [distributions](#supported-distributions).
+It currently supports **420** images from **21** [distributions](#supported-distributions).
 
 ## Dependencies
 
@@ -137,6 +137,7 @@ maintained, updating with new releases on their release day.
 - [Slackware Linux](http://slackware.com)
 - [Solus](https://getsol.us)
 - [Tails](https://tails.net)
+- [Trisquel GNU/Linux](https://trisquel.info)
 - [Ubuntu](https://ubuntu.com)
 - [Void Linux](https://voidlinux.org)
 - [Whonix](https://whonix.org)

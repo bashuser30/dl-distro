@@ -19,6 +19,7 @@
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
 		"solus": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
 		"tails": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
+		"trisquel": "D24DDAC9226D5BA5E9F3BED3F5DAAAF74AD4C938",
 		"ubuntu": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
 		"ubuntu_v14_04": "C5986B4F1257FFA86632CBA746181433FBB75451",
 		"whonix": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA"
@@ -40,6 +41,7 @@
 		"rocky": "sha256sum",
 		"slackware": "md5sum",
 		"solus": "sha256sum",
+		"trisquel": "sha512sum",
 		"ubuntu": "sha256sum",
 		"void": "sha256sum",
 		"whonix": "sha512sum"
@@ -2517,6 +2519,58 @@
 			"iso_file": "tails-amd64-6.7.iso",
 			"sig_file": "tails-amd64-6.7.iso.sig",
 			"sum_file": null
+		}
+	},
+	"trisquel": {
+		"trisquel": {
+			"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+			"iso_file": "trisquel_11.0.1_amd64.iso",
+			"sig_file": "trisquel_11.0.1_amd64.iso.asc",
+			"sum_file": "trisquel_11.0.1_amd64.iso.sha512"
+		},
+		"trisquel_mini": {
+			"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+			"iso_file": "trisquel-mini_11.0.1_amd64.iso",
+			"sig_file": "trisquel-mini_11.0.1_amd64.iso.asc",
+			"sum_file": "trisquel-mini_11.0.1_amd64.iso.sha512"
+		},
+		"triskel": {
+			"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+			"iso_file": "triskel_11.0.1_amd64.iso",
+			"sig_file": "triskel_11.0.1_amd64.iso.asc",
+			"sum_file": "triskel_11.0.1_amd64.iso.sha512"
+		},
+		"trisquel_sugar": {
+			"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+			"iso_file": "trisquel-sugar_11.0.1_amd64.iso",
+			"sig_file": "trisquel-sugar_11.0.1_amd64.iso.asc",
+			"sum_file": "trisquel-sugar_11.0.1_amd64.iso.sha512"
+		},
+		"netinstall": {
+			"amd64": {
+				"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+				"iso_file": "trisquel-netinst_11.0.1_amd64.iso",
+				"sig_file": "trisquel-netinst_11.0.1_amd64.iso.asc",
+				"sum_file": "trisquel-netinst_11.0.1_amd64.iso.sha512"
+			},
+			"arm64": {
+				"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+				"iso_file": "trisquel-netinst_11.0.1_arm64.iso",
+				"sig_file": "trisquel-netinst_11.0.1_arm64.iso.asc",
+				"sum_file": "trisquel-netinst_11.0.1_arm64.iso.sha512"
+			},
+			"ppc64el": {
+				"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+				"iso_file": "trisquel-netinst_11.0.1_ppc64el.iso",
+				"sig_file": "trisquel-netinst_11.0.1_ppc64el.iso.asc",
+				"sum_file": "trisquel-netinst_11.0.1_ppc64el.iso.sha512"
+			}
+		},
+		"sources_tarball" : {
+			"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
+			"iso_file": "trisquel_11.0.1_sources.tar",
+			"sig_file": "trisquel_11.0.1_sources.tar.asc",
+			"sum_file": "trisquel_11.0.1_sources.tar.sha512"
 		}
 	},
 	"ubuntu": {
