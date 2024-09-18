@@ -1,10 +1,7 @@
 ## Contributing to dl-distro
 
-### Before Coding
-
-Before starting code changes, please open an issue to discuss your proposed
-changes. This helps avoid unnecessary work and potential conflicts with planned
-features.
+When submitting a pull request, please ensure they are directed to the `dev`
+branch of the repository.
 
 ### Code Style/Flow
 
