@@ -1240,7 +1240,7 @@
 			},
 			"purple": {
 				"url": "https://cdimage.kali.org/kali-2024.3",
-				"iso_file": "kali-linux-2024.3-installer-purple-amd64.iso",
+				"iso_file": "kali-linux-2024.3a-installer-purple-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
