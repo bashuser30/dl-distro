@@ -34,7 +34,7 @@
 		"gparted": "sha256sum",
 		"kali": "sha256sum",
 		"mint": "sha256sum",
-		"nixos": "sha256sum",
+		"nix": "sha256sum",
 		"openbsd": "sha256sum",
 		"opensuse": "sha256sum",
 		"parrot": "sha512sum",
@@ -1431,7 +1431,7 @@
 			}
 		}
 	},
-	"nixos": {
+	"nix": {
 		"live": {
 			"gnome": {
 				"x86_64": {

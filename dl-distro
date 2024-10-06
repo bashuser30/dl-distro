@@ -60,7 +60,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["GNU Guix"]="guix"
                    ["Kali"]="kali"
                    ["Mint"]="mint"
-                   ["NixOS"]="nixos"
+                   ["NixOS"]="nix"
                    ["OpenBSD"]="openbsd"
                    ["openSUSE"]="opensuse"
                    ["Parrot OS"]="parrot"
@@ -353,7 +353,7 @@ download_mint ()
 	verify_checksum
 }
 
-download_nixos()
+download_nix()
 {
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
@@ -650,7 +650,7 @@ DISTROS
   alpine  guix     opensuse  slackware  void
   arch    kali     parrot    solus      whonix
   debian  mint     pure      tails
-  fedora  nixos    qubes     trisquel
+  fedora  nix      qubes     trisquel
 
 EXAMPLES
   dl-distro
