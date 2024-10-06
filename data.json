@@ -544,6 +544,62 @@
 				"sig_file": "SHA512SUMS.sign",
 				"sum_file": "SHA512SUMS"
 			}
+		},
+		"ports": {
+			"gnu_hurd": {
+				"stable": {
+					"i386": {
+						"pre_installed": {
+							"url": "https://cdimage.debian.org/cdimage/ports/hurd-i386/12.0",
+							"iso_file": "debian-hurd.img.tar.gz",
+							"sig_file": null,
+							"sum_file": "SHA512SUMS"
+						},
+						"mini_installer": {
+							"url": "https://cdimage.debian.org/cdimage/ports/hurd-i386/12.0",
+							"iso_file": "mini.iso",
+							"sig_file": null,
+							"sum_file": "SHA512SUMS"
+						},
+						"netinst": {
+							"url": "https://cdimage.debian.org/cdimage/ports/hurd-i386/12.0",
+							"iso_file": "debian-sid-hurd-i386-NETINST-1.iso",
+							"sig_file": null,
+							"sum_file": "SHA512SUMS"
+						}
+					}
+				},
+				"latest": {
+					"i386": {
+						"pre_installed": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386",
+							"iso_file": "debian-hurd.img.tar.gz",
+							"sig_file": null,
+							"sum_file": null
+						},
+						"netinst": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386",
+							"iso_file": "netinst.iso",
+							"sig_file": null,
+							"sum_file": null
+						}
+					},
+					"amd64": {
+						"pre_installed": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64",
+							"iso_file": "debian-hurd.img.tar.gz",
+							"sig_file": null,
+							"sum_file": null
+						},
+						"netinst": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64",
+							"iso_file": "netinst.iso",
+							"sig_file": null,
+							"sum_file": null
+						}
+					}
+				}
+			}
 		}
 	},
 	"fedora": {

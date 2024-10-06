@@ -266,12 +266,30 @@ download_arch()
 
 download_debian()
 {
-	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key "$distro"
-	wget_file "$url"/{"$sig_file","$sum_file"}
-	verify_gpg_signature "$sig_file" "$sum_file"
-	wget_file "$url/$iso_file"
-	verify_checksum
+	if [[ "$traverse_path" == *"gnu_hurd"* ]]; then
+		if [[ "$traverse_path" == *"latest"* ]]; then
+			wget_spider "$url"/"$iso_file"
+			fetch_gpg_key "$distro"
+			msg "Debian Gnu/Hurd doesn't have sig file."
+			wget_file "$url/$iso_file"
+			msg "Latest Debian Gnu/Hurd  does not provide checksums."
+		else
+			wget_spider "$url"/{"$iso_file","$sum_file"}
+			fetch_gpg_key "$distro"
+			wget_file "$url"/"$sum_file"
+			msg "Debian Gnu/Hurd doesn't have sig file"
+			wget_file "$url/$iso_file"
+			verify_checksum
+		fi
+	else
+		wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+		fetch_gpg_key "$distro"
+		wget_file "$url"/{"$sig_file","$sum_file"}
+		verify_gpg_signature "$sig_file" "$sum_file"
+		wget_file "$url/$iso_file"
+		verify_checksum
+	fi
+
 }
 
 download_fedora()
