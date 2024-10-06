@@ -55,6 +55,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Alpine"]="alpine"
                    ["Arch"]="arch"
                    ["Debian"]="debian"
+                   ["Dragora"]="dragora"
                    ["Fedora"]="fedora"
                    ["GParted Live"]="gparted"
                    ["GNU Guix"]="guix"
@@ -288,6 +289,16 @@ download_debian()
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
+	verify_checksum
+}
+
+download_dragora()
+{
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
+	wget_file "$url/$sum_file"
 	verify_checksum
 }
 
@@ -657,11 +668,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma    gparted    nix       qubes      trisquel
-  alpine  guix       openbsd   rocky      ubuntu
-  arch    hyperbola  opensuse  slackware  void
-  debian  kali       parrot    solus      whonix
-  fedora  mint       pure      tails
+  alma     fedora     mint      pure       tails
+  alpine   gparted    nix       qubes      trisquel
+  arch     guix       openbsd   rocky      ubuntu
+  debian   hyperbola  opensuse  slackware  void
+  dragora  kali       parrot    solus      whonix
 
 EXAMPLES
   dl-distro

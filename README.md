@@ -9,7 +9,7 @@ dl-distro aims to make downloading and verifying OS images quick and easy.
 It uses `jq` for data retrieval, `wget` for downloading, `gpg` for signature
 verification, and validates checksums with the relevant algorithm.
 
-It currently supports **442** images from **24** [distributions](#supported-distributions).
+It currently supports **443** images from **25** [distributions](#supported-distributions).
 
 ## Dependencies
 
@@ -124,6 +124,7 @@ maintained, updating with new releases on their release day.
 - [Alpine Linux](https://alpinelinux.org)
 - [Arch Linux](https://archlinux.org)
 - [Debian](https://debian.org)
+- [Dragora GNU/Linux-Libre](https://dragora.org)
 - [Fedora Linux](https://fedoraproject.org)
 - [GParted Live](https://gparted.org)
 - [GNU Guix](https://guix.gnu.org)
