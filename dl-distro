@@ -58,6 +58,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Fedora"]="fedora"
                    ["GParted Live"]="gparted"
                    ["GNU Guix"]="guix"
+                   ["Hyperbola"]="hyperbola"
                    ["Kali"]="kali"
                    ["Mint"]="mint"
                    ["NixOS"]="nix"
@@ -318,6 +319,16 @@ download_guix()
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	msg "GNU Guix does not provide checksums."
+}
+
+download_hyperbola()
+{
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_gpg_signature "$sig_file" "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
 }
 
 download_kali ()
@@ -646,11 +657,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma    gparted  openbsd   rocky      ubuntu
-  alpine  guix     opensuse  slackware  void
-  arch    kali     parrot    solus      whonix
-  debian  mint     pure      tails
-  fedora  nix      qubes     trisquel
+  alma    gparted    nix       qubes      trisquel
+  alpine  guix       openbsd   rocky      ubuntu
+  arch    hyperbola  opensuse  slackware  void
+  debian  kali       parrot    solus      whonix
+  fedora  mint       pure      tails
 
 EXAMPLES
   dl-distro

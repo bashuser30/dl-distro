@@ -9,7 +9,7 @@ dl-distro aims to make downloading and verifying OS images quick and easy.
 It uses `jq` for data retrieval, `wget` for downloading, `gpg` for signature
 verification, and validates checksums with the relevant algorithm.
 
-It currently supports **441** images from **23** [distributions](#supported-distributions).
+It currently supports **442** images from **24** [distributions](#supported-distributions).
 
 ## Dependencies
 
@@ -127,6 +127,7 @@ maintained, updating with new releases on their release day.
 - [Fedora Linux](https://fedoraproject.org)
 - [GParted Live](https://gparted.org)
 - [GNU Guix](https://guix.gnu.org)
+- [Hyperbola GNU/Linux-libre](https://hyperbola.info)
 - [Kali Linux](https://kali.org)
 - [Linux Mint](https://linuxmint.com)
 - [NixOS](https://nixos.org)
