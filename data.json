@@ -38,6 +38,7 @@
 		"openbsd": "sha256sum",
 		"opensuse": "sha256sum",
 		"parrot": "sha512sum",
+		"pure": "sha256sum",
 		"qubes": "sha512sum",
 		"rocky": "sha256sum",
 		"slackware": "md5sum",
@@ -2192,7 +2193,7 @@
 			}
 		}
 	},
-	"parrot" : {
+	"parrot": {
 		"live": {
 			"security": {
 				"url": "https://deb.parrot.sh/parrot/iso/6.1",
@@ -2320,7 +2321,21 @@
 			}
 		}
 	},
-	"qubes" : {
+	"pure": {
+		"gnome": {
+			"url": "https://downloads.puri.sm/byzantium/gnome/2023-06-14",
+			"iso_file": "pureos-10.3-gnome-live-20230614_amd64.iso",
+			"sig_file": null,
+			"sum_file": "pureos-10.3-gnome-live-20230614_amd64.checksums_sha256.txt"
+		},
+		"kde": {
+			"url": "https://downloads.puri.sm/byzantium/plasma/2023-06-14",
+			"iso_file": "pureos-10.3-plasma-live-20230614_amd64.iso",
+			"sig_file": null,
+			"sum_file": "pureos-10.3-plasma-live-20230614_amd64.checksums_sha256.txt"
+		}
+	},
+	"qubes": {
 		"url": "https://ftp.qubes-os.org/iso",
 		"iso_file": "Qubes-R4.2.3-x86_64.iso",
 		"sig_file": "Qubes-R4.2.3-x86_64.iso.asc",
