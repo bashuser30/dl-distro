@@ -65,6 +65,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["NixOS"]="nix"
                    ["OpenBSD"]="openbsd"
                    ["openSUSE"]="opensuse"
+                   ["Parabola"]="parabola"
                    ["Parrot OS"]="parrot"
                    ["PureOS"]="pure"
                    ["Qubes OS"]="qubes"
@@ -415,6 +416,16 @@ download_opensuse()
 	verify_checksum
 }
 
+download_parabola()
+{
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
+	wget_file "$url/$sum_file"
+	verify_checksum
+}
+
 download_parrot()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file"}
@@ -668,11 +679,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma     fedora     mint      pure       tails
-  alpine   gparted    nix       qubes      trisquel
-  arch     guix       openbsd   rocky      ubuntu
-  debian   hyperbola  opensuse  slackware  void
-  dragora  kali       parrot    solus      whonix
+  alma     fedora     mint      parrot     solus     whonix
+  alpine   gparted    nix       pure       tails
+  arch     guix       openbsd   qubes      trisquel
+  debian   hyperbola  opensuse  rocky      ubuntu
+  dragora  kali       parabola  slackware  void
 
 EXAMPLES
   dl-distro

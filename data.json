@@ -17,6 +17,7 @@
 		"kali": "44C6513A8E4FB3D30875F758ED444FF07D8D0BF6",
 		"mint": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
 		"opensuse": "AD485664E901B867051AB15F35A2F86E29B700A4",
+		"parabola": "FBCC5AD7421197B7ABA72853908710913E8C7778",
 		"parrot": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
 		"qubes": "9C884DF3F81064A569A4A9FAE022E58F8E34D89F",
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
@@ -41,6 +42,7 @@
 		"nix": "sha256sum",
 		"openbsd": "sha256sum",
 		"opensuse": "sha256sum",
+		"parabola": "sha512sum",
 		"parrot": "sha512sum",
 		"pure": "sha256sum",
 		"qubes": "sha512sum",
@@ -2206,6 +2208,42 @@
 					"sig_file": "openSUSE-Leap-Micro-6.0-aarch64.iso.sha256.asc",
 					"sum_file": "openSUSE-Leap-Micro-6.0-aarch64.iso.sha256"
 				}
+			}
+		}
+	},
+	"parabola": {
+		"x86_64": {
+			"netinstall": {
+				"url": "https://redirector.parabola.nu/iso/x86_64-systemd-cli-2022.04",
+				"iso_file": "parabola-x86_64-systemd-cli-2022.04-netinstall.iso",
+				"sig_file": "parabola-x86_64-systemd-cli-2022.04-netinstall.iso.sig",
+				"sum_file": "SHA512SUMS"
+			},
+			"experimental_lxde": {
+				"url": "https://redirector.parabola.nu/iso/x86_64-experimental-lxde-2019.06-pre",
+				"iso_file": "parabola-x86_64-experimental-lxde-2019.06-pre-complete.iso",
+				"sig_file": "parabola-x86_64-experimental-lxde-2019.06-pre-complete.iso.sig",
+				"sum_file": "SHA512SUMS"
+			}
+		},
+		"i686": {
+			"url": "https://redirector.parabola.nu/iso/i686-systemd-cli-2024.02",
+			"iso_file": "parabola-i686-systemd-cli-2024.02-netinstall.iso",
+			"sig_file": "parabola-i686-systemd-cli-2024.02-netinstall.iso.sig",
+			"sum_file": "SHA512SUMS"
+		},
+		"armv7h": {
+			"image": {
+				"url": "https://redirector.parabola.nu/iso/armv7h-systemd-cli-2020.02",
+				"iso_file": "parabola-armv7h-systemd-cli-2020.02-image.img",
+				"sig_file": "parabola-armv7h-systemd-cli-2020.02-image.img.sig",
+				"sum_file": "SHA512SUMS"
+			},
+			"tarball": {
+				"url": "https://redirector.parabola.nu/iso/armv7h-systemd-cli-2020.02",
+				"iso_file": "parabola-armv7h-systemd-cli-2020.02-tarball.tar.gz",
+				"sig_file": "parabola-armv7h-systemd-cli-2020.02-tarball.tar.gz.sig",
+				"sum_file": "SHA512SUMS"
 			}
 		}
 	},
