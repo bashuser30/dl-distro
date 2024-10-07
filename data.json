@@ -55,7 +55,7 @@
 		"whonix": "sha512sum"
 	},
 	"signify_keys": {
-		"openbsd": "https://cdn.openbsd.org/pub/OpenBSD/7.5/openbsd-75-base.pub"
+		"openbsd": "https://cdn.openbsd.org/pub/OpenBSD/7.6/openbsd-76-base.pub"
 	},
 	"minisign_keys": {
 		"void": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20240314.pub"
@@ -1504,258 +1504,246 @@
 	"openbsd": {
 		"img_with_file_sets": {
 			"amd64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/amd64",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"arm64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/arm64",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"i386": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/i386",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/i386",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"octeon": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/octeon",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/octeon",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"powerpc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/powerpc64",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"riscv64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/riscv64",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/riscv64",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"sparc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64",
-				"iso_file": "install75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/sparc64",
+				"iso_file": "install76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			}
 		},
 		"img_without_file_sets": {
 			"alpha": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/alpha",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"amd64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/amd64",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"arm64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/arm64",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"armv7": {
 				"am335x": {
-					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7",
-					"iso_file": "miniroot-am335x-75.img",
-					"sig_file": "SHA256.sig",
-					"sum_file": "SHA256"
-				},
-				"cubie": {
-					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7",
-					"iso_file": "miniroot-cubie-75.img",
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/armv7",
+					"iso_file": "miniroot-am335x-76.img",
 					"sig_file": "SHA256.sig",
 					"sum_file": "SHA256"
 				},
 				"cubox": {
-					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7",
-					"iso_file": "miniroot-cubox-75.img",
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/armv7",
+					"iso_file": "miniroot-cubox-76.img",
 					"sig_file": "SHA256.sig",
 					"sum_file": "SHA256"
 				},
 				"nitrogen": {
-					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7",
-					"iso_file": "miniroot-nitrogen-75.img",
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/armv7",
+					"iso_file": "miniroot-nitrogen-76.img",
 					"sig_file": "SHA256.sig",
 					"sum_file": "SHA256"
 				},
 				"panda": {
-					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7",
-					"iso_file": "miniroot-panda-75.img",
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/armv7",
+					"iso_file": "miniroot-panda-76.img",
 					"sig_file": "SHA256.sig",
 					"sum_file": "SHA256"
 				},
 				"wandboard": {
-					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7",
-					"iso_file": "miniroot-wandboard-75.img",
+					"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/armv7",
+					"iso_file": "miniroot-wandboard-76.img",
 					"sig_file": "SHA256.sig",
 					"sum_file": "SHA256"
 				}
 			},
 			"i386": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/i386",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/i386",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"landisk": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/landisk",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/landisk",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"loongson": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/loongson",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/loongson",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"luna88k": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/luna88k",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/luna88k",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"octeon": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/octeon",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/octeon",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"powerpc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/powerpc64",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"riscv64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/riscv64",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/riscv64",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"sparc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64",
-				"iso_file": "miniroot75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/sparc64",
+				"iso_file": "miniroot76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			}
 		},
 		"iso_with_file_sets": {
-			"alpha": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha",
-				"iso_file": "install75.iso",
-				"sig_file": "SHA256.sig",
-				"sum_file": "SHA256"
-			},
 			"amd64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64",
-				"iso_file": "install75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/amd64",
+				"iso_file": "install76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"hppa": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/hppa",
-				"iso_file": "install75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/hppa",
+				"iso_file": "install76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"i386": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/i386",
-				"iso_file": "install75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/i386",
+				"iso_file": "install76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"macppc": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/macppc",
-				"iso_file": "install75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/macppc",
+				"iso_file": "install76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"powerpc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64",
-				"iso_file": "install75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/powerpc64",
+				"iso_file": "install76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"sparc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64",
-				"iso_file": "install75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/sparc64",
+				"iso_file": "install76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			}
 		},
 		"iso_without_file_sets": {
 			"alpha": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/alpha",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"amd64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/amd64",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"hppa": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/hppa",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/hppa",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"i386": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/i386",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/i386",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"loongson": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/loongson",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/loongson",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"macppc": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/macppc",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/macppc",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"sparc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64",
-				"iso_file": "cd75.iso",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/sparc64",
+				"iso_file": "cd76.iso",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			}
 		},
 		"floppy": {
 			"amd64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64",
-				"iso_file": "floppy75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/amd64",
+				"iso_file": "floppy76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"i386": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/i386",
-				"iso_file": "floppy75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/i386",
+				"iso_file": "floppy76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
 			"sparc64": {
-				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64",
-				"iso_file": "floppy75.img",
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/sparc64",
+				"iso_file": "floppy76.img",
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			}
