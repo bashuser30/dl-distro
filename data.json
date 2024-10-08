@@ -43,6 +43,7 @@
 		"kali": "sha256sum",
 		"mint": "sha256sum",
 		"nix": "sha256sum",
+		"nobara": "sha256sum",
 		"openbsd": "sha256sum",
 		"opensuse": "sha256sum",
 		"parabola": "sha512sum",
@@ -1517,6 +1518,70 @@
 			"iso_file": "latest-nixos-x86_64-linux.ova",
 			"sig_file": null,
 			"sum_file": "latest-nixos-x86_64-linux.ova.sha256"
+		}
+	},
+	"nobara": {
+		"official": {
+			"standard": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-Official-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-Official-2024-08-15.iso.sha256sum"
+			},
+			"nvidia": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-Official-NV-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-Official-NV-2024-08-15.iso.sha256sum"
+			}
+		},
+		"gnome": {
+			"standard": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-GNOME-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-GNOME-2024-08-15.iso.sha256sum"
+			},
+			"nvidia": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-GNOME-NV-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-GNOME-NV-2024-08-15.iso.sha256sum"
+			}
+		},
+		"kde": {
+			"standard": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-KDE-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-KDE-2024-08-15.iso.sha256sum"
+			},
+			"nvidia": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-KDE-NV-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-KDE-NV-2024-08-15.iso.sha256sum"
+			}
+		},
+		"steam_htpc": {
+			"standard": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-Steam-HTPC-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-Steam-HTPC-2024-08-15.iso.sha256sum"
+			},
+			"nvidia": {
+				"url": "https://nobara-images.nobaraproject.org",
+				"iso_file": "Nobara-40-Steam-HTPC-NV-2024-08-15.iso",
+				"sig_file": null,
+				"sum_file": "Nobara-40-Steam-HTPC-NV-2024-08-15.iso.sha256sum"
+			}
+		},
+		"steam_handheld": {
+			"url": "https://nobara-images.nobaraproject.org",
+			"iso_file": "Nobara-40-Steam-Handheld-2024-08-15.iso",
+			"sig_file": null,
+			"sum_file": "Nobara-40-Steam-Handheld-2024-08-15.iso.sha256sum"
 		}
 	},
 	"openbsd": {

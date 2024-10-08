@@ -64,6 +64,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Kali"]="kali"
                    ["Mint"]="mint"
                    ["NixOS"]="nix"
+                   ["Nobara"]="nobara"
                    ["OpenBSD"]="openbsd"
                    ["openSUSE"]="opensuse"
                    ["Parabola"]="parabola"
@@ -401,6 +402,14 @@ download_nix()
 	msg "NixOS does not provide signature files."
 }
 
+download_nobara()
+{
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	verify_checksum
+	msg "Nobara does not provide signature files."
+}
+
 download_openbsd()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
@@ -708,11 +717,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma    dragora    kali      parabola  rocky      ubuntu
-  alpine  fedora     mint      parrot    slackware  void
-  arch    gparted    nix       pop       solus      whonix
-  cachy   guix       openbsd   pure      tails      zorin
-  debian  hyperbola  opensuse  qubes     trisquel
+  alma    dragora    kali     opensuse  qubes      trisquel
+  alpine  fedora     mint     parabola  rocky      ubuntu
+  arch    gparted    nix      parrot    slackware  void
+  cachy   guix       nobara   pop       solus      whonix
+  debian  hyperbola  openbsd  pure      tails      zorin
 
 EXAMPLES
   dl-distro
