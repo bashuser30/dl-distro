@@ -8,6 +8,7 @@
 		"alma_9": "BF18AC2876178908D6E71267D36CB86CB86B3716",
 		"alpine": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
 		"arch": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
+		"cachy": "882DCFE48E2051D48E2562ABF3B607488DB35A47",
 		"debian": "DF9B9C49EAA9298432589D76DA87E80D6294BE9B",
 		"dragora": "35BDB9D46B56B5FACB647C9B3AAF1CEC203A99D5",
 		"fedora": "115DF9AEF857853EE8445D0A0727707EA15B79CC",
@@ -33,6 +34,7 @@
 		"alma": "sha256sum",
 		"alpine": "sha256sum",
 		"arch": "b2sum",
+		"cachy": "sha256sum",
 		"debian": "sha512sum",
 		"dragora": "sha256sum",
 		"fedora": "sha256sum",
@@ -446,6 +448,20 @@
 		"iso_file": "archlinux-x86_64.iso",
 		"sig_file": "archlinux-x86_64.iso.sig",
 		"sum_file": "b2sums.txt"
+	},
+	"cachy": {
+		"desktop": {
+			"url": "https://iso.cachyos.org/desktop/241003",
+			"iso_file": "cachyos-desktop-linux-241003.iso",
+			"sig_file": "cachyos-desktop-linux-241003.iso.sig",
+			"sum_file": "cachyos-desktop-linux-241003.iso.sha256"
+		},
+		"handheld": {
+			"url": "https://iso.cachyos.org/handheld/240929",
+			"iso_file": "cachyos-handheld-linux-240929.iso",
+			"sig_file": "cachyos-handheld-linux-240929.iso.sig",
+			"sum_file": "cachyos-handheld-linux-240929.iso.sha256"
+		}
 	},
 	"debian": {
 		"netinst": {

@@ -54,6 +54,7 @@ declare -A supported_distros
 supported_distros=(["AlmaLinux OS"]="alma"
                    ["Alpine"]="alpine"
                    ["Arch"]="arch"
+                   ["CachyOS"]="cachy"
                    ["Debian"]="debian"
                    ["Dragora"]="dragora"
                    ["Fedora"]="fedora"
@@ -262,6 +263,14 @@ download_alpine()
 
 download_arch()
 {
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
+	verify_checksum
+}
+
+download_cachy() {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -690,11 +699,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma     fedora     mint      parrot  slackware  void
-  alpine   gparted    nix       pop     solus      whonix
-  arch     guix       openbsd   pure    tails
-  debian   hyperbola  opensuse  qubes   trisquel
-  dragora  kali       parabola  rocky   ubuntu
+  alma    dragora    kali      parabola  rocky      ubuntu
+  alpine  fedora     mint      parrot    slackware  void
+  arch    gparted    nix       pop       solus      whonix
+  cachy   guix       openbsd   pure      tails
+  debian  hyperbola  opensuse  qubes     trisquel
 
 EXAMPLES
   dl-distro
