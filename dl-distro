@@ -78,7 +78,8 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Trisquel"]="trisquel"
                    ["Ubuntu"]="ubuntu"
                    ["Void"]="void"
-                   ["Whonix"]="whonix")
+                   ["Whonix"]="whonix"
+                   ["Zorin OS"]="zorin")
 
 msg() { printf "%b%s%b\n" "$bold" "$1" "$reset"; }
 warn() { printf >&2 "%b%bWARNING:%b %s%b\n" "$bold" "$yellow" "$nc" "$1" "$reset"; }
@@ -270,7 +271,8 @@ download_arch()
 	verify_checksum
 }
 
-download_cachy() {
+download_cachy()
+{
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -353,7 +355,7 @@ download_hyperbola()
 	verify_checksum
 }
 
-download_kali ()
+download_kali()
 {
 	if [[ "$traverse_path" == *"weekly"* ]]; then
 		html_content="$(wget -qO- "$url/")"
@@ -376,7 +378,7 @@ download_kali ()
 	verify_checksum
 }
 
-download_mint ()
+download_mint()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
@@ -480,7 +482,7 @@ download_rocky()
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
-	msg "Rocky Linux does not provide signatures."
+	msg "Rocky Linux does not provide signature files."
 }
 
 download_slackware()
@@ -508,7 +510,7 @@ download_tails()
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
-	msg "Tails does not provide checksums."
+	msg "Tails does not provide checksum files."
 }
 
 download_trisquel()
@@ -548,6 +550,13 @@ download_whonix()
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
+}
+
+download_zorin()
+{
+	wget_spider "$url/$iso_file"
+	wget_file "$url/$iso_file"
+	msg "Zorin OS does not provide checksum or signature files."
 }
 
 toggle_auto_update()
@@ -702,7 +711,7 @@ DISTROS
   alma    dragora    kali      parabola  rocky      ubuntu
   alpine  fedora     mint      parrot    slackware  void
   arch    gparted    nix       pop       solus      whonix
-  cachy   guix       openbsd   pure      tails
+  cachy   guix       openbsd   pure      tails      zorin
   debian  hyperbola  opensuse  qubes     trisquel
 
 EXAMPLES

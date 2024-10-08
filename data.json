@@ -3148,5 +3148,25 @@
 			"sig_file": "Whonix-Xfce-17.2.3.7.ova.asc",
 			"sum_file": "Whonix-Xfce-17.2.3.7.ova.sha512sums"
 		}
+	},
+	"zorin": {
+		"core": {
+			"url": "https://mirrors.edge.kernel.org/zorinos-isos/17",
+			"iso_file": "Zorin-OS-17.2-Core-64-bit.iso",
+			"sig_file": null,
+			"sum_file": null
+		},
+		"education": {
+			"url": "https://mirrors.edge.kernel.org/zorinos-isos/17",
+			"iso_file": "Zorin-OS-17.2-Education-64-bit.iso",
+			"sig_file": null,
+			"sum_file": null
+		},
+		"lite": {
+			"url": "https://mirrors.edge.kernel.org/zorinos-isos/17",
+			"iso_file": "Zorin-OS-17.2-Lite-64-bit.iso",
+			"sig_file": null,
+			"sum_file": null
+		}
 	}
 }
