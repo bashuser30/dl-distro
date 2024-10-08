@@ -19,6 +19,7 @@
 		"opensuse": "AD485664E901B867051AB15F35A2F86E29B700A4",
 		"parabola": "FBCC5AD7421197B7ABA72853908710913E8C7778",
 		"parrot": "8B4060CA69A97356B2DCF551823BF07CEB5C469B",
+		"pop": "63C46DF0140D738961429F4E204DD8AEC33A7AFF",
 		"qubes": "9C884DF3F81064A569A4A9FAE022E58F8E34D89F",
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
 		"solus": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
@@ -44,6 +45,7 @@
 		"opensuse": "sha256sum",
 		"parabola": "sha512sum",
 		"parrot": "sha512sum",
+		"pop": "sha256sum",
 		"pure": "sha256sum",
 		"qubes": "sha512sum",
 		"rocky": "sha256sum",
@@ -2361,6 +2363,26 @@
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			}
+		}
+	},
+	"pop": {
+		"standard": {
+			"url": "https://iso.pop-os.org/22.04/amd64/intel/43",
+			"iso_file": "pop-os_22.04_amd64_intel_43.iso",
+			"sig_file": "SHA256SUMS.gpg",
+			"sum_file": "SHA256SUMS"
+		},
+		"nvidia": {
+			"url": "https://iso.pop-os.org/22.04/amd64/nvidia/43",
+			"iso_file": "pop-os_22.04_amd64_nvidia_43.iso",
+			"sig_file": "SHA256SUMS.gpg",
+			"sum_file": "SHA256SUMS"
+		},
+		"raspberry_pi": {
+			"url": "https://iso.pop-os.org/22.04/arm64/raspi/4",
+			"iso_file": "pop-os_22.04_arm64_raspi_4.img.xz",
+			"sig_file": "SHA256SUMS.gpg",
+			"sum_file": "SHA256SUMS"
 		}
 	},
 	"pure": {

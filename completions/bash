@@ -28,7 +28,7 @@ _dl_distro()
 	            --import-key --list-keys --no-verify --path --purge-data
 	            --spider --update-json --version')
 	distros=('alma alpine arch debian dragora fedora gparted guix hyperbola kali
-	          mint nix openbsd opensuse parabola parrot pure qubes rocky
+	          mint nix openbsd opensuse parabola parrot pop pure qubes rocky
 	          slackware solus tails trisquel ubuntu void whonix')
 
 	case "$prev" in

@@ -67,6 +67,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["openSUSE"]="opensuse"
                    ["Parabola"]="parabola"
                    ["Parrot OS"]="parrot"
+                   ["Pop!_OS"]="pop"
                    ["PureOS"]="pure"
                    ["Qubes OS"]="qubes"
                    ["Rocky"]="rocky"
@@ -273,7 +274,7 @@ download_debian()
 	[[ "$traverse_path" == *"ports.gnu_hurd.latest"* ]] && {
 		wget_spider "$url/$iso_file"
 		wget_file "$url/$iso_file"
-		msg "Debian does not provide checksums or signatures for this image."
+		msg "Debian does not provide checksum or signature files for this image."
 		return 0
 	}
 
@@ -281,7 +282,7 @@ download_debian()
 		wget_spider "$url"/{"$iso_file","$sum_file"}
 		wget_file "$url"/{"$sum_file","$iso_file"}
 		verify_checksum
-		msg "Debian does not provide signatures for this image."
+		msg "Debian does not provide signature files for this image."
 		return 0
 	}
 
@@ -330,7 +331,7 @@ download_guix()
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
-	msg "GNU Guix does not provide checksums."
+	msg "GNU Guix does not provide checksum files."
 }
 
 download_hyperbola()
@@ -386,7 +387,7 @@ download_nix()
 	mv "$iso_file" "$new_iso_file"
 	iso_file="$new_iso_file"
 	verify_checksum
-	msg "NixOS does not provide signatures."
+	msg "NixOS does not provide signature files."
 }
 
 download_openbsd()
@@ -432,6 +433,16 @@ download_parrot()
 	fetch_gpg_key "$distro"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
+}
+
+download_pop()
+{
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
@@ -679,11 +690,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma     fedora     mint      parrot     solus     whonix
-  alpine   gparted    nix       pure       tails
-  arch     guix       openbsd   qubes      trisquel
-  debian   hyperbola  opensuse  rocky      ubuntu
-  dragora  kali       parabola  slackware  void
+  alma     fedora     mint      parrot  slackware  void
+  alpine   gparted    nix       pop     solus      whonix
+  arch     guix       openbsd   pure    tails
+  debian   hyperbola  opensuse  qubes   trisquel
+  dragora  kali       parabola  rocky   ubuntu
 
 EXAMPLES
   dl-distro
