@@ -1730,6 +1730,12 @@
 			}
 		},
 		"iso_with_file_sets": {
+			"alpha": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/alpha",
+				"iso_file": "install76.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
+			},
 			"amd64": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.6/amd64",
 				"iso_file": "install76.iso",
