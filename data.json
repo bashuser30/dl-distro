@@ -2857,22 +2857,22 @@
 		}
 	},
 	"ubuntu": {
-		"v24_10_beta" : {
+		"v24_10" : {
 			"server": {
 				"url": "https://releases.ubuntu.com/oracular",
-				"iso_file": "ubuntu-24.10-beta-live-server-amd64.iso",
+				"iso_file": "ubuntu-24.10-live-server-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"desktop": {
 				"url": "https://releases.ubuntu.com/oracular",
-				"iso_file": "ubuntu-24.10-beta-desktop-amd64.iso",
+				"iso_file": "ubuntu-24.10-desktop-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"netboot_tarball": {
 				"url": "https://releases.ubuntu.com/oracular",
-				"iso_file": "ubuntu-24.10-beta-netboot-amd64.tar.gz",
+				"iso_file": "ubuntu-24.10-netboot-amd64.tar.gz",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
