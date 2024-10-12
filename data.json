@@ -2999,7 +2999,7 @@
 				}
 			}
 		},
-		"flavors": {
+		"flavours": {
 			"edubuntu": {
 				"v24_10": {
 					"desktop": {
