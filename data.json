@@ -3191,6 +3191,44 @@
 						"sum_file": "SHA256SUMS"
 					}
 				}
+			},
+			"xubuntu": {
+				"v24_10": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/oracular/release",
+						"iso_file": "xubuntu-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/oracular/release",
+						"iso_file": "xubuntu-24.10-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v24_04": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
+						"iso_file": "xubuntu-24.04.1-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
+						"iso_file": "xubuntu-24.04.1-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v22_04": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/jammy/release",
+						"iso_file": "xubuntu-22.04.5-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		}
 	},
