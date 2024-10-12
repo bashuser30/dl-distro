@@ -472,7 +472,7 @@ download_pure()
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
-	msg "PureOS does not provide signatures."
+	msg "PureOS does not provide signature files."
 }
 
 download_qubes()
