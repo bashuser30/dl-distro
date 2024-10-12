@@ -3155,6 +3155,24 @@
 						"sum_file": "SHA256SUMS"
 					}
 				}
+			},
+			"studio": {
+				"v24_10": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/oracular/release",
+						"iso_file": "ubuntustudio-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v24_04": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/noble/release",
+						"iso_file": "ubuntustudio-24.04.1-dvd-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		}
 	},
