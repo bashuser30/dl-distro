@@ -2875,6 +2875,14 @@
 				"iso_file": "ubuntu-24.10-netboot-amd64.tar.gz",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
+			},
+			"flavors": {
+				"edubuntu": {
+					"url": "https://cdimages.ubuntu.com/edubuntu/releases/oracular/release",
+					"iso_file": "edubuntu-24.10-desktop-amd64.iso",
+					"sig_file": "SHA256SUMS.gpg",
+					"sum_file": "SHA256SUMS"
+				}
 			}
 		},
 		"v24_04" : {
@@ -2895,6 +2903,22 @@
 				"iso_file": "ubuntu-24.04.1-netboot-amd64.tar.gz",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
+			},
+			"flavors": {
+				"edubuntu": {
+					"desktop": {
+						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
+						"iso_file": "edubuntu-24.04.1-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"preinstalled": {
+						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
+						"iso_file": "edubuntu-24.04.1-preinstalled-desktop-arm64+raspi.img.xz",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		},
 		"v22_04": {
