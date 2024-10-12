@@ -3049,6 +3049,32 @@
 						"sum_file": "SHA256SUMS"
 					}
 				}
+			},
+			"lubuntu": {
+				"v24_10": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/oracular/release",
+						"iso_file": "lubuntu-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v24_04": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/noble/release",
+						"iso_file": "lubuntu-24.04.1-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v22_04": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/jammy/release",
+						"iso_file": "lubuntu-22.04.5-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		}
 	},
