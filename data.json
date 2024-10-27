@@ -1318,24 +1318,12 @@
 					"iso_file": "kali-linux-2024.3-live-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-2024.3",
-					"iso_file": "kali-linux-2024.3-live-i386.iso",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
 				}
 			},
 			"qemu": {
 				"amd64": {
 					"url": "https://cdimage.kali.org/kali-2024.3",
 					"iso_file": "kali-linux-2024.3-qemu-amd64.7z",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-2024.3",
-					"iso_file": "kali-linux-2024.3-qemu-i386.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
@@ -1346,24 +1334,12 @@
 					"iso_file": "kali-linux-2024.3-virtualbox-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-2024.3",
-					"iso_file": "kali-linux-2024.3-virtualbox-i386.7z",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
 				}
 			},
 			"vmware": {
 				"amd64": {
 					"url": "https://cdimage.kali.org/kali-2024.3",
 					"iso_file": "kali-linux-2024.3-vmware-amd64.7z",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-2024.3",
-					"iso_file": "kali-linux-2024.3-vmware-i386.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
@@ -1386,12 +1362,6 @@
 					"iso_file": "kali-linux-2024.3-installer-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-2024.3",
-					"iso_file": "kali-linux-2024.3-installer-i386.iso",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
 				}
 			},
 			"netinst": {
@@ -1404,12 +1374,6 @@
 				"arm64": {
 					"url": "https://cdimage.kali.org/kali-2024.3",
 					"iso_file": "kali-linux-2024.3-installer-netinst-arm64.iso",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-2024.3",
-					"iso_file": "kali-linux-2024.3-installer-netinst-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
@@ -1432,12 +1396,6 @@
 				"arm64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
 					"iso_file": "kali-linux-2024-W{current_week_num}-live-arm64.iso",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2024-W{current_week_num}-live-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
@@ -1478,12 +1436,6 @@
 					"iso_file": "kali-linux-2024-W{current_week_num}-installer-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2024-W{current_week_num}-installer-i386.iso",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
 				}
 			},
 			"netinst": {
@@ -1496,12 +1448,6 @@
 				"arm64": {
 					"url": "https://cdimage.kali.org/kali-weekly",
 					"iso_file": "kali-linux-2024-W{current_week_num}-installer-netinst-arm64.iso",
-					"sig_file": "SHA256SUMS.gpg",
-					"sum_file": "SHA256SUMS"
-				},
-				"i386": {
-					"url": "https://cdimage.kali.org/kali-weekly",
-					"iso_file": "kali-linux-2024-W{current_week_num}-installer-netinst-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
