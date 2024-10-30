@@ -719,478 +719,478 @@
 	"fedora": {
 		"workstation": {
 			"x86_64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Workstation/x86_64/iso",
-				"iso_file": "Fedora-Workstation-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Workstation-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Workstation-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Workstation/x86_64/iso",
+				"iso_file": "Fedora-Workstation-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Workstation-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Workstation-41-1.4-x86_64-CHECKSUM"
 			},
 			"aarch64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Workstation/aarch64/images",
-				"iso_file": "Fedora-Workstation-40-1.14.aarch64.raw.xz",
-				"sig_file": "Fedora-Workstation-40-1.14-aarch64-CHECKSUM",
-				"sum_file": "Fedora-Workstation-40-1.14-aarch64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Workstation/aarch64/images",
+				"iso_file": "Fedora-Workstation-41-1.4.aarch64.raw.xz",
+				"sig_file": "Fedora-Workstation-41-1.4-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Workstation-41-1.4-aarch64-CHECKSUM"
 			},
 			"ppc64le": {
-				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Workstation/ppc64le/iso",
-				"iso_file": "Fedora-Workstation-Live-ppc64le-40-1.14.iso",
-				"sig_file": "Fedora-Workstation-40-1.14-ppc64le-CHECKSUM",
-				"sum_file": "Fedora-Workstation-40-1.14-ppc64le-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Workstation/ppc64le/iso",
+				"iso_file": "Fedora-Workstation-Live-ppc64le-41-1.4.iso",
+				"sig_file": "Fedora-Workstation-41-1.4-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Workstation-41-1.4-ppc64le-CHECKSUM"
 			}
 		},
 		"server": {
 			"x86_64": {
 				"qemu": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/x86_64/images",
-					"iso_file": "Fedora-Server-KVM-40-1.14.x86_64.qcow2",
-					"sig_file": "Fedora-Server-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/images",
+					"iso_file": "Fedora-Server-KVM-41-1.4.x86_64.qcow2",
+					"sig_file": "Fedora-Server-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-x86_64-CHECKSUM"
 				},
 				"dvd": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/x86_64/iso",
-					"iso_file": "Fedora-Server-dvd-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso",
+					"iso_file": "Fedora-Server-dvd-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-x86_64-CHECKSUM"
 				},
 				"netinst": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/x86_64/iso",
-					"iso_file": "Fedora-Server-netinst-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso",
+					"iso_file": "Fedora-Server-netinst-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-x86_64-CHECKSUM"
 				}
 			},
 			"aarch64": {
 				"raw": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/aarch64/images",
-					"iso_file": "Fedora-Server-40-1.14.aarch64.raw.xz",
-					"sig_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/images",
+					"iso_file": "Fedora-Server-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM"
 				},
 				"qemu": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/aarch64/images",
-					"iso_file": "Fedora-Server-KVM-40-1.14.aarch64.qcow2",
-					"sig_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/images",
+					"iso_file": "Fedora-Server-KVM-41-1.4.aarch64.qcow2",
+					"sig_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM"
 				},
 				"dvd": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/aarch64/iso",
-					"iso_file": "Fedora-Server-dvd-aarch64-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/iso",
+					"iso_file": "Fedora-Server-dvd-aarch64-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM"
 				},
 				"netinst": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/aarch64/iso",
-					"iso_file": "Fedora-Server-netinst-aarch64-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/iso",
+					"iso_file": "Fedora-Server-netinst-aarch64-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"ppc64le": {
 				"qemu": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Server/ppc64le/images",
-					"iso_file": "Fedora-Server-KVM-40-1.14.ppc64le.qcow2",
-					"sig_file": "Fedora-Server-40-1.14-ppc64le-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-ppc64le-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Server/ppc64le/images",
+					"iso_file": "Fedora-Server-KVM-41-1.4.ppc64le.qcow2",
+					"sig_file": "Fedora-Server-41-1.4-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-ppc64le-CHECKSUM"
 				},
 				"dvd": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Server/ppc64le/iso",
-					"iso_file": "Fedora-Server-dvd-ppc64le-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-ppc64le-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-ppc64le-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Server/ppc64le/iso",
+					"iso_file": "Fedora-Server-dvd-ppc64le-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-ppc64le-CHECKSUM"
 				},
 				"netinst": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Server/ppc64le/iso",
-					"iso_file": "Fedora-Server-netinst-ppc64le-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-ppc64le-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-ppc64le-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Server/ppc64le/iso",
+					"iso_file": "Fedora-Server-netinst-ppc64le-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-ppc64le-CHECKSUM"
 				}
 			},
 			"s390x": {
 				"qemu": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Server/s390x/images",
-					"iso_file": "Fedora-Server-KVM-40-1.14.s390x.qcow2",
-					"sig_file": "Fedora-Server-40-1.14-s390x-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-s390x-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Server/s390x/images",
+					"iso_file": "Fedora-Server-KVM-41-1.4.s390x.qcow2",
+					"sig_file": "Fedora-Server-41-1.4-s390x-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-s390x-CHECKSUM"
 				},
 				"dvd": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Server/s390x/iso",
-					"iso_file": "Fedora-Server-dvd-s390x-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-s390x-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-s390x-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Server/s390x/iso",
+					"iso_file": "Fedora-Server-dvd-s390x-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-s390x-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-s390x-CHECKSUM"
 				},
 				"netinst": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Server/s390x/iso",
-					"iso_file": "Fedora-Server-netinst-s390x-40-1.14.iso",
-					"sig_file": "Fedora-Server-40-1.14-s390x-CHECKSUM",
-					"sum_file": "Fedora-Server-40-1.14-s390x-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Server/s390x/iso",
+					"iso_file": "Fedora-Server-netinst-s390x-41-1.4.iso",
+					"sig_file": "Fedora-Server-41-1.4-s390x-CHECKSUM",
+					"sum_file": "Fedora-Server-41-1.4-s390x-CHECKSUM"
 				}
 			}
 		},
 		"iot": {
 			"x86_64": {
 				"raw": {
-					"url": "https://download.fedoraproject.org/pub/alt/iot/40/IoT/x86_64/images",
-					"iso_file": "Fedora-IoT-raw-40-20240422.3.x86_64.raw.xz",
-					"sig_file": "Fedora-IoT-40-x86_64-20240422.3-CHECKSUM",
-					"sum_file": "Fedora-IoT-40-x86_64-20240422.3-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/iot/41/IoT/x86_64/images",
+					"iso_file": "Fedora-IoT-raw-41-20241027.0.x86_64.raw.xz",
+					"sig_file": "Fedora-IoT-41-x86_64-20241027.0-CHECKSUM",
+					"sum_file": "Fedora-IoT-41-x86_64-20241027.0-CHECKSUM"
 				},
 				"ostree": {
-					"url": "https://download.fedoraproject.org/pub/alt/iot/40/IoT/x86_64/iso",
-					"iso_file": "Fedora-IoT-ostree-40-20240422.3.x86_64.iso",
-					"sig_file": "Fedora-IoT-40-x86_64-20240422.3-CHECKSUM",
-					"sum_file": "Fedora-IoT-40-x86_64-20240422.3-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/iot/41/IoT/x86_64/iso",
+					"iso_file": "Fedora-IoT-ostree-41-20241027.0.x86_64.iso",
+					"sig_file": "Fedora-IoT-41-x86_64-20241027.0-CHECKSUM",
+					"sum_file": "Fedora-IoT-41-x86_64-20241027.0-CHECKSUM"
 				}
 			},
 			"aarch64": {
 				"raw": {
-					"url": "https://download.fedoraproject.org/pub/alt/iot/40/IoT/aarch64/images",
-					"iso_file": "Fedora-IoT-raw-40-20240422.3.aarch64.raw.xz",
-					"sig_file": "Fedora-IoT-40-aarch64-20240422.3-CHECKSUM",
-					"sum_file": "Fedora-IoT-40-aarch64-20240422.3-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/iot/41/IoT/aarch64/images",
+					"iso_file": "Fedora-IoT-raw-41-20241027.0.aarch64.raw.xz",
+					"sig_file": "Fedora-IoT-41-aarch64-20241027.0-CHECKSUM",
+					"sum_file": "Fedora-IoT-41-aarch64-20241027.0-CHECKSUM"
 				},
 				"ostree": {
-					"url": "https://download.fedoraproject.org/pub/alt/iot/40/IoT/aarch64/iso",
-					"iso_file": "Fedora-IoT-ostree-40-20240422.3.aarch64.iso",
-					"sig_file": "Fedora-IoT-40-aarch64-20240422.3-CHECKSUM",
-					"sum_file": "Fedora-IoT-40-aarch64-20240422.3-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/iot/41/IoT/aarch64/iso",
+					"iso_file": "Fedora-IoT-ostree-41-20241027.0.aarch64.iso",
+					"sig_file": "Fedora-IoT-41-aarch64-20241027.0-CHECKSUM",
+					"sum_file": "Fedora-IoT-41-aarch64-20241027.0-CHECKSUM"
 				}
 			}
 		},
 		"cloud": {
 			"x86_64": {
 				"raw": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images",
-					"iso_file": "Fedora-Cloud-Base-AmazonEC2.x86_64-40-1.14.raw.xz",
-					"sig_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-AmazonEC2-41-1.4.x86_64.raw.xz",
+					"sig_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM"
 				},
 				"azure": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images",
-					"iso_file": "Fedora-Cloud-Base-Azure.x86_64-40-1.14.vhdfixed.xz",
-					"sig_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-Azure-41-1.4.x86_64.vhdfixed.xz",
+					"sig_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM"
 				},
 				"qemu": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images",
-					"iso_file": "Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2",
-					"sig_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-Generic-41-1.4.x86_64.qcow2",
+					"sig_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM"
 				},
 				"qemu_uki": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images",
-					"iso_file": "Fedora-Cloud-Base-UEFI-UKI.x86_64-40-1.14.qcow2",
-					"sig_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-UEFI-UKI-41-1.4.x86_64.qcow2",
+					"sig_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM"
 				},
 				"vagrant_virtualbox": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images",
-					"iso_file": "Fedora-Cloud-Base-Vagrant-VirtualBox.x86_64-40-1.14.vagrant.virtualbox.box",
-					"sig_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-Vagrant-VirtualBox-41-1.4.x86_64.vagrant.virtualbox.box",
+					"sig_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM"
 				},
 				"vagrant_libvirt": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images",
-					"iso_file": "Fedora-Cloud-Base-Vagrant-libvirt.x86_64-40-1.14.vagrant.libvirt.box",
-					"sig_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images",
+					"iso_file": "Fedora-Cloud-Base-Vagrant-libvirt-41-1.4.x86_64.vagrant.libvirt.box",
+					"sig_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-x86_64-CHECKSUM"
 				}
 			},
 			"aarch64": {
 				"raw": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/aarch64/images",
-					"iso_file": "Fedora-Cloud-Base-AmazonEC2.aarch64-40-1.14.raw.xz",
-					"sig_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-AmazonEC2-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM"
 				},
 				"azure": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/aarch64/images",
-					"iso_file": "Fedora-Cloud-Base-Azure.aarch64-40-1.14.vhdfixed.xz",
-					"sig_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-Azure-41-1.4.aarch64.vhdfixed.xz",
+					"sig_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM"
 				},
 				"qemu": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/aarch64/images",
-					"iso_file": "Fedora-Cloud-Base-Generic.aarch64-40-1.14.qcow2",
-					"sig_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-Generic-41-1.4.aarch64.qcow2",
+					"sig_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM"
 				},
 				"qemu_uki": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/aarch64/images",
-					"iso_file": "Fedora-Cloud-Base-UEFI-UKI.aarch64-40-1.14.qcow2",
-					"sig_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-UEFI-UKI-41-1.4.aarch64.qcow2",
+					"sig_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM"
 				},
 				"vagrant_libvirt": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/aarch64/images",
-					"iso_file": "Fedora-Cloud-Base-Vagrant-libvirt.aarch64-40-1.14.vagrant.libvirt.box",
-					"sig_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Cloud-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/aarch64/images",
+					"iso_file": "Fedora-Cloud-Base-Vagrant-libvirt-41-1.4.aarch64.vagrant.libvirt.box",
+					"sig_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Cloud-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"ppc64le": {
-				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Cloud/ppc64le/images",
-				"iso_file": "Fedora-Cloud-Base-Generic.ppc64le-40-1.14.qcow2",
-				"sig_file": "Fedora-Cloud-40-1.14-ppc64le-CHECKSUM",
-				"sum_file": "Fedora-Cloud-40-1.14-ppc64le-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Cloud/ppc64le/images",
+				"iso_file": "Fedora-Cloud-Base-Generic-41-1.4.ppc64le.qcow2",
+				"sig_file": "Fedora-Cloud-41-1.4-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Cloud-41-1.4-ppc64le-CHECKSUM"
 			},
 			"s390x": {
-				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Cloud/s390x/images",
-				"iso_file": "Fedora-Cloud-Base-Generic.s390x-40-1.14.qcow2",
-				"sig_file": "Fedora-Cloud-40-1.14-s390x-CHECKSUM",
-				"sum_file": "Fedora-Cloud-40-1.14-s390x-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Cloud/s390x/images",
+				"iso_file": "Fedora-Cloud-Base-Generic-41-1.4.s390x.qcow2",
+				"sig_file": "Fedora-Cloud-41-1.4-s390x-CHECKSUM",
+				"sum_file": "Fedora-Cloud-41-1.4-s390x-CHECKSUM"
 			}
 		},
 		"atomic_desktops": {
 			"silverblue": {
 				"x86_64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Silverblue/x86_64/iso",
-					"iso_file": "Fedora-Silverblue-ostree-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Silverblue-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Silverblue-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Silverblue/x86_64/iso",
+					"iso_file": "Fedora-Silverblue-ostree-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Silverblue-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Silverblue-41-1.4-x86_64-CHECKSUM"
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Silverblue/aarch64/iso",
-					"iso_file": "Fedora-Silverblue-ostree-aarch64-40-1.14.iso",
-					"sig_file": "Fedora-Silverblue-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Silverblue-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Silverblue/aarch64/iso",
+					"iso_file": "Fedora-Silverblue-ostree-aarch64-41-1.4.iso",
+					"sig_file": "Fedora-Silverblue-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Silverblue-41-1.4-aarch64-CHECKSUM"
 				},
 				"ppc64le": {
-					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Silverblue/ppc64le/iso",
-					"iso_file": "Fedora-Silverblue-ostree-ppc64le-40-1.14.iso",
-					"sig_file": "Fedora-Silverblue-40-1.14-ppc64le-CHECKSUM",
-					"sum_file": "Fedora-Silverblue-40-1.14-ppc64le-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Silverblue/ppc64le/iso",
+					"iso_file": "Fedora-Silverblue-ostree-ppc64le-41-1.4.iso",
+					"sig_file": "Fedora-Silverblue-41-1.4-ppc64le-CHECKSUM",
+					"sum_file": "Fedora-Silverblue-41-1.4-ppc64le-CHECKSUM"
 				}
 			},
 			"kinoite": {
 				"x86_64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Kinoite/x86_64/iso",
-					"iso_file": "Fedora-Kinoite-ostree-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Kinoite-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Kinoite-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Kinoite/x86_64/iso",
+					"iso_file": "Fedora-Kinoite-ostree-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Kinoite-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Kinoite-41-1.4-x86_64-CHECKSUM"
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Kinoite/aarch64/iso",
-					"iso_file": "Fedora-Kinoite-ostree-aarch64-40-1.14.iso",
-					"sig_file": "Fedora-Kinoite-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Kinoite-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Kinoite/aarch64/iso",
+					"iso_file": "Fedora-Kinoite-ostree-aarch64-41-1.4.iso",
+					"sig_file": "Fedora-Kinoite-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Kinoite-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"sway": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Sericea/x86_64/iso",
-				"iso_file": "Fedora-Sericea-ostree-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Sericea-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Sericea-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Sericea/x86_64/iso",
+				"iso_file": "Fedora-Sericea-ostree-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Sericea-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Sericea-41-1.4-x86_64-CHECKSUM"
 			},
 			"budgie": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Onyx/x86_64/iso",
-				"iso_file": "Fedora-Onyx-ostree-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Onyx-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Onyx-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Onyx/x86_64/iso",
+				"iso_file": "Fedora-Onyx-ostree-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Onyx-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Onyx-41-1.4-x86_64-CHECKSUM"
 			}
 		},
 		"spins": {
 			"budgie": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-				"iso_file": "Fedora-Budgie-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+				"iso_file": "Fedora-Budgie-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 			},
 			"cinnamon": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-				"iso_file": "Fedora-Cinnamon-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+				"iso_file": "Fedora-Cinnamon-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 			},
 			"kde": {
 				"x86_64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-					"iso_file": "Fedora-KDE-Live-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+					"iso_file": "Fedora-KDE-Live-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/aarch64/images",
-					"iso_file": "Fedora-KDE-40-1.14.aarch64.raw.xz",
-					"sig_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/aarch64/images",
+					"iso_file": "Fedora-KDE-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"lxde": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-				"iso_file": "Fedora-LXDE-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+				"iso_file": "Fedora-LXDE-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 			},
 			"lxqt": {
 				"x86_64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-					"iso_file": "Fedora-LXQt-Live-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+					"iso_file": "Fedora-LXQt-Live-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/aarch64/images",
-					"iso_file": "Fedora-LXQt-40-1.14.aarch64.raw.xz",
-					"sig_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/aarch64/images",
+					"iso_file": "Fedora-LXQt-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"mate": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-				"iso_file": "Fedora-MATE_Compiz-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+				"iso_file": "Fedora-MATE_Compiz-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 			},
 			"sugar": {
 				"x86_64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-					"iso_file": "Fedora-SoaS-Live-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+					"iso_file": "Fedora-SoaS-Live-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/aarch64/images",
-					"iso_file": "Fedora-SoaS-40-1.14.aarch64.raw.xz",
-					"sig_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/aarch64/images",
+					"iso_file": "Fedora-SoaS-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"sway": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-				"iso_file": "Fedora-Sway-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+				"iso_file": "Fedora-Sway-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 			},
 			"xfce": {
 				"x86_64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-					"iso_file": "Fedora-Xfce-Live-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+					"iso_file": "Fedora-Xfce-Live-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/aarch64/images",
-					"iso_file": "Fedora-Xfce-40-1.14.aarch64.raw.xz",
-					"sig_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Spins-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/aarch64/images",
+					"iso_file": "Fedora-Xfce-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Spins-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"i3": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Spins/x86_64/iso",
-				"iso_file": "Fedora-i3-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Spins-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Spins/x86_64/iso",
+				"iso_file": "Fedora-i3-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Spins-41-1.4-x86_64-CHECKSUM"
 			}
 		},
 		"labs": {
 			"astronomy": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-				"iso_file": "Fedora-Astronomy_KDE-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+				"iso_file": "Fedora-Astronomy_KDE-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 			},
 			"comp_neuro": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-				"iso_file": "Fedora-Comp_Neuro-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+				"iso_file": "Fedora-Comp_Neuro-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 			},
 			"games": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-				"iso_file": "Fedora-Games-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+				"iso_file": "Fedora-Games-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 			},
 			"jam": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-				"iso_file": "Fedora-Jam_KDE-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+				"iso_file": "Fedora-Jam_KDE-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 			},
 			"python_classroom": {
 				"x86_64" : {
 					"iso": {
-						"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-						"iso_file": "Fedora-Python-Classroom-Live-x86_64-40-1.14.iso",
-						"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-						"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+						"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+						"iso_file": "Fedora-Python-Classroom-Live-x86_64-41-1.4.iso",
+						"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+						"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 					},
 					"vagrant_libvirt" : {
-						"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/images",
-						"iso_file": "Fedora-Python-Classroom-Vagrant-40-1.14.x86_64.vagrant-libvirt.box",
-						"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-						"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+						"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/images",
+						"iso_file": "Fedora-Python-Classroom-Vagrant-41-1.4.x86_64.vagrant-libvirt.box",
+						"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+						"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 					},
 					"vagrant_virtualbox": {
-						"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/images",
-						"iso_file": "Fedora-Python-Classroom-Vagrant-40-1.14.x86_64.vagrant-virtualbox.box",
-						"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-						"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+						"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/images",
+						"iso_file": "Fedora-Python-Classroom-Vagrant-41-1.4.x86_64.vagrant-virtualbox.box",
+						"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+						"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 					}
 				},
 				"aarch64": {
-					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Labs/aarch64/images",
-					"iso_file": "Fedora-Python-Classroom-40-1.14.aarch64.raw.xz",
-					"sig_file": "Fedora-Labs-40-1.14-aarch64-CHECKSUM",
-					"sum_file": "Fedora-Labs-40-1.14-aarch64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Labs/aarch64/images",
+					"iso_file": "Fedora-Python-Classroom-41-1.4.aarch64.raw.xz",
+					"sig_file": "Fedora-Labs-41-1.4-aarch64-CHECKSUM",
+					"sum_file": "Fedora-Labs-41-1.4-aarch64-CHECKSUM"
 				}
 			},
 			"robotics_suite": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-				"iso_file": "Fedora-Robotics-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+				"iso_file": "Fedora-Robotics-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 			},
 			"scientific": {
 				"iso": {
-					"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso",
-					"iso_file": "Fedora-Scientific_KDE-Live-x86_64-40-1.14.iso",
-					"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso",
+					"iso_file": "Fedora-Scientific_KDE-Live-x86_64-41-1.4.iso",
+					"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 				},
 				"vagrant_libvirt": {
-					"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/images",
-					"iso_file": "Fedora-Scientific-Vagrant-40-1.14.x86_64.vagrant-libvirt.box",
-					"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/images",
+					"iso_file": "Fedora-Scientific-Vagrant-41-1.4.x86_64.vagrant-libvirt.box",
+					"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 				},
 				"vagrant_virtualbox": {
-					"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/images",
-					"iso_file": "Fedora-Scientific-Vagrant-40-1.14.x86_64.vagrant-virtualbox.box",
-					"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-					"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+					"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/images",
+					"iso_file": "Fedora-Scientific-Vagrant-41-1.4.x86_64.vagrant-virtualbox.box",
+					"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+					"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 				}
 			},
 			"security_lab": {
-				"url": "https://download.fedoraproject.org/pub/alt/releases/40/Labs/x86_64/iso/",
-				"iso_file": "Fedora-Security-Live-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Labs-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/alt/releases/41/Labs/x86_64/iso/",
+				"iso_file": "Fedora-Security-Live-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Labs-41-1.4-x86_64-CHECKSUM"
 			}
 		},
 		"everything": {
 			"x86_64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Everything/x86_64/iso",
-				"iso_file": "Fedora-Everything-netinst-x86_64-40-1.14.iso",
-				"sig_file": "Fedora-Everything-40-1.14-x86_64-CHECKSUM",
-				"sum_file": "Fedora-Everything-40-1.14-x86_64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Everything/x86_64/iso",
+				"iso_file": "Fedora-Everything-netinst-x86_64-41-1.4.iso",
+				"sig_file": "Fedora-Everything-41-1.4-x86_64-CHECKSUM",
+				"sum_file": "Fedora-Everything-41-1.4-x86_64-CHECKSUM"
 			},
 			"aarch64": {
-				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Everything/aarch64/iso",
-				"iso_file": "Fedora-Everything-netinst-aarch64-40-1.14.iso",
-				"sig_file": "Fedora-Everything-40-1.14-aarch64-CHECKSUM",
-				"sum_file": "Fedora-Everything-40-1.14-aarch64-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Everything/aarch64/iso",
+				"iso_file": "Fedora-Everything-netinst-aarch64-41-1.4.iso",
+				"sig_file": "Fedora-Everything-41-1.4-aarch64-CHECKSUM",
+				"sum_file": "Fedora-Everything-41-1.4-aarch64-CHECKSUM"
 			},
 			"ppc64le": {
-				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Everything/ppc64le/iso",
-				"iso_file": "Fedora-Everything-netinst-ppc64le-40-1.14.iso",
-				"sig_file": "Fedora-Everything-40-1.14-ppc64le-CHECKSUM",
-				"sum_file": "Fedora-Everything-40-1.14-ppc64le-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Everything/ppc64le/iso",
+				"iso_file": "Fedora-Everything-netinst-ppc64le-41-1.4.iso",
+				"sig_file": "Fedora-Everything-41-1.4-ppc64le-CHECKSUM",
+				"sum_file": "Fedora-Everything-41-1.4-ppc64le-CHECKSUM"
 			},
 			"s390x": {
-				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/40/Everything/s390x/iso",
-				"iso_file": "Fedora-Everything-netinst-s390x-40-1.14.iso",
-				"sig_file": "Fedora-Everything-40-1.14-s390x-CHECKSUM",
-				"sum_file": "Fedora-Everything-40-1.14-s390x-CHECKSUM"
+				"url": "https://download.fedoraproject.org/pub/fedora-secondary/releases/41/Everything/s390x/iso",
+				"iso_file": "Fedora-Everything-netinst-s390x-41-1.4.iso",
+				"sig_file": "Fedora-Everything-41-1.4-s390x-CHECKSUM",
+				"sum_file": "Fedora-Everything-41-1.4-s390x-CHECKSUM"
 			}
 		}
 	},
