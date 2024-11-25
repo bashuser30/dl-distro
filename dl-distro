@@ -76,6 +76,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["Slackware"]="slackware"
                    ["Solus"]="solus"
                    ["Tails"]="tails"
+                   ["Tiny Core"]="tinycore"
                    ["Trisquel"]="trisquel"
                    ["Ubuntu"]="ubuntu"
                    ["Void"]="void"
@@ -522,6 +523,14 @@ download_tails()
 	msg "Tails does not provide checksum files."
 }
 
+download_tinycore()
+{
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	msg "Tiny Core does not provide sig files."
+	verify_checksum
+}
+
 download_trisquel()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
@@ -717,11 +726,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma    dragora    kali     opensuse  qubes      trisquel
-  alpine  fedora     mint     parabola  rocky      ubuntu
-  arch    gparted    nix      parrot    slackware  void
-  cachy   guix       nobara   pop       solus      whonix
-  debian  hyperbola  openbsd  pure      tails      zorin
+  alma    dragora    kali     opensuse  qubes      tinycore  zorin
+  alpine  fedora     mint     parabola  rocky      trisquel
+  arch    gparted    nix      parrot    slackware  ubuntu
+  cachy   guix       nobara   pop       solus      void
+  debian  hyperbola  openbsd  pure      tails      whonix
 
 EXAMPLES
   dl-distro

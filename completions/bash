@@ -29,7 +29,7 @@ _dl_distro()
 	            --spider --update-json --version')
 	distros=('alma alpine arch cachy debian dragora fedora gparted guix
 	          hyperbola kali mint nix nobara openbsd opensuse parabola parrot
-	          pop pure qubes rocky slackware solus tails trisquel ubuntu void
+	          pop pure qubes rocky slackware solus tails tinycore trisquel ubuntu void
 	          whonix zorin')
 
 	case "$prev" in

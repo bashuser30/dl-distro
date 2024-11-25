@@ -54,6 +54,7 @@
 		"rocky": "sha256sum",
 		"slackware": "md5sum",
 		"solus": "sha256sum",
+		"tinycore": "md5sum",
 		"trisquel": "sha512sum",
 		"ubuntu": "sha256sum",
 		"void": "sha256sum",
@@ -2742,6 +2743,42 @@
 			"iso_file": "tails-amd64-6.10.iso",
 			"sig_file": "tails-amd64-6.10.iso.sig",
 			"sum_file": null
+		}
+	},
+	"tinycore": {
+		"x86_64": {
+			"CorePure64": {
+				"url": "http://tinycorelinux.net/15.x/x86_64/release",
+				"iso_file": "CorePure64-15.0.iso",
+				"sig_file": null,
+				"sum_file": "CorePure64-15.0.iso.md5.txt"
+			},
+			"TinyCorePure64": {
+				"url": "http://tinycorelinux.net/15.x/x86_64/release",
+				"iso_file": "TinyCorePure64-15.0.iso",
+				"sig_file": null,
+				"sum_file": "TinyCorePure64-15.0.iso.md5.txt"
+			}
+		},
+		"x86": {
+		       "Core": {
+			       "url": "http://tinycorelinux.net/15.x/x86/release",	       
+			       "iso_file": "Core-15.0.iso",
+			       "sig_file": null,
+			       "sum_file": "Core-15.0.iso.md5.txt"
+		       },
+		       "CorePlus": {
+			       "url": "http://tinycorelinux.net/15.x/x86/release",
+			       "iso_file": "CorePlus-15.0.iso",
+			       "sig_file": null,
+			       "sum_file": "CorePlus-15.0.iso.md5.txt"
+		       },
+		       "TinyCore": {
+			       "url": "http://tinycorelinux.net/15.x/x86/release",
+			       "iso_file": "TinyCore-15.0.iso",
+			       "sig_file": null,
+			       "sum_file": "TinyCore-15.0.iso.md5.txt"
+		       }
 		}
 	},
 	"trisquel": {
