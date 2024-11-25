@@ -47,6 +47,7 @@
 		"openbsd": "sha256sum",
 		"opensuse": "sha256sum",
 		"parabola": "sha512sum",
+		"parch": "md5sum",
 		"parrot": "sha512sum",
 		"pop": "sha256sum",
 		"pure": "sha256sum",
@@ -2262,6 +2263,42 @@
 				"iso_file": "parabola-armv7h-systemd-cli-2020.02-tarball.tar.gz",
 				"sig_file": "parabola-armv7h-systemd-cli-2020.02-tarball.tar.gz.sig",
 				"sum_file": "SHA512SUMS"
+			}
+		}
+	},
+	"parch": {
+		"official": {
+			"gnome": {
+				"url": "https://mirror.parchlinux.com/gnome",
+				"iso_file": "ParchLinux-gnome-latest.iso",
+				"sig_file": null,
+				"sum_file": "md5sum.txt"
+			},
+			"kde": {
+				"url": "https://mirror.parchlinux.com/plasma",
+				"iso_file": "ParchLinux-plasma-latest.iso",
+				"sig_file": null,
+				"sum_file": "md5sum.txt"
+			},
+			"cosmic": {
+				"url": "https://mirror.parchlinux.com/cosmic",
+				"iso_file": "ParchLinux-cosmic-latest.iso",
+				"sig_file": null,
+				"sum_file": "md5sum.txt"
+			}
+		},
+		"community": {
+			"xfce": {
+				"url": "https://mirror.parchlinux.com/XFCE",
+				"iso_file": "ParchLinux-XFCE-latest.iso",
+				"sig_file": null,
+				"sum_file": "md5sum.txt"
+			},
+			"mate": {
+				"url": "https://mirror.parchlinux.com/mate",
+				"iso_file": "ParchLinux-mate-latest.iso",
+				"sig_file": null,
+				"sum_file": "md5sum.txt"
 			}
 		}
 	},

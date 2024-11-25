@@ -68,6 +68,7 @@ supported_distros=(["AlmaLinux OS"]="alma"
                    ["OpenBSD"]="openbsd"
                    ["openSUSE"]="opensuse"
                    ["Parabola"]="parabola"
+		    	   ["Parch"]="parch"
                    ["Parrot OS"]="parrot"
                    ["Pop!_OS"]="pop"
                    ["PureOS"]="pure"
@@ -448,6 +449,14 @@ download_parabola()
 	verify_checksum
 }
 
+download_parch()
+{
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	msg "Parch GNU/Linux does not provide sig files."
+	verify_checksum
+}
+
 download_parrot()
 {
 	wget_spider "$url"/{"$iso_file","$sig_file"}
@@ -726,11 +735,11 @@ OPTIONS
   -V, --version                     Print dl-distro's current version.
 
 DISTROS
-  alma    dragora    kali     opensuse  qubes      tinycore  zorin
-  alpine  fedora     mint     parabola  rocky      trisquel
-  arch    gparted    nix      parrot    slackware  ubuntu
-  cachy   guix       nobara   pop       solus      void
-  debian  hyperbola  openbsd  pure      tails      whonix
+  alma    dragora    kali     opensuse  pure       tails     whonix 
+  alpine  fedora     mint     parabola  qubes      tinycore  zorin 
+  arch    gparted    nix      parch     rocky      trisquel 
+  cachy   guix       nobara   parrot    slackware  ubuntu 
+  debian  hyperbola  openbsd  pop       solus      void 
 
 EXAMPLES
   dl-distro

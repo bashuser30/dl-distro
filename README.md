@@ -9,7 +9,7 @@ dl-distro aims to make downloading and verifying OS images quick and easy.
 It uses `jq` for data retrieval, `wget` for downloading, `gpg` for signature
 verification, and validates checksums with the relevant algorithm.
 
-It currently supports **487** images from **31** [distributions](#supported-distributions).
+It currently supports **492** images from **32** [distributions](#supported-distributions).
 
 ## Dependencies
 
@@ -137,6 +137,7 @@ maintained, updating with new releases on their release day.
 - [OpenBSD](https://openbsd.org)
 - [openSUSE](https://opensuse.org)
 - [Parabola GNU/Linux-libre](https://parabola.nu)
+- [Parch GNU/Linux](https://parchlinux.com/en)
 - [Parrot OS](https://parrotsec.org)
 - [Pop!_OS](https://pop.system76.com)
 - [PureOS](https://pureos.net)
