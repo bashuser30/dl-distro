@@ -724,13 +724,10 @@ list_distros()
 {
 	local -a sorted_distros
 
-	printf "SUPPORTED DISTRIBUTIONS:\n"
-
 	mapfile -t sorted_distros < <(printf "%s\n" "${supported_distros[@]}" | sort)
 
-	for distro in "${sorted_distros[@]}"; do
-		printf "  %s\n" "$distro"
-	done
+	printf "SUPPORTED DISTRIBUTIONS:\n"
+	printf "  %s\n" "${sorted_distros[@]}"
 }
 
 usage()
