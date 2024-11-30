@@ -722,12 +722,8 @@ update_json_file()
 
 list_distros()
 {
-	local -a sorted_distros
-
-	mapfile -t sorted_distros < <(printf "%s\n" "${supported_distros[@]}" | sort)
-
 	printf "SUPPORTED DISTRIBUTIONS:\n"
-	printf "  %s\n" "${sorted_distros[@]}"
+	printf "%s\n" "$(printf "  %s\n" "${supported_distros[@]}" | sort)"
 }
 
 usage()
