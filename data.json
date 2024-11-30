@@ -38,6 +38,7 @@
 		"debian": "sha512sum",
 		"dragora": "sha256sum",
 		"fedora": "sha256sum",
+		"ghostbsd": "sha256sum",
 		"gparted": "sha256sum",
 		"hyperbola": "sha512sum",
 		"kali": "sha256sum",
@@ -1112,6 +1113,20 @@
 				"sig_file": "Fedora-Everything-41-1.4-s390x-CHECKSUM",
 				"sum_file": "Fedora-Everything-41-1.4-s390x-CHECKSUM"
 			}
+		}
+	},
+	"ghostbsd": {
+		"official": {
+			"url": "https://download.ghostbsd.org/releases/amd64/24.10.1",
+			"iso_file": "GhostBSD-24.10.1.iso",
+			"sig_file": null,
+			"sum_file": "GhostBSD-24.10.1.iso.sha256"
+		},
+		"community": {
+			"url": "https://download.ghostbsd.org/releases/amd64/24.10.1",
+			"iso_file": "GhostBSD-24.10.1-XFCE.iso",
+			"sig_file": null,
+			"sum_file": "GhostBSD-24.10.1-XFCE.iso.sha256"
 		}
 	},
 	"gparted": {
@@ -2799,7 +2814,7 @@
 		},
 		"x86": {
 		       "Core": {
-			       "url": "http://tinycorelinux.net/15.x/x86/release",	       
+			       "url": "http://tinycorelinux.net/15.x/x86/release",
 			       "iso_file": "Core-15.0.iso",
 			       "sig_file": null,
 			       "sum_file": "Core-15.0.iso.md5.txt"

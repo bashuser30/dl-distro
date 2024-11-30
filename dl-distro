@@ -57,6 +57,7 @@ declare -A supported_distros=(
 	["Debian"]="debian"
 	["Dragora"]="dragora"
 	["Fedora"]="fedora"
+	["GhostBSD"]="ghostbsd"
 	["GParted Live"]="gparted"
 	["GNU Guix"]="guix"
 	["Hyperbola"]="hyperbola"
@@ -326,6 +327,14 @@ download_fedora()
 	verify_gpg_signature "$sig_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
+}
+
+download_ghostbsd()
+{
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	verify_checksum
+	msg "GhostBSD does not provide signature files."
 }
 
 download_gparted()

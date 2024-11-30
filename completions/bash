@@ -27,10 +27,10 @@ _dl_distro()
 	long_opts=('--auto-update --conf-file --distro --delete-key --help
 	            --import-key --list-keys --list-distros --no-verify --path
 	            --purge-data --spider --update-json --version')
-	distros=('alma alpine arch cachy debian dragora fedora gparted guix
-	          hyperbola kali mint nix nobara openbsd opensuse parabola parch parrot
-	          pop pure qubes rocky slackware solus tails tinycore trisquel ubuntu void
-	          whonix zorin')
+	distros=('alma alpine arch cachy debian dragora fedora ghostbsd gparted guix
+	          hyperbola kali mint nix nobara openbsd opensuse parabola parch
+	          parrot pop pure qubes rocky slackware solus tails tinycore
+	          trisquel ubuntu void whonix zorin')
 
 	case "$prev" in
 		-d|--distro)
