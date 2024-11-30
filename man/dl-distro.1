@@ -5,8 +5,6 @@
 dl-distro - Bash script for downloading and verifying OS images.
 
 .SH SYNOPSIS
-\fIdl-distro\fR
-
 \fIdl-distro\fR [OPTIONS]
 
 \fIdl-distro\fR -d <DISTRO|JSON_QUERY> [OPTIONS]
@@ -61,6 +59,12 @@ List the stored GPG keys.
 .RE
 
 .TP
+.B -L, --list-distros
+.RS
+List the supported distributions.
+.RE
+
+.TP
 .B -n, --no-verify
 .RS
 Skip GPG, Minisign, or Signify key fetching and verification.
@@ -97,7 +101,7 @@ Update the locally stored JSON file.
 Print dl-distro's current version.
 .RE
 
-.SH DISTRIBUTIONS
+.SH SUPPORTED DISTRIBUTIONS
 .TS
 tab(|);
 l l l.

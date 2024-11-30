@@ -49,40 +49,40 @@ PS3="${bold}>${reset} "
 [[ -f "$conf_file" ]] && source "$conf_file"
 [[ -f "$user_json_file" ]] && json_file="$user_json_file"
 
-declare -A supported_distros
-
-supported_distros=(["AlmaLinux OS"]="alma"
-                   ["Alpine"]="alpine"
-                   ["Arch"]="arch"
-                   ["CachyOS"]="cachy"
-                   ["Debian"]="debian"
-                   ["Dragora"]="dragora"
-                   ["Fedora"]="fedora"
-                   ["GParted Live"]="gparted"
-                   ["GNU Guix"]="guix"
-                   ["Hyperbola"]="hyperbola"
-                   ["Kali"]="kali"
-                   ["Mint"]="mint"
-                   ["NixOS"]="nix"
-                   ["Nobara"]="nobara"
-                   ["OpenBSD"]="openbsd"
-                   ["openSUSE"]="opensuse"
-                   ["Parabola"]="parabola"
-		    	   ["Parch"]="parch"
-                   ["Parrot OS"]="parrot"
-                   ["Pop!_OS"]="pop"
-                   ["PureOS"]="pure"
-                   ["Qubes OS"]="qubes"
-                   ["Rocky"]="rocky"
-                   ["Slackware"]="slackware"
-                   ["Solus"]="solus"
-                   ["Tails"]="tails"
-                   ["Tiny Core"]="tinycore"
-                   ["Trisquel"]="trisquel"
-                   ["Ubuntu"]="ubuntu"
-                   ["Void"]="void"
-                   ["Whonix"]="whonix"
-                   ["Zorin OS"]="zorin")
+declare -A supported_distros=(
+	["AlmaLinux OS"]="alma"
+	["Alpine"]="alpine"
+	["Arch"]="arch"
+	["CachyOS"]="cachy"
+	["Debian"]="debian"
+	["Dragora"]="dragora"
+	["Fedora"]="fedora"
+	["GParted Live"]="gparted"
+	["GNU Guix"]="guix"
+	["Hyperbola"]="hyperbola"
+	["Kali"]="kali"
+	["Mint"]="mint"
+	["NixOS"]="nix"
+	["Nobara"]="nobara"
+	["OpenBSD"]="openbsd"
+	["openSUSE"]="opensuse"
+	["Parabola"]="parabola"
+	["Parch"]="parch"
+	["Parrot OS"]="parrot"
+	["Pop!_OS"]="pop"
+	["PureOS"]="pure"
+	["Qubes OS"]="qubes"
+	["Rocky"]="rocky"
+	["Slackware"]="slackware"
+	["Solus"]="solus"
+	["Tails"]="tails"
+	["Tiny Core"]="tinycore"
+	["Trisquel"]="trisquel"
+	["Ubuntu"]="ubuntu"
+	["Void"]="void"
+	["Whonix"]="whonix"
+	["Zorin OS"]="zorin"
+)
 
 msg() { printf "%b%s%b\n" "$bold" "$1" "$reset"; }
 warn() { printf >&2 "%b%bWARNING:%b %s%b\n" "$bold" "$yellow" "$nc" "$1" "$reset"; }
@@ -453,8 +453,8 @@ download_parch()
 {
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
-	msg "Parch GNU/Linux does not provide sig files."
 	verify_checksum
+	msg "Parch GNU/Linux does not provide signature files."
 }
 
 download_parrot()
@@ -536,8 +536,8 @@ download_tinycore()
 {
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
-	msg "Tiny Core does not provide sig files."
 	verify_checksum
+	msg "Tiny Core does not provide signature files."
 }
 
 download_trisquel()
@@ -711,15 +711,27 @@ update_json_file()
 	fi
 }
 
+list_distros()
+{
+	local -a sorted_distros
+
+	printf "SUPPORTED DISTRIBUTIONS:\n"
+
+	mapfile -t sorted_distros < <(printf "%s\n" "${supported_distros[@]}" | sort)
+
+	for distro in "${sorted_distros[@]}"; do
+		printf "  %s\n" "$distro"
+	done
+}
+
 usage()
 {
 	cat <<EOF
-USAGE
-  dl-distro
+USAGE:
   dl-distro [OPTIONS]
   dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
 
-OPTIONS
+OPTIONS:
   -a, --auto-update                 Toggle auto-updating of the local JSON file.
   -c, --conf-file                   Generate a config file with default values.
   -d, --distro <DISTRO|JSON_QUERY>  Specify a distro by name or a JSON query.
@@ -727,6 +739,7 @@ OPTIONS
   -h, --help                        Display this help message.
   -i, --import-key <KEY_FILE>       Import a GPG key from a key file.
   -l, --list-keys                   List the stored GPG keys.
+  -L, --list-distros                List the supported distributions.
   -n, --no-verify                   Skip key fetching and verification.
   -p, --path <PATH>                 Download image to specified directory.
   -P, --purge-data                  Purge ALL the stored data.
@@ -734,14 +747,7 @@ OPTIONS
   -u, --update-json                 Update the locally stored JSON file.
   -V, --version                     Print dl-distro's current version.
 
-DISTROS
-  alma    dragora    kali     opensuse  pure       tails     whonix 
-  alpine  fedora     mint     parabola  qubes      tinycore  zorin 
-  arch    gparted    nix      parch     rocky      trisquel 
-  cachy   guix       nobara   parrot    slackware  ubuntu 
-  debian  hyperbola  openbsd  pop       solus      void 
-
-EXAMPLES
+EXAMPLES:
   dl-distro
   dl-distro -d debian
   dl-distro -d debian.netinst.amd64 -p ~/Downloads
@@ -889,6 +895,7 @@ parse_opts()
 			-h|--help) usage; exit 0 ;;
 			-i|--import-key) import_gpg_key "${2:-}"; exit 0 ;;
 			-l|--list-keys) list_gpg_keys; exit 0 ;;
+			-L|--list-distros) list_distros; exit 0 ;;
 			-n|--no-verify) verification_enabled="false"; shift 1 ;;
 			-p|--path)
 				if [[ -n "${2:-}" ]]; then
