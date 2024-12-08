@@ -3469,16 +3469,16 @@
 	},
 	"whonix": {
 		"qemu": {
-			"url": "https://download.whonix.org/libvirt/17.2.8.0",
-			"iso_file": "Whonix-Xfce-17.2.8.0.Intel_AMD64.qcow2.libvirt.xz",
-			"sig_file": "Whonix-Xfce-17.2.8.0.Intel_AMD64.qcow2.libvirt.xz.asc",
-			"sum_file": "Whonix-Xfce-17.2.8.0.Intel_AMD64.qcow2.libvirt.xz.sha512sums"
+			"url": "https://download.whonix.org/libvirt/17.2.8.1",
+			"iso_file": "Whonix-Xfce-17.2.8.1.Intel_AMD64.qcow2.libvirt.xz",
+			"sig_file": "Whonix-Xfce-17.2.8.1.Intel_AMD64.qcow2.libvirt.xz.asc",
+			"sum_file": "Whonix-Xfce-17.2.8.1.Intel_AMD64.qcow2.libvirt.xz.sha512sums"
 		},
 		"virtualbox": {
-			"url": "https://download.whonix.org/ova/17.2.8.0",
-			"iso_file": "Whonix-Xfce-17.2.8.0.Intel_AMD64.ova",
-			"sig_file": "Whonix-Xfce-17.2.8.0.Intel_AMD64.ova.asc",
-			"sum_file": "Whonix-Xfce-17.2.8.0.Intel_AMD64.ova.sha512sums"
+			"url": "https://download.whonix.org/ova/17.2.8.1",
+			"iso_file": "Whonix-Xfce-17.2.8.1.Intel_AMD64.ova",
+			"sig_file": "Whonix-Xfce-17.2.8.1.Intel_AMD64.ova.asc",
+			"sum_file": "Whonix-Xfce-17.2.8.1.Intel_AMD64.ova.sha512sums"
 		}
 	},
 	"zorin": {
