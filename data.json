@@ -1396,6 +1396,26 @@
 		}
 	},
 	"mint": {
+		"beta": {
+			"cinnamon": {
+				"url": "https://mirrors.layeronline.com/linuxmint/testing",
+				"iso_file": "linuxmint-22.1-cinnamon-64bit-beta.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
+			},
+			"mate": {
+				"url": "https://mirrors.layeronline.com/linuxmint/testing",
+				"iso_file": "linuxmint-22.1-mate-64bit-beta.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
+			},
+			"xfce": {
+				"url": "https://mirrors.layeronline.com/linuxmint/testing",
+				"iso_file": "linuxmint-22.1-xfce-64bit-beta.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
+			}
+		},
 		"mint": {
 			"cinnamon": {
 				"url": "https://mirrors.layeronline.com/linuxmint/stable/22",
