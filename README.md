@@ -48,20 +48,20 @@ repository:
 ```
 git clone https://codeberg.org/bashuser30/dl-distro.git
 cd dl-distro
-sudo ./installer.sh install
+sudo ./scripts/installer.sh install
 ```
 
 #### Update
 
 ```
 git pull
-sudo ./installer.sh install
+sudo ./scripts/installer.sh install
 ```
 
 #### Uninstall
 
 ```
-sudo ./installer.sh uninstall
+sudo ./scripts/installer.sh uninstall
 ```
 
 ## Usage
@@ -140,7 +140,7 @@ maintained, updating with new releases on their release day.
 - [Parabola GNU/Linux-libre](https://parabola.nu)
 - [Parch GNU/Linux](https://parchlinux.com/en)
 - [Parrot OS](https://parrotsec.org)
-- [Pop!_OS](https://pop.system76.com)
+- [Pop!\_OS](https://pop.system76.com)
 - [PureOS](https://pureos.net)
 - [Qubes OS](https://qubes-os.org)
 - [Rocky Linux](https://rockylinux.org)

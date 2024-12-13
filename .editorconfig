@@ -1,6 +1,6 @@
 root = true
 
-[{dl-distro,data.json,installer.sh}]
+[{*.sh,dl-distro,data.json}]
 indent_style = tab
 charset = utf-8
 end_of_line = lf

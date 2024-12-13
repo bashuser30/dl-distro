@@ -9,6 +9,7 @@ better.
 
 - Use tabs for indentation and spaces for alignment.
 - Follow [ShellCheck] and [Shellharden] recommendations for code quality.
+- Install [`pre-commit.sh`] to automate checks.
 
 ### Adding a New Distribution
 
@@ -43,6 +44,7 @@ better.
 <!-- links -->
 [ShellCheck]: https://github.com/koalaman/shellcheck
 [Shellharden]: https://github.com/anordal/shellharden
+[`pre-commit.sh`]: scripts/pre-commit.sh
 [`data.json`]: data.json
 [`dl-distro`]: dl-distro
 [Supported Distributions]: README.md#supported-distributions
