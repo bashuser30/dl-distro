@@ -129,7 +129,7 @@ maintained, updating with new releases on their release day.
 - [Fedora Linux](https://fedoraproject.org)
 - [GhostBSD](https://ghostbsd.org)
 - [GParted Live](https://gparted.org)
-- [GNU Guix](https://guix.gnu.org)
+- [Guix System](https://guix.gnu.org)
 - [Hyperbola GNU/Linux-libre](https://hyperbola.info)
 - [Kali Linux](https://kali.org)
 - [Linux Mint](https://linuxmint.com)
