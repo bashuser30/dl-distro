@@ -59,7 +59,7 @@ declare -A supported_distros=(
 	["Fedora"]="fedora"
 	["GhostBSD"]="ghostbsd"
 	["GParted Live"]="gparted"
-	["GNU Guix"]="guix"
+	["Guix System"]="guix"
 	["Hyperbola"]="hyperbola"
 	["Kali"]="kali"
 	["Mint"]="mint"
@@ -350,11 +350,26 @@ download_gparted()
 
 download_guix()
 {
+	[[ "$traverse_path" == *"latest"* ]] && {
+		msg "These images are development snapshots and don't have stability."
+		wget_spider "$url/$iso_file"
+		wget_file "$url/$iso_file"
+		msg "Guix System does not provide checksum or signature files for this image."
+		
+		if [[ "$traverse_path" == *"binary"* ]]; then
+			mv "${iso_file}" "x86_64-latest-$(cut -d'+' -f4 <<<"${iso_file}")"
+		else
+			mv "${iso_file}" "x86_64-latest-guix-$(cut -d'+' -f4 <<<"${iso_file}")"
+		fi
+
+		return 0
+	}
+
 	wget_spider "$url"/{"$iso_file","$sig_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
-	msg "GNU Guix does not provide checksum files."
+	msg "Guix System does not provide checksum files."
 }
 
 download_hyperbola()

@@ -1174,63 +1174,97 @@
 		}
 	},
 	"guix": {
-		"iso": {
-			"x86_64": {
+		"standard": {
+			"iso": {
+				"x86_64": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-system-install-1.4.0.x86_64-linux.iso",
+					"sig_file": "guix-system-install-1.4.0.x86_64-linux.iso.sig",
+					"sum_file": null
+				},
+				"i686": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-system-install-1.4.0.i686-linux.iso",
+					"sig_file": "guix-system-install-1.4.0.i686-linux.iso.sig",
+					"sum_file": null
+				}
+			},
+			"qemu": {
 				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-system-install-1.4.0.x86_64-linux.iso",
-				"sig_file": "guix-system-install-1.4.0.x86_64-linux.iso.sig",
+				"iso_file": "guix-system-vm-image-1.4.0.x86_64-linux.qcow2",
+				"sig_file": "guix-system-vm-image-1.4.0.x86_64-linux.qcow2.sig",
 				"sum_file": null
 			},
-			"i686": {
+			"binary": {
+				"x86_64": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-binary-1.4.0.x86_64-linux.tar.xz",
+					"sig_file": "guix-binary-1.4.0.x86_64-linux.tar.xz.sig",
+					"sum_file": null
+				},
+				"i686": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-binary-1.4.0.i686-linux.tar.xz",
+					"sig_file": "guix-binary-1.4.0.i686-linux.tar.xz.sig",
+					"sum_file": null
+				},
+				"armhf": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-binary-1.4.0.armhf-linux.tar.xz",
+					"sig_file": "guix-binary-1.4.0.armhf-linux.tar.xz.sig",
+					"sum_file": null
+				},
+				"aarch64": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-binary-1.4.0.aarch64-linux.tar.xz",
+					"sig_file": "guix-binary-1.4.0.aarch64-linux.tar.xz.sig",
+					"sum_file": null
+				},
+				"powerpc64le": {
+					"url": "https://ftpmirror.gnu.org/gnu/guix",
+					"iso_file": "guix-binary-1.4.0.powerpc64le-linux.tar.xz",
+					"sig_file": "guix-binary-1.4.0.powerpc64le-linux.tar.xz.sig",
+					"sum_file": null
+				}
+			},
+			"source" : {
 				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-system-install-1.4.0.i686-linux.iso",
-				"sig_file": "guix-system-install-1.4.0.i686-linux.iso.sig",
+				"iso_file": "guix-1.4.0.tar.gz",
+				"sig_file": "guix-1.4.0.tar.gz.sig",
 				"sum_file": null
 			}
 		},
-		"qemu": {
-			"url": "https://ftpmirror.gnu.org/gnu/guix",
-			"iso_file": "guix-system-vm-image-1.4.0.x86_64-linux.qcow2",
-			"sig_file": "guix-system-vm-image-1.4.0.x86_64-linux.qcow2.sig",
-			"sum_file": null
-		},
-		"binary": {
-			"x86_64": {
-				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-binary-1.4.0.x86_64-linux.tar.xz",
-				"sig_file": "guix-binary-1.4.0.x86_64-linux.tar.xz.sig",
+		"latest": {
+			"iso": {
+				"url": "https://ci.guix.gnu.org/search/latest",
+				"iso_file": "ISO-9660?query=spec:images+status:success+system:x86_64-linux+image.iso",
+				"sig_file": null,
 				"sum_file": null
 			},
-			"i686": {
-				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-binary-1.4.0.i686-linux.tar.xz",
-				"sig_file": "guix-binary-1.4.0.i686-linux.tar.xz.sig",
+			"hurd": {
+				"url": "https://ci.guix.gnu.org/search/latest",
+				"iso_file": "image?query=spec:images+status:success+system:x86_64-linux+hurd-barebones.qcow2",
+				"sig_file": null,
 				"sum_file": null
 			},
-			"armhf": {
-				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-binary-1.4.0.armhf-linux.tar.xz",
-				"sig_file": "guix-binary-1.4.0.armhf-linux.tar.xz.sig",
+			"binary": {
+				"url": "https://ci.guix.gnu.org/search/latest",
+				"iso_file": "archive?query=spec:tarball+status:success+system:x86_64-linux+guix-binary.tar.xz",
+				"sig_file": null,
 				"sum_file": null
 			},
-			"aarch64": {
-				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-binary-1.4.0.aarch64-linux.tar.xz",
-				"sig_file": "guix-binary-1.4.0.aarch64-linux.tar.xz.sig",
+			"pinebook_pro": {
+				"url": "https://ci.guix.gnu.org/search/latest",
+				"iso_file": "image?query=spec:images+status:success+system:x86_64-linux+pinebook-pro-barebones-raw-image",
+				"sig_file": null,
 				"sum_file": null
 			},
-			"powerpc64le": {
-				"url": "https://ftpmirror.gnu.org/gnu/guix",
-				"iso_file": "guix-binary-1.4.0.powerpc64le-linux.tar.xz",
-				"sig_file": "guix-binary-1.4.0.powerpc64le-linux.tar.xz.sig",
+			"vision_five2": {
+				"url": "https://ci.guix.gnu.org/search/latest",
+				"iso_file": "image?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image",
+				"sig_file": null,
 				"sum_file": null
 			}
-		},
-		"source" : {
-			"url": "https://ftpmirror.gnu.org/gnu/guix",
-			"iso_file": "guix-1.4.0.tar.gz",
-			"sig_file": "guix-1.4.0.tar.gz.sig",
-			"sum_file": null
 		}
 	},
 	"hyperbola": {
