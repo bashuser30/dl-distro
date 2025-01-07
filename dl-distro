@@ -243,7 +243,11 @@ verify_checksum()
 
 download_alma()
 {
-	wget_spider "$url"/{"$iso_file","$sig_file"}
+	if [[ "$traverse_path" == *"live"* ]]; then
+		wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	else
+		wget_spider "$url"/{"$iso_file","$sig_file"}
+	fi
 
 	if [[ "$traverse_path" == *"${distro}_8"* ]]; then
 		fetch_gpg_key "${distro}_8"
@@ -251,8 +255,14 @@ download_alma()
 		fetch_gpg_key "${distro}_9"
 	fi
 
-	wget_file "$url/$sig_file"
-	verify_gpg_signature "$sig_file"
+	if [[ "$traverse_path" == *"live"* ]]; then
+		wget_file "$url"/{"$sig_file","$sum_file"}
+		verify_gpg_signature "$sig_file" "$sum_file"
+	else
+		wget_file "$url/$sig_file"
+		verify_gpg_signature "$sig_file"
+	fi
+
 	wget_file "$url/$iso_file"
 	verify_checksum
 }
