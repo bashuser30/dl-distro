@@ -355,11 +355,11 @@ download_guix()
 		wget_spider "$url/$iso_file"
 		wget_file "$url/$iso_file"
 		msg "Guix System does not provide checksum or signature files for this image."
-		
+
 		if [[ "$traverse_path" == *"binary"* ]]; then
-			mv "${iso_file}" "x86_64-latest-$(cut -d'+' -f4 <<<"${iso_file}")"
+			mv "$iso_file" "x86_64-latest-$(cut -d'+' -f4 <<<"$iso_file")"
 		else
-			mv "${iso_file}" "x86_64-latest-guix-$(cut -d'+' -f4 <<<"${iso_file}")"
+			mv "$iso_file" "x86_64-latest-guix-$(cut -d'+' -f4 <<<"$iso_file")"
 		fi
 
 		return 0
