@@ -23,9 +23,9 @@ _dl_distro()
 
 	_init_completion || return
 
-	short_opts=('-a -c -d -D -h -i -l -L -n -p -P -s -u -V')
+	short_opts=('-a -c -d -D -h -i -l -L -m -n -p -P -s -u -V')
 	long_opts=('--auto-update --conf-file --distro --delete-key --help
-	            --import-key --list-keys --list-distros --no-verify --path
+	            --import-key --list-keys --list-distros --manual-download --no-verify --path
 	            --purge-data --spider --update-json --version')
 	distros=('alma alpine arch cachy debian dragora fedora ghostbsd gparted guix
 	          hyperbola kali mint nix nobara openbsd opensuse parabola parch
