@@ -244,7 +244,7 @@ verify_checksum()
 
 manual_download()
 {
-	if [[ "${manual_download_enabled}" != "true" ]]; then
+	if [[ "$manual_download_enabled" != "true" ]]; then
 		return 0;
 	fi
 
@@ -255,16 +255,16 @@ manual_download()
 	msg ""
 	msg "iso file: ${url}/${iso_file}"
 
-	if [[ "${sum_file}" != "null" ]]; then
+	if [[ "$sum_file" != "null" ]]; then
 		msg "sum file: ${url}/${sum_file}"
 	fi
 
-	if [[ "${sig_file}" != "null" ]]; then
+	if [[ "$sig_file" != "null" ]]; then
 		msg "sig file: ${url}/${sig_file}"
 	fi
 
 
-	if [[ "${sum_file}" != "null" ]]; then
+	if [[ "$sum_file" != "null" ]]; then
 		msg ""
 		msg "-------------------"
 		msg "${green}Make sure the ISO file is downloaded correctly${reset}"
@@ -279,7 +279,7 @@ manual_download()
 
 	gpg_key="$(jq -r ".gpg_keys.${distro}" "$json_file")"
 
-	if [ "${sig_file}" != "null" -a "${distro}" != "void" -a "${distro}" != "openbsd" ]; then
+	if [[ "$sig_file" != "null" && "$distro" != "void" && "$distro" != "openbsd" ]]; then
 		msg ""
 		msg "-------------------"
 		msg "${green}Check Digital Signature${reset}"
