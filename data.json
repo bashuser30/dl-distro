@@ -66,7 +66,7 @@
 		"openbsd": "https://cdn.openbsd.org/pub/OpenBSD/7.6/openbsd-76-base.pub"
 	},
 	"minisign_keys": {
-		"void": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20240314.pub"
+		"void": "https://raw.githubusercontent.com/void-linux/void-packages/master/srcpkgs/void-release-keys/files/void-release-20250202.pub"
 	},
 	"oddballs": {
 		"gparted": {
@@ -3993,13 +3993,13 @@
 				"live":{
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-live-x86_64-20240314-base.iso",
+						"iso_file": "void-live-x86_64-20250202-base.iso",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-live-x86_64-musl-20240314-base.iso",
+						"iso_file": "void-live-x86_64-musl-20250202-base.iso",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
@@ -4007,13 +4007,13 @@
 				"rootfs_tarball": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-x86_64-ROOTFS-20240314.tar.xz",
+						"iso_file": "void-x86_64-ROOTFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-x86_64-musl-ROOTFS-20240314.tar.xz",
+						"iso_file": "void-x86_64-musl-ROOTFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
@@ -4022,13 +4022,13 @@
 			"xfce": {
 				"glibc": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-live-x86_64-20240314-xfce.iso",
+					"iso_file": "void-live-x86_64-20250202-xfce.iso",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				},
 				"musl": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-live-x86_64-musl-20240314-xfce.iso",
+					"iso_file": "void-live-x86_64-musl-20250202-xfce.iso",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				}
@@ -4038,20 +4038,20 @@
 			"base": {
 				"live": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-live-i686-20240314-base.iso",
+					"iso_file": "void-live-i686-20250202-base.iso",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				},
 				"rootfs_tarball": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-i686-ROOTFS-20240314.tar.xz",
+					"iso_file": "void-i686-ROOTFS-20250202.tar.xz",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				}
 			},
 			"xfce": {
 				"url": "https://repo-default.voidlinux.org/live/current",
-				"iso_file": "void-live-i686-20240314-xfce.iso",
+				"iso_file": "void-live-i686-20250202-xfce.iso",
 				"sig_file": "sha256sum.sig",
 				"sum_file": "sha256sum.txt"
 			}
@@ -4060,13 +4060,13 @@
 			"armv6l": {
 				"glibc": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-armv6l-ROOTFS-20240314.tar.xz",
+					"iso_file": "void-armv6l-ROOTFS-20250202.tar.xz",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				},
 				"musl": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-armv6l-musl-ROOTFS-20240314.tar.xz",
+					"iso_file": "void-armv6l-musl-ROOTFS-20250202.tar.xz",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				}
@@ -4074,44 +4074,106 @@
 			"armv7l": {
 				"glibc": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-armv7l-ROOTFS-20240314.tar.xz",
+					"iso_file": "void-armv7l-ROOTFS-20250202.tar.xz",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				},
 				"musl": {
 					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-armv7l-musl-ROOTFS-20240314.tar.xz",
+					"iso_file": "void-armv7l-musl-ROOTFS-20250202.tar.xz",
 					"sig_file": "sha256sum.sig",
 					"sum_file": "sha256sum.txt"
 				}
 			},
 			"aarch64": {
-				"glibc": {
-					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-aarch64-ROOTFS-20240314.tar.xz",
-					"sig_file": "sha256sum.sig",
-					"sum_file": "sha256sum.txt"
-				},
-				"musl": {
-					"url": "https://repo-default.voidlinux.org/live/current",
-					"iso_file": "void-aarch64-musl-ROOTFS-20240314.tar.xz",
-					"sig_file": "sha256sum.sig",
-					"sum_file": "sha256sum.txt"
-				}
-			}
-		},
-		"arm_platforms": {
-			"rpi_armv6l": {
 				"live": {
+					"base": {
+						"glibc": {
+							"url": "https://repo-default.voidlinux.org/live/current",
+							"iso_file": "void-live-aarch64-20250202-base.iso",
+							"sig_file": "sha256sum.sig",
+							"sum_file": "sha256sum.txt"
+						},
+						"musl": {
+							"url": "https://repo-default.voidlinux.org/live/current",
+							"iso_file": "void-live-aarch64-musl-20250202-base.iso",
+							"sig_file": "sha256sum.sig",
+							"sum_file": "sha256sum.txt"
+						}
+					},
+					"xfce": {
+						"glibc": {
+							"url": "https://repo-default.voidlinux.org/live/current",
+							"iso_file": "void-live-aarch64-20250202-xfce.iso",
+							"sig_file": "sha256sum.sig",
+							"sum_file": "sha256sum.txt"
+						},
+						"musl": {
+							"url": "https://repo-default.voidlinux.org/live/current",
+							"iso_file": "void-live-aarch64-musl-20250202-xfce.iso",
+							"sig_file": "sha256sum.sig",
+							"sum_file": "sha256sum.txt"
+						}
+					}
+				},
+				"rootfs_tarball": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv6l-20240314.img.xz",
+						"iso_file": "void-aarch64-ROOTFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv6l-musl-20240314.img.xz",
+						"iso_file": "void-aarch64-musl-ROOTFS-20250202.tar.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
+				}
+			}
+		},
+		"arm_platforms": {
+			"apple_silicon": {
+				"base": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-live-asahi-20250202-base.iso",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-live-asahi-musl-20250202-base.iso",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
+				},
+				"xfce": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-live-asahi-20250202-xfce.iso",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-live-asahi-musl-20250202-xfce.iso",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					}
+				}
+			},
+			"rpi_armv6l": {
+				"platform_image": {
+					"glibc": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv6l-20250202.img.xz",
+						"sig_file": "sha256sum.sig",
+						"sum_file": "sha256sum.txt"
+					},
+					"musl": {
+						"url": "https://repo-default.voidlinux.org/live/current",
+						"iso_file": "void-rpi-armv6l-musl-20250202.img.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
@@ -4119,29 +4181,29 @@
 				"rootfs_tarball": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv6l-PLATFORMFS-20240314.tar.xz",
+						"iso_file": "void-rpi-armv6l-PLATFORMFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20240314.tar.xz",
+						"iso_file": "void-rpi-armv6l-musl-PLATFORMFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
 				}
 			},
 			"rpi_armv7l": {
-				"live": {
+				"platform_image": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv7l-20240314.img.xz",
+						"iso_file": "void-rpi-armv7l-20250202.img.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv7l-musl-20240314.img.xz",
+						"iso_file": "void-rpi-armv7l-musl-20250202.img.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
@@ -4149,29 +4211,29 @@
 				"rootfs_tarball": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv7l-PLATFORMFS-20240314.tar.xz",
+						"iso_file": "void-rpi-armv7l-PLATFORMFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20240314.tar.xz",
+						"iso_file": "void-rpi-armv7l-musl-PLATFORMFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
 				}
 			},
 			"rpi_aarch64": {
-				"live": {
+				"platform_image": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-aarch64-20240314.img.xz",
+						"iso_file": "void-rpi-aarch64-20250202.img.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-aarch64-musl-20240314.img.xz",
+						"iso_file": "void-rpi-aarch64-musl-20250202.img.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
@@ -4179,13 +4241,13 @@
 				"rootfs_tarball": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-aarch64-PLATFORMFS-20240314.tar.xz",
+						"iso_file": "void-rpi-aarch64-PLATFORMFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					},
 					"musl": {
 						"url": "https://repo-default.voidlinux.org/live/current",
-						"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20240314.tar.xz",
+						"iso_file": "void-rpi-aarch64-musl-PLATFORMFS-20250202.tar.xz",
 						"sig_file": "sha256sum.sig",
 						"sum_file": "sha256sum.txt"
 					}
