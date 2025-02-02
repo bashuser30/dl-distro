@@ -34,6 +34,7 @@ default_download_dir="$PWD"
 auto_update_enabled="true"
 verification_enabled="true"
 spider_mode_enabled="false"
+manual_download_enabled="false"
 gpg_keyserver="hkps://keyserver.ubuntu.com"
 json_url="https://codeberg.org/bashuser30/dl-distro/raw/branch/master/data.json"
 green=$'\033[32m'
@@ -241,8 +242,79 @@ verify_checksum()
 	fi
 }
 
+manual_download()
+{
+	if [[ "${manual_download_enabled}" != "true" ]]; then
+		return 0;
+	fi
+
+	printf "\033[H\033[2J"
+	msg "Manual Download"
+	msg ""
+	msg "${green}Download files${reset}"
+	msg ""
+	msg "iso file: ${url}/${iso_file}"
+
+	if [[ "${sum_file}" != "null" ]]; then
+		msg "sum file: ${url}/${sum_file}"
+	fi
+
+	if [[ "${sig_file}" != "null" ]]; then
+		msg "sig file: ${url}/${sig_file}"
+	fi
+
+
+	if [[ "${sum_file}" != "null" ]]; then
+		msg ""
+		msg "-------------------"
+		msg "${green}Make sure the ISO file is downloaded correctly${reset}"
+		msg ""
+		msg "Open a terminal tab from path of sum and iso files and RUN:"
+		msg "${yellow}NOTE: The path of sum and iso file must be the same${reset}"
+		msg ""
+		msg "${sum_algo} -c --ignore-missing ${sum_file}"
+		msg ""
+		msg "${red}If the result is not OK so the iso file is not downloaded correctly!${reset}"
+	fi
+
+	gpg_key="$(jq -r ".gpg_keys.${distro}" "$json_file")"
+
+	if [ "${sig_file}" != "null" -a "${distro}" != "void" -a "${distro}" != "openbsd" ]; then
+		msg ""
+		msg "-------------------"
+		msg "${green}Check Digital Signature${reset}"
+		msg ""
+		msg "Import gpg key:"
+		msg ""
+		msg "gpg --import --keyserver hkps://keyserver.ubuntu.com  --recv-keys $gpg_key"
+		msg ""
+		msg "Then check the Digital Signature, So RUN:"
+		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
+		msg ""
+		msg "gpg --verify ${sig_file} ${sum_file}"
+		msg ""
+		msg "${red}If the result is \"BAD signature\", so delete iso file!${reset}"
+		msg ""
+		msg "Then you can remove the gpg key:"
+		msg ""
+		msg "gpg --yes --batch --delete-keys ${gpg_key}"
+	fi
+
+	exit 0;
+}
+
 download_alma()
 {
+
+	if [[ "$traverse_path" == *"${distro}_8"* ]]; then
+		distro=${distro}_8
+		manual_download
+	else
+		distro=${distro}_9
+		manual_download
+	fi
+
+
 	if [[ "$traverse_path" == *"live"* ]]; then
 		wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	else
@@ -269,6 +341,7 @@ download_alma()
 
 download_alpine()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -278,6 +351,7 @@ download_alpine()
 
 download_arch()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -287,6 +361,7 @@ download_arch()
 
 download_cachy()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -296,6 +371,7 @@ download_cachy()
 
 download_debian()
 {
+	manual_download
 	[[ "$traverse_path" == *"ports.gnu_hurd.latest"* ]] && {
 		wget_spider "$url/$iso_file"
 		wget_file "$url/$iso_file"
@@ -321,6 +397,7 @@ download_debian()
 
 download_dragora()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
@@ -331,6 +408,7 @@ download_dragora()
 
 download_fedora()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url/$sig_file"
@@ -341,6 +419,7 @@ download_fedora()
 
 download_ghostbsd()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
@@ -349,6 +428,7 @@ download_ghostbsd()
 
 download_gparted()
 {
+	manual_download
 	sig_sum_url="$(jq -r ".oddballs.gparted.sig_sum_url" "$json_file")"
 	wget_spider "$url/$iso_file" "$sig_sum_url"/{"$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
@@ -360,6 +440,7 @@ download_gparted()
 
 download_guix()
 {
+	manual_download
 	[[ "$traverse_path" == *"latest"* ]] && {
 		msg "These images are development snapshots and don't have stability."
 		wget_spider "$url/$iso_file"
@@ -384,6 +465,7 @@ download_guix()
 
 download_hyperbola()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -407,6 +489,8 @@ download_kali()
 		fi
 	fi
 
+	manual_download
+
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -417,6 +501,7 @@ download_kali()
 
 download_mint()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -427,6 +512,7 @@ download_mint()
 
 download_nix()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	printf "\n" >> "$sum_file"
@@ -440,6 +526,7 @@ download_nix()
 
 download_nobara()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
@@ -448,6 +535,7 @@ download_nobara()
 
 download_openbsd()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_signify_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -463,6 +551,7 @@ download_openbsd()
 
 download_opensuse()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -475,6 +564,7 @@ download_opensuse()
 
 download_parabola()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
@@ -485,6 +575,7 @@ download_parabola()
 
 download_parch()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
@@ -493,6 +584,7 @@ download_parch()
 
 download_parrot()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url/$sig_file"
@@ -503,6 +595,7 @@ download_parrot()
 
 download_pop()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -513,6 +606,7 @@ download_pop()
 
 download_pure()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
@@ -521,6 +615,7 @@ download_pure()
 
 download_qubes()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url/$sum_file"
@@ -532,6 +627,7 @@ download_qubes()
 
 download_rocky()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
@@ -540,6 +636,7 @@ download_rocky()
 
 download_slackware()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -549,6 +646,7 @@ download_slackware()
 
 download_solus()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -559,6 +657,7 @@ download_solus()
 
 download_tails()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
@@ -568,6 +667,7 @@ download_tails()
 
 download_tinycore()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
@@ -576,6 +676,7 @@ download_tinycore()
 
 download_trisquel()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -585,6 +686,7 @@ download_trisquel()
 
 download_ubuntu()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	[[ "$traverse_path" == *"v14_04"* ]] && fetch_gpg_key "${distro}_v14_04"
@@ -596,6 +698,7 @@ download_ubuntu()
 
 download_void()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_minisign_key
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -606,6 +709,7 @@ download_void()
 
 download_whonix()
 {
+	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
@@ -615,6 +719,7 @@ download_whonix()
 
 download_zorin()
 {
+	manual_download
 	wget_spider "$url/$iso_file"
 	wget_file "$url/$iso_file"
 	msg "Zorin OS does not provide checksum or signature files."
@@ -767,6 +872,7 @@ OPTIONS:
   -i, --import-key <KEY_FILE>       Import a GPG key from a key file.
   -l, --list-keys                   List the stored GPG keys.
   -L, --list-distros                List the supported distributions.
+  -m, --manual-download             Show manual download steps
   -n, --no-verify                   Skip key fetching and verification.
   -p, --path <PATH>                 Download image to specified directory.
   -P, --purge-data                  Purge ALL the stored data.
@@ -923,6 +1029,7 @@ parse_opts()
 			-i|--import-key) import_gpg_key "${2:-}"; exit 0 ;;
 			-l|--list-keys) list_gpg_keys; exit 0 ;;
 			-L|--list-distros) list_distros; exit 0 ;;
+			-m|--manual-download) manual_download_enabled="true"; shift 1 ;;
 			-n|--no-verify) verification_enabled="false"; shift 1 ;;
 			-p|--path)
 				if [[ -n "${2:-}" ]]; then
