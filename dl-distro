@@ -289,15 +289,66 @@ manual_download()
 		msg "gpg --import --keyserver hkps://keyserver.ubuntu.com  --recv-keys $gpg_key"
 		msg ""
 		msg "Then check the Digital Signature, So RUN:"
+
+		if [ "${sum_file}" != "null" ]; then
 		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
 		msg ""
 		msg "gpg --verify ${sig_file} ${sum_file}"
+		
+		else
+		msg "${yellow}NOTE: The path of iso and sig file must be the same${reset}"
+		msg ""
+		msg "gpg --verify ${sig_file} ${iso_file}"
+		fi
+
 		msg ""
 		msg "${red}If the result is \"BAD signature\", so delete iso file!${reset}"
 		msg ""
 		msg "Then you can remove the gpg key:"
 		msg ""
 		msg "gpg --yes --batch --delete-keys ${gpg_key}"
+		
+	elif [ "$distro" == "void" ]; then
+		msg ""
+		msg "-------------------"
+		msg "${green}Check Digital Signature${reset}"
+		msg ""
+		msg "minisign must be installed"
+		msg ""
+		msg "Download minisign key of void:"
+		msg ""
+
+		minisign_key_url="$(jq -r ".minisign_keys.$distro" "$json_file")"
+		minisign_key="$(basename "$minisign_key_url")"
+		msg "key file: $minisign_key_url"
+		msg ""
+		msg "Then RUN:"
+		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
+		msg ""
+		msg "minisign -Vp $minisign_key -x $sig_file -m $sum_file"
+		msg ""
+		msg "${red}If the result is not \"Signature and comment signature verified\", so delete iso file!${reset}"
+
+	elif [ "$distro" == "openbsd" ]; then
+		msg ""
+		msg "-------------------"
+		msg "${green}Check Digital Signature${reset}"
+		msg ""
+		msg "signify-openbsd must be installed"
+		msg ""
+		msg "Download signify key of OpenBSD:"
+		msg ""
+
+		signify_key_url="$(jq -r ".signify_keys.$distro" "$json_file")"
+		signify_key="$(basename "$signify_key_url")"
+		msg "key file: $signify_key_url"
+		msg ""
+		msg "Then RUN:"
+		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
+		msg ""
+		msg "signify-openbsd -Vp $signify_key -x $sig_file -m $sum_file"
+		msg ""
+		msg "${red}If the result is not \"Signature Verified\", so delete iso file!${reset}"
 	fi
 
 	exit 0;
