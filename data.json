@@ -3008,39 +3008,17 @@
 		}
 	},
 	"parch": {
-		"official": {
-			"gnome": {
-				"url": "https://mirror.parchlinux.com/gnome",
-				"iso_file": "ParchLinux-gnome-latest.iso",
-				"sig_file": null,
-				"sum_file": "md5sum.txt"
-			},
-			"kde": {
-				"url": "https://mirror.parchlinux.com/plasma",
-				"iso_file": "ParchLinux-plasma-latest.iso",
-				"sig_file": null,
-				"sum_file": "md5sum.txt"
-			},
-			"cosmic": {
-				"url": "https://mirror.parchlinux.com/cosmic",
-				"iso_file": "ParchLinux-cosmic-latest.iso",
-				"sig_file": null,
-				"sum_file": "md5sum.txt"
-			}
+		"gnome": {
+			"url": "https://mirror.parchlinux.com/gnome",
+			"iso_file": "ParchLinux-gnome-latest.iso",
+			"sig_file": null,
+			"sum_file": "md5sum.txt"
 		},
-		"community": {
-			"xfce": {
-				"url": "https://mirror.parchlinux.com/XFCE",
-				"iso_file": "ParchLinux-XFCE-latest.iso",
-				"sig_file": null,
-				"sum_file": "md5sum.txt"
-			},
-			"mate": {
-				"url": "https://mirror.parchlinux.com/mate",
-				"iso_file": "ParchLinux-mate-latest.iso",
-				"sig_file": null,
-				"sum_file": "md5sum.txt"
-			}
+		"kde": {
+			"url": "https://mirror.parchlinux.com/plasma",
+			"iso_file": "ParchLinux-plasma-latest.iso",
+			"sig_file": null,
+			"sum_file": "md5sum.txt"
 		}
 	},
 	"parrot": {
