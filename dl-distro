@@ -290,7 +290,7 @@ manual_download()
 		msg ""
 		msg "Then check the Digital Signature, So RUN:"
 
-		if [ "${sum_file}" != "null" ]; then
+		if [ "$sum_file" != "null" ]; then
 		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
 		msg ""
 		msg "gpg --verify ${sig_file} ${sum_file}"
