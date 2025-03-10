@@ -1092,7 +1092,7 @@ parse_opts()
 				;;
 			-P|--purge-data) purge_all_data; exit 0 ;;
 			-s|--spider) spider_mode_enabled="true"; shift 1 ;;
-			-u|--update-json) update_json_file; exit 0 ;;
+			-u|--update-json) update_json_file; shift 1 ;;
 			-V|--version) printf "%s\n" "$version"; exit 0 ;;
 			*) die "Invalid option: ${red}$1" ;;
 		esac
