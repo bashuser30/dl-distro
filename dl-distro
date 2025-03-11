@@ -122,6 +122,8 @@ wget_spider()
 	local url
 
 	for url in "$@"; do
+		[[ "$(basename "$url")" == "null" ]] && continue
+
 		if ! wget -nvc --spider "$url"; then
 			error "Spider failed for: ${red}$url"
 		fi
@@ -332,12 +334,7 @@ download_alma()
 	fi
 
 	manual_download
-
-	if [[ "$traverse_path" == *"live"* ]]; then
-		wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	else
-		wget_spider "$url"/{"$iso_file","$sig_file"}
-	fi
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
 	if [[ "$traverse_path" == *"${distro}_8"* ]]; then
 		fetch_gpg_key "${distro}_8"
@@ -390,23 +387,21 @@ download_cachy()
 download_debian()
 {
 	manual_download
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
 	[[ "$traverse_path" == *"ports.gnu_hurd.latest"* ]] && {
-		wget_spider "$url/$iso_file"
 		wget_file "$url/$iso_file"
 		msg "Debian does not provide checksum or signature files for this image."
 		return 0
 	}
 
 	[[ "$traverse_path" == *"ports.gnu_hurd"* ]] && {
-		wget_spider "$url"/{"$iso_file","$sum_file"}
 		wget_file "$url"/{"$sum_file","$iso_file"}
 		verify_checksum
 		msg "Debian does not provide signature files for this image."
 		return 0
 	}
 
-	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
@@ -428,7 +423,7 @@ download_dragora()
 download_fedora()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sig_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
@@ -439,7 +434,7 @@ download_fedora()
 download_ghostbsd()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
 	msg "GhostBSD does not provide signature files."
@@ -460,10 +455,10 @@ download_gparted()
 download_guix()
 {
 	manual_download
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
 	[[ "$traverse_path" == *"latest"* ]] && {
 		msg "These images are development snapshots and don't have stability."
-		wget_spider "$url/$iso_file"
 		wget_file "$url/$iso_file"
 		msg "Guix System does not provide checksum or signature files for this image."
 
@@ -476,7 +471,6 @@ download_guix()
 		return 0
 	}
 
-	wget_spider "$url"/{"$iso_file","$sig_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
@@ -510,7 +504,6 @@ download_kali()
 	fi
 
 	manual_download
-
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
@@ -533,7 +526,7 @@ download_mint()
 download_nix()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	printf "\n" >> "$sum_file"
 	read -r line < "$sum_file"
@@ -547,7 +540,7 @@ download_nix()
 download_nobara()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
 	msg "Nobara does not provide signature files."
@@ -596,7 +589,7 @@ download_parabola()
 download_parch()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
 	msg "Parch GNU/Linux does not provide signature files."
@@ -605,7 +598,7 @@ download_parch()
 download_parrot()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sig_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url/$sig_file"
 	verify_gpg_signature "$sig_file"
@@ -627,7 +620,7 @@ download_pop()
 download_pure()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
 	msg "PureOS does not provide signature files."
@@ -648,7 +641,7 @@ download_qubes()
 download_rocky()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
 	msg "Rocky Linux does not provide signature files."
@@ -678,7 +671,7 @@ download_solus()
 download_tails()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sig_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
@@ -688,7 +681,7 @@ download_tails()
 download_tinycore()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url"/{"$sum_file","$iso_file"}
 	verify_checksum
 	msg "Tiny Core does not provide signature files."
@@ -740,7 +733,7 @@ download_whonix()
 download_zorin()
 {
 	manual_download
-	wget_spider "$url/$iso_file"
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 	wget_file "$url/$iso_file"
 	msg "Zorin OS does not provide checksum or signature files."
 }
