@@ -244,127 +244,94 @@ verify_checksum()
 
 manual_download()
 {
-	if [[ "$manual_download_enabled" != "true" ]]; then
-		return 0;
-	fi
+	[[ "$manual_download_enabled" != "true" ]] && return 0
 
-	printf "\033[H\033[2J"
-	msg "Manual Download"
+	printf "\e[2J\e[H"
+
+	msg "${green}Download files$reset"
 	msg ""
-	msg "${green}Download files${reset}"
-	msg ""
-	msg "iso file: ${url}/${iso_file}"
 
-	if [[ "$sum_file" != "null" ]]; then
-		msg "sum file: ${url}/${sum_file}"
-	fi
+	msg "Image: $url/$iso_file"
+	[[ "$sum_file" != "null" ]] && msg "Checksum: $url/$sum_file"
+	[[ "$sig_file" != "null" ]] && msg "Signature: $url/$sig_file"
 
-	if [[ "$sig_file" != "null" ]]; then
-		msg "sig file: ${url}/${sig_file}"
-	fi
+	[[ "$sum_file" != "null" ]] && {
+		msg ""
+		msg "${green}Validate Checksum$reset"
+		msg ""
+		msg "Navigate to the download directory and run:"
+		msg ""
+		msg "    $sum_algo -c --ignore-missing $sum_file"
+		msg ""
+		msg "${yellow}If you see \"FAILED\", the file may be corrupt or tampered with!$reset"
+	}
 
+	[[ "$sig_file" != "null" && "$distro" != "void" && "$distro" != "openbsd" ]] && {
+		msg ""
+		msg "${green}Validate Signature$reset"
+		msg ""
+		msg "Import the GPG key and validate the signature:"
+		msg ""
+		msg "    gpg --keyserver $gpg_keyserver --recv-keys $(jq -r ".gpg_keys.$distro" "$json_file")"
+		msg "    gpg --verify $sig_file"
+		msg ""
+		msg "${yellow}If you see \"BAD signature\", the file may be corrupt or tampered with!$reset"
+		exit 0
+	}
 
-	if [[ "$sum_file" != "null" ]]; then
+	[[ "$distro" == "void" ]] && {
 		msg ""
-		msg "-------------------"
-		msg "${green}Make sure the ISO file is downloaded correctly${reset}"
-		msg ""
-		msg "Open a terminal tab from path of sum and iso files and RUN:"
-		msg "${yellow}NOTE: The path of sum and iso file must be the same${reset}"
-		msg ""
-		msg "${sum_algo} -c --ignore-missing ${sum_file}"
-		msg ""
-		msg "${red}If the result is not OK so the iso file is not downloaded correctly!${reset}"
-	fi
-
-	gpg_key="$(jq -r ".gpg_keys.${distro}" "$json_file")"
-
-	if [[ "$sig_file" != "null" && "$distro" != "void" && "$distro" != "openbsd" ]]; then
-		msg ""
-		msg "-------------------"
-		msg "${green}Check Digital Signature${reset}"
-		msg ""
-		msg "Import gpg key:"
-		msg ""
-		msg "gpg --import --keyserver hkps://keyserver.ubuntu.com  --recv-keys $gpg_key"
-		msg ""
-		msg "Then check the Digital Signature, So RUN:"
-
-		if [ "$sum_file" != "null" ]; then
-		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
-		msg ""
-		msg "gpg --verify ${sig_file} ${sum_file}"
-		
-		else
-		msg "${yellow}NOTE: The path of iso and sig file must be the same${reset}"
-		msg ""
-		msg "gpg --verify ${sig_file} ${iso_file}"
-		fi
-
-		msg ""
-		msg "${red}If the result is \"BAD signature\", so delete iso file!${reset}"
-		msg ""
-		msg "Then you can remove the gpg key:"
-		msg ""
-		msg "gpg --yes --batch --delete-keys ${gpg_key}"
-		
-	elif [ "$distro" == "void" ]; then
-		msg ""
-		msg "-------------------"
-		msg "${green}Check Digital Signature${reset}"
-		msg ""
-		msg "minisign must be installed"
-		msg ""
-		msg "Download minisign key of void:"
+		msg "${green}Validate Signature$reset"
 		msg ""
 
 		minisign_key_url="$(jq -r ".minisign_keys.$distro" "$json_file")"
 		minisign_key="$(basename "$minisign_key_url")"
-		msg "key file: $minisign_key_url"
-		msg ""
-		msg "Then RUN:"
-		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
-		msg ""
-		msg "minisign -Vp $minisign_key -x $sig_file -m $sum_file"
-		msg ""
-		msg "${red}If the result is not \"Signature and comment signature verified\", so delete iso file!${reset}"
 
-	elif [ "$distro" == "openbsd" ]; then
+		msg "Download the Minisign key:"
 		msg ""
-		msg "-------------------"
-		msg "${green}Check Digital Signature${reset}"
+		msg "    $minisign_key_url"
 		msg ""
-		msg "signify-openbsd must be installed"
+		msg "Validate the signature:"
 		msg ""
-		msg "Download signify key of OpenBSD:"
+		msg "    minisign -Vp $minisign_key -x $sig_file -m $sum_file"
+		msg ""
+		msg "${yellow}If you see \"Signature verification failed\", the file may be corrupt or tampered with!$reset"
+		exit 0
+	}
+
+	[[ "$distro" == "openbsd" ]] && {
+		msg ""
+		msg "${green}Validate Signature$reset"
 		msg ""
 
 		signify_key_url="$(jq -r ".signify_keys.$distro" "$json_file")"
 		signify_key="$(basename "$signify_key_url")"
-		msg "key file: $signify_key_url"
-		msg ""
-		msg "Then RUN:"
-		msg "${yellow}NOTE: The path of sum and sig file must be the same${reset}"
-		msg ""
-		msg "signify-openbsd -Vp $signify_key -x $sig_file -m $sum_file"
-		msg ""
-		msg "${red}If the result is not \"Signature Verified\", so delete iso file!${reset}"
-	fi
 
-	exit 0;
+		msg "Download the Signify key:"
+		msg ""
+		msg "    $signify_key_url"
+		msg ""
+		msg "Validate the signature:"
+		msg ""
+		msg "    signify -Vp $signify_key -x $sig_file -m $sum_file"
+		msg ""
+		msg "${yellow}If you see \"Signature verification failed\", the file may be corrupt or tampered with!$reset"
+		exit 0
+	}
+
+	exit 0
 }
 
 download_alma()
 {
 
 	if [[ "$traverse_path" == *"${distro}_8"* ]]; then
-		distro=${distro}_8
-		manual_download
+		distro="${distro}_8"
 	else
-		distro=${distro}_9
-		manual_download
+		distro="${distro}_9"
 	fi
 
+	manual_download
 
 	if [[ "$traverse_path" == *"live"* ]]; then
 		wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
@@ -423,6 +390,7 @@ download_cachy()
 download_debian()
 {
 	manual_download
+
 	[[ "$traverse_path" == *"ports.gnu_hurd.latest"* ]] && {
 		wget_spider "$url/$iso_file"
 		wget_file "$url/$iso_file"
@@ -492,6 +460,7 @@ download_gparted()
 download_guix()
 {
 	manual_download
+
 	[[ "$traverse_path" == *"latest"* ]] && {
 		msg "These images are development snapshots and don't have stability."
 		wget_spider "$url/$iso_file"
@@ -956,9 +925,11 @@ start_download()
 	sum_file="${json_values[3]}"
 	sum_algo="$(jq -r ".sum_algos.$distro" "$json_file")"
 
-	trap cleanup EXIT INT TERM
+	[[ "$manual_download_enabled" != "true" ]] && {
+		trap cleanup EXIT INT TERM
+		msg "Downloading at: ${green}$default_download_dir"
+	}
 
-	msg "Downloading at: ${green}$default_download_dir"
 	download_"$distro"
 
 	exit 0
