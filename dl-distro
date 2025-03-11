@@ -775,6 +775,7 @@ generate_conf_file()
 		printf 'auto_update_enabled="true"\n'
 		printf 'verification_enabled="true"\n'
 		printf 'spider_mode_enabled="false"\n'
+		printf 'manual_download_enabled="false"\n'
 		printf 'gpg_keyserver="hkps://keyserver.ubuntu.com"\n'
 	} > "$conf_file"
 
