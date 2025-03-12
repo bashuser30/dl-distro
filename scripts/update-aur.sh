@@ -30,9 +30,9 @@ printf "\n"
 
 git diff PKGBUILD
 
-printf "\nCommit and push? (y/N): \n"
+printf "\n"
 
-read -r CHOICE
+read -rp "Commit and push? (y/N): " CHOICE
 
 if [[ "$CHOICE" != "y" && "$CHOICE" != "Y" ]]; then
 	printf "Canceled\n" >&2

@@ -17,7 +17,7 @@ read -rp "Commit and push? (y/N): " CHOICE
 
 [[ "$CHOICE" != "y" && "$CHOICE" != "Y" ]] && {
 	printf "Canceled\n" >&2
-    exit 1
+	exit 1
 }
 
 git add ./dl-distro ./man/dl-distro.1 ./VERSION
