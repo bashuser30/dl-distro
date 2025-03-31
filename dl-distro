@@ -269,8 +269,8 @@ manual_download()
 	msg "${green}Download files$reset"
 	msg ""
 
-	msg "Image: $url/$iso_file"
-	[[ "$sum_file" != "null" ]] && msg "Checksum: $url/$sum_file"
+	msg "Image:     $url/$iso_file"
+	[[ "$sum_file" != "null" ]] && msg "Checksum:  $url/$sum_file"
 	[[ "$sig_file" != "null" ]] && msg "Signature: $url/$sig_file"
 
 	[[ "$sum_file" != "null" ]] && {
@@ -294,6 +294,10 @@ manual_download()
 		msg "    gpg --verify $sig_file"
 		msg ""
 		msg "${yellow}If you see \"BAD signature\", the file may be corrupt or tampered with!$reset"
+		msg ""
+		msg "Now you can delete the GPG key: "
+		msg ""
+		msg "gpg --yes --batch --delete-keys $(jq -r ".gpg_keys.$distro" "$json_file")"  
 		exit 0
 	}
 
@@ -896,26 +900,28 @@ USAGE:
   dl-distro -d <DISTRO|JSON_QUERY> [OPTIONS]
 
 OPTIONS:
-  -a, --auto-update                 Toggle auto-updating of the local JSON file.
-  -c, --conf-file                   Generate a config file with default values.
-  -d, --distro <DISTRO|JSON_QUERY>  Specify a distro by name or a JSON query.
-  -D, --delete-key <KEY_ID>         Delete a stored GPG key using its key ID.
-  -h, --help                        Display this help message.
-  -i, --import-key <KEY_FILE>       Import a GPG key from a key file.
-  -l, --list-keys                   List the stored GPG keys.
-  -L, --list-distros                List the supported distributions.
-  -m, --manual-download             Show manual download steps
-  -n, --no-verify                   Skip key fetching and verification.
-  -p, --path <PATH>                 Download image to specified directory.
-  -P, --purge-data                  Purge ALL the stored data.
-  -s, --spider                      Return HTTP status code for image's URLs.
-  -u, --update-json                 Update the locally stored JSON file.
-  -V, --version                     Print dl-distro's current version.
+  -a, --auto-update                          Toggle auto-updating of the local JSON file.
+  -c, --conf-file                            Generate a config file with default values.
+  -d, --distro <DISTRO|JSON_QUERY>           Specify a distro by name or a JSON query.
+  -D, --delete-key <KEY_ID>                  Delete a stored GPG key using its key ID.
+  -h, --help                                 Display this help message.
+  -i, --import-key <KEY_FILE>                Import a GPG key from a key file.
+  -l, --list-keys                            List the stored GPG keys.
+  -L, --list-distros                         List the supported distributions.
+  -m, --manual-download <DISTRO|JSON_QUERY>  Show manual download steps
+  -n, --no-verify                            Skip key fetching and verification.
+  -p, --path <PATH>                          Download image to specified directory.
+  -P, --purge-data                           Purge ALL the stored data.
+  -s, --spider                               Return HTTP status code for image's URLs.
+  -u, --update-json                          Update the locally stored JSON file.
+  -V, --version                              Print dl-distro's current version.
 
 EXAMPLES:
   dl-distro
   dl-distro -d debian
   dl-distro -d debian.netinst.amd64 -p ~/Downloads
+  dl-distro -m
+  dl-distro -m debian.netinst.amd64
 EOF
 }
 
@@ -1086,7 +1092,13 @@ parse_opts()
 				;;
 			-m | --manual-download)
 				manual_download_enabled="true"
-				shift 1
+				if [[ -n "${2:-}" ]]; then
+					d_option_arg="$2"
+					cli_mode=1
+					shift 2
+				else
+					shift 1
+				fi
 				;;
 			-n | --no-verify)
 				verification_enabled="false"
