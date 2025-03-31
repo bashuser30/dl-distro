@@ -3610,6 +3610,32 @@
 				"sum_file": "SHA256SUMS"
 			}
 		},
+		"v25_04_beta" : {
+			"server": {
+				"url": "https://releases.ubuntu.com/plucky",
+				"iso_file": "ubuntu-25.04-beta-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/plucky",
+				"iso_file": "ubuntu-25.04-beta-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"netboot_tarball": {
+				"url": "https://releases.ubuntu.com/plucky",
+				"iso_file": "ubuntu-25.04-beta-netboot-amd64.tar.gz",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"wsl": {
+				"url": "https://releases.ubuntu.com/plucky",
+				"iso_file": "ubuntu-25.04-beta-wsl-amd64.wsl",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
+		},
 		"v24_04" : {
 			"server": {
 				"url": "https://releases.ubuntu.com/noble",
@@ -3742,6 +3768,20 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimages.ubuntu.com/edubuntu/releases/plucky/beta",
+						"iso_file": "edubuntu-25.04-beta-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"preinstalled": {
+						"url": "https://cdimages.ubuntu.com/edubuntu/releases/plucky/beta",
+						"iso_file": "edubuntu-25.04-beta-preinstalled-desktop-arm64+raspi.img.xz",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
@@ -3762,6 +3802,14 @@
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/kubuntu/releases/oracular/release",
 						"iso_file": "kubuntu-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/kubuntu/releases/plucky/beta",
+						"iso_file": "kubuntu-25.04-beta-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -3792,6 +3840,14 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/plucky/beta",
+						"iso_file": "lubuntu-25.04-beta-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/lubuntu/releases/noble/release",
@@ -3818,6 +3874,14 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/plucky/beta",
+						"iso_file": "ubuntu-budgie-25.04-beta-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/noble/release",
@@ -3832,6 +3896,14 @@
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/oracular/release",
 						"iso_file": "ubuntucinnamon-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/plucky/beta",
+						"iso_file": "ubuntucinnamon-25.04-beta-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -3854,6 +3926,14 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/plucky/beta",
+						"iso_file": "ubuntukylin-25.04-beta-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/noble/release",
@@ -3868,6 +3948,14 @@
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/oracular/release",
 						"iso_file": "ubuntu-mate-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/plucky/beta",
+						"iso_file": "ubuntu-mate-25.04-beta-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -3898,6 +3986,14 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/plucky/beta",
+						"iso_file": "ubuntustudio-25.04-beta-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/noble/release",
@@ -3912,6 +4008,14 @@
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/oracular/release",
 						"iso_file": "ubuntu-unity-24.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/plucky/beta",
+						"iso_file": "ubuntu-unity-25.04-beta-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -3936,6 +4040,20 @@
 					"minimal": {
 						"url": "https://cdimage.ubuntu.com/xubuntu/releases/oracular/release",
 						"iso_file": "xubuntu-24.10-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"v25_04_beta": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/beta",
+						"iso_file": "xubuntu-25.04-beta-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/beta",
+						"iso_file": "xubuntu-25.04-beta-minimal-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
