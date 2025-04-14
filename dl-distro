@@ -297,7 +297,7 @@ manual_download()
 		msg ""
 		msg "Now you can delete the GPG key: "
 		msg ""
-		msg "gpg --yes --batch --delete-keys $(jq -r ".gpg_keys.$distro" "$json_file")"  
+		msg "gpg --yes --batch --delete-keys $(jq -r ".gpg_keys.$distro" "$json_file")"
 		exit 0
 	}
 
@@ -1123,6 +1123,7 @@ parse_opts()
 			-u | --update-json)
 				update_json_file
 				shift 1
+				(($# == 0)) && exit 0
 				;;
 			-V | --version)
 				printf "%s\n" "$version"
