@@ -133,6 +133,7 @@ maintained, updating with new releases on their release day.
 - [Hyperbola GNU/Linux-libre](https://hyperbola.info)
 - [Kali Linux](https://kali.org)
 - [Linux Mint](https://linuxmint.com)
+- [MX Linux](https://mxlinux.org)
 - [NixOS](https://nixos.org)
 - [Nobara](https://nobaraproject.org)
 - [OpenBSD](https://openbsd.org)
