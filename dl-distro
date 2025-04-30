@@ -64,6 +64,7 @@ declare -A supported_distros=(
 	["Hyperbola"]="hyperbola"
 	["Kali"]="kali"
 	["Mint"]="mint"
+	["MX Linux"]="mxlinux"
 	["NixOS"]="nix"
 	["Nobara"]="nobara"
 	["OpenBSD"]="openbsd"
@@ -534,6 +535,15 @@ download_mint()
 	fetch_gpg_key "$distro"
 	wget_file "$url"/{"$sig_file","$sum_file"}
 	verify_gpg_signature "$sig_file" "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
+}
+
+download_mxlinux()
+{
+	manual_download
+	wget_spider "$url"/{"$iso_file","$sum_file"}
+	wget_file "$url"/"$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
 }

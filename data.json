@@ -43,6 +43,7 @@
 		"hyperbola": "sha512sum",
 		"kali": "sha256sum",
 		"mint": "sha256sum",
+		"mxlinux": "md5sum",
 		"nix": "sha256sum",
 		"nobara": "sha256sum",
 		"openbsd": "sha256sum",
@@ -2218,6 +2219,56 @@
 				"iso_file": "latest-nixos-minimal-aarch64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-aarch64-linux.iso.sha256"
+			}
+		}
+	},
+	"mxlinux": {
+		"fluxbox": {
+			"i386": {
+				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Fluxbox",
+				"iso_file": "MX-23.6_fluxbox_386.iso",
+				"sig_file": null,
+				"sum_file": "MX-23.6_fluxbox_386.iso.md5"
+			},
+			"x86_64": {
+				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Fluxbox",
+				"iso_file": "MX-23.6_fluxbox_x64.iso",
+				"sig_file": null,
+				"sum_file": "MX-23.6_fluxbox_x64.iso.md5"
+			}
+		},
+		"kde": {
+			"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/KDE",
+			"iso_file": "MX-23.6_KDE_x64.iso",
+			"sig_file": null,
+			"sum_file": "MX-23.6_KDE_x64.iso.md5"
+		},
+		"xfce": {
+			"standard": {
+				"i386": {
+					"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
+					"iso_file": "MX-23.6_386.iso",
+					"sig_file": null,
+					"sum_file": "MX-23.6_386.iso.md5"
+				},
+				"x86_64": {
+					"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
+					"iso_file": "MX-23.6_x64.iso",
+					"sig_file": null,
+					"sum_file": "MX-23.6_x64.iso.md5"
+				}
+			},
+			"ahs": {
+				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
+				"iso_file": "MX-23.6_ahs_x64.iso",
+				"sig_file": null,
+				"sum_file": "MX-23.6_ahs_x64.iso.md5"
+			},
+			"rpi_respin": {
+				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
+				"iso_file": "mx23.6_rpi_respin_arm64.zip",
+				"sig_file": null,
+				"sum_file": null
 			}
 		}
 	},

@@ -28,7 +28,7 @@ _dl_distro()
 	            --import-key --list-keys --list-distros --manual-download --no-verify --path
 	            --purge-data --spider --update-json --version')
 	distros=('alma alpine arch cachy debian dragora fedora ghostbsd gparted guix
-	          hyperbola kali mint nix nobara openbsd opensuse parabola parch
+	          hyperbola kali mint mxlinux nix nobara openbsd opensuse parabola parch
 	          parrot pop pure qubes rocky slackware solus tails tinycore
 	          trisquel ubuntu void whonix zorin')
 
