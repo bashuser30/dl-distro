@@ -1988,79 +1988,79 @@
 		"current": {
 			"live": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-live-amd64.iso",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-live-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-live-arm64.iso",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-live-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"qemu": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-qemu-amd64.7z",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-qemu-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"virtualbox": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-virtualbox-amd64.7z",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-virtualbox-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"vmware": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-vmware-amd64.7z",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-vmware-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"hyperv": {
-				"url": "https://cdimage.kali.org/kali-2025.1a",
-				"iso_file": "kali-linux-2025.1a-hyperv-amd64.7z",
+				"url": "https://cdimage.kali.org/kali-2025.1c",
+				"iso_file": "kali-linux-2025.1c-hyperv-amd64.7z",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"installer": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-installer-amd64.iso",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-installer-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-installer-arm64.iso",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-installer-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"netinst": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-installer-netinst-amd64.iso",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-installer-netinst-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
-					"url": "https://cdimage.kali.org/kali-2025.1a",
-					"iso_file": "kali-linux-2025.1a-installer-netinst-arm64.iso",
+					"url": "https://cdimage.kali.org/kali-2025.1c",
+					"iso_file": "kali-linux-2025.1c-installer-netinst-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"purple": {
-				"url": "https://cdimage.kali.org/kali-2025.1a",
-				"iso_file": "kali-linux-2025.1a-installer-purple-amd64.iso",
+				"url": "https://cdimage.kali.org/kali-2025.1c",
+				"iso_file": "kali-linux-2025.1c-installer-purple-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
