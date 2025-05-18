@@ -2239,9 +2239,9 @@
 		},
 		"kde": {
 			"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/KDE",
-			"iso_file": "MX-23.6_KDE_x64.iso",
+			"iso_file": "MX-23.6.1_KDE_x64.iso",
 			"sig_file": null,
-			"sum_file": "MX-23.6_KDE_x64.iso.md5"
+			"sum_file": "MX-23.6.1_KDE_x64.iso.md5"
 		},
 		"xfce": {
 			"standard": {
