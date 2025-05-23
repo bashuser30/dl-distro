@@ -2177,45 +2177,29 @@
 		}
 	},
 	"nix": {
-		"live": {
-			"gnome": {
-				"x86_64": {
-					"url": "https://channels.nixos.org/nixos-24.11",
-					"iso_file": "latest-nixos-gnome-x86_64-linux.iso",
-					"sig_file": null,
-					"sum_file": "latest-nixos-gnome-x86_64-linux.iso.sha256"
-				},
-				"aarch64": {
-					"url": "https://channels.nixos.org/nixos-24.11",
-					"iso_file": "latest-nixos-gnome-aarch64-linux.iso",
-					"sig_file": null,
-					"sum_file": "latest-nixos-gnome-aarch64-linux.iso.sha256"
-				}
+		"graphical": {
+			"x86_64": {
+				"url": "https://channels.nixos.org/nixos-25.05",
+				"iso_file": "latest-nixos-graphical-x86_64-linux.iso",
+				"sig_file": null,
+				"sum_file": "latest-nixos-graphical-x86_64-linux.iso.sha256"
 			},
-			"plasma": {
-				"x86_64": {
-					"url": "https://channels.nixos.org/nixos-24.11",
-					"iso_file": "latest-nixos-plasma6-x86_64-linux.iso",
-					"sig_file": null,
-					"sum_file": "latest-nixos-plasma6-x86_64-linux.iso.sha256"
-				},
-				"aarch64": {
-					"url": "https://channels.nixos.org/nixos-24.11",
-					"iso_file": "latest-nixos-plasma6-aarch64-linux.iso",
-					"sig_file": null,
-					"sum_file": "latest-nixos-plasma6-aarch64-linux.iso.sha256"
-				}
+			"aarch64": {
+				"url": "https://channels.nixos.org/nixos-25.05",
+				"iso_file": "latest-nixos-graphical-aarch64-linux.iso",
+				"sig_file": null,
+				"sum_file": "latest-nixos-graphical-aarch64-linux.iso.sha256"
 			}
 		},
 		"minimal": {
 			"x86_64": {
-				"url": "https://channels.nixos.org/nixos-24.11",
+				"url": "https://channels.nixos.org/nixos-25.05",
 				"iso_file": "latest-nixos-minimal-x86_64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-x86_64-linux.iso.sha256"
 			},
 			"aarch64": {
-				"url": "https://channels.nixos.org/nixos-24.11",
+				"url": "https://channels.nixos.org/nixos-25.05",
 				"iso_file": "latest-nixos-minimal-aarch64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-aarch64-linux.iso.sha256"
