@@ -347,16 +347,10 @@ manual_download()
 
 download_alma()
 {
-
-	if [[ "$traverse_path" == *"${distro}_8"* ]]; then
-		distro="${distro}_8"
-	else
-		distro="${distro}_9"
-	fi
-
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key "$distro"
+
+	[[ "$traverse_path" =~ ${distro}_([0-9]+) ]] && fetch_gpg_key "${distro}_${BASH_REMATCH[1]}"
 
 	if [[ "$traverse_path" == *"live"* ]]; then
 		wget_file "$url"/{"$sig_file","$sum_file"}

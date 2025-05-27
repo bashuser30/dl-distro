@@ -6,6 +6,7 @@
 	"gpg_keys": {
 		"alma_8": "BC5EDDCADF502C077F1582882AE81E8ACED7258B",
 		"alma_9": "BF18AC2876178908D6E71267D36CB86CB86B3716",
+		"alma_10": "EE6DB7B98F5BF5EDD9DA0DE5DEE5C11CC2A1E572",
 		"alpine": "0482D84022F52DF1C4E7CD43293ACD0907D9495A",
 		"arch": "0x3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C",
 		"cachy": "882DCFE48E2051D48E2562ABF3B607488DB35A47",
@@ -75,6 +76,108 @@
 		}
 	},
 	"alma": {
+		"alma_10": {
+			"x86_64": {
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/x86_64",
+					"iso_file": "AlmaLinux-10-latest-x86_64-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/x86_64",
+					"iso_file": "AlmaLinux-10-latest-x86_64-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/x86_64",
+					"iso_file": "AlmaLinux-10-latest-x86_64-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				}
+			},
+			"x86_64_v2": {
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/x86_64_v2",
+					"iso_file": "AlmaLinux-10-latest-x86_64_v2-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/x86_64_v2",
+					"iso_file": "AlmaLinux-10-latest-x86_64_v2-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/x86_64_v2",
+					"iso_file": "AlmaLinux-10-latest-x86_64_v2-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				}
+			},
+			"aarch64": {
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/aarch64",
+					"iso_file": "AlmaLinux-10-latest-aarch64-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/aarch64",
+					"iso_file": "AlmaLinux-10-latest-aarch64-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/aarch64",
+					"iso_file": "AlmaLinux-10-latest-aarch64-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				}
+			},
+			"s390x": {
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/s390x",
+					"iso_file": "AlmaLinux-10-latest-s390x-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/s390x",
+					"iso_file": "AlmaLinux-10-latest-s390x-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/s390x",
+					"iso_file": "AlmaLinux-10-latest-s390x-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				}
+			},
+			"ppc64le": {
+				"dvd": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/ppc64le",
+					"iso_file": "AlmaLinux-10-latest-ppc64le-dvd.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/ppc64le",
+					"iso_file": "AlmaLinux-10-latest-ppc64le-boot.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				},
+				"minimal": {
+					"url": "https://repo.almalinux.org/almalinux/10/isos/ppc64le",
+					"iso_file": "AlmaLinux-10-latest-ppc64le-minimal.iso",
+					"sig_file": "CHECKSUM",
+					"sum_file": "CHECKSUM"
+				}
+			}
+		},
 		"alma_9": {
 			"x86_64": {
 				"dvd": {
