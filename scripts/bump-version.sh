@@ -3,7 +3,11 @@
 set -euo pipefail
 
 NEW_VERSION="$(<./VERSION)"
+OLD_TAG="$(git tag --sort=-creatordate | head -n1)"
 CURRENT_DATE="$(date "+%B %e, %Y")"
+TEMP_MSG="$(mktemp)"
+
+trap 'rm -f "$TEMP_MSG"' EXIT INT TERM
 
 sed -i -E 's/version="v[0-9]+\.[0-9]+\.[0-9]+"/version="'"$NEW_VERSION"'"/' ./dl-distro
 sed -i -E 's/(^\.TH "DL-DISTRO" "1" ")[^"]+(")/\1'"$CURRENT_DATE"'\2/' ./man/dl-distro.1
@@ -23,13 +27,17 @@ read -rp "Commit and push? (y/N): " CHOICE
 git add ./dl-distro ./man/dl-distro.1 ./VERSION
 git commit -m "$NEW_VERSION"
 
-TEMP_MSG="$(mktemp)"
+cat >"$TEMP_MSG" <<EOF
+$NEW_VERSION
 
-cp ./.local/tag_template.txt "$TEMP_MSG"
+*
+
+Full Changelog:
+
+* https://codeberg.org/bashuser30/dl-distro/compare/$OLD_TAG...$NEW_VERSION
+EOF
+
 vim "$TEMP_MSG"
 
 git tag "$NEW_VERSION" -F "$TEMP_MSG"
-
-rm "$TEMP_MSG"
-
 git push --follow-tags
