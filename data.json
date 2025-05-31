@@ -1281,16 +1281,16 @@
 	},
 	"cachy": {
 		"desktop": {
-			"url": "https://iso.cachyos.org/desktop/250422",
-			"iso_file": "cachyos-desktop-linux-250422.iso",
-			"sig_file": "cachyos-desktop-linux-250422.iso.sig",
-			"sum_file": "cachyos-desktop-linux-250422.iso.sha256"
+			"url": "https://iso.cachyos.org/desktop/250530",
+			"iso_file": "cachyos-desktop-linux-250530.iso",
+			"sig_file": "cachyos-desktop-linux-250530.iso.sig",
+			"sum_file": "cachyos-desktop-linux-250530.iso.sha256"
 		},
 		"handheld": {
-			"url": "https://iso.cachyos.org/handheld/250422",
-			"iso_file": "cachyos-handheld-linux-250422.iso",
-			"sig_file": "cachyos-handheld-linux-250422.iso.sig",
-			"sum_file": "cachyos-handheld-linux-250422.iso.sha256"
+			"url": "https://iso.cachyos.org/handheld/250530",
+			"iso_file": "cachyos-handheld-linux-250530.iso",
+			"sig_file": "cachyos-handheld-linux-250530.iso.sig",
+			"sum_file": "cachyos-handheld-linux-250530.iso.sha256"
 		}
 	},
 	"debian": {
