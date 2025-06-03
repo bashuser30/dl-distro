@@ -3175,6 +3175,12 @@
 			"iso_file": "ParchLinux-plasma-latest.iso",
 			"sig_file": null,
 			"sum_file": "md5sum.txt"
+		},
+		"xfce": {
+			"url": "https://mirror.parchlinux.com/XFCE",
+			"iso_file": "ParchLinux-XFCE-latest.iso",
+			"sig_file": null,
+			"sum_file": "md5sum.txt"
 		}
 	},
 	"parrot": {
