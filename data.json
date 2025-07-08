@@ -3186,20 +3186,20 @@
 	"parrot": {
 		"live": {
 			"security": {
-				"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-				"iso_file": "Parrot-security-6.3.2_amd64.iso",
+				"url": "https://deb.parrot.sh/parrot/iso/6.4",
+				"iso_file": "Parrot-security-6.4_amd64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"home": {
-				"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-				"iso_file": "Parrot-home-6.3.2_amd64.iso",
+				"url": "https://deb.parrot.sh/parrot/iso/6.4",
+				"iso_file": "Parrot-home-6.4_amd64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"hack_the_box": {
-				"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-				"iso_file": "Parrot-htb-6.3.2_amd64.iso",
+				"url": "https://deb.parrot.sh/parrot/iso/6.4",
+				"iso_file": "Parrot-htb-6.4_amd64.iso",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			}
@@ -3208,40 +3208,40 @@
 			"security": {
 				"amd64": {
 					"virtualbox": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-security-6.3.2_amd64.ova",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-security-6.4_amd64.ova",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"vmware": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-security-6.3.2_amd64.vmdk.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-security-6.4_amd64.vmdk.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-security-6.3.2_amd64.qcow2.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-security-6.4_amd64.qcow2.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
 				},
 				"arm64": {
 					"utm": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-security-6.3.2_arm64.utm.zip",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-security-6.4_arm64.utm.zip",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"vmware": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-security-6.3.2_arm64.vmdk.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-security-6.4_arm64.vmdk.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-security-6.3.2_arm64.qcow2.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-security-6.4_arm64.qcow2.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3250,40 +3250,40 @@
 			"home": {
 				"amd64": {
 					"virtualbox": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-home-6.3.2_amd64.ova",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-home-6.4_amd64.ova",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"vmware": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-home-6.3.2_amd64.vmdk.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-home-6.4_amd64.vmdk.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-home-6.3.2_amd64.qcow2.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-home-6.4_amd64.qcow2.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
 				},
 				"arm64": {
 					"utm": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-home-6.3.2_arm64.utm.zip",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-home-6.4_arm64.utm.zip",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"vmware": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-home-6.3.2_arm64.vmdk.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-home-6.4_arm64.vmdk.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
-						"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-						"iso_file": "Parrot-home-6.3.2_arm64.qcow2.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/6.4",
+						"iso_file": "Parrot-home-6.4_arm64.qcow2.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3292,20 +3292,20 @@
 		},
 		"raspberry_pi": {
 			"core": {
-				"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-				"iso_file": "Parrot-core-6.3.2_rpi.img.xz",
+				"url": "https://deb.parrot.sh/parrot/iso/6.4",
+				"iso_file": "Parrot-core-6.4_rpi.img.xz",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"home": {
-				"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-				"iso_file": "Parrot-home-6.3.2_rpi.img.xz",
+				"url": "https://deb.parrot.sh/parrot/iso/6.4",
+				"iso_file": "Parrot-home-6.4_rpi.img.xz",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			},
 			"security": {
-				"url": "https://deb.parrot.sh/parrot/iso/6.3.2",
-				"iso_file": "Parrot-security-6.3.2_rpi.img.xz",
+				"url": "https://deb.parrot.sh/parrot/iso/6.4",
+				"iso_file": "Parrot-security-6.4_rpi.img.xz",
 				"sig_file": "signed-hashes.txt",
 				"sum_file": "signed-hashes.txt"
 			}
