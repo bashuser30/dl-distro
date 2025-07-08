@@ -3215,13 +3215,13 @@
 					},
 					"vmware": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-security-6.4_amd64.vmdk.xz",
+						"iso_file": "Parrot-security-6.4_amd64.vmdk",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-security-6.4_amd64.qcow2.xz",
+						"iso_file": "Parrot-security-6.4_amd64.qcow2",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3235,13 +3235,13 @@
 					},
 					"vmware": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-security-6.4_arm64.vmdk.xz",
+						"iso_file": "Parrot-security-6.4_arm64.vmdk",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-security-6.4_arm64.qcow2.xz",
+						"iso_file": "Parrot-security-6.4_arm64.qcow2",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3257,13 +3257,13 @@
 					},
 					"vmware": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-home-6.4_amd64.vmdk.xz",
+						"iso_file": "Parrot-home-6.4_amd64.vmdk",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-home-6.4_amd64.qcow2.xz",
+						"iso_file": "Parrot-home-6.4_amd64.qcow2",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3277,13 +3277,13 @@
 					},
 					"vmware": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-home-6.4_arm64.vmdk.xz",
+						"iso_file": "Parrot-home-6.4_arm64.vmdk",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					},
 					"qemu": {
 						"url": "https://deb.parrot.sh/parrot/iso/6.4",
-						"iso_file": "Parrot-home-6.4_arm64.qcow2.xz",
+						"iso_file": "Parrot-home-6.4_arm64.qcow2",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
