@@ -3874,26 +3874,6 @@
 		}
 	},
 	"ubuntu": {
-		"v24_10" : {
-			"server": {
-				"url": "https://releases.ubuntu.com/oracular",
-				"iso_file": "ubuntu-24.10-live-server-amd64.iso",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			},
-			"desktop": {
-				"url": "https://releases.ubuntu.com/oracular",
-				"iso_file": "ubuntu-24.10-desktop-amd64.iso",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			},
-			"netboot_tarball": {
-				"url": "https://releases.ubuntu.com/oracular",
-				"iso_file": "ubuntu-24.10-netboot-amd64.tar.gz",
-				"sig_file": "SHA256SUMS.gpg",
-				"sum_file": "SHA256SUMS"
-			}
-		},
 		"v25_04" : {
 			"server": {
 				"url": "https://releases.ubuntu.com/plucky",
@@ -4044,14 +4024,6 @@
 		},
 		"flavours": {
 			"edubuntu": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimages.ubuntu.com/edubuntu/releases/oracular/release",
-						"iso_file": "edubuntu-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimages.ubuntu.com/edubuntu/releases/plucky/release",
@@ -4082,14 +4054,6 @@
 				}
 			},
 			"kubuntu": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/kubuntu/releases/oracular/release",
-						"iso_file": "kubuntu-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/kubuntu/releases/plucky/release",
@@ -4116,14 +4080,6 @@
 				}
 			},
 			"lubuntu": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/lubuntu/releases/oracular/release",
-						"iso_file": "lubuntu-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/lubuntu/releases/plucky/release",
@@ -4150,14 +4106,6 @@
 				}
 			},
 			"budgie": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/oracular/release",
-						"iso_file": "ubuntu-budgie-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/plucky/release",
@@ -4176,14 +4124,6 @@
 				}
 			},
 			"cinnamon": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/oracular/release",
-						"iso_file": "ubuntucinnamon-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/plucky/release",
@@ -4202,14 +4142,6 @@
 				}
 			},
 			"kylin": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/oracular/release",
-						"iso_file": "ubuntukylin-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/plucky/release",
@@ -4228,14 +4160,6 @@
 				}
 			},
 			"mate": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/oracular/release",
-						"iso_file": "ubuntu-mate-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/plucky/release",
@@ -4262,14 +4186,6 @@
 				}
 			},
 			"studio": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/oracular/release",
-						"iso_file": "ubuntustudio-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/plucky/release",
@@ -4288,14 +4204,6 @@
 				}
 			},
 			"unity": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/oracular/release",
-						"iso_file": "ubuntu-unity-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/plucky/release",
@@ -4314,20 +4222,6 @@
 				}
 			},
 			"xubuntu": {
-				"v24_10": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/oracular/release",
-						"iso_file": "xubuntu-24.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					},
-					"minimal": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/oracular/release",
-						"iso_file": "xubuntu-24.10-minimal-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"v25_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/release",
