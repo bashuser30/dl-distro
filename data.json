@@ -40,7 +40,7 @@
 		"dragora": "sha256sum",
 		"fedora": "sha256sum",
 		"ghostbsd": "sha256sum",
-		"gparted": "sha256sum",
+		"gparted": "md5sum",
 		"hyperbola": "sha512sum",
 		"kali": "sha256sum",
 		"mint": "sha256sum",
@@ -1976,13 +1976,13 @@
 	"gparted": {
 		"iso": {
 			"url": "https://downloads.sourceforge.net/gparted",
-			"iso_file": "gparted-live-1.7.0-1-amd64.iso",
+			"iso_file": "gparted-live-1.7.0-8-amd64.iso",
 			"sig_file": "CHECKSUMS.TXT.gpg",
 			"sum_file": "CHECKSUMS.TXT"
 		},
 		"zip": {
 			"url": "https://downloads.sourceforge.net/gparted",
-			"iso_file": "gparted-live-1.7.0-1-amd64.zip",
+			"iso_file": "gparted-live-1.7.0-8-amd64.zip",
 			"sig_file": "CHECKSUMS.TXT.gpg",
 			"sum_file": "CHECKSUMS.TXT"
 		}
