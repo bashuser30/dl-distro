@@ -444,832 +444,832 @@
 			"standard": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64",
-					"iso_file": "alpine-standard-3.22.0-aarch64.iso",
-					"sig_file": "alpine-standard-3.22.0-aarch64.iso.asc",
-					"sum_file": "alpine-standard-3.22.0-aarch64.iso.sha256"
+					"iso_file": "alpine-standard-3.22.1-aarch64.iso",
+					"sig_file": "alpine-standard-3.22.1-aarch64.iso.asc",
+					"sum_file": "alpine-standard-3.22.1-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armv7",
-					"iso_file": "alpine-standard-3.22.0-armv7.iso",
-					"sig_file": "alpine-standard-3.22.0-armv7.iso.asc",
-					"sum_file": "alpine-standard-3.22.0-armv7.iso.sha256"
+					"iso_file": "alpine-standard-3.22.1-armv7.iso",
+					"sig_file": "alpine-standard-3.22.1-armv7.iso.asc",
+					"sum_file": "alpine-standard-3.22.1-armv7.iso.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/ppc64le",
-					"iso_file": "alpine-standard-3.22.0-ppc64le.iso",
-					"sig_file": "alpine-standard-3.22.0-ppc64le.iso.asc",
-					"sum_file": "alpine-standard-3.22.0-ppc64le.iso.sha256"
+					"iso_file": "alpine-standard-3.22.1-ppc64le.iso",
+					"sig_file": "alpine-standard-3.22.1-ppc64le.iso.asc",
+					"sum_file": "alpine-standard-3.22.1-ppc64le.iso.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/s390x",
-					"iso_file": "alpine-standard-3.22.0-s390x.iso",
-					"sig_file": "alpine-standard-3.22.0-s390x.iso.asc",
-					"sum_file": "alpine-standard-3.22.0-s390x.iso.sha256"
+					"iso_file": "alpine-standard-3.22.1-s390x.iso",
+					"sig_file": "alpine-standard-3.22.1-s390x.iso.asc",
+					"sum_file": "alpine-standard-3.22.1-s390x.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86",
-					"iso_file": "alpine-standard-3.22.0-x86.iso",
-					"sig_file": "alpine-standard-3.22.0-x86.iso.asc",
-					"sum_file": "alpine-standard-3.22.0-x86.iso.sha256"
+					"iso_file": "alpine-standard-3.22.1-x86.iso",
+					"sig_file": "alpine-standard-3.22.1-x86.iso.asc",
+					"sum_file": "alpine-standard-3.22.1-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64",
-					"iso_file": "alpine-standard-3.22.0-x86_64.iso",
-					"sig_file": "alpine-standard-3.22.0-x86_64.iso.asc",
-					"sum_file": "alpine-standard-3.22.0-x86_64.iso.sha256"
+					"iso_file": "alpine-standard-3.22.1-x86_64.iso",
+					"sig_file": "alpine-standard-3.22.1-x86_64.iso.asc",
+					"sum_file": "alpine-standard-3.22.1-x86_64.iso.sha256"
 				}
 			},
 			"extended": {
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86",
-					"iso_file": "alpine-extended-3.22.0-x86.iso",
-					"sig_file": "alpine-extended-3.22.0-x86.iso.asc",
-					"sum_file": "alpine-extended-3.22.0-x86.iso.sha256"
+					"iso_file": "alpine-extended-3.22.1-x86.iso",
+					"sig_file": "alpine-extended-3.22.1-x86.iso.asc",
+					"sum_file": "alpine-extended-3.22.1-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64",
-					"iso_file": "alpine-extended-3.22.0-x86_64.iso",
-					"sig_file": "alpine-extended-3.22.0-x86_64.iso.asc",
-					"sum_file": "alpine-extended-3.22.0-x86_64.iso.sha256"
+					"iso_file": "alpine-extended-3.22.1-x86_64.iso",
+					"sig_file": "alpine-extended-3.22.1-x86_64.iso.asc",
+					"sum_file": "alpine-extended-3.22.1-x86_64.iso.sha256"
 				}
 			},
 			"netboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64",
-					"iso_file": "alpine-netboot-3.22.0-aarch64.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-aarch64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-aarch64.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-aarch64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armhf",
-					"iso_file": "alpine-netboot-3.22.0-armhf.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-armhf.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-armhf.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-armhf.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-armhf.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armv7",
-					"iso_file": "alpine-netboot-3.22.0-armv7.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-armv7.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-armv7.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-armv7.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-armv7.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/ppc64le",
-					"iso_file": "alpine-netboot-3.22.0-ppc64le.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-ppc64le.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/s390x",
-					"iso_file": "alpine-netboot-3.22.0-s390x.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-s390x.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-s390x.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-s390x.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-s390x.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86",
-					"iso_file": "alpine-netboot-3.22.0-x86.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-x86.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-x86.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-x86.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-x86.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64",
-					"iso_file": "alpine-netboot-3.22.0-x86_64.tar.gz",
-					"sig_file": "alpine-netboot-3.22.0-x86_64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.22.0-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.22.1-x86_64.tar.gz",
+					"sig_file": "alpine-netboot-3.22.1-x86_64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.22.1-x86_64.tar.gz.sha256"
 				}
 			},
 			"rpi": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64",
-					"iso_file": "alpine-rpi-3.22.0-aarch64.tar.gz",
-					"sig_file": "alpine-rpi-3.22.0-aarch64.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.22.0-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.22.1-aarch64.tar.gz",
+					"sig_file": "alpine-rpi-3.22.1-aarch64.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.22.1-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armhf",
-					"iso_file": "alpine-rpi-3.22.0-armhf.tar.gz",
-					"sig_file": "alpine-rpi-3.22.0-armhf.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.22.0-armhf.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.22.1-armhf.tar.gz",
+					"sig_file": "alpine-rpi-3.22.1-armhf.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.22.1-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armv7",
-					"iso_file": "alpine-rpi-3.22.0-armv7.tar.gz",
-					"sig_file": "alpine-rpi-3.22.0-armv7.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.22.0-armv7.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.22.1-armv7.tar.gz",
+					"sig_file": "alpine-rpi-3.22.1-armv7.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.22.1-armv7.tar.gz.sha256"
 				}
 			},
 			"uboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64",
-					"iso_file": "alpine-uboot-3.22.0-aarch64.tar.gz",
-					"sig_file": "alpine-uboot-3.22.0-aarch64.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.22.0-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.22.1-aarch64.tar.gz",
+					"sig_file": "alpine-uboot-3.22.1-aarch64.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.22.1-aarch64.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armv7",
-					"iso_file": "alpine-uboot-3.22.0-armv7.tar.gz",
-					"sig_file": "alpine-uboot-3.22.0-armv7.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.22.0-armv7.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.22.1-armv7.tar.gz",
+					"sig_file": "alpine-uboot-3.22.1-armv7.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.22.1-armv7.tar.gz.sha256"
 				}
 			},
 			"minirootfs": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64",
-					"iso_file": "alpine-minirootfs-3.22.0-aarch64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-aarch64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-aarch64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-aarch64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armhf",
-					"iso_file": "alpine-minirootfs-3.22.0-armhf.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-armhf.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-armhf.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-armhf.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-armhf.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armv7",
-					"iso_file": "alpine-minirootfs-3.22.0-armv7.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-armv7.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-armv7.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-armv7.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-armv7.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/ppc64le",
-					"iso_file": "alpine-minirootfs-3.22.0-ppc64le.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-ppc64le.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/s390x",
-					"iso_file": "alpine-minirootfs-3.22.0-s390x.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-s390x.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-s390x.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-s390x.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-s390x.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86",
-					"iso_file": "alpine-minirootfs-3.22.0-x86.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-x86.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-x86.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-x86.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-x86.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64",
-					"iso_file": "alpine-minirootfs-3.22.0-x86_64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.22.0-x86_64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.22.0-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.22.1-x86_64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.22.1-x86_64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.22.1-x86_64.tar.gz.sha256"
 				}
 			},
 			"virtual": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/aarch64",
-					"iso_file": "alpine-virt-3.22.0-aarch64.iso",
-					"sig_file": "alpine-virt-3.22.0-aarch64.iso.asc",
-					"sum_file": "alpine-virt-3.22.0-aarch64.iso.sha256"
+					"iso_file": "alpine-virt-3.22.1-aarch64.iso",
+					"sig_file": "alpine-virt-3.22.1-aarch64.iso.asc",
+					"sum_file": "alpine-virt-3.22.1-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/armv7",
-					"iso_file": "alpine-virt-3.22.0-armv7.iso",
-					"sig_file": "alpine-virt-3.22.0-armv7.iso.asc",
-					"sum_file": "alpine-virt-3.22.0-armv7.iso.sha256"
+					"iso_file": "alpine-virt-3.22.1-armv7.iso",
+					"sig_file": "alpine-virt-3.22.1-armv7.iso.asc",
+					"sum_file": "alpine-virt-3.22.1-armv7.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86",
-					"iso_file": "alpine-virt-3.22.0-x86.iso",
-					"sig_file": "alpine-virt-3.22.0-x86.iso.asc",
-					"sum_file": "alpine-virt-3.22.0-x86.iso.sha256"
+					"iso_file": "alpine-virt-3.22.1-x86.iso",
+					"sig_file": "alpine-virt-3.22.1-x86.iso.asc",
+					"sum_file": "alpine-virt-3.22.1-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64",
-					"iso_file": "alpine-virt-3.22.0-x86_64.iso",
-					"sig_file": "alpine-virt-3.22.0-x86_64.iso.asc",
-					"sum_file": "alpine-virt-3.22.0-x86_64.iso.sha256"
+					"iso_file": "alpine-virt-3.22.1-x86_64.iso",
+					"sig_file": "alpine-virt-3.22.1-x86_64.iso.asc",
+					"sum_file": "alpine-virt-3.22.1-x86_64.iso.sha256"
 				}
 			},
 			"xen": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64",
-				"iso_file": "alpine-xen-3.22.0-x86_64.iso",
-				"sig_file": "alpine-xen-3.22.0-x86_64.iso.asc",
-				"sum_file": "alpine-xen-3.22.0-x86_64.iso.sha256"
+				"iso_file": "alpine-xen-3.22.1-x86_64.iso",
+				"sig_file": "alpine-xen-3.22.1-x86_64.iso.asc",
+				"sum_file": "alpine-xen-3.22.1-x86_64.iso.sha256"
 			}
 		},
 		"v3_21": {
 			"standard": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64",
-					"iso_file": "alpine-standard-3.21.3-aarch64.iso",
-					"sig_file": "alpine-standard-3.21.3-aarch64.iso.asc",
-					"sum_file": "alpine-standard-3.21.3-aarch64.iso.sha256"
+					"iso_file": "alpine-standard-3.21.4-aarch64.iso",
+					"sig_file": "alpine-standard-3.21.4-aarch64.iso.asc",
+					"sum_file": "alpine-standard-3.21.4-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armv7",
-					"iso_file": "alpine-standard-3.21.3-armv7.iso",
-					"sig_file": "alpine-standard-3.21.3-armv7.iso.asc",
-					"sum_file": "alpine-standard-3.21.3-armv7.iso.sha256"
+					"iso_file": "alpine-standard-3.21.4-armv7.iso",
+					"sig_file": "alpine-standard-3.21.4-armv7.iso.asc",
+					"sum_file": "alpine-standard-3.21.4-armv7.iso.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/ppc64le",
-					"iso_file": "alpine-standard-3.21.3-ppc64le.iso",
-					"sig_file": "alpine-standard-3.21.3-ppc64le.iso.asc",
-					"sum_file": "alpine-standard-3.21.3-ppc64le.iso.sha256"
+					"iso_file": "alpine-standard-3.21.4-ppc64le.iso",
+					"sig_file": "alpine-standard-3.21.4-ppc64le.iso.asc",
+					"sum_file": "alpine-standard-3.21.4-ppc64le.iso.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/s390x",
-					"iso_file": "alpine-standard-3.21.3-s390x.iso",
-					"sig_file": "alpine-standard-3.21.3-s390x.iso.asc",
-					"sum_file": "alpine-standard-3.21.3-s390x.iso.sha256"
+					"iso_file": "alpine-standard-3.21.4-s390x.iso",
+					"sig_file": "alpine-standard-3.21.4-s390x.iso.asc",
+					"sum_file": "alpine-standard-3.21.4-s390x.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86",
-					"iso_file": "alpine-standard-3.21.3-x86.iso",
-					"sig_file": "alpine-standard-3.21.3-x86.iso.asc",
-					"sum_file": "alpine-standard-3.21.3-x86.iso.sha256"
+					"iso_file": "alpine-standard-3.21.4-x86.iso",
+					"sig_file": "alpine-standard-3.21.4-x86.iso.asc",
+					"sum_file": "alpine-standard-3.21.4-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64",
-					"iso_file": "alpine-standard-3.21.3-x86_64.iso",
-					"sig_file": "alpine-standard-3.21.3-x86_64.iso.asc",
-					"sum_file": "alpine-standard-3.21.3-x86_64.iso.sha256"
+					"iso_file": "alpine-standard-3.21.4-x86_64.iso",
+					"sig_file": "alpine-standard-3.21.4-x86_64.iso.asc",
+					"sum_file": "alpine-standard-3.21.4-x86_64.iso.sha256"
 				}
 			},
 			"extended": {
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86",
-					"iso_file": "alpine-extended-3.21.3-x86.iso",
-					"sig_file": "alpine-extended-3.21.3-x86.iso.asc",
-					"sum_file": "alpine-extended-3.21.3-x86.iso.sha256"
+					"iso_file": "alpine-extended-3.21.4-x86.iso",
+					"sig_file": "alpine-extended-3.21.4-x86.iso.asc",
+					"sum_file": "alpine-extended-3.21.4-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64",
-					"iso_file": "alpine-extended-3.21.3-x86_64.iso",
-					"sig_file": "alpine-extended-3.21.3-x86_64.iso.asc",
-					"sum_file": "alpine-extended-3.21.3-x86_64.iso.sha256"
+					"iso_file": "alpine-extended-3.21.4-x86_64.iso",
+					"sig_file": "alpine-extended-3.21.4-x86_64.iso.asc",
+					"sum_file": "alpine-extended-3.21.4-x86_64.iso.sha256"
 				}
 			},
 			"netboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64",
-					"iso_file": "alpine-netboot-3.21.3-aarch64.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-aarch64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-aarch64.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-aarch64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armhf",
-					"iso_file": "alpine-netboot-3.21.3-armhf.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-armhf.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-armhf.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-armhf.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-armhf.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armv7",
-					"iso_file": "alpine-netboot-3.21.3-armv7.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-armv7.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-armv7.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-armv7.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-armv7.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/ppc64le",
-					"iso_file": "alpine-netboot-3.21.3-ppc64le.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-ppc64le.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/s390x",
-					"iso_file": "alpine-netboot-3.21.3-s390x.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-s390x.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-s390x.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-s390x.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-s390x.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86",
-					"iso_file": "alpine-netboot-3.21.3-x86.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-x86.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-x86.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-x86.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-x86.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64",
-					"iso_file": "alpine-netboot-3.21.3-x86_64.tar.gz",
-					"sig_file": "alpine-netboot-3.21.3-x86_64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.21.3-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.21.4-x86_64.tar.gz",
+					"sig_file": "alpine-netboot-3.21.4-x86_64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.21.4-x86_64.tar.gz.sha256"
 				}
 			},
 			"rpi": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64",
-					"iso_file": "alpine-rpi-3.21.3-aarch64.tar.gz",
-					"sig_file": "alpine-rpi-3.21.3-aarch64.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.21.3-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.21.4-aarch64.tar.gz",
+					"sig_file": "alpine-rpi-3.21.4-aarch64.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.21.4-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armhf",
-					"iso_file": "alpine-rpi-3.21.3-armhf.tar.gz",
-					"sig_file": "alpine-rpi-3.21.3-armhf.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.21.3-armhf.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.21.4-armhf.tar.gz",
+					"sig_file": "alpine-rpi-3.21.4-armhf.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.21.4-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armv7",
-					"iso_file": "alpine-rpi-3.21.3-armv7.tar.gz",
-					"sig_file": "alpine-rpi-3.21.3-armv7.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.21.3-armv7.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.21.4-armv7.tar.gz",
+					"sig_file": "alpine-rpi-3.21.4-armv7.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.21.4-armv7.tar.gz.sha256"
 				}
 			},
 			"uboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64",
-					"iso_file": "alpine-uboot-3.21.3-aarch64.tar.gz",
-					"sig_file": "alpine-uboot-3.21.3-aarch64.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.21.3-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.21.4-aarch64.tar.gz",
+					"sig_file": "alpine-uboot-3.21.4-aarch64.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.21.4-aarch64.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armv7",
-					"iso_file": "alpine-uboot-3.21.3-armv7.tar.gz",
-					"sig_file": "alpine-uboot-3.21.3-armv7.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.21.3-armv7.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.21.4-armv7.tar.gz",
+					"sig_file": "alpine-uboot-3.21.4-armv7.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.21.4-armv7.tar.gz.sha256"
 				}
 			},
 			"minirootfs": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64",
-					"iso_file": "alpine-minirootfs-3.21.3-aarch64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-aarch64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-aarch64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-aarch64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armhf",
-					"iso_file": "alpine-minirootfs-3.21.3-armhf.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-armhf.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-armhf.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-armhf.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-armhf.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armv7",
-					"iso_file": "alpine-minirootfs-3.21.3-armv7.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-armv7.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-armv7.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-armv7.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-armv7.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/ppc64le",
-					"iso_file": "alpine-minirootfs-3.21.3-ppc64le.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-ppc64le.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/s390x",
-					"iso_file": "alpine-minirootfs-3.21.3-s390x.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-s390x.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-s390x.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-s390x.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-s390x.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86",
-					"iso_file": "alpine-minirootfs-3.21.3-x86.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-x86.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-x86.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-x86.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-x86.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64",
-					"iso_file": "alpine-minirootfs-3.21.3-x86_64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.21.3-x86_64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.21.3-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.21.4-x86_64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.21.4-x86_64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.21.4-x86_64.tar.gz.sha256"
 				}
 			},
 			"virtual": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64",
-					"iso_file": "alpine-virt-3.21.3-aarch64.iso",
-					"sig_file": "alpine-virt-3.21.3-aarch64.iso.asc",
-					"sum_file": "alpine-virt-3.21.3-aarch64.iso.sha256"
+					"iso_file": "alpine-virt-3.21.4-aarch64.iso",
+					"sig_file": "alpine-virt-3.21.4-aarch64.iso.asc",
+					"sum_file": "alpine-virt-3.21.4-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/armv7",
-					"iso_file": "alpine-virt-3.21.3-armv7.iso",
-					"sig_file": "alpine-virt-3.21.3-armv7.iso.asc",
-					"sum_file": "alpine-virt-3.21.3-armv7.iso.sha256"
+					"iso_file": "alpine-virt-3.21.4-armv7.iso",
+					"sig_file": "alpine-virt-3.21.4-armv7.iso.asc",
+					"sum_file": "alpine-virt-3.21.4-armv7.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86",
-					"iso_file": "alpine-virt-3.21.3-x86.iso",
-					"sig_file": "alpine-virt-3.21.3-x86.iso.asc",
-					"sum_file": "alpine-virt-3.21.3-x86.iso.sha256"
+					"iso_file": "alpine-virt-3.21.4-x86.iso",
+					"sig_file": "alpine-virt-3.21.4-x86.iso.asc",
+					"sum_file": "alpine-virt-3.21.4-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64",
-					"iso_file": "alpine-virt-3.21.3-x86_64.iso",
-					"sig_file": "alpine-virt-3.21.3-x86_64.iso.asc",
-					"sum_file": "alpine-virt-3.21.3-x86_64.iso.sha256"
+					"iso_file": "alpine-virt-3.21.4-x86_64.iso",
+					"sig_file": "alpine-virt-3.21.4-x86_64.iso.asc",
+					"sum_file": "alpine-virt-3.21.4-x86_64.iso.sha256"
 				}
 			},
 			"xen": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64",
-				"iso_file": "alpine-xen-3.21.3-x86_64.iso",
-				"sig_file": "alpine-xen-3.21.3-x86_64.iso.asc",
-				"sum_file": "alpine-xen-3.21.3-x86_64.iso.sha256"
+				"iso_file": "alpine-xen-3.21.4-x86_64.iso",
+				"sig_file": "alpine-xen-3.21.4-x86_64.iso.asc",
+				"sum_file": "alpine-xen-3.21.4-x86_64.iso.sha256"
 			}
 		},
 		"v3_20": {
 			"standard": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64",
-					"iso_file": "alpine-standard-3.20.6-aarch64.iso",
-					"sig_file": "alpine-standard-3.20.6-aarch64.iso.asc",
-					"sum_file": "alpine-standard-3.20.6-aarch64.iso.sha256"
+					"iso_file": "alpine-standard-3.20.7-aarch64.iso",
+					"sig_file": "alpine-standard-3.20.7-aarch64.iso.asc",
+					"sum_file": "alpine-standard-3.20.7-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armv7",
-					"iso_file": "alpine-standard-3.20.6-armv7.iso",
-					"sig_file": "alpine-standard-3.20.6-armv7.iso.asc",
-					"sum_file": "alpine-standard-3.20.6-armv7.iso.sha256"
+					"iso_file": "alpine-standard-3.20.7-armv7.iso",
+					"sig_file": "alpine-standard-3.20.7-armv7.iso.asc",
+					"sum_file": "alpine-standard-3.20.7-armv7.iso.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/ppc64le",
-					"iso_file": "alpine-standard-3.20.6-ppc64le.iso",
-					"sig_file": "alpine-standard-3.20.6-ppc64le.iso.asc",
-					"sum_file": "alpine-standard-3.20.6-ppc64le.iso.sha256"
+					"iso_file": "alpine-standard-3.20.7-ppc64le.iso",
+					"sig_file": "alpine-standard-3.20.7-ppc64le.iso.asc",
+					"sum_file": "alpine-standard-3.20.7-ppc64le.iso.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/s390x",
-					"iso_file": "alpine-standard-3.20.6-s390x.iso",
-					"sig_file": "alpine-standard-3.20.6-s390x.iso.asc",
-					"sum_file": "alpine-standard-3.20.6-s390x.iso.sha256"
+					"iso_file": "alpine-standard-3.20.7-s390x.iso",
+					"sig_file": "alpine-standard-3.20.7-s390x.iso.asc",
+					"sum_file": "alpine-standard-3.20.7-s390x.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86",
-					"iso_file": "alpine-standard-3.20.6-x86.iso",
-					"sig_file": "alpine-standard-3.20.6-x86.iso.asc",
-					"sum_file": "alpine-standard-3.20.6-x86.iso.sha256"
+					"iso_file": "alpine-standard-3.20.7-x86.iso",
+					"sig_file": "alpine-standard-3.20.7-x86.iso.asc",
+					"sum_file": "alpine-standard-3.20.7-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64",
-					"iso_file": "alpine-standard-3.20.6-x86_64.iso",
-					"sig_file": "alpine-standard-3.20.6-x86_64.iso.asc",
-					"sum_file": "alpine-standard-3.20.6-x86_64.iso.sha256"
+					"iso_file": "alpine-standard-3.20.7-x86_64.iso",
+					"sig_file": "alpine-standard-3.20.7-x86_64.iso.asc",
+					"sum_file": "alpine-standard-3.20.7-x86_64.iso.sha256"
 				}
 			},
 			"extended": {
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86",
-					"iso_file": "alpine-extended-3.20.6-x86.iso",
-					"sig_file": "alpine-extended-3.20.6-x86.iso.asc",
-					"sum_file": "alpine-extended-3.20.6-x86.iso.sha256"
+					"iso_file": "alpine-extended-3.20.7-x86.iso",
+					"sig_file": "alpine-extended-3.20.7-x86.iso.asc",
+					"sum_file": "alpine-extended-3.20.7-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64",
-					"iso_file": "alpine-extended-3.20.6-x86_64.iso",
-					"sig_file": "alpine-extended-3.20.6-x86_64.iso.asc",
-					"sum_file": "alpine-extended-3.20.6-x86_64.iso.sha256"
+					"iso_file": "alpine-extended-3.20.7-x86_64.iso",
+					"sig_file": "alpine-extended-3.20.7-x86_64.iso.asc",
+					"sum_file": "alpine-extended-3.20.7-x86_64.iso.sha256"
 				}
 			},
 			"netboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64",
-					"iso_file": "alpine-netboot-3.20.6-aarch64.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-aarch64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-aarch64.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-aarch64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armhf",
-					"iso_file": "alpine-netboot-3.20.6-armhf.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-armhf.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-armhf.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-armhf.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-armhf.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armv7",
-					"iso_file": "alpine-netboot-3.20.6-armv7.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-armv7.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-armv7.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-armv7.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-armv7.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/ppc64le",
-					"iso_file": "alpine-netboot-3.20.6-ppc64le.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-ppc64le.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/s390x",
-					"iso_file": "alpine-netboot-3.20.6-s390x.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-s390x.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-s390x.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-s390x.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-s390x.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86",
-					"iso_file": "alpine-netboot-3.20.6-x86.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-x86.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-x86.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-x86.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-x86.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64",
-					"iso_file": "alpine-netboot-3.20.6-x86_64.tar.gz",
-					"sig_file": "alpine-netboot-3.20.6-x86_64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.20.6-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.20.7-x86_64.tar.gz",
+					"sig_file": "alpine-netboot-3.20.7-x86_64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.20.7-x86_64.tar.gz.sha256"
 				}
 			},
 			"rpi": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64",
-					"iso_file": "alpine-rpi-3.20.6-aarch64.tar.gz",
-					"sig_file": "alpine-rpi-3.20.6-aarch64.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.20.6-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.20.7-aarch64.tar.gz",
+					"sig_file": "alpine-rpi-3.20.7-aarch64.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.20.7-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armhf",
-					"iso_file": "alpine-rpi-3.20.6-armhf.tar.gz",
-					"sig_file": "alpine-rpi-3.20.6-armhf.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.20.6-armhf.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.20.7-armhf.tar.gz",
+					"sig_file": "alpine-rpi-3.20.7-armhf.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.20.7-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armv7",
-					"iso_file": "alpine-rpi-3.20.6-armv7.tar.gz",
-					"sig_file": "alpine-rpi-3.20.6-armv7.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.20.6-armv7.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.20.7-armv7.tar.gz",
+					"sig_file": "alpine-rpi-3.20.7-armv7.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.20.7-armv7.tar.gz.sha256"
 				}
 			},
 			"uboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64",
-					"iso_file": "alpine-uboot-3.20.6-aarch64.tar.gz",
-					"sig_file": "alpine-uboot-3.20.6-aarch64.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.20.6-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.20.7-aarch64.tar.gz",
+					"sig_file": "alpine-uboot-3.20.7-aarch64.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.20.7-aarch64.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armv7",
-					"iso_file": "alpine-uboot-3.20.6-armv7.tar.gz",
-					"sig_file": "alpine-uboot-3.20.6-armv7.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.20.6-armv7.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.20.7-armv7.tar.gz",
+					"sig_file": "alpine-uboot-3.20.7-armv7.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.20.7-armv7.tar.gz.sha256"
 				}
 			},
 			"minirootfs": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64",
-					"iso_file": "alpine-minirootfs-3.20.6-aarch64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-aarch64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-aarch64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-aarch64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armhf",
-					"iso_file": "alpine-minirootfs-3.20.6-armhf.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-armhf.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-armhf.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-armhf.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-armhf.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armv7",
-					"iso_file": "alpine-minirootfs-3.20.6-armv7.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-armv7.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-armv7.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-armv7.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-armv7.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/ppc64le",
-					"iso_file": "alpine-minirootfs-3.20.6-ppc64le.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-ppc64le.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/s390x",
-					"iso_file": "alpine-minirootfs-3.20.6-s390x.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-s390x.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-s390x.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-s390x.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-s390x.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86",
-					"iso_file": "alpine-minirootfs-3.20.6-x86.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-x86.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-x86.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-x86.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-x86.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64",
-					"iso_file": "alpine-minirootfs-3.20.6-x86_64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.20.6-x86_64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.20.6-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.20.7-x86_64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.20.7-x86_64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.20.7-x86_64.tar.gz.sha256"
 				}
 			},
 			"virtual": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64",
-					"iso_file": "alpine-virt-3.20.6-aarch64.iso",
-					"sig_file": "alpine-virt-3.20.6-aarch64.iso.asc",
-					"sum_file": "alpine-virt-3.20.6-aarch64.iso.sha256"
+					"iso_file": "alpine-virt-3.20.7-aarch64.iso",
+					"sig_file": "alpine-virt-3.20.7-aarch64.iso.asc",
+					"sum_file": "alpine-virt-3.20.7-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/armv7",
-					"iso_file": "alpine-virt-3.20.6-armv7.iso",
-					"sig_file": "alpine-virt-3.20.6-armv7.iso.asc",
-					"sum_file": "alpine-virt-3.20.6-armv7.iso.sha256"
+					"iso_file": "alpine-virt-3.20.7-armv7.iso",
+					"sig_file": "alpine-virt-3.20.7-armv7.iso.asc",
+					"sum_file": "alpine-virt-3.20.7-armv7.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86",
-					"iso_file": "alpine-virt-3.20.6-x86.iso",
-					"sig_file": "alpine-virt-3.20.6-x86.iso.asc",
-					"sum_file": "alpine-virt-3.20.6-x86.iso.sha256"
+					"iso_file": "alpine-virt-3.20.7-x86.iso",
+					"sig_file": "alpine-virt-3.20.7-x86.iso.asc",
+					"sum_file": "alpine-virt-3.20.7-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64",
-					"iso_file": "alpine-virt-3.20.6-x86_64.iso",
-					"sig_file": "alpine-virt-3.20.6-x86_64.iso.asc",
-					"sum_file": "alpine-virt-3.20.6-x86_64.iso.sha256"
+					"iso_file": "alpine-virt-3.20.7-x86_64.iso",
+					"sig_file": "alpine-virt-3.20.7-x86_64.iso.asc",
+					"sum_file": "alpine-virt-3.20.7-x86_64.iso.sha256"
 				}
 			},
 			"xen": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64",
-				"iso_file": "alpine-xen-3.20.6-x86_64.iso",
-				"sig_file": "alpine-xen-3.20.6-x86_64.iso.asc",
-				"sum_file": "alpine-xen-3.20.6-x86_64.iso.sha256"
+				"iso_file": "alpine-xen-3.20.7-x86_64.iso",
+				"sig_file": "alpine-xen-3.20.7-x86_64.iso.asc",
+				"sum_file": "alpine-xen-3.20.7-x86_64.iso.sha256"
 			}
 		},
 		"v3_19": {
 			"standard": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64",
-					"iso_file": "alpine-standard-3.19.7-aarch64.iso",
-					"sig_file": "alpine-standard-3.19.7-aarch64.iso.asc",
-					"sum_file": "alpine-standard-3.19.7-aarch64.iso.sha256"
+					"iso_file": "alpine-standard-3.19.8-aarch64.iso",
+					"sig_file": "alpine-standard-3.19.8-aarch64.iso.asc",
+					"sum_file": "alpine-standard-3.19.8-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7",
-					"iso_file": "alpine-standard-3.19.7-armv7.iso",
-					"sig_file": "alpine-standard-3.19.7-armv7.iso.asc",
-					"sum_file": "alpine-standard-3.19.7-armv7.iso.sha256"
+					"iso_file": "alpine-standard-3.19.8-armv7.iso",
+					"sig_file": "alpine-standard-3.19.8-armv7.iso.asc",
+					"sum_file": "alpine-standard-3.19.8-armv7.iso.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/ppc64le",
-					"iso_file": "alpine-standard-3.19.7-ppc64le.iso",
-					"sig_file": "alpine-standard-3.19.7-ppc64le.iso.asc",
-					"sum_file": "alpine-standard-3.19.7-ppc64le.iso.sha256"
+					"iso_file": "alpine-standard-3.19.8-ppc64le.iso",
+					"sig_file": "alpine-standard-3.19.8-ppc64le.iso.asc",
+					"sum_file": "alpine-standard-3.19.8-ppc64le.iso.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x",
-					"iso_file": "alpine-standard-3.19.7-s390x.iso",
-					"sig_file": "alpine-standard-3.19.7-s390x.iso.asc",
-					"sum_file": "alpine-standard-3.19.7-s390x.iso.sha256"
+					"iso_file": "alpine-standard-3.19.8-s390x.iso",
+					"sig_file": "alpine-standard-3.19.8-s390x.iso.asc",
+					"sum_file": "alpine-standard-3.19.8-s390x.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86",
-					"iso_file": "alpine-standard-3.19.7-x86.iso",
-					"sig_file": "alpine-standard-3.19.7-x86.iso.asc",
-					"sum_file": "alpine-standard-3.19.7-x86.iso.sha256"
+					"iso_file": "alpine-standard-3.19.8-x86.iso",
+					"sig_file": "alpine-standard-3.19.8-x86.iso.asc",
+					"sum_file": "alpine-standard-3.19.8-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64",
-					"iso_file": "alpine-standard-3.19.7-x86_64.iso",
-					"sig_file": "alpine-standard-3.19.7-x86_64.iso.asc",
-					"sum_file": "alpine-standard-3.19.7-x86_64.iso.sha256"
+					"iso_file": "alpine-standard-3.19.8-x86_64.iso",
+					"sig_file": "alpine-standard-3.19.8-x86_64.iso.asc",
+					"sum_file": "alpine-standard-3.19.8-x86_64.iso.sha256"
 				}
 			},
 			"extended": {
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86",
-					"iso_file": "alpine-extended-3.19.7-x86.iso",
-					"sig_file": "alpine-extended-3.19.7-x86.iso.asc",
-					"sum_file": "alpine-extended-3.19.7-x86.iso.sha256"
+					"iso_file": "alpine-extended-3.19.8-x86.iso",
+					"sig_file": "alpine-extended-3.19.8-x86.iso.asc",
+					"sum_file": "alpine-extended-3.19.8-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64",
-					"iso_file": "alpine-extended-3.19.7-x86_64.iso",
-					"sig_file": "alpine-extended-3.19.7-x86_64.iso.asc",
-					"sum_file": "alpine-extended-3.19.7-x86_64.iso.sha256"
+					"iso_file": "alpine-extended-3.19.8-x86_64.iso",
+					"sig_file": "alpine-extended-3.19.8-x86_64.iso.asc",
+					"sum_file": "alpine-extended-3.19.8-x86_64.iso.sha256"
 				}
 			},
 			"netboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64",
-					"iso_file": "alpine-netboot-3.19.7-aarch64.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-aarch64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-aarch64.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-aarch64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armhf",
-					"iso_file": "alpine-netboot-3.19.7-armhf.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-armhf.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-armhf.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-armhf.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-armhf.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7",
-					"iso_file": "alpine-netboot-3.19.7-armv7.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-armv7.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-armv7.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-armv7.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-armv7.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/ppc64le",
-					"iso_file": "alpine-netboot-3.19.7-ppc64le.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-ppc64le.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x",
-					"iso_file": "alpine-netboot-3.19.7-s390x.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-s390x.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-s390x.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-s390x.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-s390x.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86",
-					"iso_file": "alpine-netboot-3.19.7-x86.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-x86.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-x86.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-x86.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-x86.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64",
-					"iso_file": "alpine-netboot-3.19.7-x86_64.tar.gz",
-					"sig_file": "alpine-netboot-3.19.7-x86_64.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.19.7-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-netboot-3.19.8-x86_64.tar.gz",
+					"sig_file": "alpine-netboot-3.19.8-x86_64.tar.gz.asc",
+					"sum_file": "alpine-netboot-3.19.8-x86_64.tar.gz.sha256"
 				}
 			},
 			"rpi": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64",
-					"iso_file": "alpine-rpi-3.19.7-aarch64.tar.gz",
-					"sig_file": "alpine-rpi-3.19.7-aarch64.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.19.7-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.19.8-aarch64.tar.gz",
+					"sig_file": "alpine-rpi-3.19.8-aarch64.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.19.8-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armhf",
-					"iso_file": "alpine-rpi-3.19.7-armhf.tar.gz",
-					"sig_file": "alpine-rpi-3.19.7-armhf.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.19.7-armhf.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.19.8-armhf.tar.gz",
+					"sig_file": "alpine-rpi-3.19.8-armhf.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.19.8-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7",
-					"iso_file": "alpine-rpi-3.19.7-armv7.tar.gz",
-					"sig_file": "alpine-rpi-3.19.7-armv7.tar.gz.asc",
-					"sum_file": "alpine-rpi-3.19.7-armv7.tar.gz.sha256"
+					"iso_file": "alpine-rpi-3.19.8-armv7.tar.gz",
+					"sig_file": "alpine-rpi-3.19.8-armv7.tar.gz.asc",
+					"sum_file": "alpine-rpi-3.19.8-armv7.tar.gz.sha256"
 				}
 			},
 			"uboot": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64",
-					"iso_file": "alpine-uboot-3.19.7-aarch64.tar.gz",
-					"sig_file": "alpine-uboot-3.19.7-aarch64.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.19.7-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.19.8-aarch64.tar.gz",
+					"sig_file": "alpine-uboot-3.19.8-aarch64.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.19.8-aarch64.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7",
-					"iso_file": "alpine-uboot-3.19.7-armv7.tar.gz",
-					"sig_file": "alpine-uboot-3.19.7-armv7.tar.gz.asc",
-					"sum_file": "alpine-uboot-3.19.7-armv7.tar.gz.sha256"
+					"iso_file": "alpine-uboot-3.19.8-armv7.tar.gz",
+					"sig_file": "alpine-uboot-3.19.8-armv7.tar.gz.asc",
+					"sum_file": "alpine-uboot-3.19.8-armv7.tar.gz.sha256"
 				}
 			},
 			"minirootfs": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64",
-					"iso_file": "alpine-minirootfs-3.19.7-aarch64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-aarch64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-aarch64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-aarch64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-aarch64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-aarch64.tar.gz.sha256"
 				},
 				"armhf": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armhf",
-					"iso_file": "alpine-minirootfs-3.19.7-armhf.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-armhf.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-armhf.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-armhf.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-armhf.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-armhf.tar.gz.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7",
-					"iso_file": "alpine-minirootfs-3.19.7-armv7.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-armv7.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-armv7.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-armv7.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-armv7.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-armv7.tar.gz.sha256"
 				},
 				"ppc64le": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/ppc64le",
-					"iso_file": "alpine-minirootfs-3.19.7-ppc64le.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-ppc64le.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-ppc64le.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-ppc64le.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-ppc64le.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-ppc64le.tar.gz.sha256"
 				},
 				"s390x": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/s390x",
-					"iso_file": "alpine-minirootfs-3.19.7-s390x.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-s390x.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-s390x.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-s390x.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-s390x.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-s390x.tar.gz.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86",
-					"iso_file": "alpine-minirootfs-3.19.7-x86.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-x86.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-x86.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-x86.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-x86.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-x86.tar.gz.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64",
-					"iso_file": "alpine-minirootfs-3.19.7-x86_64.tar.gz",
-					"sig_file": "alpine-minirootfs-3.19.7-x86_64.tar.gz.asc",
-					"sum_file": "alpine-minirootfs-3.19.7-x86_64.tar.gz.sha256"
+					"iso_file": "alpine-minirootfs-3.19.8-x86_64.tar.gz",
+					"sig_file": "alpine-minirootfs-3.19.8-x86_64.tar.gz.asc",
+					"sum_file": "alpine-minirootfs-3.19.8-x86_64.tar.gz.sha256"
 				}
 			},
 			"virtual": {
 				"aarch64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/aarch64",
-					"iso_file": "alpine-virt-3.19.7-aarch64.iso",
-					"sig_file": "alpine-virt-3.19.7-aarch64.iso.asc",
-					"sum_file": "alpine-virt-3.19.7-aarch64.iso.sha256"
+					"iso_file": "alpine-virt-3.19.8-aarch64.iso",
+					"sig_file": "alpine-virt-3.19.8-aarch64.iso.asc",
+					"sum_file": "alpine-virt-3.19.8-aarch64.iso.sha256"
 				},
 				"armv7": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/armv7",
-					"iso_file": "alpine-virt-3.19.7-armv7.iso",
-					"sig_file": "alpine-virt-3.19.7-armv7.iso.asc",
-					"sum_file": "alpine-virt-3.19.7-armv7.iso.sha256"
+					"iso_file": "alpine-virt-3.19.8-armv7.iso",
+					"sig_file": "alpine-virt-3.19.8-armv7.iso.asc",
+					"sum_file": "alpine-virt-3.19.8-armv7.iso.sha256"
 				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86",
-					"iso_file": "alpine-virt-3.19.7-x86.iso",
-					"sig_file": "alpine-virt-3.19.7-x86.iso.asc",
-					"sum_file": "alpine-virt-3.19.7-x86.iso.sha256"
+					"iso_file": "alpine-virt-3.19.8-x86.iso",
+					"sig_file": "alpine-virt-3.19.8-x86.iso.asc",
+					"sum_file": "alpine-virt-3.19.8-x86.iso.sha256"
 				},
 				"x86_64": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64",
-					"iso_file": "alpine-virt-3.19.7-x86_64.iso",
-					"sig_file": "alpine-virt-3.19.7-x86_64.iso.asc",
-					"sum_file": "alpine-virt-3.19.7-x86_64.iso.sha256"
+					"iso_file": "alpine-virt-3.19.8-x86_64.iso",
+					"sig_file": "alpine-virt-3.19.8-x86_64.iso.asc",
+					"sum_file": "alpine-virt-3.19.8-x86_64.iso.sha256"
 				}
 			},
 			"xen": {
 				"url": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64",
-				"iso_file": "alpine-xen-3.19.7-x86_64.iso",
-				"sig_file": "alpine-xen-3.19.7-x86_64.iso.asc",
-				"sum_file": "alpine-xen-3.19.7-x86_64.iso.sha256"
+				"iso_file": "alpine-xen-3.19.8-x86_64.iso",
+				"sig_file": "alpine-xen-3.19.8-x86_64.iso.asc",
+				"sum_file": "alpine-xen-3.19.8-x86_64.iso.sha256"
 			}
 		}
 	},
