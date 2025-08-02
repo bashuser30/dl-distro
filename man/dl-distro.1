@@ -192,8 +192,15 @@ script runtime.
 Changing to \fBtrue\fR will enable spider mode at runtime, returning an HTTP
 status for URL's instead of downloading.
 .TP
+\fB    manual_download_enabled\fR="false"
+Changing to \fBtrue\fR will enable manual downloads at runtime, displaying
+step-by-step instructions for downloading and verifying the image.
+.TP
 \fB    gpg_keyserver\fR="hkps://keyserver.ubuntu.com"
 Change the keyserver used to fetch GPG keys during runtime.
+.TP
+\fB    json_url\fR="https://codeberg.org/bashuser30/dl\-distro/raw/branch/master/data.json"
+Change the URL used when updating the JSON file.
 .RE
 
 .RS
