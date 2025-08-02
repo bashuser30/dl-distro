@@ -207,24 +207,24 @@ verify_minisign_signature()
 	fi
 }
 
-fetch_signify_key()
+get_signify_name()
 {
-	[[ "$verification_enabled" == "false" ]] && return 0
+	local signify_name
 
-	if [[ -f /etc/os-release ]]; then
-		# shellcheck source=/dev/null
-		source /etc/os-release
-	else
-		warn "/etc/os-release is missing."
-		warn "This is to determine the package name signify uses."
-		warn "Defaulting to: ${yellow}signify"
-	fi
-
-	if [[ "${ID:-}" == "debian" || "${ID_LIKE:-}" =~ debian ]]; then
+	if apt list signify-openbsd 2>/dev/null | grep -q "signify-openbsd"; then
 		signify_name="signify-openbsd"
 	else
 		signify_name="signify"
 	fi
+
+	printf "%s" "$signify_name"
+}
+
+fetch_signify_key()
+{
+	[[ "$verification_enabled" == "false" ]] && return 0
+
+	signify_name="$(get_signify_name)"
 
 	dependency_check "$signify_name"
 
@@ -329,6 +329,7 @@ manual_download()
 
 		signify_key_url="$(jq -r ".signify_keys.$distro" "$json_file")"
 		signify_key="$(basename "$signify_key_url")"
+		signify_name="$(get_signify_name)"
 
 		msg "Download the Signify key:"
 		msg ""
@@ -336,7 +337,7 @@ manual_download()
 		msg ""
 		msg "Validate the signature:"
 		msg ""
-		msg "    signify -Vp $signify_key -x $sig_file -m $sum_file"
+		msg "    $signify_name -Vp $signify_key -x $sig_file -m $sum_file"
 		msg ""
 		msg "${yellow}If you see \"Signature verification failed\", the file may be corrupt or tampered with!$reset"
 		exit 0
@@ -352,7 +353,7 @@ download_alma()
 
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	fetch_gpg_key "${distro}"
+	fetch_gpg_key "$distro"
 
 	if [[ "$traverse_path" == *"live"* ]]; then
 		wget_file "$url"/{"$sig_file","$sum_file"}
