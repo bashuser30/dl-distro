@@ -163,5 +163,4 @@ maintained, updating with new releases on their release day.
 
 ## License
 
-All files in this repository are licensed under the GNU General Public License
-v3.0 - see the [LICENSE](LICENSE) file for details.
+All files in this repository are licensed under the GNU General Public License version 3 or later - see the [LICENSE](LICENSE) file for details.
