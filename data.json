@@ -3903,19 +3903,19 @@
 		"v24_04" : {
 			"server": {
 				"url": "https://releases.ubuntu.com/noble",
-				"iso_file": "ubuntu-24.04.2-live-server-amd64.iso",
+				"iso_file": "ubuntu-24.04.3-live-server-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"desktop": {
 				"url": "https://releases.ubuntu.com/noble",
-				"iso_file": "ubuntu-24.04.2-desktop-amd64.iso",
+				"iso_file": "ubuntu-24.04.3-desktop-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"netboot_tarball": {
 				"url": "https://releases.ubuntu.com/noble",
-				"iso_file": "ubuntu-24.04.2-netboot-amd64.tar.gz",
+				"iso_file": "ubuntu-24.04.3-netboot-amd64.tar.gz",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
@@ -4041,13 +4041,13 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
-						"iso_file": "edubuntu-24.04.2-desktop-amd64.iso",
+						"iso_file": "edubuntu-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					},
 					"preinstalled": {
 						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
-						"iso_file": "edubuntu-24.04.2-preinstalled-desktop-arm64+raspi.img.xz",
+						"iso_file": "edubuntu-24.04.3-preinstalled-desktop-arm64+raspi.img.xz",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4065,7 +4065,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/kubuntu/releases/noble/release",
-						"iso_file": "kubuntu-24.04.2-desktop-amd64.iso",
+						"iso_file": "kubuntu-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4091,7 +4091,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/lubuntu/releases/noble/release",
-						"iso_file": "lubuntu-24.04.2-desktop-amd64.iso",
+						"iso_file": "lubuntu-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4117,7 +4117,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/noble/release",
-						"iso_file": "ubuntu-budgie-24.04.2-desktop-amd64.iso",
+						"iso_file": "ubuntu-budgie-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4135,7 +4135,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/noble/release",
-						"iso_file": "ubuntucinnamon-24.04.2-desktop-amd64.iso",
+						"iso_file": "ubuntucinnamon-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4153,7 +4153,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/noble/release",
-						"iso_file": "ubuntukylin-24.04.2-desktop-amd64.iso",
+						"iso_file": "ubuntukylin-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4171,7 +4171,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/noble/release",
-						"iso_file": "ubuntu-mate-24.04.2-desktop-amd64.iso",
+						"iso_file": "ubuntu-mate-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4197,7 +4197,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/noble/release",
-						"iso_file": "ubuntustudio-24.04.2-dvd-amd64.iso",
+						"iso_file": "ubuntustudio-24.04.3-dvd-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4215,7 +4215,7 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/noble/release",
-						"iso_file": "ubuntu-unity-24.04.2-desktop-amd64.iso",
+						"iso_file": "ubuntu-unity-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
@@ -4239,13 +4239,13 @@
 				"v24_04": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
-						"iso_file": "xubuntu-24.04.2-desktop-amd64.iso",
+						"iso_file": "xubuntu-24.04.3-desktop-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					},
 					"minimal": {
 						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
-						"iso_file": "xubuntu-24.04.2-minimal-amd64.iso",
+						"iso_file": "xubuntu-24.04.3-minimal-amd64.iso",
 						"sig_file": "SHA256SUMS.gpg",
 						"sum_file": "SHA256SUMS"
 					}
