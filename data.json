@@ -3783,6 +3783,20 @@
 			"iso_file": "tails-amd64-6.18.iso",
 			"sig_file": "tails-amd64-6.18.iso.sig",
 			"sum_file": null
+		},
+		"v7_rc": {
+			"usb": {
+				"url": "https://download.tails.net/tails/alpha/tails-amd64-7.0~rc1",
+				"iso_file": "tails-amd64-7.0~rc1.img",
+				"sig_file": "tails-amd64-7.0~rc1.img.sig",
+				"sum_file": null
+			},
+			"vm": {
+				"url": "https://download.tails.net/tails/alpha/tails-amd64-7.0~rc1",
+				"iso_file": "tails-amd64-7.0~rc1.iso",
+				"sig_file": "tails-amd64-7.0~rc1.iso.sig",
+				"sum_file": null
+			}
 		}
 	},
 	"tinycore": {
