@@ -18,16 +18,22 @@ SCRIPTS=(
 )
 
 ERROR=0
+SKIP_SC=${SKIP_SC:-0}
+SKIP_SH=${SKIP_SH:-0}
 
 for SCRIPT in "${SCRIPTS[@]}"; do
-	shellcheck "$SCRIPT" || {
-		printf "ShellCheck failed: %s\n" "$SCRIPT" >&2
-		ERROR=1
+	((SKIP_SC)) || {
+		shellcheck "$SCRIPT" || {
+			printf "ShellCheck failed: %s\n" "$SCRIPT" >&2
+			ERROR=1
+		}
 	}
 
-	shellharden --check "$SCRIPT" || {
-		printf "Shellharden failed: %s\n" "$SCRIPT" >&2
-		ERROR=1
+	((SKIP_SH)) || {
+		shellharden --check "$SCRIPT" || {
+			printf "Shellharden failed: %s\n" "$SCRIPT" >&2
+			ERROR=1
+		}
 	}
 done
 
