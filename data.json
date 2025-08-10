@@ -1565,7 +1565,7 @@
 							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-i386",
 							"iso_file": "iso-cd/debian-hurd-2025-i386-NETINST-1.iso",
 							"sig_file": null,
-							"sum_file": "SHA512SUMS"
+							"sum_file": null
 						}
 					},
 					"amd64": {
@@ -1579,7 +1579,7 @@
 							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-amd64",
 							"iso_file": "iso-cd/debian-hurd-2025-amd64-NETINST-1.iso",
 							"sig_file": null,
-							"sum_file": "SHA512SUMS"
+							"sum_file": null
 						}
 					}
 
