@@ -20,7 +20,7 @@
 
 set -euo pipefail
 
-version="v2.4.4"
+version="v2.4.5"
 data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dl-distro"
 conf_dir="${XDG_CONFIG_HOME:-$HOME/.config}/dl-distro"
 json_dir="$data_dir/json"
