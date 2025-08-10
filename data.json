@@ -1294,92 +1294,261 @@
 		}
 	},
 	"debian": {
-		"netinst": {
-			"amd64": {
-				"url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd",
-				"iso_file": "debian-13.0.0-amd64-netinst.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
+		"stable": {
+			"netinst": {
+				"amd64": {
+					"url": "https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd",
+					"iso_file": "debian-13.0.0-amd64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.debian.org/cdimage/release/current/arm64/iso-cd",
+					"iso_file": "debian-13.0.0-arm64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"armhf": {
+					"url": "https://cdimage.debian.org/cdimage/release/current/armhf/iso-cd",
+					"iso_file": "debian-13.0.0-armhf-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"ppc64el": {
+					"url": "https://cdimage.debian.org/cdimage/release/current/ppc64el/iso-cd",
+					"iso_file": "debian-13.0.0-ppc64el-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"riscv64": {
+					"url": "https://cdimage.debian.org/cdimage/release/current/riscv64/iso-cd",
+					"iso_file": "debian-13.0.0-riscv64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"s390x": {
+					"url": "https://cdimage.debian.org/cdimage/release/current/s390x/iso-cd",
+					"iso_file": "debian-13.0.0-s390x-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				}
 			},
-			"arm64": {
-				"url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd",
-				"iso_file": "debian-13.0.0-arm64-netinst.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"armhf": {
-				"url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd",
-				"iso_file": "debian-13.0.0-armhf-netinst.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"riscv64": {
-				"url": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd",
-				"iso_file": "debian-13.0.0-riscv64-netinst.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"ppc64el": {
-				"url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd",
-				"iso_file": "debian-13.0.0-ppc64el-netinst.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"s390x": {
-				"url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd",
-				"iso_file": "debian-13.0.0-s390x-netinst.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
+			"live": {
+				"amd64": {
+					"cinnamon": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-cinnamon.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"gnome": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-gnome.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"junior": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-debian-junior.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"kde": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-kde.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"lxde": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-lxde.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"lxqt": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-lxqt.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"mate": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-mate.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"standard": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-standard.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"xfce": {
+						"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
+						"iso_file": "debian-live-13.0.0-amd64-xfce.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					}
+				}
 			}
 		},
-		"live": {
-			"cinnamon": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-cinnamon.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
+		"testing": {
+			"netinst": {
+				"amd64": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd",
+					"iso_file": "debian-testing-amd64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/arm64/iso-cd",
+					"iso_file": "debian-testing-arm64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"armel": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/armel/iso-cd",
+					"iso_file": "debian-testing-armel-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"armhf": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/armhf/iso-cd",
+					"iso_file": "debian-testing-armhf-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"mips64el": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/mips64el/iso-cd",
+					"iso_file": "debian-testing-mips64el-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"ppc64el": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/ppc64el/iso-cd",
+					"iso_file": "debian-testing-ppc64el-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"riscv64": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/riscv64/iso-cd",
+					"iso_file": "debian-testing-riscv64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"s390x": {
+					"url": "https://cdimage.debian.org/cdimage/weekly-builds/s390x/iso-cd",
+					"iso_file": "debian-testing-s390x-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				}
 			},
-			"gnome": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-gnome.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"kde": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-kde.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"lxde": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-lxde.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"lxqt": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-lxqt.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"mate": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-mate.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"standard": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-standard.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
-			},
-			"xfce": {
-				"url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid",
-				"iso_file": "debian-live-13.0.0-amd64-xfce.iso",
-				"sig_file": "SHA512SUMS.sign",
-				"sum_file": "SHA512SUMS"
+			"live": {
+				"amd64": {
+					"cinnamon": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-cinnamon.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"gnome": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-gnome.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"junior": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-debian-junior.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"kde": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-kde.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"lxde": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-lxde.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"lxqt": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-lxqt.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"mate": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-mate.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"standard": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-standard.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					},
+					"xfce": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid",
+						"iso_file": "debian-live-testing-amd64-xfce.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					}
+				},
+				"arm64": {
+					"gnome": {
+						"url": "https://cdimage.debian.org/cdimage/weekly-live-builds/arm64/iso-hybrid",
+						"iso_file": "debian-live-testing-arm64-gnome.iso",
+						"sig_file": "SHA512SUMS.sign",
+						"sum_file": "SHA512SUMS"
+					}
+				}
+
+			}
+		},
+		"sid": {
+			"netinst": {
+				"amd64": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/amd64/iso-cd",
+					"iso_file": "debian-testing-amd64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/arm64/iso-cd",
+					"iso_file": "debian-testing-arm64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"armhf": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/armhf/iso-cd",
+					"iso_file": "debian-testing-armhf-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"ppc64el": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/ppc64el/iso-cd",
+					"iso_file": "debian-testing-ppc64el-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"riscv64": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/riscv64/iso-cd",
+					"iso_file": "debian-testing-riscv64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"s390x": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/s390x/iso-cd",
+					"iso_file": "debian-testing-s390x-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				}
 			}
 		},
 		"ports": {
@@ -1393,14 +1562,49 @@
 							"sum_file": "SHA512SUMS"
 						},
 						"netinst": {
-							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-i386/iso-cd",
-							"iso_file": "debian-hurd-2025-i386-NETINST-1.iso",
+							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-i386",
+							"iso_file": "iso-cd/debian-hurd-2025-i386-NETINST-1.iso",
+							"sig_file": null,
+							"sum_file": null
+						}
+					},
+					"amd64": {
+						"pre_installed": {
+							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-amd64",
+							"iso_file": "debian-hurd-amd64.img.tar.gz",
+							"sig_file": null,
+							"sum_file": "SHA512SUMS"
+						},
+						"netinst": {
+							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-amd64",
+							"iso_file": "iso-cd/debian-hurd-2025-amd64-NETINST-1.iso",
 							"sig_file": null,
 							"sum_file": null
 						}
 					}
+
 				},
 				"latest": {
+					"amd64": {
+						"pre_installed": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64",
+							"iso_file": "debian-hurd.img.tar.gz",
+							"sig_file": null,
+							"sum_file": null
+						},
+						"netinst": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64",
+							"iso_file": "netinst.iso",
+							"sig_file": null,
+							"sum_file": null
+						},
+						"mini": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64/current",
+							"iso_file": "mini.iso",
+							"sig_file": null,
+							"sum_file": null
+						}
+					},
 					"i386": {
 						"pre_installed": {
 							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386",
@@ -1413,18 +1617,10 @@
 							"iso_file": "netinst.iso",
 							"sig_file": null,
 							"sum_file": null
-						}
-					},
-					"amd64": {
-						"pre_installed": {
-							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64",
-							"iso_file": "debian-hurd.img.tar.gz",
-							"sig_file": null,
-							"sum_file": null
 						},
-						"netinst": {
-							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-amd64",
-							"iso_file": "netinst.iso",
+						"mini": {
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386",
+							"iso_file": "mini.iso",
 							"sig_file": null,
 							"sum_file": null
 						}

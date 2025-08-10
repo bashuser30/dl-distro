@@ -402,7 +402,7 @@ download_debian()
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
-	[[ "$traverse_path" == *"ports.gnu_hurd.latest"* ]] && {
+	[[ "$traverse_path" == *"ports.gnu_hurd.latest"* || "$traverse_path" == *"ports.gnu_hurd.stable"*"netinst"* ]] && {
 		wget_file "$url/$iso_file"
 		msg "Debian does not provide checksum or signature files for this image."
 		return 0
