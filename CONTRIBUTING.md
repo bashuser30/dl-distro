@@ -22,9 +22,8 @@ better.
 
 ### Testing
 
-- Use `-s, --spider` to verify URLs without downloading files.
+- Use the [`spider.sh`] script to verify URLs without downloading files.
 - Test at least one full download and verification of an image.
-- Reach out for access to an internal script for batch URL testing.
 
 ### Pull Requests
 
@@ -50,6 +49,7 @@ better.
 [Supported Distributions]: README.md#supported-distributions
 [`README.md`]: README.md
 [man page]: man/dl-distro.1
+[`spider.sh`]: https://codeberg.org/bashuser30/spider.sh
 [completion files]: completions/
 [Codeberg]: https://codeberg.org/bashuser30/dl-distro
 [repository]: https://codeberg.org/bashuser30/dl-distro/issues
