@@ -782,17 +782,22 @@ generate_conf_file()
 	if [[ -f "$conf_file" ]]; then
 		warn "This will overwrite the config file with default values."
 
-		select gen_conf_choice in "Yes" "No"; do
+		while true; do
+		echo "1) Yes"
+		echo "2) No"
+		echo
+		read -p '> ' gen_conf_choice
+
 			case "$gen_conf_choice" in
-				"Yes")
+				"yes" | "Yes" | "YES" | "y" | "Y" | 1)
 					break
 					;;
-				"No")
+				"no" | "No" | "NO" | "n" | "N" | 2)
 					msg "Canceled."
 					return 0
 					;;
 				*)
-					error "Invalid option: ${red}$REPLY"
+					error "Invalid option: ${red}${gen_conf_choice}"
 					;;
 			esac
 		done
