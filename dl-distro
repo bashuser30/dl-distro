@@ -783,10 +783,10 @@ generate_conf_file()
 		warn "This will overwrite the config file with default values."
 
 		while true; do
-		echo "1) Yes"
-		echo "2) No"
-		echo
-		read -p '> ' gen_conf_choice
+			echo "1) Yes"
+			echo "2) No"
+
+			read -rp '> ' gen_conf_choice
 
 			case "$gen_conf_choice" in
 				"yes" | "Yes" | "YES" | "y" | "Y" | 1)
