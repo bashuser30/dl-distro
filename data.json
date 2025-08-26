@@ -2133,16 +2133,16 @@
 	},
 	"ghostbsd": {
 		"official": {
-			"url": "https://download.ghostbsd.org/releases/amd64/25.01-R14.2p1",
-			"iso_file": "GhostBSD-25.01-R14.2p1.iso",
+			"url": "https://download.ghostbsd.org/releases/amd64/25.02-R14.3p2",
+			"iso_file": "GhostBSD-25.02-R14.3p2.iso",
 			"sig_file": null,
-			"sum_file": "GhostBSD-25.01-R14.2p1.iso.sha256"
+			"sum_file": "GhostBSD-25.02-R14.3p2.iso.sha256"
 		},
 		"community": {
-			"url": "https://download.ghostbsd.org/releases/amd64/25.01-R14.2p1",
-			"iso_file": "GhostBSD-25.01-R14.2p1-XFCE.iso",
+			"url": "https://download.ghostbsd.org/releases/amd64/25.02-R14.3p2",
+			"iso_file": "GhostBSD-25.02-R14.3p2-XFCE.iso",
 			"sig_file": null,
-			"sum_file": "GhostBSD-25.01-R14.2p1-XFCE.iso.sha256"
+			"sum_file": "GhostBSD-25.02-R14.3p2-XFCE.iso.sha256"
 		}
 	},
 	"gparted": {
