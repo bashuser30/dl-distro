@@ -95,6 +95,20 @@
 					"iso_file": "AlmaLinux-10-latest-x86_64-minimal.iso",
 					"sig_file": "CHECKSUM",
 					"sum_file": "CHECKSUM"
+				},
+				"live": {
+					"gnome" :{
+						"url": "https://repo.almalinux.org/almalinux/10/live/x86_64",
+						"iso_file": "AlmaLinux-10-latest-x86_64-Live-GNOME.iso",
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
+					},
+					"kde": {
+						"url": "https://repo.almalinux.org/almalinux/10/live/x86_64",
+						"iso_file": "AlmaLinux-10-latest-x86_64-Live-KDE.iso",
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
+					}
 				}
 			},
 			"x86_64_v2": {
