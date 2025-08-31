@@ -1576,8 +1576,8 @@
 							"sum_file": "SHA512SUMS"
 						},
 						"netinst": {
-							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-i386",
-							"iso_file": "iso-cd/debian-hurd-2025-i386-NETINST-1.iso",
+							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-i386/iso-cd",
+							"iso_file": "debian-hurd-2025-i386-NETINST-1.iso",
 							"sig_file": null,
 							"sum_file": null
 						}
@@ -1590,8 +1590,8 @@
 							"sum_file": "SHA512SUMS"
 						},
 						"netinst": {
-							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-amd64",
-							"iso_file": "iso-cd/debian-hurd-2025-amd64-NETINST-1.iso",
+							"url": "https://cdimage.debian.org/cdimage/ports/stable/hurd-amd64/iso-cd",
+							"iso_file": "debian-hurd-2025-amd64-NETINST-1.iso",
 							"sig_file": null,
 							"sum_file": null
 						}
@@ -1627,14 +1627,8 @@
 							"sum_file": null
 						},
 						"netinst": {
-							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386",
-							"iso_file": "netinst.iso",
-							"sig_file": null,
-							"sum_file": null
-						},
-						"mini": {
-							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386",
-							"iso_file": "mini.iso",
+							"url": "https://cdimage.debian.org/cdimage/ports/latest/hurd-i386/20250807/iso-cd",
+							"iso_file": "debian-hurd-2025-i386-NETINST-1.iso",
 							"sig_file": null,
 							"sum_file": null
 						}
