@@ -779,29 +779,18 @@ toggle_auto_update()
 
 generate_conf_file()
 {
-	if [[ -f "$conf_file" ]]; then
+	[[ -f "$conf_file" ]] && {
+		local choice
+
 		warn "This will overwrite the config file with default values."
 
-		while true; do
-			echo "1) Yes"
-			echo "2) No"
+		read -rp "${bold}Continue? (y/N):$reset " choice
 
-			read -rp '> ' gen_conf_choice
-
-			case "$gen_conf_choice" in
-				"yes" | "Yes" | "YES" | "y" | "Y" | 1)
-					break
-					;;
-				"no" | "No" | "NO" | "n" | "N" | 2)
-					msg "Canceled."
-					return 0
-					;;
-				*)
-					error "Invalid option: ${red}${gen_conf_choice}"
-					;;
-			esac
-		done
-	fi
+		[[ "${choice,,}" =~ ^(y|yes)$ ]] || {
+			msg "Canceled."
+			return 1
+		}
+	}
 
 	{
 		# shellcheck disable=SC2016
@@ -865,24 +854,20 @@ list_gpg_keys()
 
 purge_all_data()
 {
+	local choice
+
 	warn "This will remove ALL stored data at: ${yellow}$data_dir"
 
-	select purge_choice in "Yes" "No"; do
-		case "$purge_choice" in
-			"Yes")
-				rm -rf "$data_dir"
-				msg "Data purge: ${green}SUCCESS"
-				break
-				;;
-			"No")
-				msg "Canceled."
-				break
-				;;
-			*)
-				error "Invalid option: ${red}$REPLY"
-				;;
-		esac
-	done
+	read -rp "${bold}Continue? (y/N):$reset " choice
+
+	[[ "${choice,,}" =~ ^(y|yes)$ ]] || {
+		msg "Canceled."
+		return 1
+	}
+
+	rm -rf -- "$data_dir"
+
+	msg "Data purge: ${green}SUCCESS"
 }
 
 update_json_file()
