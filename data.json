@@ -22,6 +22,7 @@
 		"parabola": "FBCC5AD7421197B7ABA72853908710913E8C7778",
 		"parrot": "B711822346552E4D92DA02DF7A8286AF0E81EE4A",
 		"pop": "63C46DF0140D738961429F4E204DD8AEC33A7AFF",
+		"proxmox": "24B30F06ECC1836A4E5EFECBA7BCD1420BFE778E",
 		"qubes": "9C884DF3F81064A569A4A9FAE022E58F8E34D89F",
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
 		"solus": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
@@ -53,6 +54,7 @@
 		"parch": "md5sum",
 		"parrot": "sha512sum",
 		"pop": "sha256sum",
+		"proxmox": "sha256sum",
 		"pure": "sha256sum",
 		"qubes": "sha512sum",
 		"rocky": "sha256sum",
@@ -3504,6 +3506,26 @@
 			"url": "https://iso.pop-os.org/22.04/arm64/raspi/4",
 			"iso_file": "pop-os_22.04_arm64_raspi_4.img.xz",
 			"sig_file": "SHA256SUMS.gpg",
+			"sum_file": "SHA256SUMS"
+		}
+	},
+	"proxmox": {
+		"virtual_environment": {
+			"url": "https://enterprise.proxmox.com/iso",
+			"iso_file": "proxmox-ve_9.0-1.iso",
+			"sig_file": "SHA256SUMS.asc",
+			"sum_file": "SHA256SUMS"
+		},
+		"backup_server": {
+			"url": "https://enterprise.proxmox.com/iso",
+			"iso_file": "proxmox-backup-server_4.0-1.iso",
+			"sig_file": "SHA256SUMS.asc",
+			"sum_file": "SHA256SUMS"
+		},
+		"mail_gateway": {
+			"url": "https://enterprise.proxmox.com/iso",
+			"iso_file": "proxmox-mail-gateway_8.2-1.iso",
+			"sig_file": "SHA256SUMS.asc",
 			"sum_file": "SHA256SUMS"
 		}
 	},

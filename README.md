@@ -142,6 +142,7 @@ maintained, updating with new releases on their release day.
 - [Parch GNU/Linux](https://parchlinux.com/en)
 - [Parrot OS](https://parrotsec.org)
 - [Pop!\_OS](https://pop.system76.com)
+- [Proxmox](https://proxmox.com)
 - [PureOS](https://pureos.net)
 - [Qubes OS](https://qubes-os.org)
 - [Rocky Linux](https://rockylinux.org)

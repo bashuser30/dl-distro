@@ -73,6 +73,7 @@ declare -A supported_distros=(
 	["Parch"]="parch"
 	["Parrot OS"]="parrot"
 	["Pop!_OS"]="pop"
+	["Proxmox"]="proxmox"
 	["PureOS"]="pure"
 	["Qubes OS"]="qubes"
 	["Rocky"]="rocky"
@@ -629,6 +630,17 @@ download_parrot()
 }
 
 download_pop()
+{
+	manual_download
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_gpg_signature "$sig_file" "$sum_file"
+	wget_file "$url/$iso_file"
+	verify_checksum
+}
+
+download_proxmox()
 {
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
