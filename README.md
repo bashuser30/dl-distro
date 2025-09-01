@@ -126,6 +126,7 @@ maintained, updating with new releases on their release day.
 - [CachyOS](https://cachyos.org)
 - [Debian](https://debian.org)
 - [Dragora GNU/Linux-Libre](https://dragora.org)
+- [EndeavourOS](https://endeavouros.com)
 - [Fedora Linux](https://fedoraproject.org)
 - [GhostBSD](https://ghostbsd.org)
 - [GParted Live](https://gparted.org)

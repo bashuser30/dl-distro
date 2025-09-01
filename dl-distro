@@ -57,6 +57,7 @@ declare -A supported_distros=(
 	["CachyOS"]="cachy"
 	["Debian"]="debian"
 	["Dragora"]="dragora"
+	["EndeavourOS"]="endeavour"
 	["Fedora"]="fedora"
 	["GhostBSD"]="ghostbsd"
 	["GParted Live"]="gparted"
@@ -431,6 +432,16 @@ download_dragora()
 	wget_file "$url"/{"$sig_file","$iso_file"}
 	verify_gpg_signature "$sig_file" "$iso_file"
 	wget_file "$url/$sum_file"
+	verify_checksum
+}
+
+download_endeavour()
+{
+	manual_download
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
 }
 
@@ -952,7 +963,7 @@ start_download()
 	sum_file="${json_values[3]}"
 	sum_algo="$(jq -r ".sum_algos.$distro" "$json_file")"
 
-	[[ "$manual_download_enabled" != "true" ]] && {
+	[[ "$manual_download_enabled" != "true" && "$spider_mode_enabled" != "true" ]] && {
 		trap cleanup EXIT INT TERM
 		msg "Downloading at: ${green}$default_download_dir"
 	}
