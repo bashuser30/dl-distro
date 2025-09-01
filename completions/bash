@@ -27,7 +27,7 @@ _dl_distro()
 	long_opts=('--auto-update --conf-file --distro --delete-key --help
 	            --import-key --list-keys --list-distros --manual-download --no-verify --path
 	            --purge-data --spider --update-json --version')
-	distros=('alma alpine arch cachy debian dragora endeavour fedora ghostbsd gparted guix
+	distros=('alma alpine arch cachy debian deepin dragora endeavour fedora ghostbsd gparted guix
 	          hyperbola kali mint mxlinux nix nobara openbsd opensuse parabola parch
 	          parrot pop proxmox pure qubes rocky slackware solus tails tinycore
 	          trisquel ubuntu void whonix zorin')

@@ -125,6 +125,7 @@ maintained, updating with new releases on their release day.
 - [Arch Linux](https://archlinux.org)
 - [CachyOS](https://cachyos.org)
 - [Debian](https://debian.org)
+- [deepin](https://deepin.org)
 - [Dragora GNU/Linux-Libre](https://dragora.org)
 - [EndeavourOS](https://endeavouros.com)
 - [Fedora Linux](https://fedoraproject.org)

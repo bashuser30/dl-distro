@@ -56,6 +56,7 @@ declare -A supported_distros=(
 	["Arch"]="arch"
 	["CachyOS"]="cachy"
 	["Debian"]="debian"
+	["deepin"]="deepin"
 	["Dragora"]="dragora"
 	["EndeavourOS"]="endeavour"
 	["Fedora"]="fedora"
@@ -422,6 +423,15 @@ download_debian()
 	verify_gpg_signature "$sig_file" "$sum_file"
 	wget_file "$url/$iso_file"
 	verify_checksum
+}
+
+download_deepin()
+{
+	manual_download
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+	wget_file "$url"/{"$sum_file","$iso_file"}
+	verify_checksum
+	msg "deepin does not provide signature files."
 }
 
 download_dragora()

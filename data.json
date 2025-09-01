@@ -39,6 +39,7 @@
 		"arch": "b2sum",
 		"cachy": "sha256sum",
 		"debian": "sha512sum",
+		"deepin": "sha256sum",
 		"dragora": "sha256sum",
 		"endeavour": "sha512sum",
 		"fedora": "sha256sum",
@@ -1638,6 +1639,48 @@
 						}
 					}
 				}
+			}
+		}
+	},
+	"deepin": {
+		"v25": {
+			"amd64":{
+				"url": "https://cdimage.deepin.com/releases/25.0.1/amd64",
+				"iso_file": "deepin-desktop-community-25.0.1-amd64.iso",
+				"sig_file": null,
+				"sum_file": "SHA256SUMS"
+			},
+			"arm64": {
+				"url": "https://cdimage.deepin.com/releases/25.0.1/arm64",
+				"iso_file": "deepin-desktop-community-25.0.1-arm64.iso",
+				"sig_file": null,
+				"sum_file": "SHA256SUMS"
+			},
+			"loong64": {
+				"url": "https://cdimage.deepin.com/releases/25.0.1/loong64",
+				"iso_file": "deepin-desktop-community-25.0.1-loong64.iso",
+				"sig_file": null,
+				"sum_file": "SHA256SUMS"
+			}
+		},
+		"v23": {
+			"amd64":{
+				"url": "https://cdimage.deepin.com/releases/23.1/amd64",
+				"iso_file": "deepin-desktop-community-23.1-amd64.iso",
+				"sig_file": null,
+				"sum_file": "SHA256SUMS"
+			},
+			"arm64": {
+				"url": "https://cdimage.deepin.com/releases/23.1/arm64",
+				"iso_file": "deepin-desktop-community-23.1-arm64.iso",
+				"sig_file": null,
+				"sum_file": "SHA256SUMS"
+			},
+			"loong64": {
+				"url": "https://cdimage.deepin.com/releases/23.1/loongarch64",
+				"iso_file": "deepin-desktop-community-23.1-loong64.iso",
+				"sig_file": null,
+				"sum_file": "SHA256SUMS"
 			}
 		}
 	},
