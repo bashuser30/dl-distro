@@ -3694,10 +3694,10 @@
 					}
 				},
 				"raspberry_pi": {
-					"url": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images",
-					"iso_file": "RockyLinuxRpi_9-latest.img.xz",
+					"url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64",
+					"iso_file": "Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
 					"sig_file": null,
-					"sum_file": "RockyLinuxRpi_9-latest.img.xz.sha256sum"
+					"sum_file": "Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"
 				}
 			},
 			"ppc64le": {
