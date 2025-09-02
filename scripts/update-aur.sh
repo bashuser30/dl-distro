@@ -9,7 +9,7 @@ VERSION="${VERSION#v}"
 
 cd "$PKGBUILD_DIR" || exit 1
 
-trap 'rm -f *.tar.gz *.tar.lz4' EXIT INT TERM
+trap 'rm -f *.tar.gz *.tar.lz4' EXIT
 
 sed -i "s/^pkgver=.*/pkgver=$VERSION/" PKGBUILD
 sed -i "s/^pkgrel=.*/pkgrel=1/" PKGBUILD
