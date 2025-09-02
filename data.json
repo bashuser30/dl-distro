@@ -3758,6 +3758,26 @@
 					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				}
+			},
+			"riscv64": {
+				"dvd": {
+					"url": "https://dl.rockylinux.org/pub/rocky/10/isos/riscv64",
+					"iso_file": "Rocky-10-latest-riscv64-dvd.iso",
+					"sig_file": "CHECKSUM.asc",
+					"sum_file": "CHECKSUM"
+				},
+				"boot": {
+					"url": "https://dl.rockylinux.org/pub/rocky/10/isos/riscv64",
+					"iso_file": "Rocky-10-latest-riscv64-boot.iso",
+					"sig_file": "CHECKSUM.asc",
+					"sum_file": "CHECKSUM"
+				},
+				"visionfive_2": {
+					"url": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64",
+					"iso_file": "Rocky-10-VisionFive2-latest.riscv64.tar.xz",
+					"sig_file": "CHECKSUM.asc",
+					"sum_file": "CHECKSUM"
+				}
 			}
 		},
 		"rocky_9": {
