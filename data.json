@@ -3647,6 +3647,12 @@
 						"sig_file": "CHECKSUM.asc",
 						"sum_file": "CHECKSUM"
 					}
+				},
+				"wsl": {
+					"url": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64",
+					"iso_file": "Rocky-10-WSL-Base.latest.x86_64.wsl",
+					"sig_file": "CHECKSUM.asc",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"aarch64": {
@@ -3697,6 +3703,12 @@
 				"raspberry_pi": {
 					"url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64",
 					"iso_file": "Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
+					"sig_file": "CHECKSUM.asc",
+					"sum_file": "CHECKSUM"
+				},
+				"wsl": {
+					"url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64",
+					"iso_file": "Rocky-10-WSL-Base.latest.aarch64.wsl",
 					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				}
@@ -3805,6 +3817,12 @@
 						"sig_file": null,
 						"sum_file": "CHECKSUM"
 					}
+				},
+				"wsl": {
+					"url": "https://dl.rockylinux.org/pub/rocky/9/images/x86_64",
+					"iso_file": "Rocky-9-WSL-Base.latest.x86_64.wsl",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"aarch64": {
@@ -3869,6 +3887,12 @@
 					"iso_file": "RockyLinuxRpi_9-latest.img.xz",
 					"sig_file": null,
 					"sum_file": "RockyLinuxRpi_9-latest.img.xz.sha256sum"
+				},
+				"wsl": {
+					"url": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64",
+					"iso_file": "Rocky-9-WSL-Base.latest.aarch64.wsl",
+					"sig_file": null,
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"ppc64le": {
