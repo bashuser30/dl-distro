@@ -695,11 +695,23 @@ download_qubes()
 
 download_rocky()
 {
+	[[ "$traverse_path" =~ ${distro}_([0-9]+) ]] && distro="${distro}_${BASH_REMATCH[1]}"
+
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
-	wget_file "$url"/{"$sum_file","$iso_file"}
+
+	[[ "$sig_file" == "null" ]] && {
+		wget_file "$url"/{"$sum_file","$iso_file"}
+		verify_checksum
+		msg "Rocky Linux does not provide signature files for this image."
+		return 0
+	}
+
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file"}
+	verify_gpg_signature "$sig_file" "$sum_file"
+	wget_file "$url/$iso_file"
 	verify_checksum
-	msg "Rocky Linux does not provide signature files."
 }
 
 download_slackware()
@@ -974,7 +986,7 @@ start_download()
 	sum_algo="$(jq -r ".sum_algos.$distro" "$json_file")"
 
 	[[ "$manual_download_enabled" != "true" && "$spider_mode_enabled" != "true" ]] && {
-		trap cleanup EXIT INT TERM
+		trap cleanup EXIT
 		msg "Downloading at: ${green}$default_download_dir"
 	}
 

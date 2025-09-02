@@ -25,6 +25,7 @@
 		"pop": "63C46DF0140D738961429F4E204DD8AEC33A7AFF",
 		"proxmox": "24B30F06ECC1836A4E5EFECBA7BCD1420BFE778E",
 		"qubes": "9C884DF3F81064A569A4A9FAE022E58F8E34D89F",
+		"rocky_10": "FC226859C0860BF0DDB95B085B106C736FEDFC85",
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
 		"solus": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
 		"tails": "A490D0F4D311A4153E2BB7CADBB802B258ACD84F",
@@ -3606,45 +3607,45 @@
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64",
 					"iso_file": "Rocky-10-latest-x86_64-minimal.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64",
 					"iso_file": "Rocky-10-latest-x86_64-dvd.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64",
 					"iso_file": "Rocky-10-latest-x86_64-boot.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"generic_cloud": {
 					"url": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64",
 					"iso_file": "Rocky-10-GenericCloud-Base.latest.x86_64.qcow2",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"live_images": {
 					"gnome": {
 						"url": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64",
 						"iso_file": "Rocky-10-Workstation-x86_64-latest.iso",
-						"sig_file": null,
-						"sum_file": "Rocky-10-Workstation-x86_64-latest.iso.CHECKSUM"
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
 					},
 					"gnome_lite": {
 						"url": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64",
 						"iso_file": "Rocky-10-Workstation-Lite-x86_64-latest.iso",
-						"sig_file": null,
-						"sum_file": "Rocky-10-Workstation-Lite-x86_64-latest.iso.CHECKSUM"
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
 					},
 					"kde": {
 						"url": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64",
 						"iso_file": "Rocky-10-KDE-x86_64-latest.iso",
-						"sig_file": null,
-						"sum_file": "Rocky-10-KDE-x86_64-latest.iso.CHECKSUM"
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
 					}
 				}
 			},
@@ -3652,77 +3653,77 @@
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64",
 					"iso_file": "Rocky-10-latest-aarch64-minimal.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64",
 					"iso_file": "Rocky-10-latest-aarch64-dvd.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64",
 					"iso_file": "Rocky-10-latest-aarch64-boot.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"generic_cloud": {
 					"url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64",
 					"iso_file": "Rocky-10-GenericCloud-Base.latest.aarch64.qcow2",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"live_images": {
 					"gnome": {
 						"url": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64",
 						"iso_file": "Rocky-10-Workstation-aarch64-latest.iso",
-						"sig_file": null,
-						"sum_file": "Rocky-10-Workstation-aarch64-latest.iso.CHECKSUM"
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
 					},
 					"gnome_lite": {
 						"url": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64",
 						"iso_file": "Rocky-10-Workstation-Lite-aarch64-latest.iso",
-						"sig_file": null,
-						"sum_file": "Rocky-10-Workstation-Lite-aarch64-latest.iso.CHECKSUM"
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
 					},
 					"kde": {
 						"url": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64",
 						"iso_file": "Rocky-10-KDE-aarch64-latest.iso",
-						"sig_file": null,
-						"sum_file": "Rocky-10-KDE-aarch64-latest.iso.CHECKSUM"
+						"sig_file": "CHECKSUM.asc",
+						"sum_file": "CHECKSUM"
 					}
 				},
 				"raspberry_pi": {
 					"url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64",
 					"iso_file": "Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
-					"sig_file": null,
-					"sum_file": "Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"
+					"sig_file": "CHECKSUM.asc",
+					"sum_file": "CHECKSUM"
 				}
 			},
 			"ppc64le": {
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le",
 					"iso_file": "Rocky-10-latest-ppc64le-minimal.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le",
 					"iso_file": "Rocky-10-latest-ppc64le-dvd.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le",
 					"iso_file": "Rocky-10-latest-ppc64le-boot.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"generic_cloud": {
 					"url": "https://dl.rockylinux.org/pub/rocky/10/images/ppc64le",
 					"iso_file": "Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				}
 			},
@@ -3730,19 +3731,19 @@
 				"minimal": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/s390x",
 					"iso_file": "Rocky-10-latest-s390x-minimal.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"dvd": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/s390x",
 					"iso_file": "Rocky-10-latest-s390x-dvd.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				},
 				"boot": {
 					"url": "https://download.rockylinux.org/pub/rocky/10/isos/s390x",
 					"iso_file": "Rocky-10-latest-s390x-boot.iso",
-					"sig_file": null,
+					"sig_file": "CHECKSUM.asc",
 					"sum_file": "CHECKSUM"
 				}
 			}
