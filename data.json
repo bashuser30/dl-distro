@@ -2300,18 +2300,6 @@
 				"iso_file": "archive?query=spec:tarball+status:success+system:x86_64-linux+guix-binary.tar.xz",
 				"sig_file": null,
 				"sum_file": null
-			},
-			"pinebook_pro": {
-				"url": "https://ci.guix.gnu.org/search/latest",
-				"iso_file": "image?query=spec:images+status:success+system:x86_64-linux+pinebook-pro-barebones-raw-image",
-				"sig_file": null,
-				"sum_file": null
-			},
-			"vision_five2": {
-				"url": "https://ci.guix.gnu.org/search/latest",
-				"iso_file": "image?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image",
-				"sig_file": null,
-				"sum_file": null
 			}
 		}
 	},
