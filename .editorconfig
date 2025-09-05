@@ -1,8 +1,21 @@
 root = true
 
-[{*.sh,dl-distro,data.json}]
-indent_style = tab
+[*]
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+[{*.sh,dl-distro}]
+indent_style = tab
+# shfmt options
+binary_next_line = true
+switch_case_indent = true
+space_redirects = false
+function_next_line = true
+
+[*.json]
+indent_style = tab
+
+[*.md]
+trim_trailing_whitespace = false
