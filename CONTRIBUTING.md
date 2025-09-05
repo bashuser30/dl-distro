@@ -7,9 +7,9 @@ better.
 
 ### Code Style
 
-- Use tabs for indentation and spaces for alignment.
-- Follow [ShellCheck] and [Shellharden] recommendations for code quality.
-- Install [`pre-commit.sh`] to automate checks.
+* Use tabs for indentation.
+* Install [pre-commit] and run `pre-commit install` in the root of repository
+  to automate [shellcheck] and [shfmt].
 
 ### Adding a New Distribution
 
@@ -41,9 +41,9 @@ better.
 - Email [bashuser30@mailbox.org] (GPG: C6312EC0).
 
 <!-- links -->
-[ShellCheck]: https://github.com/koalaman/shellcheck
-[Shellharden]: https://github.com/anordal/shellharden
-[`pre-commit.sh`]: scripts/pre-commit.sh
+[pre-commit]: https://github.com/pre-commit/pre-commit
+[shellcheck]: https://github.com/koalaman/shellcheck
+[shfmt]: https://github.com/mvdan/sh
 [`data.json`]: data.json
 [`dl-distro`]: dl-distro
 [Supported Distributions]: README.md#supported-distributions
