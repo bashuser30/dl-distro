@@ -493,6 +493,7 @@ download_guix()
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
 	[[ "$traverse_path" == *"latest"* ]] && {
+		msg "If the upstream process of making latest images has failed, you can't download those!"
 		msg "These images are development snapshots and don't have stability."
 		wget_file "$url/$iso_file"
 		msg "Guix System does not provide checksum or signature files for this image."
