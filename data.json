@@ -2498,6 +2498,12 @@
 				"iso_file": "lmde-6-cinnamon-32bit.iso",
 				"sig_file": "sha256sum.txt.gpg",
 				"sum_file": "sha256sum.txt"
+			},
+			"beta": {
+				"url": "https://mirrors.layeronline.com/linuxmint/testing",
+				"iso_file": "lmde-7-cinnamon-64bit-beta.iso",
+				"sig_file": "sha256sum.txt.gpg",
+				"sum_file": "sha256sum.txt"
 			}
 		}
 	},
