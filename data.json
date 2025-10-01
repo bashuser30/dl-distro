@@ -3562,7 +3562,7 @@
 		},
 		"mail_gateway": {
 			"url": "https://enterprise.proxmox.com/iso",
-			"iso_file": "proxmox-mail-gateway_8.2-1.iso",
+			"iso_file": "proxmox-mail-gateway_9.0-1.iso",
 			"sig_file": "SHA256SUMS.asc",
 			"sum_file": "SHA256SUMS"
 		}
