@@ -4093,35 +4093,35 @@
 		"x86_64": {
 			"CorePure64": {
 				"url": "http://tinycorelinux.net/16.x/x86_64/release",
-				"iso_file": "CorePure64-16.1.iso",
+				"iso_file": "CorePure64-16.2.iso",
 				"sig_file": null,
-				"sum_file": "CorePure64-16.1.iso.md5.txt"
+				"sum_file": "CorePure64-16.2.iso.md5.txt"
 			},
 			"TinyCorePure64": {
 				"url": "http://tinycorelinux.net/16.x/x86_64/release",
-				"iso_file": "TinyCorePure64-16.1.iso",
+				"iso_file": "TinyCorePure64-16.2.iso",
 				"sig_file": null,
-				"sum_file": "TinyCorePure64-16.1.iso.md5.txt"
+				"sum_file": "TinyCorePure64-16.2.iso.md5.txt"
 			}
 		},
 		"x86": {
 		       "Core": {
 			       "url": "http://tinycorelinux.net/16.x/x86/release",
-			       "iso_file": "Core-16.1.iso",
+			       "iso_file": "Core-16.2.iso",
 			       "sig_file": null,
-			       "sum_file": "Core-16.1.iso.md5.txt"
+			       "sum_file": "Core-16.2.iso.md5.txt"
 		       },
 		       "CorePlus": {
 			       "url": "http://tinycorelinux.net/16.x/x86/release",
-			       "iso_file": "CorePlus-16.1.iso",
+			       "iso_file": "CorePlus-16.2.iso",
 			       "sig_file": null,
-			       "sum_file": "CorePlus-16.1.iso.md5.txt"
+			       "sum_file": "CorePlus-16.2.iso.md5.txt"
 		       },
 		       "TinyCore": {
 			       "url": "http://tinycorelinux.net/16.x/x86/release",
-			       "iso_file": "TinyCore-16.1.iso",
+			       "iso_file": "TinyCore-16.2.iso",
 			       "sig_file": null,
-			       "sum_file": "TinyCore-16.1.iso.md5.txt"
+			       "sum_file": "TinyCore-16.2.iso.md5.txt"
 		       }
 		}
 	},
