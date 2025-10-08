@@ -103,7 +103,7 @@
 					"sum_file": "CHECKSUM"
 				},
 				"live": {
-					"gnome" :{
+					"gnome": {
 						"url": "https://repo.almalinux.org/almalinux/10/live/x86_64",
 						"iso_file": "AlmaLinux-10-latest-x86_64-Live-GNOME.iso",
 						"sig_file": "CHECKSUM.asc",
@@ -1528,7 +1528,6 @@
 						"sum_file": "SHA512SUMS"
 					}
 				}
-
 			}
 		},
 		"sid": {
@@ -1602,7 +1601,6 @@
 							"sum_file": null
 						}
 					}
-
 				},
 				"latest": {
 					"amd64": {
@@ -1645,7 +1643,7 @@
 	},
 	"deepin": {
 		"v25": {
-			"amd64":{
+			"amd64": {
 				"url": "https://cdimage.deepin.com/releases/25.0.1/amd64",
 				"iso_file": "deepin-desktop-community-25.0.1-amd64.iso",
 				"sig_file": null,
@@ -1665,7 +1663,7 @@
 			}
 		},
 		"v23": {
-			"amd64":{
+			"amd64": {
 				"url": "https://cdimage.deepin.com/releases/23.1/amd64",
 				"iso_file": "deepin-desktop-community-23.1-amd64.iso",
 				"sig_file": null,
@@ -2106,14 +2104,14 @@
 				"sum_file": "Fedora-Labs-42-1.1-x86_64-CHECKSUM"
 			},
 			"python_classroom": {
-				"x86_64" : {
+				"x86_64": {
 					"iso": {
 						"url": "https://download.fedoraproject.org/pub/alt/releases/42/Labs/x86_64/iso",
 						"iso_file": "Fedora-Python-Classroom-Live-42-1.1.x86_64.iso",
 						"sig_file": "Fedora-Labs-42-1.1-x86_64-CHECKSUM",
 						"sum_file": "Fedora-Labs-42-1.1-x86_64-CHECKSUM"
 					},
-					"vagrant_libvirt" : {
+					"vagrant_libvirt": {
 						"url": "https://download.fedoraproject.org/pub/alt/releases/42/Labs/x86_64/images",
 						"iso_file": "Fedora-Python-Classroom-Vagrant-libvirt-42-1.1.x86_64.vagrant.libvirt.box",
 						"sig_file": "Fedora-Labs-42-1.1-x86_64-CHECKSUM",
@@ -2275,7 +2273,7 @@
 					"sum_file": null
 				}
 			},
-			"source" : {
+			"source": {
 				"url": "https://ftpmirror.gnu.org/gnu/guix",
 				"iso_file": "guix-1.4.0.tar.gz",
 				"sig_file": "guix-1.4.0.tar.gz.sig",
@@ -3294,7 +3292,7 @@
 					"sig_file": "openSUSE-MicroOS.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
 					"sum_file": "openSUSE-MicroOS.x86_64-MS-HyperV.vhdx.xz.sha256"
 				},
-				"container_host":{
+				"container_host": {
 					"url": "https://download.opensuse.org/tumbleweed/appliances",
 					"iso_file": "openSUSE-MicroOS.x86_64-ContainerHost-MS-HyperV.vhdx.xz",
 					"sig_file": "openSUSE-MicroOS.x86_64-ContainerHost-MS-HyperV.vhdx.xz.sha256.asc",
@@ -3315,7 +3313,7 @@
 					"sum_file": "openSUSE-MicroOS.x86_64-ContainerHost-OpenStack-Cloud.qcow2.sha256"
 				}
 			},
-			"uefi_arm":{
+			"uefi_arm": {
 				"aarch64": {
 					"rpi": {
 						"url": "https://download.opensuse.org/ports/aarch64/tumbleweed/appliances",
@@ -4159,24 +4157,24 @@
 			}
 		},
 		"x86": {
-		       "Core": {
-			       "url": "http://tinycorelinux.net/16.x/x86/release",
-			       "iso_file": "Core-16.2.iso",
-			       "sig_file": null,
-			       "sum_file": "Core-16.2.iso.md5.txt"
-		       },
-		       "CorePlus": {
-			       "url": "http://tinycorelinux.net/16.x/x86/release",
-			       "iso_file": "CorePlus-16.2.iso",
-			       "sig_file": null,
-			       "sum_file": "CorePlus-16.2.iso.md5.txt"
-		       },
-		       "TinyCore": {
-			       "url": "http://tinycorelinux.net/16.x/x86/release",
-			       "iso_file": "TinyCore-16.2.iso",
-			       "sig_file": null,
-			       "sum_file": "TinyCore-16.2.iso.md5.txt"
-		       }
+			"Core": {
+				"url": "http://tinycorelinux.net/16.x/x86/release",
+				"iso_file": "Core-16.2.iso",
+				"sig_file": null,
+				"sum_file": "Core-16.2.iso.md5.txt"
+			},
+			"CorePlus": {
+				"url": "http://tinycorelinux.net/16.x/x86/release",
+				"iso_file": "CorePlus-16.2.iso",
+				"sig_file": null,
+				"sum_file": "CorePlus-16.2.iso.md5.txt"
+			},
+			"TinyCore": {
+				"url": "http://tinycorelinux.net/16.x/x86/release",
+				"iso_file": "TinyCore-16.2.iso",
+				"sig_file": null,
+				"sum_file": "TinyCore-16.2.iso.md5.txt"
+			}
 		}
 	},
 	"trisquel": {
@@ -4224,7 +4222,7 @@
 				"sum_file": "trisquel-netinst_11.0.1_ppc64el.iso.sha512"
 			}
 		},
-		"sources_tarball" : {
+		"sources_tarball": {
 			"url": "https://mirrors.ocf.berkeley.edu/trisquel-images",
 			"iso_file": "trisquel_11.0.1_sources.tar",
 			"sig_file": "trisquel_11.0.1_sources.tar.asc",
@@ -4232,7 +4230,7 @@
 		}
 	},
 	"ubuntu": {
-		"v25_04" : {
+		"v25_04": {
 			"server": {
 				"url": "https://releases.ubuntu.com/plucky",
 				"iso_file": "ubuntu-25.04-live-server-amd64.iso",
@@ -4258,7 +4256,7 @@
 				"sum_file": "SHA256SUMS"
 			}
 		},
-		"v24_04" : {
+		"v24_04": {
 			"server": {
 				"url": "https://releases.ubuntu.com/noble",
 				"iso_file": "ubuntu-24.04.3-live-server-amd64.iso",
@@ -4622,7 +4620,7 @@
 	"void": {
 		"x86_64": {
 			"base": {
-				"live":{
+				"live": {
 					"glibc": {
 						"url": "https://repo-default.voidlinux.org/live/current",
 						"iso_file": "void-live-x86_64-20250202-base.iso",
