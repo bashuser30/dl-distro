@@ -4230,6 +4230,126 @@
 		}
 	},
 	"ubuntu": {
+		"v25_10": {
+			"server": {
+				"url": "https://releases.ubuntu.com/questing",
+				"iso_file": "ubuntu-25.10-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/questing",
+				"iso_file": "ubuntu-25.10-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"netboot_tarball": {
+				"url": "https://releases.ubuntu.com/questing",
+				"iso_file": "ubuntu-25.10-netboot-amd64.tar.gz",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"wsl": {
+				"url": "https://releases.ubuntu.com/questing",
+				"iso_file": "ubuntu-25.10-wsl-amd64.wsl",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"flavours": {
+				"edubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/questing/release",
+						"iso_file": "edubuntu-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"raspberry_pi": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/questing/release",
+						"iso_file": "edubuntu-25.10-preinstalled-desktop-arm64+raspi.img.xz",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/kubuntu/releases/questing/release",
+						"iso_file": "kubuntu-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"lubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/questing/release",
+						"iso_file": "lubuntu-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"budgie": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/questing/release",
+						"iso_file": "ubuntu-budgie-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"cinnamon": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/questing/release",
+						"iso_file": "ubuntucinnamon-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kylin": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/questing/release",
+						"iso_file": "ubuntukylin-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"mate": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/questing/release",
+						"iso_file": "ubuntu-mate-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"studio": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/questing/release",
+						"iso_file": "ubuntustudio-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"unity": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/questing/release",
+						"iso_file": "ubuntu-unity-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"xubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/questing/release",
+						"iso_file": "xubuntu-25.10-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/questing/release",
+						"iso_file": "xubuntu-25.10-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
+			}
+		},
 		"v25_04": {
 			"server": {
 				"url": "https://releases.ubuntu.com/plucky",
@@ -4254,6 +4374,100 @@
 				"iso_file": "ubuntu-25.04-wsl-amd64.wsl",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
+			},
+			"flavours": {
+				"edubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/plucky/release",
+						"iso_file": "edubuntu-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"raspberry_pi": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/plucky/release",
+						"iso_file": "edubuntu-25.04-preinstalled-desktop-arm64+raspi.img.xz",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/kubuntu/releases/plucky/release",
+						"iso_file": "kubuntu-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"lubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/plucky/release",
+						"iso_file": "lubuntu-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"budgie": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/plucky/release",
+						"iso_file": "ubuntu-budgie-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"cinnamon": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/plucky/release",
+						"iso_file": "ubuntucinnamon-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kylin": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/plucky/release",
+						"iso_file": "ubuntukylin-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"mate": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/plucky/release",
+						"iso_file": "ubuntu-mate-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"studio": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/plucky/release",
+						"iso_file": "ubuntustudio-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"unity": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/plucky/release",
+						"iso_file": "ubuntu-unity-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"xubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/release",
+						"iso_file": "xubuntu-25.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/release",
+						"iso_file": "xubuntu-25.04-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		},
 		"v24_04": {
@@ -4274,6 +4488,100 @@
 				"iso_file": "ubuntu-24.04.3-netboot-amd64.tar.gz",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
+			},
+			"flavours": {
+				"edubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/noble/release",
+						"iso_file": "edubuntu-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"raspberry_pi": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/noble/release",
+						"iso_file": "edubuntu-24.04.3-preinstalled-desktop-arm64+raspi.img.xz",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/kubuntu/releases/noble/release",
+						"iso_file": "kubuntu-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"lubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/noble/release",
+						"iso_file": "lubuntu-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"budgie": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/noble/release",
+						"iso_file": "ubuntu-budgie-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"cinnamon": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/noble/release",
+						"iso_file": "ubuntucinnamon-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kylin": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/noble/release",
+						"iso_file": "ubuntukylin-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"mate": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/noble/release",
+						"iso_file": "ubuntu-mate-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"studio": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/noble/release",
+						"iso_file": "ubuntustudio-24.04.3-dvd-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"unity": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/noble/release",
+						"iso_file": "ubuntu-unity-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"xubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
+						"iso_file": "xubuntu-24.04.3-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
+						"iso_file": "xubuntu-24.04.3-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		},
 		"v22_04": {
@@ -4288,6 +4596,40 @@
 				"iso_file": "ubuntu-22.04.5-desktop-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
+			},
+			"flavours": {
+				"kubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/kubuntu/releases/jammy/release",
+						"iso_file": "kubuntu-22.04.5-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"lubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/jammy/release",
+						"iso_file": "lubuntu-22.04.5-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"mate": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/jammy/release",
+						"iso_file": "ubuntu-mate-22.04.5-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"xubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/jammy/release",
+						"iso_file": "xubuntu-22.04.5-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
 			}
 		},
 		"v20_04": {
@@ -4375,244 +4717,6 @@
 					"iso_file": "ubuntu-14.04.6-desktop-i386.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
-				}
-			}
-		},
-		"flavours": {
-			"edubuntu": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimages.ubuntu.com/edubuntu/releases/plucky/release",
-						"iso_file": "edubuntu-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					},
-					"preinstalled": {
-						"url": "https://cdimages.ubuntu.com/edubuntu/releases/plucky/release",
-						"iso_file": "edubuntu-25.04-preinstalled-desktop-arm64+raspi.img.xz",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
-						"iso_file": "edubuntu-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					},
-					"preinstalled": {
-						"url": "https://cdimages.ubuntu.com/edubuntu/releases/noble/release",
-						"iso_file": "edubuntu-24.04.3-preinstalled-desktop-arm64+raspi.img.xz",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"kubuntu": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/kubuntu/releases/plucky/release",
-						"iso_file": "kubuntu-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/kubuntu/releases/noble/release",
-						"iso_file": "kubuntu-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v22_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/kubuntu/releases/jammy/release",
-						"iso_file": "kubuntu-22.04.5-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"lubuntu": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/lubuntu/releases/plucky/release",
-						"iso_file": "lubuntu-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/lubuntu/releases/noble/release",
-						"iso_file": "lubuntu-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v22_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/lubuntu/releases/jammy/release",
-						"iso_file": "lubuntu-22.04.5-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"budgie": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/plucky/release",
-						"iso_file": "ubuntu-budgie-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/noble/release",
-						"iso_file": "ubuntu-budgie-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"cinnamon": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/plucky/release",
-						"iso_file": "ubuntucinnamon-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/noble/release",
-						"iso_file": "ubuntucinnamon-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"kylin": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/plucky/release",
-						"iso_file": "ubuntukylin-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/noble/release",
-						"iso_file": "ubuntukylin-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"mate": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/plucky/release",
-						"iso_file": "ubuntu-mate-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/noble/release",
-						"iso_file": "ubuntu-mate-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v22_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/jammy/release",
-						"iso_file": "ubuntu-mate-22.04.5-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"studio": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/plucky/release",
-						"iso_file": "ubuntustudio-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/noble/release",
-						"iso_file": "ubuntustudio-24.04.3-dvd-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"unity": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/plucky/release",
-						"iso_file": "ubuntu-unity-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/noble/release",
-						"iso_file": "ubuntu-unity-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				}
-			},
-			"xubuntu": {
-				"v25_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/release",
-						"iso_file": "xubuntu-25.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					},
-					"minimal": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/plucky/release",
-						"iso_file": "xubuntu-25.04-minimal-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v24_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
-						"iso_file": "xubuntu-24.04.3-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					},
-					"minimal": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/noble/release",
-						"iso_file": "xubuntu-24.04.3-minimal-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
-				"v22_04": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/xubuntu/releases/jammy/release",
-						"iso_file": "xubuntu-22.04.5-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
 				}
 			}
 		}
