@@ -4993,20 +4993,14 @@
 	},
 	"zorin": {
 		"core": {
-			"url": "https://distro.ibiblio.org/zorinos/17",
-			"iso_file": "Zorin-OS-17.3-Core-64-bit.iso",
+			"url": "https://distro.ibiblio.org/zorinos/18",
+			"iso_file": "Zorin-OS-18-Core-64-bit.iso",
 			"sig_file": null,
 			"sum_file": null
 		},
 		"education": {
-			"url": "https://distro.ibiblio.org/zorinos/17",
-			"iso_file": "Zorin-OS-17.3-Education-64-bit.iso",
-			"sig_file": null,
-			"sum_file": null
-		},
-		"lite": {
-			"url": "https://distro.ibiblio.org/zorinos/17",
-			"iso_file": "Zorin-OS-17.3-Lite-64-bit.iso",
+			"url": "https://distro.ibiblio.org/zorinos/18",
+			"iso_file": "Zorin-OS-18-Education-64-bit.iso",
 			"sig_file": null,
 			"sum_file": null
 		}
