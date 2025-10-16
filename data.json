@@ -4314,14 +4314,6 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
-				"unity": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/questing/release",
-						"iso_file": "ubuntu-unity-25.10-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"xubuntu": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/xubuntu/releases/questing/release",
