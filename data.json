@@ -2948,87 +2948,87 @@
 			"kvm_and_xen": {
 				"x86_64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.x86_64-and-xen.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.x86_64-and-xen.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.x86_64-and-xen.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.x86_64-kvm-and-xen.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.x86_64-kvm-and-xen.qcow2.sha256"
 				},
 				"aarch64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.aarch64.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.aarch64.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.aarch64.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.aarch64-kvm.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.aarch64-kvm.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.aarch64-kvm.qcow2.sha256"
 				},
 				"ppc64le": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.ppc64le-4096-qcow2.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.ppc64le-4096-qcow2.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.ppc64le-4096-qcow2.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.ppc64le-ppc64le-4096-qcow2.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.ppc64le-ppc64le-4096-qcow2.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.ppc64le-ppc64le-4096-qcow2.qcow2.sha256"
 				},
 				"s390x": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.s390x-kvm.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.s390x-kvm.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.s390x-kvm.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.s390x-s390x-kvm.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.s390x-s390x-kvm.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.s390x-s390x-kvm.qcow2.sha256"
 				}
 			},
 			"hyperv": {
 				"x86_64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.x86_64-HyperV.vhdx.xz",
-					"sig_file": "Leap-16.0-Minimal-VM.x86_64-HyperV.vhdx.xz.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.x86_64-HyperV.vhdx.xz.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.x86_64-MS-HyperV.vhdx.xz",
+					"sig_file": "Leap-16.0-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.x86_64-MS-HyperV.vhdx.xz.sha256"
 				},
 				"aarch64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.aarch64-HyperV.vhdx.xz",
-					"sig_file": "Leap-16.0-Minimal-VM.aarch64-HyperV.vhdx.xz.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.aarch64-HyperV.vhdx.xz.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.aarch64-MS-HyperV.vhdx.xz",
+					"sig_file": "Leap-16.0-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.aarch64-MS-HyperV.vhdx.xz.sha256"
 				}
 			},
 			"vmware": {
 				"x86_64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.x86_64.vmdk",
-					"sig_file": "Leap-16.0-Minimal-VM.x86_64.vmdk.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.x86_64.vmdk.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.x86_64-VMware.vmdk",
+					"sig_file": "Leap-16.0-Minimal-VM.x86_64-VMware.vmdk.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.x86_64-VMware.vmdk.sha256"
 				}
 			},
 			"encrypted": {
 				"x86_64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.x86_64-and-xen-encrypt.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.x86_64-and-xen-encrypt.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.x86_64-and-xen-encrypt.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.x86_64-kvm-and-xen-encrypt.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.x86_64-kvm-and-xen-encrypt.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.x86_64-kvm-and-xen-encrypt.qcow2.sha256"
 				},
 				"aarch64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.aarch64-encrypt.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.aarch64-encrypt.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.aarch64-encrypt.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.aarch64-kvm-encrypt.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.aarch64-kvm-encrypt.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.aarch64-kvm-encrypt.qcow2.sha256"
 				}
 			},
 			"raspberry_pi": {
 				"aarch64": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-Image.aarch64.raw.xz",
-					"sig_file": "Leap-16.0-Minimal-Image.aarch64.raw.xz.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-Image.aarch64.raw.xz.sha256"
+					"iso_file": "Leap-16.0-Minimal-Image.aarch64-RaspberryPi.raw.xz",
+					"sig_file": "Leap-16.0-Minimal-Image.aarch64-RaspberryPi.raw.xz.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-Image.aarch64-RaspberryPi.raw.xz.sha256"
 				}
 			},
 			"preconfigured": {
 				"ppc64le": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.ppc64le-4096-raw.raw.xz",
-					"sig_file": "Leap-16.0-Minimal-VM.ppc64le-4096-raw.raw.xz.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.ppc64le-4096-raw.raw.xz.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.ppc64le-ppc64le-4096-raw.raw.xz",
+					"sig_file": "Leap-16.0-Minimal-VM.ppc64le-ppc64le-4096-raw.raw.xz.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.ppc64le-ppc64le-4096-raw.raw.xz.sha256"
 				}
 			},
 			"cloud": {
 				"s390x": {
 					"url": "https://download.opensuse.org/distribution/leap/16.0/appliances",
-					"iso_file": "Leap-16.0-Minimal-VM.s390x-Cloud.qcow2",
-					"sig_file": "Leap-16.0-Minimal-VM.s390x-Cloud.qcow2.sha256.asc",
-					"sum_file": "Leap-16.0-Minimal-VM.s390x-Cloud.qcow2.sha256"
+					"iso_file": "Leap-16.0-Minimal-VM.s390x-s390x-Cloud.qcow2",
+					"sig_file": "Leap-16.0-Minimal-VM.s390x-s390x-Cloud.qcow2.sha256.asc",
+					"sum_file": "Leap-16.0-Minimal-VM.s390x-s390x-Cloud.qcow2.sha256"
 				}
 			},
 			"oem": {
