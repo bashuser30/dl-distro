@@ -562,9 +562,17 @@ download_mint()
 download_mxlinux()
 {
 	manual_download
-	wget_spider "$url"/{"$iso_file","$sum_file"}
-	wget_file "$url"/"$sum_file"
-	wget_file "$url/$iso_file"
+	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
+
+	[[ "$traverse_path" == *"raspberry_pi"* ]] && {
+		wget_file "$url/$iso_file"
+		msg "MX Linux does not provide checksum or signature files for this image."
+		return 0
+	}
+
+	fetch_gpg_key "$distro"
+	wget_file "$url"/{"$sig_file","$sum_file","$iso_file"}
+	verify_gpg_signature "$sig_file" "$iso_file"
 	verify_checksum
 }
 

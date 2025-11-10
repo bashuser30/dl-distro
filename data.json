@@ -19,6 +19,7 @@
 		"hyperbola": "C92BAA713B8D53D3CAE63FC9E6974752F9704456",
 		"kali": "827C8569F2518CC677FECA1AED65462EC8D5E4C5",
 		"mint": "27DEB15644C6B3CF3BD7D291300F846BA25BAE09",
+		"mxlinux": "F62EDEAA3AE70A9C99DAC4189B68A1E8B9B6375C",
 		"opensuse": "AD485664E901B867051AB15F35A2F86E29B700A4",
 		"parabola": "FBCC5AD7421197B7ABA72853908710913E8C7778",
 		"parrot": "B711822346552E4D92DA02DF7A8286AF0E81EE4A",
@@ -49,7 +50,7 @@
 		"hyperbola": "sha512sum",
 		"kali": "sha256sum",
 		"mint": "sha256sum",
-		"mxlinux": "md5sum",
+		"mxlinux": "sha256sum",
 		"nix": "sha256sum",
 		"nobara": "sha256sum",
 		"openbsd": "sha256sum",
@@ -2524,49 +2525,59 @@
 		}
 	},
 	"mxlinux": {
-		"fluxbox": {
-			"i386": {
-				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Fluxbox",
-				"iso_file": "MX-23.6_fluxbox_386.iso",
-				"sig_file": null,
-				"sum_file": "MX-23.6_fluxbox_386.iso.md5"
-			},
-			"x86_64": {
-				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Fluxbox",
-				"iso_file": "MX-23.6_fluxbox_x64.iso",
-				"sig_file": null,
-				"sum_file": "MX-23.6_fluxbox_x64.iso.md5"
-			}
-		},
-		"kde": {
-			"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/KDE",
-			"iso_file": "MX-23.6.1_KDE_x64.iso",
-			"sig_file": null,
-			"sum_file": "MX-23.6.1_KDE_x64.iso.md5"
-		},
-		"xfce": {
-			"standard": {
-				"i386": {
-					"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
-					"iso_file": "MX-23.6_386.iso",
-					"sig_file": null,
-					"sum_file": "MX-23.6_386.iso.md5"
+		"x86_64": {
+			"xfce": {
+				"standard": {
+					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
+					"iso_file": "MX-25_Xfce_x64.iso",
+					"sig_file": "MX-25_Xfce_x64.iso.sig",
+					"sum_file": "MX-25_Xfce_x64.iso.sha256"
 				},
-				"x86_64": {
-					"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
-					"iso_file": "MX-23.6_x64.iso",
-					"sig_file": null,
-					"sum_file": "MX-23.6_x64.iso.md5"
+				"sysvinit": {
+					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
+					"iso_file": "MX-25_Xfce_sysvinit_x64.iso",
+					"sig_file": "MX-25_Xfce_sysvinit_x64.iso.sig",
+					"sum_file": "MX-25_Xfce_sysvinit_x64.iso.sha256"
+				},
+				"ahs": {
+					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
+					"iso_file": "MX-25_Xfce_ahs_x64.iso",
+					"sig_file": "MX-25_Xfce_ahs_x64.iso.sig",
+					"sum_file": "MX-25_Xfce_ahs_x64.iso.sha256"
+				},
+				"ahs_sysvinit": {
+					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
+					"iso_file": "MX-25_Xfce_ahs_sysvinit_x64.iso",
+					"sig_file": "MX-25_Xfce_ahs_sysvinit_x64.iso.sig",
+					"sum_file": "MX-25_Xfce_ahs_sysvinit_x64.iso.sha256"
 				}
 			},
-			"ahs": {
-				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
-				"iso_file": "MX-23.6_ahs_x64.iso",
-				"sig_file": null,
-				"sum_file": "MX-23.6_ahs_x64.iso.md5"
+			"kde": {
+				"standard": {
+					"url": "https://rsync-mxlinux.org/MX/Final/KDE",
+					"iso_file": "MX-25_KDE_x64.iso",
+					"sig_file": "MX-25_KDE_x64.iso.sig",
+					"sum_file": "MX-25_KDE_x64.iso.sha256"
+				}
 			},
-			"rpi_respin": {
-				"url": "https://mirrors.ocf.berkeley.edu/mx-linux/MX/Final/Xfce",
+			"fluxbox": {
+				"standard": {
+					"url": "https://rsync-mxlinux.org/MX/Final/Fluxbox",
+					"iso_file": "MX-25_fluxbox_x64.iso",
+					"sig_file": "MX-25_fluxbox_x64.iso.sig",
+					"sum_file": "MX-25_fluxbox_x64.iso.sha256"
+				},
+				"sysvinit": {
+					"url": "https://rsync-mxlinux.org/MX/Final/Fluxbox",
+					"iso_file": "MX-25_fluxbox_sysvinit_x64.iso",
+					"sig_file": "MX-25_fluxbox_sysvinit_x64.iso.sig",
+					"sum_file": "MX-25_fluxbox_sysvinit_x64.iso.sha256"
+				}
+			}
+		},
+		"arm64": {
+			"raspberry_pi": {
+				"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
 				"iso_file": "mx23.6_rpi_respin_arm64.zip",
 				"sig_file": null,
 				"sum_file": null
