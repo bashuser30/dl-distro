@@ -1534,29 +1534,57 @@
 			}
 		},
 		"unstable": {
-			"amd64": {
-				"url": "https://d-i.debian.org/daily-images/amd64/daily/netboot",
-				"iso_file": "mini.iso",
-				"sig_file": null,
-				"sum_file": null
+			"direct": {
+				"amd64": {
+					"url": "https://d-i.debian.org/daily-images/amd64/daily/netboot",
+					"iso_file": "mini.iso",
+					"sig_file": null,
+					"sum_file": null
+				},
+				"arm64": {
+					"url": "https://d-i.debian.org/daily-images/arm64/daily/netboot",
+					"iso_file": "mini.iso",
+					"sig_file": null,
+					"sum_file": null
+				},
+				"armhf": {
+					"url": "https://d-i.debian.org/daily-images/armhf/daily/netboot",
+					"iso_file": "mini.iso",
+					"sig_file": null,
+					"sum_file": null
+				},
+				"riscv64": {
+					"url": "https://d-i.debian.org/daily-images/riscv64/daily/netboot",
+					"iso_file": "mini.iso",
+					"sig_file": null,
+					"sum_file": null
+				}
 			},
-			"arm64": {
-				"url": "https://d-i.debian.org/daily-images/arm64/daily/netboot",
-				"iso_file": "mini.iso",
-				"sig_file": null,
-				"sum_file": null
-			},
-			"armhf": {
-				"url": "https://d-i.debian.org/daily-images/armhf/daily/netboot",
-				"iso_file": "mini.iso",
-				"sig_file": null,
-				"sum_file": null
-			},
-			"riscv64": {
-				"url": "https://d-i.debian.org/daily-images/riscv64/daily/netboot",
-				"iso_file": "mini.iso",
-				"sig_file": null,
-				"sum_file": null
+			"indirect": {
+				"amd64": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/amd64/iso-cd",
+					"iso_file": "debian-testing-amd64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"arm64": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/arm64/iso-cd",
+					"iso_file": "debian-testing-arm64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"armhf": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/armhf/iso-cd",
+					"iso_file": "debian-testing-armhf-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				},
+				"riscv64": {
+					"url": "https://cdimage.debian.org/cdimage/daily-builds/sid_d-i/current/riscv64/iso-cd",
+					"iso_file": "debian-testing-riscv64-netinst.iso",
+					"sig_file": "SHA512SUMS.sign",
+					"sum_file": "SHA512SUMS"
+				}
 			}
 		},
 		"ports": {
