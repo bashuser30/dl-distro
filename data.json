@@ -3432,19 +3432,19 @@
 	},
 	"parch": {
 		"gnome": {
-			"url": "https://mirror.parchlinux.com/gnome",
+			"url": "https://mirror.parchlinux.ir/gnome",
 			"iso_file": "ParchLinux-gnome-latest.iso",
 			"sig_file": null,
 			"sum_file": "md5sum.txt"
 		},
 		"kde": {
-			"url": "https://mirror.parchlinux.com/plasma",
+			"url": "https://mirror.parchlinux.ir/plasma",
 			"iso_file": "ParchLinux-plasma-latest.iso",
 			"sig_file": null,
 			"sum_file": "md5sum.txt"
 		},
 		"xfce": {
-			"url": "https://mirror.parchlinux.com/XFCE",
+			"url": "https://mirror.parchlinux.ir/XFCE",
 			"iso_file": "ParchLinux-XFCE-latest.iso",
 			"sig_file": null,
 			"sum_file": "md5sum.txt"
