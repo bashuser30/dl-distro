@@ -4970,16 +4970,16 @@
 	},
 	"whonix": {
 		"qemu": {
-			"url": "https://download.whonix.org/libvirt/17.4.4.6",
-			"iso_file": "Whonix-Xfce-17.4.4.6.Intel_AMD64.qcow2.libvirt.xz",
-			"sig_file": "Whonix-Xfce-17.4.4.6.Intel_AMD64.qcow2.libvirt.xz.asc",
-			"sum_file": "Whonix-Xfce-17.4.4.6.Intel_AMD64.qcow2.libvirt.xz.sha512sums"
+			"url": "https://download.whonix.org/libvirt/18.0.7.6",
+			"iso_file": "Whonix-LXQt-18.0.7.6.Intel_AMD64.qcow2.libvirt.xz",
+			"sig_file": "Whonix-LXQt-18.0.7.6.Intel_AMD64.qcow2.libvirt.xz.asc",
+			"sum_file": "Whonix-LXQt-18.0.7.6.Intel_AMD64.qcow2.libvirt.xz.sha512sums"
 		},
 		"virtualbox": {
-			"url": "https://download.whonix.org/ova/17.4.4.6",
-			"iso_file": "Whonix-Xfce-17.4.4.6.Intel_AMD64.ova",
-			"sig_file": "Whonix-Xfce-17.4.4.6.Intel_AMD64.ova.asc",
-			"sum_file": "Whonix-Xfce-17.4.4.6.Intel_AMD64.ova.sha512sums"
+			"url": "https://download.whonix.org/ova/18.0.7.6",
+			"iso_file": "Whonix-LXQt-18.0.7.6.Intel_AMD64.ova",
+			"sig_file": "Whonix-LXQt-18.0.7.6.Intel_AMD64.ova.asc",
+			"sum_file": "Whonix-LXQt-18.0.7.6.Intel_AMD64.ova.sha512sums"
 		}
 	},
 	"zorin": {
