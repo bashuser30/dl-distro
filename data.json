@@ -1680,9 +1680,9 @@
 	},
 	"endeavour": {
 		"url": "https://mirrors.gigenet.com/endeavouros/iso",
-		"iso_file": "EndeavourOS_Mercury-Neo-2025.03.19.iso",
-		"sig_file": "EndeavourOS_Mercury-Neo-2025.03.19.iso.sig",
-		"sum_file": "EndeavourOS_Mercury-Neo-2025.03.19.iso.sha512sum"
+		"iso_file": "EndeavourOS_Ganymede-2025.11.24.iso",
+		"sig_file": "EndeavourOS_Ganymede-2025.11.24.iso.sig",
+		"sum_file": "EndeavourOS_Ganymede-2025.11.24.iso.sha512sum"
 	},
 	"fedora": {
 		"workstation": {
