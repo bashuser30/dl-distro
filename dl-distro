@@ -561,6 +561,15 @@ download_mint()
 
 download_mxlinux()
 {
+	# Different mxlinux DEs ISOs have different GPG keys
+	if [[ "$iso_file" == *"Xfce"* ]]; then
+		distro=mxlinux_xfce
+	elif [[ "$iso_file" == *"KDE"* ]]; then
+		distro=mxlinux_kde
+	elif [[ "$iso_file" == *"fluxbox"* ]]; then
+		distro=mxlinux_fluxbox
+	fi
+
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
