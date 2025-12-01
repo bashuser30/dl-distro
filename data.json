@@ -2485,13 +2485,13 @@
 	"nix": {
 		"graphical": {
 			"x86_64": {
-				"url": "https://channels.nixos.org/nixos-25.05",
+				"url": "https://channels.nixos.org/nixos-25.11",
 				"iso_file": "latest-nixos-graphical-x86_64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-graphical-x86_64-linux.iso.sha256"
 			},
 			"aarch64": {
-				"url": "https://channels.nixos.org/nixos-25.05",
+				"url": "https://channels.nixos.org/nixos-25.11",
 				"iso_file": "latest-nixos-graphical-aarch64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-graphical-aarch64-linux.iso.sha256"
@@ -2499,13 +2499,13 @@
 		},
 		"minimal": {
 			"x86_64": {
-				"url": "https://channels.nixos.org/nixos-25.05",
+				"url": "https://channels.nixos.org/nixos-25.11",
 				"iso_file": "latest-nixos-minimal-x86_64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-x86_64-linux.iso.sha256"
 			},
 			"aarch64": {
-				"url": "https://channels.nixos.org/nixos-25.05",
+				"url": "https://channels.nixos.org/nixos-25.11",
 				"iso_file": "latest-nixos-minimal-aarch64-linux.iso",
 				"sig_file": null,
 				"sum_file": "latest-nixos-minimal-aarch64-linux.iso.sha256"
