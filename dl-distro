@@ -405,12 +405,24 @@ download_debian()
 	manual_download
 	wget_spider "$url"/{"$iso_file","$sig_file","$sum_file"}
 
-	[[ "$traverse_path" == *"unstable"* ]] && {
+	[[ "$traverse_path" == *"unstable"*"direct"* ]] && {
 		wget_file "$url/$iso_file"
+		msg "If the upstream process of making latest images has failed, you can't download those!"
+		msg "These images are development snapshots and don't have stability."
 		msg "Debian does not provide checksum or signature files for this image."
-		msg "There are no \"unstable\" full CD or DVD images."
-		msg "During the installation choose \"Advanced options\" -> \"Expert install\"."
-		msg "In the step \"Choose a mirror of the Debian archive\" choose version \"sid - unstable\""
+		return 0
+	}
+
+	[[ "$traverse_path" == *"unstable"*"indirect"* ]] && {
+		msg "If the upstream process of making latest images has failed, you can't download those!"
+		msg "These images are development snapshots and don't have stability."
+		msg "It is possible to create ISO files, but not to create checksum or signature files!"
+
+		fetch_gpg_key "$distro"
+		wget_file "$url"/{"$sig_file","$sum_file"}
+		verify_gpg_signature "$sig_file" "$sum_file"
+		wget_file "$url/$iso_file"
+		verify_checksum
 		return 0
 	}
 
