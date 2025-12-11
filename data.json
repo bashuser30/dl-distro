@@ -2421,13 +2421,13 @@
 	"gparted": {
 		"iso": {
 			"url": "https://downloads.sourceforge.net/gparted",
-			"iso_file": "gparted-live-1.7.0-8-amd64.iso",
+			"iso_file": "gparted-live-1.7.0-12-amd64.iso",
 			"sig_file": "CHECKSUMS.TXT.gpg",
 			"sum_file": "CHECKSUMS.TXT"
 		},
 		"zip": {
 			"url": "https://downloads.sourceforge.net/gparted",
-			"iso_file": "gparted-live-1.7.0-8-amd64.zip",
+			"iso_file": "gparted-live-1.7.0-12-amd64.zip",
 			"sig_file": "CHECKSUMS.TXT.gpg",
 			"sum_file": "CHECKSUMS.TXT"
 		}
