@@ -3791,23 +3791,33 @@
 		}
 	},
 	"pop": {
-		"standard": {
-			"url": "https://iso.pop-os.org/22.04/amd64/intel/43",
-			"iso_file": "pop-os_22.04_amd64_intel_43.iso",
-			"sig_file": "SHA256SUMS.gpg",
-			"sum_file": "SHA256SUMS"
+		"x86_64": {
+			"standard": {
+				"url": "https://iso.pop-os.org/24.04/amd64/generic/22",
+				"iso_file": "pop-os_24.04_amd64_generic_22.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"nvidia": {
+				"url": "https://iso.pop-os.org/24.04/amd64/nvidia/22",
+				"iso_file": "pop-os_24.04_amd64_nvidia_22.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		},
-		"nvidia": {
-			"url": "https://iso.pop-os.org/22.04/amd64/nvidia/43",
-			"iso_file": "pop-os_22.04_amd64_nvidia_43.iso",
-			"sig_file": "SHA256SUMS.gpg",
-			"sum_file": "SHA256SUMS"
-		},
-		"raspberry_pi": {
-			"url": "https://iso.pop-os.org/22.04/arm64/raspi/4",
-			"iso_file": "pop-os_22.04_arm64_raspi_4.img.xz",
-			"sig_file": "SHA256SUMS.gpg",
-			"sum_file": "SHA256SUMS"
+		"arm64": {
+			"standard": {
+				"url": "https://iso.pop-os.org/24.04/arm64/generic/3",
+				"iso_file": "pop-os_24.04_arm64_generic_3.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"nvidia": {
+				"url": "https://iso.pop-os.org/24.04/arm64/nvidia/3",
+				"iso_file": "pop-os_24.04_arm64_nvidia_3.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			}
 		}
 	},
 	"proxmox": {
