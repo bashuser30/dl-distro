@@ -27,7 +27,7 @@
 		"parrot": "B711822346552E4D92DA02DF7A8286AF0E81EE4A",
 		"pop": "63C46DF0140D738961429F4E204DD8AEC33A7AFF",
 		"proxmox": "24B30F06ECC1836A4E5EFECBA7BCD1420BFE778E",
-		"qubes": "9C884DF3F81064A569A4A9FAE022E58F8E34D89F",
+		"qubes": "F3FA3F99D6281F7B3A3E5E871C3D9B627F3FADA4",
 		"rocky_10": "FC226859C0860BF0DDB95B085B106C736FEDFC85",
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
 		"solus": "F5F6685CAF5559771D9CCB92618EB3600BD32D59",
@@ -3828,9 +3828,9 @@
 	},
 	"qubes": {
 		"url": "https://ftp.qubes-os.org/iso",
-		"iso_file": "Qubes-R4.2.4-x86_64.iso",
-		"sig_file": "Qubes-R4.2.4-x86_64.iso.asc",
-		"sum_file": "Qubes-R4.2.4-x86_64.iso.DIGESTS"
+		"iso_file": "Qubes-R4.3.0-x86_64.iso",
+		"sig_file": "Qubes-R4.3.0-x86_64.iso.asc",
+		"sum_file": "Qubes-R4.3.0-x86_64.iso.DIGESTS"
 	},
 	"rocky": {
 		"rocky_10": {
