@@ -2784,64 +2784,64 @@
 		"official": {
 			"standard": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-Official-2025-05-13.iso",
+				"iso_file": "Nobara-43-Official-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-Official-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-Official-2025-12-27.iso.sha256sum"
 			},
 			"nvidia": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-Official-NV-2025-05-13.iso",
+				"iso_file": "Nobara-43-Official-NV-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-Official-NV-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-Official-NV-2025-12-27.iso.sha256sum"
 			}
 		},
 		"gnome": {
 			"standard": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-GNOME-2025-05-13.iso",
+				"iso_file": "Nobara-43-GNOME-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-GNOME-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-GNOME-2025-12-27.iso.sha256sum"
 			},
 			"nvidia": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-GNOME-NV-2025-05-13.iso",
+				"iso_file": "Nobara-43-GNOME-NV-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-GNOME-NV-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-GNOME-NV-2025-12-27.iso.sha256sum"
 			}
 		},
 		"kde": {
 			"standard": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-KDE-2025-05-13.iso",
+				"iso_file": "Nobara-43-KDE-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-KDE-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-KDE-2025-12-27.iso.sha256sum"
 			},
 			"nvidia": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-KDE-NV-2025-05-13.iso",
+				"iso_file": "Nobara-43-KDE-NV-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-KDE-NV-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-KDE-NV-2025-12-27.iso.sha256sum"
 			}
 		},
 		"steam_htpc": {
 			"standard": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-Steam-HTPC-2025-05-13.iso",
+				"iso_file": "Nobara-43-Steam-HTPC-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-Steam-HTPC-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-Steam-HTPC-2025-12-27.iso.sha256sum"
 			},
 			"nvidia": {
 				"url": "https://nobara-images.nobaraproject.org",
-				"iso_file": "Nobara-42-Steam-HTPC-NV-2025-05-13.iso",
+				"iso_file": "Nobara-43-Steam-HTPC-NV-2025-12-27.iso",
 				"sig_file": null,
-				"sum_file": "Nobara-42-Steam-HTPC-NV-2025-05-13.iso.sha256sum"
+				"sum_file": "Nobara-43-Steam-HTPC-NV-2025-12-27.iso.sha256sum"
 			}
 		},
 		"steam_handheld": {
 			"url": "https://nobara-images.nobaraproject.org",
-			"iso_file": "Nobara-42-Steam-Handheld-2025-05-13.iso",
+			"iso_file": "Nobara-43-Steam-Handheld-2025-12-27.iso",
 			"sig_file": null,
-			"sum_file": "Nobara-42-Steam-Handheld-2025-05-13.iso.sha256sum"
+			"sum_file": "Nobara-43-Steam-Handheld-2025-12-27.iso.sha256sum"
 		}
 	},
 	"openbsd": {
