@@ -2663,20 +2663,20 @@
 	"mint": {
 		"mint": {
 			"cinnamon": {
-				"url": "https://mirrors.layeronline.com/linuxmint/stable/22.2",
-				"iso_file": "linuxmint-22.2-cinnamon-64bit.iso",
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/22.3",
+				"iso_file": "linuxmint-22.3-cinnamon-64bit.iso",
 				"sig_file": "sha256sum.txt.gpg",
 				"sum_file": "sha256sum.txt"
 			},
 			"mate": {
-				"url": "https://mirrors.layeronline.com/linuxmint/stable/22.2",
-				"iso_file": "linuxmint-22.2-mate-64bit.iso",
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/22.3",
+				"iso_file": "linuxmint-22.3-mate-64bit.iso",
 				"sig_file": "sha256sum.txt.gpg",
 				"sum_file": "sha256sum.txt"
 			},
 			"xfce": {
-				"url": "https://mirrors.layeronline.com/linuxmint/stable/22.2",
-				"iso_file": "linuxmint-22.2-xfce-64bit.iso",
+				"url": "https://mirrors.layeronline.com/linuxmint/stable/22.3",
+				"iso_file": "linuxmint-22.3-xfce-64bit.iso",
 				"sig_file": "sha256sum.txt.gpg",
 				"sum_file": "sha256sum.txt"
 			}
