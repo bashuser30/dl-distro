@@ -1869,20 +1869,20 @@
 	"deepin": {
 		"v25": {
 			"amd64": {
-				"url": "https://cdimage.deepin.com/releases/25.0.1/amd64",
-				"iso_file": "deepin-desktop-community-25.0.1-amd64.iso",
+				"url": "https://cdimage.deepin.com/releases/25.0.10/amd64",
+				"iso_file": "deepin-desktop-community-25.0.10-amd64.iso",
 				"sig_file": null,
 				"sum_file": "SHA256SUMS"
 			},
 			"arm64": {
-				"url": "https://cdimage.deepin.com/releases/25.0.1/arm64",
-				"iso_file": "deepin-desktop-community-25.0.1-arm64.iso",
+				"url": "https://cdimage.deepin.com/releases/25.0.10/arm64",
+				"iso_file": "deepin-desktop-community-25.0.10-arm64.iso",
 				"sig_file": null,
 				"sum_file": "SHA256SUMS"
 			},
 			"loong64": {
-				"url": "https://cdimage.deepin.com/releases/25.0.1/loong64",
-				"iso_file": "deepin-desktop-community-25.0.1-loong64.iso",
+				"url": "https://cdimage.deepin.com/releases/25.0.10/loong64",
+				"iso_file": "deepin-desktop-community-25.0.10-loong64.iso",
 				"sig_file": null,
 				"sum_file": "SHA256SUMS"
 			}
