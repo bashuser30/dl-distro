@@ -2725,58 +2725,28 @@
 			"xfce": {
 				"standard": {
 					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
-					"iso_file": "MX-25_Xfce_x64.iso",
-					"sig_file": "MX-25_Xfce_x64.iso.sig",
-					"sum_file": "MX-25_Xfce_x64.iso.sha256"
-				},
-				"sysvinit": {
-					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
-					"iso_file": "MX-25_Xfce_sysvinit_x64.iso",
-					"sig_file": "MX-25_Xfce_sysvinit_x64.iso.sig",
-					"sum_file": "MX-25_Xfce_sysvinit_x64.iso.sha256"
+					"iso_file": "MX-25.1_Xfce_x64.iso",
+					"sig_file": "MX-25.1_Xfce_x64.iso.sig",
+					"sum_file": "MX-25.1_Xfce_x64.iso.sha256"
 				},
 				"ahs": {
 					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
-					"iso_file": "MX-25_Xfce_ahs_x64.iso",
-					"sig_file": "MX-25_Xfce_ahs_x64.iso.sig",
-					"sum_file": "MX-25_Xfce_ahs_x64.iso.sha256"
-				},
-				"ahs_sysvinit": {
-					"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
-					"iso_file": "MX-25_Xfce_ahs_sysvinit_x64.iso",
-					"sig_file": "MX-25_Xfce_ahs_sysvinit_x64.iso.sig",
-					"sum_file": "MX-25_Xfce_ahs_sysvinit_x64.iso.sha256"
+					"iso_file": "MX-25.1_Xfce_ahs_x64.iso",
+					"sig_file": "MX-25.1_Xfce_ahs_x64.iso.sig",
+					"sum_file": "MX-25.1_Xfce_ahs_x64.iso.sha256"
 				}
 			},
 			"kde": {
-				"standard": {
-					"url": "https://rsync-mxlinux.org/MX/Final/KDE",
-					"iso_file": "MX-25_KDE_x64.iso",
-					"sig_file": "MX-25_KDE_x64.iso.sig",
-					"sum_file": "MX-25_KDE_x64.iso.sha256"
-				}
+				"url": "https://rsync-mxlinux.org/MX/Final/KDE",
+				"iso_file": "MX-25.1_KDE_x64.iso",
+				"sig_file": "MX-25.1_KDE_x64.iso.sig",
+				"sum_file": "MX-25.1_KDE_x64.iso.sha256"
 			},
 			"fluxbox": {
-				"standard": {
-					"url": "https://rsync-mxlinux.org/MX/Final/Fluxbox",
-					"iso_file": "MX-25_fluxbox_x64.iso",
-					"sig_file": "MX-25_fluxbox_x64.iso.sig",
-					"sum_file": "MX-25_fluxbox_x64.iso.sha256"
-				},
-				"sysvinit": {
-					"url": "https://rsync-mxlinux.org/MX/Final/Fluxbox",
-					"iso_file": "MX-25_fluxbox_sysvinit_x64.iso",
-					"sig_file": "MX-25_fluxbox_sysvinit_x64.iso.sig",
-					"sum_file": "MX-25_fluxbox_sysvinit_x64.iso.sha256"
-				}
-			}
-		},
-		"arm64": {
-			"raspberry_pi": {
-				"url": "https://rsync-mxlinux.org/MX/Final/Xfce",
-				"iso_file": "mx23.6_rpi_respin_arm64.zip",
-				"sig_file": null,
-				"sum_file": null
+				"url": "https://rsync-mxlinux.org/MX/Final/Fluxbox",
+				"iso_file": "MX-25.1_fluxbox_x64.iso",
+				"sig_file": "MX-25.1_fluxbox_x64.iso.sig",
+				"sum_file": "MX-25.1_fluxbox_x64.iso.sha256"
 			}
 		}
 	},
