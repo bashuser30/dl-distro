@@ -1512,10 +1512,10 @@
 	},
 	"cachy": {
 		"desktop": {
-			"url": "https://iso.cachyos.org/desktop/251129",
-			"iso_file": "cachyos-desktop-linux-251129.iso",
-			"sig_file": "cachyos-desktop-linux-251129.iso.sig",
-			"sum_file": "cachyos-desktop-linux-251129.iso.sha256"
+			"url": "https://iso.cachyos.org/desktop/260124",
+			"iso_file": "cachyos-desktop-linux-260124.iso",
+			"sig_file": "cachyos-desktop-linux-260124.iso.sig",
+			"sum_file": "cachyos-desktop-linux-260124.iso.sha256"
 		},
 		"handheld": {
 			"url": "https://iso.cachyos.org/handheld/251129",
