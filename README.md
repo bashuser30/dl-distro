@@ -23,27 +23,15 @@ Supports **~700** images from **~40** [distributions](#supported-distributions).
 
 ## Installation
 
-### AUR
+### Packages
 
-Use your preferred AUR helper to install `dl-distro` or `dl-distro-git`.
+[![Packaging status](https://repology.org/badge/vertical-allrepos/dl-distro.svg?header=)](https://repology.org/project/dl-distro/versions)
 
-[![dl-distro](https://img.shields.io/aur/version/dl-distro?color=1793d1&label=dl-distro&logo=arch-linux&style=for-the-badge)](https://aur.archlinux.org/packages/dl-distro)
-[![dl-distro-git](https://img.shields.io/aur/version/dl-distro-git?color=1793d1&label=dl-distro-git&logo=arch-linux&style=for-the-badge)](https://aur.archlinux.org/packages/dl-distro-git)
+If your distribution packages **dl-distro**, install it using your system package manager.
 
-Or clone and build:
+### Manual
 
-```
-git clone https://aur.archlinux.org/dl-distro.git
-cd dl-distro
-makepkg -si
-```
-
-### Non-AUR
-
-#### Install
-
-`git clone` the repository and use the installer script inside the cloned
-repository:
+Clone the repository and use the installer script:
 
 ```
 git clone https://codeberg.org/bashuser30/dl-distro.git
@@ -166,4 +154,5 @@ maintained, updating with new releases on their release day.
 
 ## License
 
-All files in this repository are licensed under the GNU General Public License version 3 or later - see the [LICENSE](LICENSE) file for details.
+All files in this repository are licensed under the GNU General Public License
+version 3 or later - see the [LICENSE](LICENSE) file for details.
