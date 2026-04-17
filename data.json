@@ -3538,8 +3538,8 @@
 				"packages": {
 					"url": "https://download.opensuse.org/distribution/leap-micro/6.2/product/iso",
 					"iso_file": "openSUSE-Leap-Micro-6.2-x86_64.iso",
-					"sig_file": "openSUSE-Leap-Micro-6.2-x86_64.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-Micro-6.2-x86_64.iso.sha256"
+					"sig_file": null,
+					"sum_file": null
 				}
 			},
 			"aarch64": {
@@ -3566,8 +3566,8 @@
 				"packages": {
 					"url": "https://download.opensuse.org/distribution/leap-micro/6.2/product/iso",
 					"iso_file": "openSUSE-Leap-Micro-6.2-aarch64.iso",
-					"sig_file": "openSUSE-Leap-Micro-6.2-aarch64.iso.sha256.asc",
-					"sum_file": "openSUSE-Leap-Micro-6.2-aarch64.iso.sha256"
+					"sig_file": null,
+					"sum_file": null
 				}
 			}
 		}
