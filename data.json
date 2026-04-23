@@ -4268,15 +4268,15 @@
 	},
 	"tails": {
 		"usb": {
-			"url": "https://download.tails.net/tails/stable/tails-amd64-7.6.2",
-			"iso_file": "tails-amd64-7.6.2.img",
-			"sig_file": "tails-amd64-7.6.2.img.sig",
+			"url": "https://download.tails.net/tails/stable/tails-amd64-7.7",
+			"iso_file": "tails-amd64-7.7.img",
+			"sig_file": "tails-amd64-7.7.img.sig",
 			"sum_file": null
 		},
 		"vm": {
-			"url": "https://download.tails.net/tails/stable/tails-amd64-7.6.2",
-			"iso_file": "tails-amd64-7.6.2.iso",
-			"sig_file": "tails-amd64-7.6.2.iso.sig",
+			"url": "https://download.tails.net/tails/stable/tails-amd64-7.7",
+			"iso_file": "tails-amd64-7.7.iso",
+			"sig_file": "tails-amd64-7.7.iso.sig",
 			"sum_file": null
 		}
 	},
