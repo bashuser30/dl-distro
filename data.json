@@ -4481,6 +4481,120 @@
 				}
 			}
 		},
+		"v26_04": {
+			"server": {
+				"url": "https://releases.ubuntu.com/resolute",
+				"iso_file": "ubuntu-26.04-live-server-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"desktop": {
+				"url": "https://releases.ubuntu.com/resolute",
+				"iso_file": "ubuntu-26.04-desktop-amd64.iso",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"netboot_tarball": {
+				"url": "https://releases.ubuntu.com/resolute",
+				"iso_file": "ubuntu-26.04-netboot-amd64.tar.gz",
+				"sig_file": "SHA256SUMS.gpg",
+				"sum_file": "SHA256SUMS"
+			},
+			"flavours": {
+				"edubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/resolute/release",
+						"iso_file": "edubuntu-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"raspberry_pi": {
+						"url": "https://cdimage.ubuntu.com/edubuntu/releases/resolute/release",
+						"iso_file": "edubuntu-26.04-preinstalled-desktop-arm64+raspi.img.xz",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/kubuntu/releases/resolute/release",
+						"iso_file": "kubuntu-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"lubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/lubuntu/releases/resolute/release",
+						"iso_file": "lubuntu-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"budgie": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-budgie/releases/resolute/release",
+						"iso_file": "ubuntu-budgie-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"cinnamon": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntucinnamon/releases/resolute/release",
+						"iso_file": "ubuntucinnamon-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"kylin": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntukylin/releases/resolute/release",
+						"iso_file": "ubuntukylin-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"mate": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/resolute/release",
+						"iso_file": "ubuntu-mate-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"studio": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/resolute/release",
+						"iso_file": "ubuntustudio-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"unity": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/ubuntu-unity/releases/resolute/release",
+						"iso_file": "ubuntu-unity-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				},
+				"xubuntu": {
+					"desktop": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/resolute/release",
+						"iso_file": "xubuntu-26.04-desktop-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					},
+					"minimal": {
+						"url": "https://cdimage.ubuntu.com/xubuntu/releases/resolute/release",
+						"iso_file": "xubuntu-26.04-minimal-amd64.iso",
+						"sig_file": "SHA256SUMS.gpg",
+						"sum_file": "SHA256SUMS"
+					}
+				}
+			}
+		},
 		"v24_04": {
 			"server": {
 				"url": "https://releases.ubuntu.com/noble",
