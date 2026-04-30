@@ -4549,14 +4549,6 @@
 						"sum_file": "SHA256SUMS"
 					}
 				},
-				"mate": {
-					"desktop": {
-						"url": "https://cdimage.ubuntu.com/ubuntu-mate/releases/resolute/release",
-						"iso_file": "ubuntu-mate-26.04-desktop-amd64.iso",
-						"sig_file": "SHA256SUMS.gpg",
-						"sum_file": "SHA256SUMS"
-					}
-				},
 				"studio": {
 					"desktop": {
 						"url": "https://cdimage.ubuntu.com/ubuntustudio/releases/resolute/release",
