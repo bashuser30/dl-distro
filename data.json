@@ -541,12 +541,6 @@
 					"sig_file": "alpine-netboot-3.23.4-ppc64le.tar.gz.asc",
 					"sum_file": "alpine-netboot-3.23.4-ppc64le.tar.gz.sha256"
 				},
-				"s390x": {
-					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/s390x",
-					"iso_file": "alpine-netboot-3.23.4-s390x.tar.gz",
-					"sig_file": "alpine-netboot-3.23.4-s390x.tar.gz.asc",
-					"sum_file": "alpine-netboot-3.23.4-s390x.tar.gz.sha256"
-				},
 				"x86": {
 					"url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86",
 					"iso_file": "alpine-netboot-3.23.4-x86.tar.gz",
