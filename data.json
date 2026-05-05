@@ -2960,6 +2960,12 @@
 				"sig_file": "SHA256.sig",
 				"sum_file": "SHA256"
 			},
+			"arm64": {
+				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.8/arm64",
+				"iso_file": "install78.iso",
+				"sig_file": "SHA256.sig",
+				"sum_file": "SHA256"
+			},
 			"hppa": {
 				"url": "https://cdn.openbsd.org/pub/OpenBSD/7.8/hppa",
 				"iso_file": "install78.iso",
