@@ -3828,16 +3828,16 @@
 	},
 	"pure": {
 		"gnome": {
-			"url": "https://downloads.puri.sm/byzantium/gnome/2023-06-14",
-			"iso_file": "pureos-10.3-gnome-live-20230614_amd64.iso",
+			"url": "https://downloads.puri.sm/crimson/gnome/2026-05-15",
+			"iso_file": "pureos-11-gnome-live-20260515_amd64.iso",
 			"sig_file": null,
-			"sum_file": "pureos-10.3-gnome-live-20230614_amd64.checksums_sha256.txt"
+			"sum_file": "pureos-11-gnome-live-20260515_amd64.checksums_sha256.txt"
 		},
 		"kde": {
-			"url": "https://downloads.puri.sm/byzantium/plasma/2023-06-14",
-			"iso_file": "pureos-10.3-plasma-live-20230614_amd64.iso",
+			"url": "https://downloads.puri.sm/crimson/plasma/2026-05-15",
+			"iso_file": "pureos-11-plasma-live-20260515_amd64.iso",
 			"sig_file": null,
-			"sum_file": "pureos-10.3-plasma-live-20230614_amd64.checksums_sha256.txt"
+			"sum_file": "pureos-11-plasma-live-20260515_amd64.checksums_sha256.txt"
 		}
 	},
 	"qubes": {
