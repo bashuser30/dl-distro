@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_URL="https://codeberg.org/bashuser30/dl-distro"
-PKGBUILD_DIR="$HOME/git/pkgbuilds/dl-distro"
+PKGBUILD_DIR="$HOME/git/aur.archlinux.org/dl-distro"
 VERSION="$(<./VERSION)"
 VERSION="${VERSION#v}"
 
