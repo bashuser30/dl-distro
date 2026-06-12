@@ -157,20 +157,20 @@ dl-distro
 Main menu with all distributions. Pick one and choose an image to download.
 
 .TP
-dl-distro -d debian
+dl-distro -d \fIdebian\fR
 Provide a distribution name to skip the main menu. This will prompt you with
 additional choice menus, if necessary.
 
 .TP
-dl-distro -d debian.netinst.amd64
+dl-distro -d \fIdebian.netinst.amd64\fR
 You can skip the menus and start a download directly if you provide a JSON
 query. The names used in the JSON query correspond directly to those in the
 menus.
 
 .TP
-dl-distro -d debian.netinst.amd64 -p ~/Downloads
+dl-distro -d \fIdebian.netinst.amd64\fR -p \fI~/Downloads\fR
 Download and verify the latest Debian network installer amd64 image, saving to
-the ~/Downloads directory.
+the \fI~/Downloads\fR directory.
 
 .SH FILES
 .TP
@@ -185,31 +185,31 @@ please use quotes:
 
 .RS
 .TP
-\fB    default_download_dir\fR="$PWD"
+\fBdefault_download_dir\fR="$PWD"
 By default, dl-distro will use the \fB$PWD\fR variable if no download path is
 provided with \fB-p\fR. To always download to a specific path, change this
 variable.
 .TP
-\fB    auto_update_enabled\fR="true"
+\fBauto_update_enabled\fR="true"
 By default, dl-distro will download the JSON file from the master branch before
 each run, ensuring always up-to-date data.
 .TP
-\fB    verification_enabled\fR="true"
+\fBverification_enabled\fR="true"
 Changing to \fBfalse\fR will disable signature key fetching and verification at
 script runtime.
 .TP
-\fB    spider_mode_enabled\fR="false"
+\fBspider_mode_enabled\fR="false"
 Changing to \fBtrue\fR will enable spider mode at runtime, returning an HTTP
 status for URL's instead of downloading.
 .TP
-\fB    manual_download_enabled\fR="false"
+\fBmanual_download_enabled\fR="false"
 Changing to \fBtrue\fR will enable manual downloads at runtime, displaying
 step-by-step instructions for downloading and verifying the image.
 .TP
-\fB    gpg_keyserver\fR="hkps://keyserver.ubuntu.com"
+\fBgpg_keyserver\fR="hkps://keyserver.ubuntu.com"
 Change the keyserver used to fetch GPG keys during runtime.
 .TP
-\fB    json_url\fR="https://codeberg.org/bashuser30/dl\-distro/raw/branch/master/data.json"
+\fBjson_url\fR="https://codeberg.org/bashuser30/dl\-distro/raw/branch/master/data.json"
 Change the URL used when updating the JSON file.
 .RE
 
