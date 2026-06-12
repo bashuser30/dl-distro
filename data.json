@@ -26,7 +26,7 @@
 		"parabola": "FBCC5AD7421197B7ABA72853908710913E8C7778",
 		"parrot": "B711822346552E4D92DA02DF7A8286AF0E81EE4A",
 		"pop": "63C46DF0140D738961429F4E204DD8AEC33A7AFF",
-		"proxmox": "F4E136C67CDCE41AE6DE6FC81140AF8F639E0C39",
+		"proxmox": "24B30F06ECC1836A4E5EFECBA7BCD1420BFE778E",
 		"qubes": "F3FA3F99D6281F7B3A3E5E871C3D9B627F3FADA4",
 		"rocky_10": "FC226859C0860BF0DDB95B085B106C736FEDFC85",
 		"slackware": "EC5649DA401E22ABFA6736EF6A4463C040102233",
@@ -4029,7 +4029,7 @@
 		},
 		"mail_gateway": {
 			"url": "https://enterprise.proxmox.com/iso",
-			"iso_file": "proxmox-mail-gateway_9.0-1.iso",
+			"iso_file": "proxmox-mail-gateway_9.1-1.iso",
 			"sig_file": "SHA256SUMS.asc",
 			"sum_file": "SHA256SUMS"
 		}
