@@ -39,8 +39,9 @@ better.
 
 ### Distribution Updates
 
-- Distribution updates are tracked via RSS feeds. Reach out for a list of RSS
-  sources used by dl-distro.
+- Distribution updates are tracked with RSS/Atom feeds listed in
+  [`docs/update-sources.urls`]. The file uses Newsboat
+  format.
 
 ### Contact
 
@@ -52,5 +53,6 @@ better.
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [`spider.sh`]: scripts/spider.sh
 [Codeberg]: https://codeberg.org/bashuser30/dl-distro
+[`docs/update-sources.urls`]: docs/update-sources.urls
 [repository]: https://codeberg.org/bashuser30/dl-distro/issues
 [bashuser30@mailbox.org]: mailto:bashuser30@mailbox.org
