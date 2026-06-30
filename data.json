@@ -2732,65 +2732,65 @@
 		"current": {
 			"qemu": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-qemu-amd64.7z",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-qemu-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"virtualbox": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-virtualbox-amd64.7z",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-virtualbox-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"vmware": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-vmware-amd64.7z",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-vmware-amd64.7z",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"hyperv": {
-				"url": "https://cdimage.kali.org/kali-2026.1",
-				"iso_file": "kali-linux-2026.1-hyperv-amd64.7z",
+				"url": "https://cdimage.kali.org/kali-2026.2",
+				"iso_file": "kali-linux-2026.2-hyperv-amd64.7z",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			},
 			"installer": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-installer-amd64.iso",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-installer-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-installer-arm64.iso",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-installer-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"netinst": {
 				"amd64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-installer-netinst-amd64.iso",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-installer-netinst-amd64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				},
 				"arm64": {
-					"url": "https://cdimage.kali.org/kali-2026.1",
-					"iso_file": "kali-linux-2026.1-installer-netinst-arm64.iso",
+					"url": "https://cdimage.kali.org/kali-2026.2",
+					"iso_file": "kali-linux-2026.2-installer-netinst-arm64.iso",
 					"sig_file": "SHA256SUMS.gpg",
 					"sum_file": "SHA256SUMS"
 				}
 			},
 			"purple": {
-				"url": "https://cdimage.kali.org/kali-2026.1",
-				"iso_file": "kali-linux-2026.1-installer-purple-amd64.iso",
+				"url": "https://cdimage.kali.org/kali-2026.2",
+				"iso_file": "kali-linux-2026.2-installer-purple-amd64.iso",
 				"sig_file": "SHA256SUMS.gpg",
 				"sum_file": "SHA256SUMS"
 			}
