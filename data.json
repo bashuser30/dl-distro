@@ -3834,60 +3834,60 @@
 		"amd64": {
 			"security": {
 				"iso": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-security-7.2_amd64.iso",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-security-7.3_amd64.iso",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"ova": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-security-7.2_amd64.ova",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-security-7.3_amd64.ova",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"vmdk": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-security-7.2_amd64.vmdk.zip",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-security-7.3_amd64.vmdk.zip",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"qcow2": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-security-7.2_amd64.qcow2.zip",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-security-7.3_amd64.qcow2.zip",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
 			},
 			"home": {
 				"iso": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-home-7.2_amd64.iso",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-home-7.3_amd64.iso",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"ova": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-home-7.2_amd64.ova",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-home-7.3_amd64.ova",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"vmdk": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-home-7.2_amd64.vmdk.zip",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-home-7.3_amd64.vmdk.zip",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				},
 				"qcow2": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-home-7.2_amd64.qcow2.zip",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-home-7.3_amd64.qcow2.zip",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
 			},
 			"htb": {
 				"iso": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-spin-htb-7.2_amd64.iso",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-spin-htb-7.3_amd64.iso",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
@@ -3895,24 +3895,24 @@
 			"spins": {
 				"mate": {
 					"iso": {
-						"url": "https://deb.parrot.sh/parrot/iso/7.2",
-						"iso_file": "Parrot-spin-mate-7.2_amd64.iso",
+						"url": "https://deb.parrot.sh/parrot/iso/7.3",
+						"iso_file": "Parrot-spin-mate-7.3_amd64.iso",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
 				},
 				"lxqt": {
 					"iso": {
-						"url": "https://deb.parrot.sh/parrot/iso/7.2",
-						"iso_file": "Parrot-spin-lxqt-7.2_amd64.iso",
+						"url": "https://deb.parrot.sh/parrot/iso/7.3",
+						"iso_file": "Parrot-spin-lxqt-7.3_amd64.iso",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
 				},
 				"enlightenment": {
 					"iso": {
-						"url": "https://deb.parrot.sh/parrot/iso/7.2",
-						"iso_file": "Parrot-spin-enlightenment-7.2_amd64.iso",
+						"url": "https://deb.parrot.sh/parrot/iso/7.3",
+						"iso_file": "Parrot-spin-enlightenment-7.3_amd64.iso",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3922,16 +3922,16 @@
 		"arm64": {
 			"security": {
 				"utm": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-security-7.2_arm64.utm.tar.gz",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-security-7.3_arm64.utm.tar.gz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
 			},
 			"home": {
 				"utm": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-home-7.2_arm64.utm.tar.gz",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-home-7.3_arm64.utm.tar.gz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
@@ -3939,24 +3939,24 @@
 			"raspberry_pi": {
 				"core": {
 					"img": {
-						"url": "https://deb.parrot.sh/parrot/iso/7.2",
-						"iso_file": "Parrot-core-7.2_rpi.img.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/7.3",
+						"iso_file": "Parrot-core-7.3_rpi.img.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
 				},
 				"security": {
 					"img": {
-						"url": "https://deb.parrot.sh/parrot/iso/7.2",
-						"iso_file": "Parrot-security-7.2_rpi.img.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/7.3",
+						"iso_file": "Parrot-security-7.3_rpi.img.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
 				},
 				"home": {
 					"img": {
-						"url": "https://deb.parrot.sh/parrot/iso/7.2",
-						"iso_file": "Parrot-home-7.2_rpi.img.xz",
+						"url": "https://deb.parrot.sh/parrot/iso/7.3",
+						"iso_file": "Parrot-home-7.3_rpi.img.xz",
 						"sig_file": "signed-hashes.txt",
 						"sum_file": "signed-hashes.txt"
 					}
@@ -3966,8 +3966,8 @@
 		"riscv64": {
 			"core": {
 				"tarball": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-core-7.2_riscv64.tar.xz",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-core-7.3_riscv64.tar.xz",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
@@ -3976,8 +3976,8 @@
 		"wsl": {
 			"core": {
 				"zip": {
-					"url": "https://deb.parrot.sh/parrot/iso/7.2",
-					"iso_file": "Parrot-core-7.2_wsl.zip",
+					"url": "https://deb.parrot.sh/parrot/iso/7.3",
+					"iso_file": "Parrot-core-7.3_wsl.zip",
 					"sig_file": "signed-hashes.txt",
 					"sum_file": "signed-hashes.txt"
 				}
